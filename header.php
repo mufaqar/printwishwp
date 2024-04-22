@@ -33,13 +33,22 @@
                         height="37px" />
                 </a>
                 <div class='w-full lg:w-[60%]'>
-                    <!-- <Slider {...settings}>
-          {
-            Text.map((t,i)=>(
-              <div key={i} class='text-xs sm:text-base font-semibold text-center'><p>{t}</p></div>
-            ))
-          }
-        </Slider> -->
+
+                <div class='text-slider'>
+                    <?php
+                    $text_array = array("FREE UK SHIPPING ON ALL ORDERS.", "MONEY BACK GUARANTEED", "SUPER FAST TURNAROUNDS");
+                    foreach($text_array as $i => $text) :
+                    ?>
+                        <div class='slick-slide' key='<?php echo $i; ?>'>
+                            <div class='text-xs sm:text-base font-semibold text-center'>
+                                <p><?php echo $text; ?></p>
+                            </div>
+                        </div>
+                    <?php
+                    endforeach;
+                    ?>
+                </div>
+                    
                 </div>
                 <div class="hidden items-center lg:flex justify-between ">
                     <ul class='flex gap-2 items-center'>
