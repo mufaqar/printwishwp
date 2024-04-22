@@ -407,3 +407,9 @@ input[type='number'] {
 .text-transition {
   height: auto !important;
 }
+
+
+.stepBg {
+ 
+  background-image: url('../public/images/step-background.jpg')
+}
