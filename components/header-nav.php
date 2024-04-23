@@ -78,6 +78,10 @@
                         <a href="#"
                             class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Contact</a>
                     </li>
+                    <li>
+                        <a href="#"
+                            class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Locations</a>
+                    </li>
 
                 </ul>
             </div>
