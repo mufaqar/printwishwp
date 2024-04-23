@@ -1,3 +1,57 @@
+<?php
+// Define the Categories array
+$Categories = array(
+    array(
+        'id' => 1,
+        'name' => 'T-SHIRTS',
+        'img' => '/images/1.webp',
+        'link' => 'custom-t-shirt-printing-cheap-t-shirt-printing'
+    ),
+    array(
+        'id' => 2,
+        'name' => 'Polo Shirts',
+        'img' => '/images/2.webp',
+        'link' => 'polo'
+    ),
+    array(
+        'id' => 3,
+        'name' => 'SweatShirt',
+        'img' => '/images/3.webp',
+        'link' => 'sweat-shirts'
+    ),
+    array(
+        'id' => 4,
+        'name' => 'Hoodies',
+        'img' => '/images/4.webp',
+        'link' => 'hoodies'
+    ),
+    array(
+        'id' => 5,
+        'name' => 'Apron',
+        'img' => '/images/5.webp',
+        'link' => 'aprons'
+    ),
+    array(
+        'id' => 6,
+        'name' => 'Hi-Ves Vests',
+        'img' => '/images/6.webp',
+        'link' => 'hivis'
+    ),
+    array(
+        'id' => 7,
+        'name' => 'Beanie/Caps',
+        'img' => '/images/7.png',
+        'link' => 'embroidered-beanies-embroidered-caps-embroidered'
+    ),
+    array(
+        'id' => 8,
+        'name' => 'Cotton Bags',
+        'img' => '/images/8.webp',
+        'link' => 'cotton-bags-cheap-branded-tote-bags'
+    )
+);
+?>
+
 <header class="shadow-md">
 
     <nav class="bg-secondary z-50">
@@ -51,7 +105,7 @@
             </form>
             <div class="flex items-center lg:order-1">
 
-            <?php
+                <?php
             // wp_nav_menu(array(
             //         'theme_location' => 'main',
             //         'menu_class'     => 'nav-list', // Add a custom class to the menu
@@ -64,13 +118,13 @@
 
                 <ul class="flex flex-row mt-0 space-x-8 text-sm font-medium">
                     <li>
-                        <a href="#"
+                        <a href="<?php echo home_url(''); ?>"
                             class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-500"
                             aria-current="page">Home</a>
                     </li>
                     <li>
                         <button id="dropdown-button-megamenu" data-collapse-toggle="megamenu"
-                            class="flex justify-between items-center w-full font-medium dark:hover:text-primary-500 md:p-0 md:w-auto dark:text-white hover:text-primary-500 dark:focus:text-primary-500">Company
+                            class="flex justify-between items-center w-full font-medium dark:hover:text-primary-500 md:p-0 md:w-auto dark:text-white hover:text-primary-500 dark:focus:text-primary-500">Categories
                             <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -79,15 +133,16 @@
                             </svg></button>
                     </li>
                     <li>
-                        <a href="#"
-                            class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-500">Marketplace</a>
+                        <a href="<?php echo home_url('/about-us'); ?>"
+                            class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-500">About
+                            Us</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Resources</a>
+                        <a href="<?php echo home_url('/product'); ?>"
+                            class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Products</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="<?php echo home_url('/contact-us'); ?>"
                             class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Contact</a>
                     </li>
                     <li>
@@ -103,21 +158,22 @@
         <div
             class="grid py-4 px-4 mx-auto max-w-screen-xl text-gray-900 dark:text-white md:grid-cols-2 lg:grid-cols-4 md:px-6">
             <ul class="col-span-2 md:col-span-1">
+
+                <?php
+            if ($Categories && is_array($Categories)) {
+                foreach ($Categories as $idx => $item) {
+            ?>
                 <li>
-                    <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                        <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <div>
-                            <div class="font-semibold">Online Stores</div>
-                            <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with
-                                third-party tools that you're already using.</span>
-                        </div>
+                    <a href="<?php echo $item['link']; ?>"
+                        class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                        <?php echo $item['name']; ?>
                     </a>
                 </li>
+
+                <?php
+                }
+            }
+            ?>
 
             </ul>
 
