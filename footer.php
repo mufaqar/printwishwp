@@ -109,7 +109,7 @@ $Categories = [
                     <?php foreach($NavLinks as  $item): ?>
                     <li
                         class="relative before:content-[' '] before:h-[1px] before:w-3 before:bg-secondary before:absolute before:top-[13px] before:left-1">
-                        <a href="<?php echo $item['link']; ?>"
+                        <a href="<?php echo home_url(); ?><?php echo $item['link']; ?>"
                             class="text-sm text-accent font-roboto hover:text-secondary">
                             <?php echo $item['name']; ?>
                         </a>
