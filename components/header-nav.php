@@ -50,6 +50,18 @@
                 </div>
             </form>
             <div class="flex items-center lg:order-1">
+
+            <?php
+            // wp_nav_menu(array(
+            //         'theme_location' => 'main',
+            //         'menu_class'     => 'nav-list', // Add a custom class to the menu
+            //         'walker'         => new Tailwind_Nav_Walker(),
+            //     ));
+
+
+                ?>
+
+
                 <ul class="flex flex-row mt-0 space-x-8 text-sm font-medium">
                     <li>
                         <a href="#"
@@ -79,7 +91,7 @@
                             class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Contact</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="<?php echo home_url('/locations'); ?>"
                             class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Locations</a>
                     </li>
 

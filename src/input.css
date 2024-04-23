@@ -90,6 +90,20 @@
   font-weight: 200;
 }
 
+#wp-toolbar { margin-top: -64px;}
+
+.nav-list {
+  @apply flex;
+  @apply space-x-4; 
+}
+
+.nav-item {
+  @apply px-4 py-2; 
+  @apply text-gray-800 hover:text-gray-600; 
+  @apply hover:bg-gray-200;
+}
+
+
 body {
   font-family: Sora;
 }
