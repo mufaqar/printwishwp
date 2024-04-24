@@ -161,35 +161,47 @@ $faqs = array(
                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-dashboard" role="tabpanel"
                     aria-labelledby="dashboard-tab">
 
-					<div>
-                
-                  <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Gender:</h6>
-                    <p class='text-accent'><?php echo get_field( "gender" ); ?></p>
-                  </div>
-                  <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Minimum Order Value is</h6>
-                    <p class='text-accent'><?php echo get_field( "minimum_order" ); ?> Units</p>
-                  </div>
-                  <div class='border-b-[1px] py-2 border-gray-200'>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint Area:</h6>
-                    <p class='text-accent mb-1 flex justify-between items-center'><span class='font-bold text-gray-600 '>{`LeftBreast:`}</span> {product?.poductInfo?.imprintArea?.leftbreast}</p>
-                    <p class='text-accent mb-1 flex justify-between items-center'><span class='font-bold text-gray-600 '>{`Front:`}</span> {product?.poductInfo?.imprintArea?.front}</p>
-                    <p class='text-accent mb-1 flex justify-between items-center'><span class='font-bold text-gray-600 '>{`Back:`}</span> {product?.poductInfo?.imprintArea?.back}</p>
-                  </div>
-                  <div class=' border-b-[1px] py-2 border-gray-200'>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint Method:</h6>
-                    <p class='text-accent'><?php echo get_field( "imprint_method" ); ?></p>
-                  </div>
-                  <div class=' border-b-[1px] py-2 border-gray-200'>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Ready To Ship:</h6>
-                    <p class='text-accent'><?php echo get_field( "ready_to_ship" ); ?></p>
-                  </div>
-                  <div class=' border-b-[1px] py-2 border-gray-200'>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Packaging:</h6>
-                    <p class='text-accent'><?php echo get_field( "packaging" ); ?></p>
-                  </div>
-                </div>
+                    <div>
+
+                        <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
+                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Gender:
+                            </h6>
+                            <p class='text-accent'><?php echo get_field( "gender" ); ?></p>
+                        </div>
+                        <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
+                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Minimum
+                                Order Value is</h6>
+                            <p class='text-accent'><?php echo get_field( "minimum_order" ); ?> Units</p>
+                        </div>
+                        <div class='border-b-[1px] py-2 border-gray-200'>
+                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
+                                Area:</h6>
+                            <p class='text-accent mb-1 flex justify-between items-center'><span
+                                    class='font-bold text-gray-600 '>{`LeftBreast:`}</span>
+                                {product?.poductInfo?.imprintArea?.leftbreast}</p>
+                            <p class='text-accent mb-1 flex justify-between items-center'><span
+                                    class='font-bold text-gray-600 '>{`Front:`}</span>
+                                {product?.poductInfo?.imprintArea?.front}</p>
+                            <p class='text-accent mb-1 flex justify-between items-center'><span
+                                    class='font-bold text-gray-600 '>{`Back:`}</span>
+                                {product?.poductInfo?.imprintArea?.back}</p>
+                        </div>
+                        <div class=' border-b-[1px] py-2 border-gray-200'>
+                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
+                                Method:</h6>
+                            <p class='text-accent'><?php echo get_field( "imprint_method" ); ?></p>
+                        </div>
+                        <div class=' border-b-[1px] py-2 border-gray-200'>
+                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Ready To
+                                Ship:</h6>
+                            <p class='text-accent'><?php echo get_field( "ready_to_ship" ); ?></p>
+                        </div>
+                        <div class=' border-b-[1px] py-2 border-gray-200'>
+                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Packaging:
+                            </h6>
+                            <p class='text-accent'><?php echo get_field( "packaging" ); ?></p>
+                        </div>
+                    </div>
 
 
 
@@ -203,7 +215,6 @@ $faqs = array(
                             data-inactive-classes="text-gray-500 dark:text-gray-400">
 
                             <?php foreach ($faqs as $index => $faq) : ?>
-
                             <h2 id="accordion-flush-heading-<?php echo $index; ?>">
                                 <button type="button"
                                     class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
@@ -223,10 +234,8 @@ $faqs = array(
                                 <div class="py-5 border-b border-gray-200 dark:border-gray-700">
                                     <p class="mb-2 text-gray-500 dark:text-gray-400">
                                         <?php echo esc_html($faq['answer']); ?></p>
-                                    <!-- You can add more content or links here -->
                                 </div>
                             </div>
-
                             <?php endforeach; ?>
 
 
@@ -270,6 +279,74 @@ $faqs = array(
 
 
         <?php
+			// Ensure WooCommerce is active
+			if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+
+				global $product;
+
+				// Get the product ID
+				$product_id = $product->get_id();
+
+				// Get product object
+				$product = wc_get_product($product_id);
+
+				// Get product attributes
+				$attributes = $product->get_attributes();
+
+				// Check if 'pa_color' attribute exists
+				if (isset($attributes['pa_color'])) {
+					$terms = wc_get_product_terms($product_id, 'pa_color', array('fields' => 'all'));
+
+					if (!empty($terms)) {
+						echo '<section class="">';
+						echo '<div class="bg-background p-3 md:p-8 rounded-lg">';
+						echo '<h5 class="text-xl font-semibold text-accent font-roboto">Available Colors:</h5>';
+						echo '<ul class="flex flex-wrap gap-[2px] md:gap-2 mt-4">';
+
+						foreach ($terms as $term) {
+							$color_code = get_term_meta($term->term_id, 'pa_color', true);
+							$color_name = $term->name;
+							$color_exists = /* Check if color exists logic */ false; // You need to implement this logic
+
+							$ccode =  $term->description;
+
+							//print_r($term);
+
+							echo '<li class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
+							echo '<div class="p-[18px] cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
+							echo '<span class="tooltip-text whitespace-nowrap text-center" id="top">' . esc_html($color_name) . '</span>';
+							echo '</li>';
+						}
+
+						echo '</ul>';
+						echo '</div>';
+						echo '</section>';
+					}
+				}
+
+			} else {
+				echo 'WooCommerce is not active.';
+			}
+			?>
+
+        <a href="#product-popup"
+            class='open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
+            Get a quote
+        </a>
+
+
+
+        <?php
+		// Usage
+		$title = 'Delivery Title';
+		$desc = 'Delivery Description';
+		delivery_time($title, $desc);
+
+		?>
+
+
+
+        <?php
 // Ensure WooCommerce is active
 if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
@@ -303,7 +380,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 				//print_r($term);
 
-                echo '<li class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
+                echo '<li  onclick="handColors(this)" code="' . esc_html($ccode) . '" class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
                 echo '<div class="p-[18px] cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
                 echo '<span class="tooltip-text whitespace-nowrap text-center" id="top">' . esc_html($color_name) . '</span>';
                 echo '</li>';
@@ -320,20 +397,108 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 }
 ?>
 
-        <button onclick="redirectToQuote()"
-            class='flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
-            Get a quote
-        </button>
+        <div id="selectedColorsContainer">
+            <!-- Selected colors will be inserted here -->
+        </div>
 
-        <?php
-// Usage
-$title = 'Delivery Title';
-$desc = 'Delivery Description';
-delivery_time($title, $desc);
 
-?>
+        <div id="product-popup" class="mfp-hide">
+            <?php
+    global $product;
+
+    if ( $product ) {
+        echo '<h2>' . $product->get_name() . '</h2>'; // Product title
+        echo '<p>' . $product->get_price_html() . '</p>'; // Product price
+        
+    }
+    ?>
+
+
+        </div>
+
 
 
     </section>
 
 </main>
+
+<script>
+var SelectedColors = [];
+
+
+function handColors(item) {
+    var ccode = item.getAttribute('code');
+    var color = {
+        color: item.innerText,
+        size: "",
+        qty: "",
+        code: ccode
+		selectedsize: []
+    }
+    SelectedColors.push(color);
+    console.log(SelectedColors);
+    createColorList(SelectedColors)
+
+}
+
+function createColorList(colors) {
+    var html = '';
+    colors.forEach(function(color) {
+        html += '<div class="color-item">';
+        html += '<span class="color-name">' + color.color + '</span>';
+        html += '<ul class="flex flex-wrap items-center gap-3 mt-3">';
+        ['S', 'M', 'L', 'XL', '2XL', '3XL'].forEach(function(size) {
+            html += '<div class="flex flex-col items-center justify-center">';
+            html += '<p class="text-lg text-accent font-bold">' + size + '</p>';
+            html += '<div class="mt-1">';
+            html += '<input type="number" name="' + size +
+                '" min="0" class="w-16 bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-3xl" placeholder="0" value="" onchange="updateValues(this, \'' + color.code + '\', \'' + size + '\')">';
+            html += '</div></div>';
+        });
+        html += '<button onclick="removeColor(this)"  code=' + color.code + ' >Close</button>';
+        html += '</div>';
+    });
+
+    // Get the div container
+    var container = document.getElementById('selectedColorsContainer');
+
+    // Append the HTML to the container
+    container.innerHTML = html;
+
+}
+
+function updateValues(inputElement, color, size) {
+    var quantity = inputElement.value; // Get the quantity from the input element
+    
+    // Here you can do whatever you want with the color, size, and quantity
+    console.log("Color: " + color + ", Size: " + size + ", Quantity: " + quantity);
+    
+    // You can also send these values to PHP using AJAX if needed
+}
+
+function removeColor(item) {
+
+    var colorToRemove = item.getAttribute('code');
+    const remainingColors = SelectedColors.filter(function(color) {
+        return color.code !== colorToRemove;
+    });
+
+    // Update the color list
+    SelectedColors = [];
+    SelectedColors.push(...remainingColors);
+    createColorList(remainingColors);
+
+    console.log(colorToRemove);
+    console.log(SelectedColors);
+}
+
+console.log(SelectedColors);
+
+
+jQuery(document).ready(function($) {
+    $('.open-popup-link').magnificPopup({
+        type: 'inline',
+        midClick: true
+    });
+});
+</script>

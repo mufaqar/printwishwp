@@ -157,6 +157,14 @@ function printwish_scripts() {
   
 	  // Enqueue custom script for initializing Slick slider
 	  wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery', 'slick-js'), '', true);
+
+
+	  // Enqueue Magnific Popup scripts
+	  wp_enqueue_script('magnific-popup', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js', array('jquery'), '1.1.0', true);
+
+		// Enqueue Magnific Popup styles
+		wp_enqueue_style('magnific-popup', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css');
+	   
   
 
 
