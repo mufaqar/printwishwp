@@ -141,10 +141,76 @@ $product_price = $product->get_price();
             <p class='text-lg text-accent font-roboto'>Customisations Available:</p>
             <div class='flex gap-8 '>
                 <span class='flex items-center text-lg text-accent font-roboto'>
-                    <BiCheck size={28} class='text-green-500' /> Print
+				<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-green-500" height="28" width="28" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
+                     Print
                 </span>
             </div>
         </section>
+
+
+		<?php
+// Ensure WooCommerce is active
+if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+
+    global $product;
+
+    // Get the product ID
+    $product_id = $product->get_id();
+
+    // Get product object
+    $product = wc_get_product($product_id);
+
+    // Get product attributes
+    $attributes = $product->get_attributes();
+
+    // Check if 'pa_color' attribute exists
+    if (isset($attributes['pa_color'])) {
+        $terms = wc_get_product_terms($product_id, 'pa_color', array('fields' => 'all'));
+
+        if (!empty($terms)) {
+            echo '<section class="">';
+            echo '<div class="bg-background p-3 md:p-8 rounded-lg">';
+            echo '<h5 class="text-xl font-semibold text-accent font-roboto">Available Colors:</h5>';
+            echo '<ul class="flex flex-wrap gap-[2px] md:gap-2 mt-4">';
+
+            foreach ($terms as $term) {
+                $color_code = get_term_meta($term->term_id, 'pa_color', true);
+                $color_name = $term->name;
+                $color_exists = /* Check if color exists logic */ false; // You need to implement this logic
+
+				$ccode =  $term->description;
+
+				//print_r($term);
+
+                echo '<li class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
+                echo '<div class="p-[18px] cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
+                echo '<span class="tooltip-text whitespace-nowrap text-center" id="top">' . esc_html($color_name) . '</span>';
+                echo '</li>';
+            }
+
+            echo '</ul>';
+            echo '</div>';
+            echo '</section>';
+        }
+    }
+
+} else {
+    echo 'WooCommerce is not active.';
+}
+?>
+
+<button onclick="redirectToQuote()" class='flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
+    Get a quote
+</button>
+
+<?php
+// Usage
+$title = 'Delivery Title';
+$desc = 'Delivery Description';
+delivery_time($title, $desc);
+
+?>
+
 
     </section>
 
