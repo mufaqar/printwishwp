@@ -21,23 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
-<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		//do_action( 'woocommerce_before_main_content' );
-	?>
-<!-- <div class='block md:hidden px-3 container mx-auto'>
-    <div class='mt-3 flex justify-center'>
-        <Image src="<?php bloginfo('template_directory'); ?>/public/images/review-badge.svg" alt="rating" width={200}
-            height={45} />
-    </div>
-    <h2 class='text-xl md:text-3xl lg:text-4xl font-medium mt-6 md:mt-0'>title</h2>
-    <p class='mt-4 font-normal text-accent'>Product Code: <span class=''>sku</span></p>
-</div> -->
+
 
 <?php while ( have_posts() ) : ?>
 
@@ -47,23 +31,7 @@ get_header( 'shop' ); ?>
 
 <?php endwhile; // end of the loop. ?>
 
-<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
 
-<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
-	?>
 
 <?php
 get_footer( 'shop' );
