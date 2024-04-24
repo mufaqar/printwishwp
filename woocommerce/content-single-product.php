@@ -120,13 +120,8 @@ $faqs = array(
                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-profile" role="tabpanel"
                     aria-labelledby="profile-tab">
 
-
-
-
-
-
                     <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
-                    <div class='mt-2 pl-4 text-accent _features'><?php echo esc_html($product_excerpt); ?></div>
+                    <div class='mt-2 pl-4 text-accent _features'><?php echo ($product_excerpt); ?></div>
 
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
                     <p class='text-accent'><?php echo get_field( "fabric" ); ?></p>
@@ -136,54 +131,27 @@ $faqs = array(
 
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size Description:
                     </h6>
-                 
-                        <?php 
+
+                    <?php 	
 	
+						global $product;
+						$product_id = $product->get_id();
+						$product = wc_get_product($product_id);
+						$attributes = $product->get_attributes();
+						if (isset($attributes['pa_sizes'])) {
+							$terms = wc_get_product_terms($product_id, 'pa_sizes', array('fields' => 'all'));
+							if ($terms && !is_wp_error($terms)) {
+								echo '<ul class="mt-2 flex flex-wrap gap-x-2">';								
+								foreach ($terms as $term) {
+									echo '<li class="text-accent mb-1"><span class="font-bold">' . esc_html($term->name) . '</span>' . esc_html($term->description) . '",</li>';
+								}
+								echo '</ul>';
+							} else {
+								echo '<p class="text-accent mb-1">No sizes available</p>';
+							}
+						}	
 	
-	global $product;
-
-    // Get the product ID
-    $product_id = $product->get_id();
-
-    // Get product object
-    $product = wc_get_product($product_id);
-
-    // Get product attributes
-    $attributes = $product->get_attributes();
-
-
-	if (isset($attributes['pa_sizes'])) {
-        $terms = wc_get_product_terms($product_id, 'pa_sizes', array('fields' => 'all'));
-
-		if ($terms && !is_wp_error($terms)) {
-			echo '<ul class="mt-2 flex flex-wrap gap-x-2">';
-			
-			foreach ($terms as $term) {
-				echo '<li class="text-accent mb-1"><span class="font-bold">' . esc_html($term->name) . '</span>' . esc_html($term->description) . '",</li>';
-			}
-			
-			echo '</ul>';
-		} else {
-			echo '<p class="text-accent mb-1">No sizes available</p>';
-		}
-
-
-	}
-
-
-	
-   
-	
-	
-	
-		?>
-                 
-
-
-
-
-
-
+				?>
 
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
                         Instructions:</h6>
@@ -192,6 +160,36 @@ $faqs = array(
                 </div>
                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-dashboard" role="tabpanel"
                     aria-labelledby="dashboard-tab">
+
+					<div>
+                
+                  <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Gender:</h6>
+                    <p class='text-accent'><?php echo get_field( "gender" ); ?></p>
+                  </div>
+                  <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Minimum Order Value is</h6>
+                    <p class='text-accent'><?php echo get_field( "minimum_order" ); ?> Units</p>
+                  </div>
+                  <div class='border-b-[1px] py-2 border-gray-200'>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint Area:</h6>
+                    <p class='text-accent mb-1 flex justify-between items-center'><span class='font-bold text-gray-600 '>{`LeftBreast:`}</span> {product?.poductInfo?.imprintArea?.leftbreast}</p>
+                    <p class='text-accent mb-1 flex justify-between items-center'><span class='font-bold text-gray-600 '>{`Front:`}</span> {product?.poductInfo?.imprintArea?.front}</p>
+                    <p class='text-accent mb-1 flex justify-between items-center'><span class='font-bold text-gray-600 '>{`Back:`}</span> {product?.poductInfo?.imprintArea?.back}</p>
+                  </div>
+                  <div class=' border-b-[1px] py-2 border-gray-200'>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint Method:</h6>
+                    <p class='text-accent'><?php echo get_field( "imprint_method" ); ?></p>
+                  </div>
+                  <div class=' border-b-[1px] py-2 border-gray-200'>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Ready To Ship:</h6>
+                    <p class='text-accent'><?php echo get_field( "ready_to_ship" ); ?></p>
+                  </div>
+                  <div class=' border-b-[1px] py-2 border-gray-200'>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Packaging:</h6>
+                    <p class='text-accent'><?php echo get_field( "packaging" ); ?></p>
+                  </div>
+                </div>
 
 
 
