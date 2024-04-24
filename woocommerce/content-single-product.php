@@ -21,6 +21,29 @@ global $product;
 
 $product_price = $product->get_price();
 
+$product_excerpt = get_the_excerpt(); 
+
+
+$faqs = array(
+    array(
+        'question' => 'Washing Instructions',
+        'answer' => 'Advice on the best way to look after your customised garments. You want your customised garments to last and to look good for as long as possible. Following these guidelines will help you to get the most out of your clothing.'
+    ),
+    array(
+        'question' => 'Can I add more than 1 customisation?',
+        'answer' => 'For most garments, you can add up to 3 separate customisations using the website. If you need 4 or more customisations please contact the office and the team will be happy to assist you.'
+    ),
+    array(
+        'question' => 'Ordering Samples',
+        'answer' => 'You may wish to view samples of garments in order to find the right size or assess the quality of the material. This is especially useful as you are not able to return customised garments if they are the wrong size (see full Terms and Conditions) To obtain samples you will need to place an order for the plain garments you wish to view. We are not able to supply free samples for online orders. You can then either keep the garments or return them to us for a refund within 14 days. We reserve the right not to accept samples returned without either an invoice or order reference. A refund will not be issued if the garments are returned tarnished or not in their original packaging.'
+    ),
+    array(
+        'question' => 'How much does it cost?',
+        'answer' => 'At Printwish UK, we offer free UK Shipping on all orders. Our lead time is 5-7 working days from the payment date and digital proof approval.'
+    )
+);
+
+
 
 
 
@@ -96,27 +119,124 @@ $product_price = $product->get_price();
             <div id="default-styled-tab-content">
                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-profile" role="tabpanel"
                     aria-labelledby="profile-tab">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                            class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>.
-                        Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript
-                        swaps classes to control the content visibility and styling.</p>
+
+
+
+
+
+
+                    <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
+                    <div class='mt-2 pl-4 text-accent _features'><?php echo esc_html($product_excerpt); ?></div>
+
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
+                    <p class='text-accent'><?php echo get_field( "fabric" ); ?></p>
+
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Weight:</h6>
+                    <p class='text-accent'><?php echo get_field( "weight" ); ?></p>
+
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size Description:
+                    </h6>
+                 
+                        <?php 
+	
+	
+	global $product;
+
+    // Get the product ID
+    $product_id = $product->get_id();
+
+    // Get product object
+    $product = wc_get_product($product_id);
+
+    // Get product attributes
+    $attributes = $product->get_attributes();
+
+
+	if (isset($attributes['pa_sizes'])) {
+        $terms = wc_get_product_terms($product_id, 'pa_sizes', array('fields' => 'all'));
+
+		if ($terms && !is_wp_error($terms)) {
+			echo '<ul class="mt-2 flex flex-wrap gap-x-2">';
+			
+			foreach ($terms as $term) {
+				echo '<li class="text-accent mb-1"><span class="font-bold">' . esc_html($term->name) . '</span>' . esc_html($term->description) . '",</li>';
+			}
+			
+			echo '</ul>';
+		} else {
+			echo '<p class="text-accent mb-1">No sizes available</p>';
+		}
+
+
+	}
+
+
+	
+   
+	
+	
+	
+		?>
+                 
+
+
+
+
+
+
+
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
+                        Instructions:</h6>
+                    <p class='text-accent'><?php echo get_field( "washing_instructions" ); ?></p>
+
                 </div>
                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-dashboard" role="tabpanel"
                     aria-labelledby="dashboard-tab">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                            class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated
-                            content</strong>. Clicking another tab will toggle the visibility of this one for the next.
-                        The tab JavaScript swaps classes to control the content visibility and styling.</p>
+
+
+
                 </div>
                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-settings" role="tabpanel"
                     aria-labelledby="settings-tab">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                            class="font-medium text-gray-800 dark:text-white">Settings tab's associated
-                            content</strong>. Clicking another tab will toggle the visibility of this one for the next.
-                        The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                </div>
 
-            </div>
+                    <div class="mx-auto max-w-screen-md">
+                        <div id="accordion-flush" data-accordion="collapse"
+                            data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+                            data-inactive-classes="text-gray-500 dark:text-gray-400">
+
+                            <?php foreach ($faqs as $index => $faq) : ?>
+
+                            <h2 id="accordion-flush-heading-<?php echo $index; ?>">
+                                <button type="button"
+                                    class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                                    data-accordion-target="#accordion-flush-body-<?php echo $index; ?>"
+                                    aria-expanded="true" aria-controls="accordion-flush-body-<?php echo $index; ?>">
+                                    <span><?php echo esc_html($faq['question']); ?></span>
+                                    <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </h2>
+                            <div id="accordion-flush-body-<?php echo $index; ?>" class=""
+                                aria-labelledby="accordion-flush-heading-<?php echo $index; ?>">
+                                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                                    <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <?php echo esc_html($faq['answer']); ?></p>
+                                    <!-- You can add more content or links here -->
+                                </div>
+                            </div>
+
+                            <?php endforeach; ?>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
         </section>
 
 
@@ -141,14 +261,17 @@ $product_price = $product->get_price();
             <p class='text-lg text-accent font-roboto'>Customisations Available:</p>
             <div class='flex gap-8 '>
                 <span class='flex items-center text-lg text-accent font-roboto'>
-				<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-green-500" height="28" width="28" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
-                     Print
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                        class="text-green-500" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
+                    </svg>
+                    Print
                 </span>
             </div>
         </section>
 
 
-		<?php
+        <?php
 // Ensure WooCommerce is active
 if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
@@ -199,11 +322,12 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 }
 ?>
 
-<button onclick="redirectToQuote()" class='flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
-    Get a quote
-</button>
+        <button onclick="redirectToQuote()"
+            class='flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
+            Get a quote
+        </button>
 
-<?php
+        <?php
 // Usage
 $title = 'Delivery Title';
 $desc = 'Delivery Description';
