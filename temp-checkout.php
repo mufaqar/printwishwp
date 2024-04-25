@@ -24,8 +24,8 @@ function create_vip_order($id) {
   $address = array(
       'first_name' => 'Mufaqar',
       'last_name'  => 'Islam',
-      'company'    => 'Speed Society',
-      'email'      => 'joe@testing.com',
+      'company'    => 'Softs Gens',
+      'email'      => 'mufaqar@gmail.com',
       'phone'      => '760-555-1212',
       'address_1'  => '123 Main st.',
       'address_2'  => '104',
