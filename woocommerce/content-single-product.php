@@ -419,29 +419,45 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
                 "Nape of Neck" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/nape%20of%20neck.jpeg",
                 "Big Front" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/big%20front.jpeg"
             );
-
-            $colorOptions = array(
-                "1" => "/images/colors/1.jpg",
-                "2" => "/images/colors/2.jpg",
-                "3" => "/images/colors/3.jpg",
-                "4" => "/images/colors/4.jpg",
-                "5" => "/images/colors/5.jpg",
-                "6" => "/images/colors/6.jpg",
-                "7" => "/images/colors/7.jpg"
-            );
             
         ?>
         <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
-<?php foreach ($imageVariants as $name => $path): ?>
-    <button class="p-1 relative" onclick="toggleSelection(this, '<?php echo $name; ?>')">
-        <div class="bg-white flex flex-col items-center gap-2 border-[3px] rounded-lg p-1 py-2 border-transparent">
-            <h5 class="uppercase font-light font-roboto text-center"></h5>
-            <img alt="<?php echo $name; ?>" class="w-2/3" src="<?php echo $path; ?>" style="color: transparent;">
-            <h5 class="capitalize font-light font-roboto text-center"><?php echo $name; ?></h5>
+            <?php foreach ($imageVariants as $name => $path): ?>
+                <button class="p-1 relative" onclick="selectOnlyVarients(this, '<?php echo $name; ?>')">
+                    <div class="bg-white flex flex-col items-center gap-2 border-[3px] rounded-lg p-1 py-2 border-transparent">
+                        <h5 class="uppercase font-light font-roboto text-center"></h5>
+                        <img alt="<?php echo $name; ?>" class="w-2/3" src="<?php echo $path; ?>" style="color: transparent;">
+                        <h5 class="capitalize font-light font-roboto text-center"><?php echo $name; ?></h5>
+                    </div>
+                </button>
+            <?php endforeach; ?>
         </div>
-    </button>
-<?php endforeach; ?>
-</div>
+
+        <div class="bg-gray-200 px-4 py-6 border rounded border-black/60 my-3">
+            <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 3 - Number of colours per artwork *</h5>
+        </div>
+        <div class="colorLogo"></div>
+
+        <!-- upload Images  -->
+        <div class="px-4 py-6 border border-black/60 rounded mt-3">
+            <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 4- Upload your artwork (Optional)</h5>
+        </div>
+        <div class="uploadImages"></div>
+
+        <section>
+            <h5 class="text-xl font-semibold text-accent mb-2 mt-5 font-roboto">Additional information or requests</h5>
+            <textarea value="" class="block w-full p-3 min-h-[340px] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md"></textarea>
+        </section>
+
+        <div class="flex justify-center md:justify-end">
+            <button onclick="handleAddToCart()" class=" uppercase font-light items-center border border-primary gap-2 w-full md:w-1/2 text-center py-3 text-white px-6   mt-7 rounded-lg
+                            bg-primary hover:bg-transparent hover:text-primary cursor-pointer
+            ">Add to Quote</button>
+        </div>
+
+
+
+
 
 <!-- X ------------------------ X -->
         <!-- variants  -->
@@ -555,20 +571,98 @@ function removeColor(item) {
 }
 
 
-
-    // for select varients 
-    function toggleSelection(button, name) {
-        var index = selectedVariants.indexOf(name);
-        if (index === -1) {
-            selectedVariants.push(name);
-            button.style.border = "1px solid red"; // Add border
-        } else {
-            selectedVariants.splice(index, 1);
-            button.style.border = "none"; // Remove border
-        }
-        console.log(selectedVariants); // Output the selected variants array (you can remove this line)
+function selectOnlyVarients(button, name) {
+    var index = selectedVariants.findIndex(function(item) {
+        return item.variant === name;
+    });
+    if (index === -1) {
+        // If variant is not already selected, add it to selectedVariants array
+        selectedVariants.push({ variant: name, colorInLogo: 0 });
+        button.style.border = "1px solid red"; // Add border
+    } else {
+        // If variant is already selected, remove it from selectedVariants array
+        selectedVariants.splice(index, 1);
+        button.style.border = "none"; // Remove border
     }
-    
+    // Update the color sections in the logo
+    updateColorLogo();
+    handleUploadImage()
+}
+
+// Function to update color sections in the logo
+function updateColorLogo() {
+    var colorLogoDiv = document.querySelector('.colorLogo');
+    colorLogoDiv.innerHTML = ''; // Clear existing content
+    if (selectedVariants.length > 0) {
+        for (var i = 0; i < selectedVariants.length; i++) {
+            var variantName = selectedVariants[i].variant;
+            var sectionHTML = '<section class="bg-gray-50 md:p-6 p-5 border-[1.5px] rounded-lg border-gray-50 mt-4"><div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto false">' + variantName + '</h5><div class="items-center justify-center mt-4 gap-2 p-0 grid md:grid-cols-7 grid-cols-2">';
+            for (var j = 1; j <= 7; j++) {
+                sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j + '"  name="'+ variantName +'" class="w-full text-center p-2 cursor-pointer px-8 text-lg bg-white rounded border-[2px] border-gray-[#CCCCCC] hover:border-main"><img alt="' + j + '" loading="lazy" width="200" height="200" decoding="async" data-nimg="' + j + '" srcset="/_next/image?url=%2Fimages%2Fcolors%2F' + j + '.jpg&amp;w=256&amp;q=75 1x, /_next/image?url=%2Fimages%2Fcolors%2F' + j + '.jpg&amp;w=640&amp;q=75 2x" src="/_next/image?url=%2Fimages%2Fcolors%2F' + j + '.jpg&amp;w=640&amp;q=75" style="color: transparent;">Colours</button></div>';
+            }
+            sectionHTML += '</div></div></section>';
+            colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
+        }
+    }
+}
+
+// Initially update the color sections in the logo
+updateColorLogo();
+
+function handleColorInLogo(props){
+    const vName = props.getAttribute('name');
+    const CIL = props.getAttribute('colorinlogo');
+    const index = selectedVariants.findIndex(item => item.variant === vName);
+
+    if (index !== -1) {
+        selectedVariants[index].colorInLogo = CIL;
+        console.log(selectedVariants); // Output the updated selected variants array
+
+        // Loop through buttons to remove red border from all buttons
+        const buttons = document.querySelectorAll('button[name="' + vName + '"]');
+        buttons.forEach(button => {
+            button.style.border = '1px solid #CCCCCC'; // Set default border
+        });
+
+        // Add red border to the button with matching colorInLogo
+        props.style.border = '1px solid red';
+    } else {
+        console.error('Variant not found in selectedVariants array');
+    }
+}
+
+
+function handleUploadImage(){
+    var colorLogoDiv = document.querySelector('.uploadImages');
+    colorLogoDiv.innerHTML = ''; // Clear existing content
+    if (selectedVariants.length > 0) {
+        for (var i = 0; i < selectedVariants.length; i++) {
+            var sectionHTML = '<div class=" bg-white p-4 rounded-xl"><div class="flex flex-col md:flex-row w-full min-h-[120px] border-2 border-gray-300 border-dashed rounded-lg"><label class="flex flex-col min-h-[120px] items-center justify-center w-full h-auto rounded-xl  cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"><div class="flex items-center justify-center pt-5 pb-6 gap-2"><p class="text-sm text-gray-500 dark:text-gray-400 text-center">Drag and drop or</p><button class="bg-secondary text-white p-2 rounded-lg px-4">Select File</button></div><input id="dropzone-file" type="file" class="hidden"></label></div></div>';
+            sectionHTML += '</div></div></section>';
+            colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
+        }
+    }
+}
+
+
+const handleAddToCart = () => {
+    var additionalInfoTextarea = document.getElementById('additional-info-textarea');
+    if (additionalInfoTextarea) {
+        var additionalInfo = additionalInfoTextarea.value;
+        // Do something with the retrieved value
+        console.log('Additional Information:', additionalInfo);
+        // You can further process the additionalInfo value here
+    } else {
+        console.error("Textarea element not found.");
+    }
+    console.log("🚀 ~ handleAddToCart ~ additionalInfo:", additionalInfoTextarea)
+
+    localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
+    localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
+    localStorage.setItem("additionalInfo", JSON.stringify(additionalInfo));
+
+}
+
 
 
 jQuery(document).ready(function($) {
