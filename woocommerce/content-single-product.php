@@ -432,7 +432,7 @@ function handColors(item) {
         color: item.innerText,
         size: "",
         qty: "",
-        code: ccode
+        code: ccode,
 		selectedsize: []
     }
     SelectedColors.push(color);
@@ -440,7 +440,6 @@ function handColors(item) {
     createColorList(SelectedColors)
 
 }
-
 function createColorList(colors) {
     var html = '';
     colors.forEach(function(color) {
@@ -468,10 +467,34 @@ function createColorList(colors) {
 }
 
 function updateValues(inputElement, color, size) {
-    var quantity = inputElement.value; // Get the quantity from the input element
+    var quantity = inputElement.value; 
+	const ci = SelectedColors.findIndex(item => item.code === color);
+const size_qty = { size, quantity };
+var sizes = SelectedColors[ci].selectedsize;
+var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i.size === size));
+
+if (isSizeExistIndex !== -1) {
+    // Update the quantity of the existing size
+    const existingSizeIndex = SelectedColors[isSizeExistIndex].selectedsize.findIndex(i => i.size === size);
     
-    // Here you can do whatever you want with the color, size, and quantity
-    console.log("Color: " + color + ", Size: " + size + ", Quantity: " + quantity);
+    if (existingSizeIndex !== -1) {
+        // Remove the previous quantity and update with the new quantity
+        SelectedColors[isSizeExistIndex].selectedsize.splice(existingSizeIndex, 1, size_qty);
+    } else {
+        // Add the new size_qty if the size doesn't exist
+        sizes.push(size_qty);
+    }
+} else {
+    // Add the new size_qty if both code and size don't exist
+    sizes.push(size_qty);
+}
+
+	
+
+	
+	
+
+
     
     // You can also send these values to PHP using AJAX if needed
 }
