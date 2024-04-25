@@ -401,7 +401,54 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
             <!-- Selected colors will be inserted here -->
         </div>
 
+        <!-- ------------------------  -->
+        <!-- variants  -->
+        <!-- ------------------------  -->
+        <div class="bg-gray-200 px-4 py-6 border rounded !border-red-500"><h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 2 - Where must we print your artwork? *</h5><p class="pl-2">T-Shirt Print Area</p></div>
+        
+        
+        <?php
+            // Define an array of image variants with their respective names and paths
+            $imageVariants = array(
+                "Left Breast" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/left-breast.jpeg",
+                "Right Breast" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/right-breast.jpeg",
+                "Centre Front" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/center-chest.jpeg",
+                "Centre Back" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/big%20back.jpeg",
+                "Left Sleeve" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/left%20sleeve.jpeg",
+                "Right Sleeve" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/right%20sleeve.jpeg",
+                "Nape of Neck" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/nape%20of%20neck.jpeg",
+                "Big Front" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/big%20front.jpeg"
+            );
 
+            $colorOptions = array(
+                "1" => "/images/colors/1.jpg",
+                "2" => "/images/colors/2.jpg",
+                "3" => "/images/colors/3.jpg",
+                "4" => "/images/colors/4.jpg",
+                "5" => "/images/colors/5.jpg",
+                "6" => "/images/colors/6.jpg",
+                "7" => "/images/colors/7.jpg"
+            );
+            
+        ?>
+        <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
+<?php foreach ($imageVariants as $name => $path): ?>
+    <button class="p-1 relative" onclick="toggleSelection(this, '<?php echo $name; ?>')">
+        <div class="bg-white flex flex-col items-center gap-2 border-[3px] rounded-lg p-1 py-2 border-transparent">
+            <h5 class="uppercase font-light font-roboto text-center"></h5>
+            <img alt="<?php echo $name; ?>" class="w-2/3" src="<?php echo $path; ?>" style="color: transparent;">
+            <h5 class="capitalize font-light font-roboto text-center"><?php echo $name; ?></h5>
+        </div>
+    </button>
+<?php endforeach; ?>
+</div>
+
+<!-- X ------------------------ X -->
+        <!-- variants  -->
+<!-- X ------------------------ X -->
+
+        
+        
         <div id="product-popup" class="mfp-hide">
             <?php
     global $product;
@@ -424,6 +471,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 <script>
 var SelectedColors = [];
+var selectedVariants = [];
 
 
 function handColors(item) {
@@ -506,6 +554,21 @@ function removeColor(item) {
     console.log(SelectedColors);
 }
 
+
+
+    // for select varients 
+    function toggleSelection(button, name) {
+        var index = selectedVariants.indexOf(name);
+        if (index === -1) {
+            selectedVariants.push(name);
+            button.style.border = "1px solid red"; // Add border
+        } else {
+            selectedVariants.splice(index, 1);
+            button.style.border = "none"; // Remove border
+        }
+        console.log(selectedVariants); // Output the selected variants array (you can remove this line)
+    }
+    
 
 
 jQuery(document).ready(function($) {
