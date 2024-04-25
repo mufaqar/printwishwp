@@ -436,7 +436,6 @@ function handColors(item) {
 		selectedsize: []
     }
     SelectedColors.push(color);
-    console.log(SelectedColors);
     createColorList(SelectedColors)
 
 }
@@ -473,30 +472,24 @@ function updateValues(inputElement, color, size) {
     var sizes = SelectedColors[ci].selectedsize;
     var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i.size === size));
 
-if (isSizeExistIndex !== -1) {
-    // Update the quantity of the existing size
-    const existingSizeIndex = SelectedColors[isSizeExistIndex].selectedsize.findIndex(i => i.size === size);
-    
-    if (existingSizeIndex !== -1) {
-        // Remove the previous quantity and update with the new quantity
-        SelectedColors[isSizeExistIndex].selectedsize.splice(existingSizeIndex, 1, size_qty);
+    if (isSizeExistIndex !== -1) {
+        // Update the quantity of the existing size
+        const existingSizeIndex = SelectedColors[isSizeExistIndex].selectedsize.findIndex(i => i.size === size);
+        
+        if (existingSizeIndex !== -1) {
+            // Remove the previous quantity and update with the new quantity
+            SelectedColors[isSizeExistIndex].selectedsize.splice(existingSizeIndex, 1, size_qty);
+        } else {
+            // Add the new size_qty if the size doesn't exist
+            sizes.push(size_qty);
+        }
     } else {
-        // Add the new size_qty if the size doesn't exist
+        // Add the new size_qty if both code and size don't exist
         sizes.push(size_qty);
     }
-} else {
-    // Add the new size_qty if both code and size don't exist
-    sizes.push(size_qty);
-}
 
-	
+    console.log('SelectedColors', SelectedColors);
 
-	
-	
-
-
-    
-    // You can also send these values to PHP using AJAX if needed
 }
 
 function removeColor(item) {
@@ -515,7 +508,6 @@ function removeColor(item) {
     console.log(SelectedColors);
 }
 
-console.log('SelectedColors', SelectedColors);
 
 
 jQuery(document).ready(function($) {
