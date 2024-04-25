@@ -205,6 +205,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 require get_template_directory() . '/inc/cpts.php';
+require get_template_directory() . '/inc/ajax_call.php';
 require get_template_directory() . '/inc/extra.php';
 require get_template_directory() . '/inc/walker_nav.php';
 
