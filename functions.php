@@ -216,3 +216,72 @@ add_action( 'after_setup_theme', 'setup_woocommerce_support' );
 {
   add_theme_support('woocommerce');
 }
+
+
+add_action('wp_ajax_store_data_in_wp_session', 'store_data_in_wp_session');
+add_action('wp_ajax_nopriv_store_data_in_wp_session', 'store_data_in_wp_session');
+
+function store_data_in_wp_session() {
+    // Start session if not already started
+    if (!session_id()) {
+        session_start();
+    }
+
+    // Get POST data
+    $selected_colors = $_POST['SelectedColors'];
+    $selected_variants = $_POST['selectedVariants'];
+    $additional_info = $_POST['additionalInfo'];
+    $product_id = $_POST['ProductID'];
+
+    // Store data in session
+    $_SESSION['SelectedColors'] = $selected_colors;
+    $_SESSION['selectedVariants'] = $selected_variants;
+    $_SESSION['additionalInfo'] = $additional_info;
+    $_SESSION['ProductID'] = $product_id;
+
+    // Send response
+    wp_send_json_success('Data stored in WordPress session.');
+    wp_die();
+}
+
+
+function get_session_data() {
+    // Start session if not already started
+    if (!session_id()) {
+        session_start();
+    }
+
+    // Get session data
+    $selected_colors = isset($_SESSION['SelectedColors']) ? $_SESSION['SelectedColors'] : '';
+    $selected_variants = isset($_SESSION['selectedVariants']) ? $_SESSION['selectedVariants'] : '';
+    $additional_info = isset($_SESSION['additionalInfo']) ? $_SESSION['additionalInfo'] : '';
+    $product_id = isset($_SESSION['ProductID']) ? $_SESSION['ProductID'] : '';
+
+    return [
+        'selected_colors' => $selected_colors,
+        'selected_variants' => $selected_variants,
+        'additional_info' => $additional_info,
+        'product_id' => $product_id,
+    ];
+}
+
+add_filter('template_include', 'pass_session_data_to_template');
+
+function pass_session_data_to_template($template) {
+    // Check if template is the one you want to modify
+    if (is_page_template('temp-checkout.php')) {
+        
+        // Get session data
+        $session_data = get_session_data();
+
+        // Pass data to template
+        $template_data = [
+            'session_data' => $session_data,
+        ];
+
+        // Merge template data with existing query data
+        $GLOBALS['wp_query']->query_vars = array_merge($GLOBALS['wp_query']->query_vars, $template_data);
+    }
+
+    return $template;
+}

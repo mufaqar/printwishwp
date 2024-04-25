@@ -408,17 +408,17 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
         
         
         <?php
-            // Define an array of image variants with their respective names and paths
-            $imageVariants = array(
-                "Left Breast" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/left-breast.jpeg",
-                "Right Breast" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/right-breast.jpeg",
-                "Centre Front" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/center-chest.jpeg",
-                "Centre Back" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/big%20back.jpeg",
-                "Left Sleeve" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/left%20sleeve.jpeg",
-                "Right Sleeve" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/right%20sleeve.jpeg",
-                "Nape of Neck" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/nape%20of%20neck.jpeg",
-                "Big Front" => "<?php bloginfo('template_url'); ?>/public/images/tshirt-varients/big%20front.jpeg"
-            );
+                $baseUrl = get_bloginfo('template_url');
+                $imageVariants = array(
+                    "Left Breast" => $baseUrl . "/public/images/tshirt-varients/left_breast.jpeg",
+                    "Right Breast" => $baseUrl . "/public/images/tshirt-varients/right_breast.jpeg",
+                    "Centre Front" => $baseUrl . "/public/images/tshirt-varients/center_chest.jpeg",
+                    "Centre Back" => $baseUrl . "/public/images/tshirt-varients/big_back.jpeg",
+                    "Left Sleeve" => $baseUrl . "/public/images/tshirt-varients/left_sleeve.jpeg",
+                    "Right Sleeve" => $baseUrl . "/public/images/tshirt-varients/right_sleeve.jpeg",
+                    "Nape of Neck" => $baseUrl . "/public/images/tshirt-varients/nape_neck.jpeg",
+                    "Big Front" => $baseUrl . "/public/images/tshirt-varients/big_front.jpeg"
+                );
             
         ?>
         <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
@@ -446,7 +446,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
         <section>
             <h5 class="text-xl font-semibold text-accent mb-2 mt-5 font-roboto">Additional information or requests</h5>
-            <textarea value="" class="block w-full p-3 min-h-[340px] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md"></textarea>
+            <textarea id="additional" class="block w-full p-3 min-h-[340px] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md">This is Sample Text</textarea>
         </section>
 
         <div class="flex justify-center md:justify-end">
@@ -488,6 +488,10 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 <script>
 var SelectedColors = [];
 var selectedVariants = [];
+
+
+
+
 
 
 function handColors(item) {
@@ -598,7 +602,7 @@ function updateColorLogo() {
             var variantName = selectedVariants[i].variant;
             var sectionHTML = '<section class="bg-gray-50 md:p-6 p-5 border-[1.5px] rounded-lg border-gray-50 mt-4"><div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto false">' + variantName + '</h5><div class="items-center justify-center mt-4 gap-2 p-0 grid md:grid-cols-7 grid-cols-2">';
             for (var j = 1; j <= 7; j++) {
-                sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j + '"  name="'+ variantName +'" class="w-full text-center p-2 cursor-pointer px-8 text-lg bg-white rounded border-[2px] border-gray-[#CCCCCC] hover:border-main"><img alt="' + j + '" loading="lazy" width="200" height="200" decoding="async" data-nimg="' + j + '" srcset="/_next/image?url=%2Fimages%2Fcolors%2F' + j + '.jpg&amp;w=256&amp;q=75 1x, /_next/image?url=%2Fimages%2Fcolors%2F' + j + '.jpg&amp;w=640&amp;q=75 2x" src="/_next/image?url=%2Fimages%2Fcolors%2F' + j + '.jpg&amp;w=640&amp;q=75" style="color: transparent;">Colours</button></div>';
+                sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j + '"  name="'+ variantName +'" class="w-full text-center p-2 cursor-pointer px-8 text-lg bg-white rounded border-[2px] border-gray-[#CCCCCC] hover:border-main"><img alt="' + j + '" width="200" height="200"  src="<?php echo $baseUrl?>/public/images/colors/' + j + '.jpg">Colours</button></div>';
             }
             sectionHTML += '</div></div></section>';
             colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
@@ -646,20 +650,27 @@ function handleUploadImage(){
 
 
 const handleAddToCart = () => {
-    var additionalInfoTextarea = document.getElementById('additional-info-textarea');
-    if (additionalInfoTextarea) {
-        var additionalInfo = additionalInfoTextarea.value;
-        // Do something with the retrieved value
-        console.log('Additional Information:', additionalInfo);
-        // You can further process the additionalInfo value here
-    } else {
-        console.error("Textarea element not found.");
-    }
-    console.log("🚀 ~ handleAddToCart ~ additionalInfo:", additionalInfoTextarea)
-
+    var productId = <?php echo $product_id ?>;
+    var additionalInfoTextarea = document.getElementById('additional').value;
     localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
     localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
-    localStorage.setItem("additionalInfo", JSON.stringify(additionalInfo));
+    localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
+    localStorage.setItem("ProductID", JSON.stringify(productId));
+
+    // Prepare data to send
+var data = {
+    'action': 'store_data_in_wp_session',
+    'SelectedColors': SelectedColors,
+    'selectedVariants': selectedVariants,
+    'additionalInfo': additionalInfoTextarea,
+    'ProductID': productId
+};
+
+// Send AJAX request to WordPress backend
+jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function(response) {
+    console.log('Data stored in WordPress.');
+});
+
 
 }
 
