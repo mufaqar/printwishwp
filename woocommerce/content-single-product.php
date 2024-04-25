@@ -469,9 +469,9 @@ function createColorList(colors) {
 function updateValues(inputElement, color, size) {
     var quantity = inputElement.value; 
 	const ci = SelectedColors.findIndex(item => item.code === color);
-const size_qty = { size, quantity };
-var sizes = SelectedColors[ci].selectedsize;
-var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i.size === size));
+    const size_qty = { size, quantity };
+    var sizes = SelectedColors[ci].selectedsize;
+    var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i.size === size));
 
 if (isSizeExistIndex !== -1) {
     // Update the quantity of the existing size
@@ -515,7 +515,7 @@ function removeColor(item) {
     console.log(SelectedColors);
 }
 
-console.log(SelectedColors);
+console.log('SelectedColors', SelectedColors);
 
 
 jQuery(document).ready(function($) {
