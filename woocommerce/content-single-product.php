@@ -430,8 +430,6 @@ function handColors(item) {
     var ccode = item.getAttribute('code');
     var color = {
         color: item.innerText,
-        size: "",
-        qty: "",
         code: ccode,
 		selectedsize: []
     }
