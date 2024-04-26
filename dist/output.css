@@ -790,6 +790,10 @@ video {
   margin-left: 0.75rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
 .ml-5 {
   margin-left: 1.25rem;
 }
@@ -852,10 +856,6 @@ video {
 
 .mt-\[3px\] {
   margin-top: 3px;
-}
-
-.ml-4 {
-  margin-left: 1rem;
 }
 
 .block {
@@ -934,6 +934,10 @@ video {
   width: 1rem;
 }
 
+.w-40 {
+  width: 10rem;
+}
+
 .w-44 {
   width: 11rem;
 }
@@ -961,10 +965,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-40 {
-  width: 10rem;
 }
 
 .min-w-\[20px\] {
@@ -1196,12 +1196,12 @@ video {
   border-left-width: 0px;
 }
 
-.border-t {
-  border-top-width: 1px;
-}
-
 .border-l-\[1px\] {
   border-left-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
 }
 
 .border-gray-100 {
@@ -1595,6 +1595,10 @@ video {
   font-weight: 800;
 }
 
+.font-extralight {
+  font-weight: 200;
+}
+
 .font-light {
   font-weight: 300;
 }
@@ -1609,10 +1613,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.font-extralight {
-  font-weight: 200;
 }
 
 .uppercase {
@@ -2450,6 +2450,10 @@ input[type='number'] {
     width: 5rem;
   }
 
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .sm\:gap-2 {
     gap: 0.5rem;
   }
@@ -2572,6 +2576,10 @@ input[type='number'] {
 
   .md\:gap-2 {
     gap: 0.5rem;
+  }
+
+  .md\:gap-4 {
+    gap: 1rem;
   }
 
   .md\:gap-5 {
@@ -2703,6 +2711,10 @@ input[type='number'] {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .lg\:justify-between {

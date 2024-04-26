@@ -8,7 +8,7 @@ get_header();
 
 
 
-<?php get_template_part( 'components/com', 'featuredproduct' ); ?>
+<?php get_template_part( 'components/com', 'products' ); ?>
 
 <?php get_template_part( 'components/com', 'reviews' ); ?>
 <?php

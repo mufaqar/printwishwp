@@ -35,3 +35,14 @@
         </div>
     </div>
 </section>
+
+<script>
+function toggleRating(divElement) {       
+        var ratingInfo = divElement.querySelector('.rating-info');
+        if (ratingInfo.style.display === 'none' || ratingInfo.style.display === '') {
+            ratingInfo.style.display = 'block';
+        } else {
+            ratingInfo.style.display = 'none';
+        }
+    }
+</script>
