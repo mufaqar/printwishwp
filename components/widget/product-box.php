@@ -60,8 +60,6 @@
             <?php endif; ?>
 
 
-
-
             <a href="<?php the_permalink()?>"
                 class='text-xs sm:text-base relative font-semibold flex justify-center text-center font-roboto uppercase bg-primary text-white px-2 md:px-6 py-1 hover:bg-transparent hover:text-primary border-primary border-2 hover:border-primary'>
                 View Product
