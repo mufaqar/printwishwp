@@ -469,7 +469,7 @@ $faqs = array(
         <div class="px-4 py-6 border border-black/60 rounded mt-3">
             <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 4- Upload your artwork (Optional)</h5>
         </div>
-        <div class="uploadImages"></div>
+        <div class="uploadImages grid grid-cols-2 gap-5"></div>
 
         <section>
             <h5 class="text-xl font-semibold text-accent mb-2 mt-5 font-roboto">Additional information or requests</h5>
@@ -662,18 +662,23 @@ function handleColorInLogo(props){
 }
 
 
-function handleUploadImage(){
+function handleUploadImage() {
     var colorLogoDiv = document.querySelector('.uploadImages');
     colorLogoDiv.innerHTML = ''; // Clear existing content
+
     if (selectedVariants.length > 0) {
         for (var i = 0; i < selectedVariants.length; i++) {
-            var sectionHTML = '<div class=" bg-white p-4 rounded-xl"><div class="flex flex-col md:flex-row w-full min-h-[120px] border-2 border-gray-300 border-dashed rounded-lg"><label class="flex flex-col min-h-[120px] items-center justify-center w-full h-auto rounded-xl  cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"><div class="flex items-center justify-center pt-5 pb-6 gap-2"><p class="text-sm text-gray-500 dark:text-gray-400 text-center">Drag and drop or</p><button class="bg-secondary text-white p-2 rounded-lg px-4">Select File</button></div><input id="dropzone-file" type="file" class="hidden"></label></div></div>';
-            sectionHTML += '</div></div></section>';
+            var sectionHTML = '<div class="bg-white p-4 rounded-xl">';
+            sectionHTML += '<div class="flex flex-col md:flex-row w-full min-h-[120px] border-2 border-gray-300 border-dashed rounded-lg items-center justify-center">';
+            sectionHTML += '<input type="file" name="image" accept="image/*">';
+            sectionHTML += '<button type="submit">Upload Image</button>';
+            sectionHTML += '</div></div>';
+            
+            // Insert the generated HTML into the colorLogoDiv
             colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
         }
     }
 }
-
 
 const handleAddToCart = () => {
     var productId = <?php echo $product_id ?>;
