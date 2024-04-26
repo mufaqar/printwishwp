@@ -673,8 +673,7 @@ function handleUploadImage() {
             sectionHTML += '<input type="file" name="image" accept="image/*">';
             sectionHTML += '<button type="submit">Upload Image</button>';
             sectionHTML += '</div></div>';
-            
-            // Insert the generated HTML into the colorLogoDiv
+                       
             colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
         }
     }
