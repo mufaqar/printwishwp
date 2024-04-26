@@ -367,58 +367,64 @@ $faqs = array(
 
 
 
+        
+        <div id="product-popup" class="mfp-hide bg-white shadow container mx-auto p-6 flex flex-col gap-5">
+
+        <button class="close_popup uppercase font-light items-center border border-primary gap-2 w-full text-center py-3 bg-primary text-white px-6 hover:text-primary hover:bg-transparent ">Close The order form</button>
+
+        
         <?php
-// Ensure WooCommerce is active
-if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+            // Ensure WooCommerce is active
+            if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
-    global $product;
+                global $product;
 
-    // Get the product ID
-    $product_id = $product->get_id();
+                // Get the product ID
+                $product_id = $product->get_id();
 
-    // Get product object
-    $product = wc_get_product($product_id);
+                // Get product object
+                $product = wc_get_product($product_id);
 
-    // Get product attributes
-    $attributes = $product->get_attributes();
+                // Get product attributes
+                $attributes = $product->get_attributes();
 
-    // Check if 'pa_color' attribute exists
-    if (isset($attributes['pa_color'])) {
-        $terms = wc_get_product_terms($product_id, 'pa_color', array('fields' => 'all'));
+                // Check if 'pa_color' attribute exists
+                if (isset($attributes['pa_color'])) {
+                    $terms = wc_get_product_terms($product_id, 'pa_color', array('fields' => 'all'));
 
-        if (!empty($terms)) {
-            echo '<section class="">';
-            echo '<div class="bg-background p-3 md:p-8 rounded-lg">';
-            echo '<h5 class="text-xl font-semibold text-accent font-roboto">Available Colors:</h5>';
-            echo '<ul class="flex flex-wrap gap-[2px] md:gap-2 mt-4">';
+                    if (!empty($terms)) {
+                        echo '<section class="">';
+                        echo '<div class="bg-background p-3 md:p-8 rounded-lg">';
+                        echo '<h5 class="text-xl font-semibold text-accent font-roboto">Available Colors:</h5>';
+                        echo '<ul class="flex flex-wrap gap-[2px] md:gap-2 mt-4">';
 
-            foreach ($terms as $term) {
-                $color_code = get_term_meta($term->term_id, 'pa_color', true);
-                $color_name = $term->name;
-                $color_exists = /* Check if color exists logic */ false; // You need to implement this logic
+                        foreach ($terms as $term) {
+                            $color_code = get_term_meta($term->term_id, 'pa_color', true);
+                            $color_name = $term->name;
+                            $color_exists = /* Check if color exists logic */ false; // You need to implement this logic
 
-				$ccode =  $term->description;
+                            $ccode =  $term->description;
 
-				//print_r($term);
+                            //print_r($term);
 
-                echo '<li  onclick="handColors(this)" code="' . esc_html($ccode) . '" class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
-                echo '<div class="p-[18px] cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
-                echo '<span class="tooltip-text whitespace-nowrap text-center" id="top">' . esc_html($color_name) . '</span>';
-                echo '</li>';
+                            echo '<li  onclick="handColors(this)" code="' . esc_html($ccode) . '" class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
+                            echo '<div class="p-[18px] cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
+                            echo '<span class="tooltip-text whitespace-nowrap text-center" id="top">' . esc_html($color_name) . '</span>';
+                            echo '</li>';
+                        }
+
+                        echo '</ul>';
+                        echo '</div>';
+                        echo '</section>';
+                    }
+                }
+
+            } else {
+                echo 'WooCommerce is not active.';
             }
+            ?>
 
-            echo '</ul>';
-            echo '</div>';
-            echo '</section>';
-        }
-    }
-
-} else {
-    echo 'WooCommerce is not active.';
-}
-?>
-
-        <div id="selectedColorsContainer">
+        <div id="selectedColorsContainer"  class="flex flex-col gap-5 my-5">
             <!-- Selected colors will be inserted here -->
         </div>
 
@@ -478,24 +484,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 
 
-
-
-<!-- X ------------------------ X -->
-        <!-- variants  -->
-<!-- X ------------------------ X -->
-
-        
-        
-        <div id="product-popup" class="mfp-hide">
-            <?php
-    global $product;
-
-    if ( $product ) {
-        echo '<h2>' . $product->get_name() . '</h2>'; // Product title
-        echo '<p>' . $product->get_price_html() . '</p>'; // Product price
-        
-    }
-    ?>
+ 
 
 
         </div>
@@ -529,20 +518,36 @@ function handColors(item) {
 function createColorList(colors) {
     var html = '';
     colors.forEach(function(color) {
-        html += '<div class="color-item">';
-        html += '<span class="color-name">' + color.color + '</span>';
-        html += '<ul class="flex flex-wrap items-center gap-3 mt-3">';
-        ['S', 'M', 'L', 'XL', '2XL', '3XL'].forEach(function(size) {
-            html += '<div class="flex flex-col items-center justify-center">';
-            html += '<p class="text-lg text-accent font-bold">' + size + '</p>';
-            html += '<div class="mt-1">';
-            html += '<input type="number" name="' + size +
-                '" min="0" class="w-16 bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-3xl" placeholder="0" value="" onchange="updateValues(this, \'' + color.code + '\', \'' + size + '\')">';
-            html += '</div></div>';
-        });
-        html += '<button onclick="removeColor(this)"  code=' + color.code + ' >Close</button>';
-        html += '</div>';
+    // Open the color-item div
+    html += '<div class="color-item border border-black justify-between my-3 bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
+    // Open the inner flex div for color display and text
+    html += '<div class="flex items-center gap-2">';
+    html += '<div class="p-4 rounded-full" style="background-color: #' + color.code + '; border-color: #' + color.code + '"></div>';
+    html += '<p class="text-lg uppercase">' + color.color + '</p>';
+    // Close the inner flex div
+    html += '</div>';
+    // Open the inner flex div for size inputs
+    html += '<div class="flex flex-wrap justify-between w-full"><div class="flex flex-wrap items-center gap-3 mt-3 ">';
+    // Iterate over sizes
+    ['S', 'M', 'L', 'XL', '2XL', '3XL'].forEach(function(size) {
+        // Open the div for each size
+        html += '<div class="flex flex-col items-center justify-center">';
+        html += '<p class="text-lg text-accent font-bold">' + size + '</p>';
+        // Open the div for the input
+        html += '<div class="mt-1">';
+        html += '<input type="number" name="' + size +
+            '" min="0" style="max-width:64px" class="w-16 bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' + color.code + '\', \'' + size + '\')">';
+        // Close the input div
+        html += '</div></div>';
     });
+    // Close the inner flex div for size inputs
+    html += '</div>';
+    // Add the button to remove the color item
+    html += '<button onclick="removeColor(this)" code=' + color.code + '>Close</button> </div>';
+    // Close the color-item div
+    html += '</div>';
+});
+
 
     // Get the div container
     var container = document.getElementById('selectedColorsContainer');
@@ -701,6 +706,11 @@ jQuery(document).ready(function($) {
     $('.open-popup-link').magnificPopup({
         type: 'inline',
         midClick: true
+    });
+     // Add event listener to the close button
+     $('.close_popup').on('click', function() {
+        // Get the Magnific Popup instance and close the popup
+        $.magnificPopup.close();
     });
 });
 </script>
