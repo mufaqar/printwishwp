@@ -70,7 +70,7 @@ $args = [
 	"map_meta_cap" => true,
 	"hierarchical" => true,
 	"can_export" => false,
-	"rewrite" => [ "slug" => "locations", "with_front" => true ],
+	"rewrite" => [ "slug" => "locations", "with_front" => false ],
 	//'rewrite' => array('slug' => '/', 'with_front' => false), 
 	"query_var" => true,
 	"supports" => [ "title", "editor", "thumbnail", "excerpt" ],
@@ -167,4 +167,5 @@ function cptui_register_my_cpts_reviews() {
 }
 
 add_action( 'init', 'cptui_register_my_cpts_reviews' );
+
 

@@ -14,12 +14,26 @@ get_header();
 
 <section class='container mx-auto px-4 my-10'>
     <div class='mb-10'>
-        <h1 class='font-bold text-[#D1DE8B] text-4xl sm:text-[46px] capitalize my-4'> <?php echo "title" ?></h1>
-        <p class='font-bold text-xl text-gray-600'><?php echo "subTitle" ?></p>
 
 
-        <h4 class='bg-primary p-3 text-center text-white font-bold text-2xl mt-10 md:text-3xl'>Our Range of Printed T-
-            shirts</h4>
+        <?php if (have_rows('product_section')): ?>
+
+        <?php while (have_rows('product_section')): the_row(); ?>
+
+        <h1 class='font-bold text-[#D1DE8B] text-4xl sm:text-[46px] capitalize my-4'>
+            <?php the_sub_field('title'); ?>
+        </h1>
+        <p class='font-bold text-xl text-gray-600'>
+            <?php the_sub_field('sub_title'); ?>
+        </p>
+
+        <?php endwhile; ?>
+
+        <?php endif; ?>
+
+
+        <h4 class='bg-primary p-3 text-center text-white font-bold text-2xl mt-10 md:text-3xl'>Our Range of Printed T-shirts</h4>
+
 
         <?php get_template_part( 'components/com', 'location_products' ); ?>
 
