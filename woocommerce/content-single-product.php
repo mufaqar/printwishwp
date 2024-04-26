@@ -372,7 +372,8 @@ $faqs = array(
 
         <button class="close_popup uppercase font-light items-center border border-primary gap-2 w-full text-center py-3 bg-primary text-white px-6 hover:text-primary hover:bg-transparent ">Close The order form</button>
 
-        
+        <h5 class="text-xl font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-black/60">Step 1 - Choose one or more colours: *</h5>
+   
         <?php
             // Ensure WooCommerce is active
             if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
@@ -424,7 +425,7 @@ $faqs = array(
             }
             ?>
 
-        <div id="selectedColorsContainer"  class="flex flex-col gap-5 my-5">
+        <div id="selectedColorsContainer"  class="flex flex-col gap-5 ">
             <!-- Selected colors will be inserted here -->
         </div>
 
@@ -432,8 +433,7 @@ $faqs = array(
         <!-- variants  -->
         <!-- ------------------------  -->
         <div class="bg-gray-200 px-4 py-6 border rounded !border-red-500"><h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 2 - Where must we print your artwork? *</h5><p class="pl-2">T-Shirt Print Area</p></div>
-        
-        
+                
         <?php
                 $baseUrl = get_bloginfo('template_url');
                 $imageVariants = array(
@@ -448,7 +448,7 @@ $faqs = array(
                 );
             
         ?>
-        <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
+        <div class="mt-5 grid grid-cols-5 gap-2 sm:grid-cols-3 md:grid-cols-6">
             <?php foreach ($imageVariants as $name => $path): ?>
                 <button class="p-1 relative" onclick="selectOnlyVarients(this, '<?php echo $name; ?>')">
                     <div class="bg-white flex flex-col items-center gap-2 border-[3px] rounded-lg p-1 py-2 border-transparent">
@@ -527,7 +527,7 @@ function createColorList(colors) {
     // Close the inner flex div
     html += '</div>';
     // Open the inner flex div for size inputs
-    html += '<div class="flex flex-wrap justify-between w-full"><div class="flex flex-wrap items-center gap-3 mt-3 ">';
+    html += '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 mt-3 ">';
     // Iterate over sizes
     ['S', 'M', 'L', 'XL', '2XL', '3XL'].forEach(function(size) {
         // Open the div for each size
@@ -543,7 +543,7 @@ function createColorList(colors) {
     // Close the inner flex div for size inputs
     html += '</div>';
     // Add the button to remove the color item
-    html += '<button onclick="removeColor(this)" code=' + color.code + '>Close</button> </div>';
+    html += '<button onclick="removeColor(this)" code=' + color.code + '><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor"></path></svg></button> </div>';
     // Close the color-item div
     html += '</div>';
 });

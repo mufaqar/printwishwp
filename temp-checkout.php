@@ -203,6 +203,8 @@ if ($product) {
     </div>
 </div>
 
+
+
 <?php
 
 get_footer();
