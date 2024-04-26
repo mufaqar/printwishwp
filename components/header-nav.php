@@ -116,15 +116,15 @@ $Categories = array(
                 ?>
 
 
-                <ul class="flex flex-row mt-0 space-x-8 text-sm font-medium">
+                <ul id="menu" class="flex flex-row mt-0 space-x-8 text-sm font-medium">
                     <li>
                         <a href="<?php echo home_url(''); ?>"
-                            class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-500"
+                            class="text-white dark:text-white hover:text-primary-600 dark:hover:text-primary-500"
                             aria-current="page">Home</a>
                     </li>
                     <li>
                         <button id="dropdown-button-megamenu" data-collapse-toggle="megamenu"
-                            class="flex justify-between items-center w-full font-medium dark:hover:text-primary-500 md:p-0 md:w-auto dark:text-white hover:text-primary-500 dark:focus:text-primary-500">Categories
+                            class="flex justify-between items-center w-full font-medium dark:hover:text-primary-500 md:p-0 md:w-auto text-white hover:text-primary-500 dark:focus:text-primary-500">Categories
                             <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -134,20 +134,40 @@ $Categories = array(
                     </li>
                     <li>
                         <a href="<?php echo home_url('/about-us'); ?>"
-                            class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-500">About
+                            class="text-white dark:text-white hover:text-primary-600 dark:hover:text-primary-500">About
                             Us</a>
                     </li>
                     <li>
                         <a href="<?php echo home_url('/product'); ?>"
-                            class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Products</a>
+                            class="hidden text-white dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Products</a>
                     </li>
                     <li>
                         <a href="<?php echo home_url('/contact-us'); ?>"
-                            class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Contact</a>
+                            class="hidden text-white dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Contact</a>
                     </li>
                     <li>
                         <a href="<?php echo home_url('/locations'); ?>"
-                            class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Locations</a>
+                            class="hidden text-white dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Locations</a>
+
+
+                            <ul class="col-span-2 md:col-span-1 absolute top-[10rem] bg-white hidden submenu">
+                                    <?php
+                                    if ($Categories && is_array($Categories)) {
+                                    foreach ($Categories as $idx => $item) {
+                                    ?>
+                                    <li>
+                                        <a href="<?php echo $item['link']; ?>"
+                                            class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                                            <?php echo $item['name']; ?>
+                                        </a>
+                                    </li>
+
+                                    <?php
+                                    }
+                                    }
+                                    ?>
+
+                                    </ul>
                     </li>
 
                 </ul>
@@ -184,3 +204,17 @@ $Categories = array(
 </header>
 
 <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var menuItems = document.querySelectorAll("#menu > li");
+
+        menuItems.forEach(function(item) {
+            var submenu = item.querySelector(".submenu");
+            item.addEventListener("mouseenter", function() {
+                submenu.style.display = "block";
+            });
+           
+        });
+    });
+</script>

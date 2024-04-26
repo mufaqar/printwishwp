@@ -4,12 +4,11 @@
     <div class='max-w-screen-xl mx-auto px-4 '>
         
         <div class='w-full'>
-
             <div class='grid sm:grid-cols-2 md:grid-cols-5  grid-cols-2 gap-1 sm:gap-2 md:gap-4'>
                 <?php
                     $args = array(
                         'post_type'      => 'product',
-                        'posts_per_page' => 10, // Retrieve all products
+                        'posts_per_page' => 20, // Retrieve all products
                     );
 
                     $products_query = new WP_Query($args);

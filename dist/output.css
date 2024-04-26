@@ -665,6 +665,10 @@ video {
   top: 0.75rem;
 }
 
+.top-\[10rem\] {
+  top: 10rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -2732,10 +2736,6 @@ input[type='number'] {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .lg\:justify-between {
