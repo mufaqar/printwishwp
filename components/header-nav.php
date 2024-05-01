@@ -133,17 +133,17 @@ $Locations = array(
                         class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow absolute -top-28">
                         <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdown-button">
                             <?php
-                            if ($Categories && is_array($Categories)) {
-                                foreach ($Categories as $idx => $item) {
+                          
+                                foreach ($Categories as  $cat) {
                                     ?>
                             <li>
-                                <a href="<?php echo $item['link']; ?>" class="flex p-3 rounded-lg hover:bg-gray-50 ">
-                                    <?php echo $item['name']; ?>
+                                <a href="<?php echo $cat['link']; ?>" class="flex p-3 rounded-lg hover:bg-gray-50 ">
+                                    <?php echo $cat['name']; ?>
                                 </a>
                             </li>
                             <?php
                                 }
-                            }
+                        
                             ?>
 
                         </ul>
@@ -198,8 +198,8 @@ $Locations = array(
                         <div id="submenu-Cat" class="md:absolute md:mr-5 z-50 bg-secondary w-44 pt-4 md:pt-7 hidden">
                             <ul class='md:pb-2'>
                                 <?php
-                                if ($Categories && is_array($Categories)) {
-                                    foreach ($Categories as $idx => $cat) {
+                               
+                                    foreach ($Categories as $cat) {
                                         ?>
                                 <li class="px-5 py-1.5 relative group">
                                     <a href="product-category/<?php echo $cat['link']; ?>"
@@ -211,7 +211,7 @@ $Locations = array(
                                 </li>
                                 <?php
                                     }
-                                }
+                              
                                 ?>
                                 <li class="px-5 py-1.5 relative group">
                                     <a href="#"
@@ -254,11 +254,11 @@ $Locations = array(
                         <div id="submenu-loc" class="md:absolute md:mr-5 z-50 bg-secondary w-44 pt-4 md:pt-7 hidden">
                             <ul class='md:pb-2'>
                                 <?php
-                                 if ($Locations && is_array($Locations)) {
-                                    foreach ($Locations as $idx => $loc) {
+                               
+                                    foreach ($Locations as  $loc) {
                                         ?>
                                 <li class="px-5 py-1.5 relative group">
-                                    <a href="<?php echo $item['link']; ?>"
+                                    <a href="<?php echo $loc['link']; ?>"
                                         class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
                                         <?php echo $loc['name']; ?>
                                     </a>
@@ -267,7 +267,7 @@ $Locations = array(
                                 </li>
                                 <?php
                                     }
-                                }
+                               
                                 ?>
                                 <li class="px-5 py-1.5 relative group">
                                     <a href="#"
