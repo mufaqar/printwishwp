@@ -200,16 +200,16 @@ $Locations = array(
                                 <?php
                                
                                     foreach ($Categories as $cat) {
-                                        ?>
-                                <li class="px-5 py-1.5 relative group">
-                                    <a href="product-category/<?php echo $cat['link']; ?>"
-                                        class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
-                                        <?php echo $cat['name']; ?>
-                                    </a>
-                                    <span
-                                        class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
-                                </li>
-                                <?php
+                                         ?>
+                                            <li class="px-5 py-1.5 relative group">
+                                                <a href="product-category/<?php echo $cat['link']; ?>"
+                                                    class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
+                                                    <?php echo $cat['name']; ?>
+                                                </a>
+                                                <span
+                                                    class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
+                                            </li>
+                                       <?php
                                     }
                               
                                 ?>
