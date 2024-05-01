@@ -273,12 +273,12 @@ $Categories = array(
         const submenuCat = document.getElementById('submenu-Cat');
 
         submenuLocations.addEventListener('mouseenter', function () {
-            // Toggle the visibility of the submenu
+            // Toggle the visibility of the submenuLocations
             submenuloc.classList.toggle('hidden');
             submenuCat.classList.add('hidden');
         });
         submenuCategories.addEventListener('mouseenter', function () {
-            // Toggle the visibility of the submenu
+            // Toggle the visibility of the submenuCategories
             submenuCat.classList.toggle('hidden');
             submenuloc.classList.add('hidden');
         });
