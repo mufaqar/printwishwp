@@ -51,23 +51,47 @@ $faqs = array(
 
 
 <section class="shadow p-3 hidden md:block">
-  <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-5">
-    <a href="#" class="flex border-r-[2px] border-accent px-6 item-center hover:text-secondary gap-2 text-base uppercase text-accent">
-    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="text-2xl text-secondary" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path></svg>
-      <p>25 MINIMUM ORDER VALUE</p>
-    </a>
-    <a href="#" class="flex border-r-[2px] border-accent px-6 item-center hover:text-secondary gap-2 text-base uppercase text-accent">
-    <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.2" baseProfile="tiny" viewBox="0 0 24 24" class="text-2xl text-secondary" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16.972 6.251c-.967-.538-2.185-.188-2.72.777l-3.713 6.682-2.125-2.125c-.781-.781-2.047-.781-2.828 0-.781.781-.781 2.047 0 2.828l4 4c.378.379.888.587 1.414.587l.277-.02c.621-.087 1.166-.46 1.471-1.009l5-9c.537-.966.189-2.183-.776-2.72z"></path></svg>
-      <p>PRICE MATCH PROMISE</p>
-    </a>
-    <a href="#" class="flex border-r-[2px] border-accent px-6 item-center hover:text-secondary gap-2 text-base uppercase text-accent">
-    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="text-2xl text-secondary" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M5 17h-2v-4m-1 -8h11v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"></path><path d="M3 9l4 0"></path></svg>
-      <p>FREE UK DELIVERY.</p>
-    </a>
-    <a href="#" class="flex px-6 item-center hover:text-secondary gap-2 text-base uppercase text-accent">
-      <img src="<?php bloginfo('template_directory'); ?>/public/images/review-badge.svg" alt="rating" width="224" height="42" class="w-56" />
-    </a>
-  </div>
+    <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-5">
+        <a href="#"
+            class="flex border-r-[2px] border-accent px-6 item-center hover:text-secondary gap-2 text-base uppercase text-accent">
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                stroke-linejoin="round" class="text-2xl text-secondary" height="1em" width="1em"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z">
+                </path>
+            </svg>
+            <p>25 MINIMUM ORDER VALUE</p>
+        </a>
+        <a href="#"
+            class="flex border-r-[2px] border-accent px-6 item-center hover:text-secondary gap-2 text-base uppercase text-accent">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.2" baseProfile="tiny"
+                viewBox="0 0 24 24" class="text-2xl text-secondary" height="1em" width="1em"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M16.972 6.251c-.967-.538-2.185-.188-2.72.777l-3.713 6.682-2.125-2.125c-.781-.781-2.047-.781-2.828 0-.781.781-.781 2.047 0 2.828l4 4c.378.379.888.587 1.414.587l.277-.02c.621-.087 1.166-.46 1.471-1.009l5-9c.537-.966.189-2.183-.776-2.72z">
+                </path>
+            </svg>
+            <p>PRICE MATCH PROMISE</p>
+        </a>
+        <a href="#"
+            class="flex border-r-[2px] border-accent px-6 item-center hover:text-secondary gap-2 text-base uppercase text-accent">
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                stroke-linejoin="round" class="text-2xl text-secondary" height="1em" width="1em"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                <path d="M5 17h-2v-4m-1 -8h11v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"></path>
+                <path d="M3 9l4 0"></path>
+            </svg>
+            <p>FREE UK DELIVERY.</p>
+        </a>
+        <a href="#" class="flex px-6 item-center hover:text-secondary gap-2 text-base uppercase text-accent">
+            <img src="<?php bloginfo('template_directory'); ?>/public/images/review-badge.svg" alt="rating" width="224"
+                height="42" class="w-56" />
+        </a>
+    </div>
 </section>
 
 <main class='md:flex container mx-auto px-4 gap-10 mt-7 font-opensans mb-20'>
@@ -357,6 +381,7 @@ $faqs = array(
 
 
 
+
         <?php
 		// Usage
 		$title = 'Delivery Title';
@@ -367,14 +392,18 @@ $faqs = array(
 
 
 
-        
+
         <div id="product-popup" class="mfp-hide bg-white shadow container mx-auto p-6 flex flex-col gap-5">
 
-        <button class="close_popup uppercase font-light items-center border border-primary gap-2 w-full text-center py-3 bg-primary text-white px-6 hover:text-primary hover:bg-transparent ">Close The order form</button>
+            <button
+                class="close_popup uppercase font-light items-center border border-primary gap-2 w-full text-center py-3 bg-primary text-white px-6 hover:text-primary hover:bg-transparent ">Close
+                The order form</button>
 
-        <h5 class="text-xl font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-black/60">Step 1 - Choose one or more colours: *</h5>
-   
-        <?php
+            <h5
+                class="text-xl font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-black/60">
+                Step 1 - Choose one or more colours: *</h5>
+
+            <?php
             // Ensure WooCommerce is active
             if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
@@ -425,16 +454,20 @@ $faqs = array(
             }
             ?>
 
-        <div id="selectedColorsContainer"  class="flex flex-col gap-5 ">
-            <!-- Selected colors will be inserted here -->
-        </div>
+            <div id="selectedColorsContainer" class="flex flex-col gap-5 ">
+                <!-- Selected colors will be inserted here -->
+            </div>
 
-        <!-- ------------------------  -->
-        <!-- variants  -->
-        <!-- ------------------------  -->
-        <div class="bg-gray-200 px-4 py-6 border rounded !border-red-500"><h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 2 - Where must we print your artwork? *</h5><p class="pl-2">T-Shirt Print Area</p></div>
-                
-        <?php
+            <!-- ------------------------  -->
+            <!-- variants  -->
+            <!-- ------------------------  -->
+            <div class="bg-gray-200 px-4 py-6 border rounded !border-red-500">
+                <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 2 - Where must we print your
+                    artwork? *</h5>
+                <p class="pl-2">T-Shirt Print Area</p>
+            </div>
+
+            <?php
                 $baseUrl = get_bloginfo('template_url');
                 $imageVariants = array(
                     "Left Breast" => $baseUrl . "/public/images/tshirt-varients/left_breast.jpeg",
@@ -448,46 +481,54 @@ $faqs = array(
                 );
             
         ?>
-        <div class="mt-5 grid grid-cols-5 gap-2 sm:grid-cols-3 md:grid-cols-6">
-            <?php foreach ($imageVariants as $name => $path): ?>
+            <div class="mt-5 grid grid-cols-5 gap-2 sm:grid-cols-3 md:grid-cols-6">
+                <?php foreach ($imageVariants as $name => $path): ?>
                 <button class="p-1 relative" onclick="selectOnlyVarients(this, '<?php echo $name; ?>')">
-                    <div class="bg-white flex flex-col items-center gap-2 border-[3px] rounded-lg p-1 py-2 border-transparent">
+                    <div
+                        class="bg-white flex flex-col items-center gap-2 border-[3px] rounded-lg p-1 py-2 border-transparent">
                         <h5 class="uppercase font-light font-roboto text-center"></h5>
-                        <img alt="<?php echo $name; ?>" class="w-2/3" src="<?php echo $path; ?>" style="color: transparent;">
+                        <img alt="<?php echo $name; ?>" class="w-2/3" src="<?php echo $path; ?>"
+                            style="color: transparent;">
                         <h5 class="capitalize font-light font-roboto text-center"><?php echo $name; ?></h5>
                     </div>
                 </button>
-            <?php endforeach; ?>
-        </div>
+                <?php endforeach; ?>
+            </div>
 
-        <div class="bg-gray-200 px-4 py-6 border rounded border-black/60 my-3">
-            <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 3 - Number of colours per artwork *</h5>
-        </div>
-        <div class="colorLogo"></div>
+            <div class="bg-gray-200 px-4 py-6 border rounded border-black/60 my-3">
+                <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 3 - Number of colours per artwork *
+                </h5>
+            </div>
+            <div class="colorLogo"></div>
 
-        <!-- upload Images  -->
-        <div class="px-4 py-6 border border-black/60 rounded mt-3">
-            <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 4- Upload your artwork (Optional)</h5>
-        </div>
-        <div class="uploadImages grid grid-cols-2 gap-5"></div>
+            <!-- upload Images  -->
+            <div class="px-4 py-6 border border-black/60 rounded mt-3">
+                <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 4- Upload your artwork (Optional)
+                </h5>
+            </div>
+            <div class="uploadImages grid grid-cols-2 gap-5"></div>
 
-        <section>
-            <h5 class="text-xl font-semibold text-accent mb-2 mt-5 font-roboto">Additional information or requests</h5>
-            <textarea id="additional" class="block w-full p-3 min-h-[340px] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md">This is Sample Text</textarea>
-        </section>
+            <section>
+                <h5 class="text-xl font-semibold text-accent mb-2 mt-5 font-roboto">Additional information or requests
+                </h5>
+                <textarea id="additional"
+                    class="block w-full p-3 min-h-[340px] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md">This is Sample Text</textarea>
+            </section>
 
-        <div class="flex justify-center md:justify-end">
-            <button onclick="handleAddToCart()" class=" uppercase font-light items-center border border-primary gap-2 w-full md:w-1/2 text-center py-3 text-white px-6   mt-7 rounded-lg
+            <div class="flex justify-center md:justify-end">
+                <button onclick="handleAddToCart()" class=" uppercase font-light items-center border border-primary gap-2 w-full md:w-1/2 text-center py-3 text-white px-6   mt-7 rounded-lg
                             bg-primary hover:bg-transparent hover:text-primary cursor-pointer
             ">Add to Quote</button>
+            </div>
+
+
+
+
+
         </div>
 
 
 
- 
-
-
-        </div>
 
 
 
@@ -504,49 +545,56 @@ var selectedVariants = [];
 
 
 
+
 function handColors(item) {
     var ccode = item.getAttribute('code');
     var color = {
         color: item.innerText,
         code: ccode,
-		selectedsize: []
+        selectedsize: []
     }
     SelectedColors.push(color);
     createColorList(SelectedColors)
 
 }
+
 function createColorList(colors) {
     var html = '';
     colors.forEach(function(color) {
-    // Open the color-item div
-    html += '<div class="color-item border border-black justify-between my-3 bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
-    // Open the inner flex div for color display and text
-    html += '<div class="flex items-center gap-2">';
-    html += '<div class="p-4 rounded-full" style="background-color: #' + color.code + '; border-color: #' + color.code + '"></div>';
-    html += '<p class="text-lg uppercase">' + color.color + '</p>';
-    // Close the inner flex div
-    html += '</div>';
-    // Open the inner flex div for size inputs
-    html += '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 mt-3 ">';
-    // Iterate over sizes
-    ['S', 'M', 'L', 'XL', '2XL', '3XL'].forEach(function(size) {
-        // Open the div for each size
-        html += '<div class="flex flex-col items-center justify-center">';
-        html += '<p class="text-lg text-accent font-bold">' + size + '</p>';
-        // Open the div for the input
-        html += '<div class="mt-1">';
-        html += '<input type="number" name="' + size +
-            '" min="0" style="max-width:64px" class="w-16 bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' + color.code + '\', \'' + size + '\')">';
-        // Close the input div
-        html += '</div></div>';
+        // Open the color-item div
+        html +=
+            '<div class="color-item border border-black justify-between my-3 bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
+        // Open the inner flex div for color display and text
+        html += '<div class="flex items-center gap-2">';
+        html += '<div class="p-4 rounded-full" style="background-color: #' + color.code + '; border-color: #' +
+            color.code + '"></div>';
+        html += '<p class="text-lg uppercase">' + color.color + '</p>';
+        // Close the inner flex div
+        html += '</div>';
+        // Open the inner flex div for size inputs
+        html +=
+            '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 mt-3 ">';
+        // Iterate over sizes
+        ['S', 'M', 'L', 'XL', '2XL', '3XL'].forEach(function(size) {
+            // Open the div for each size
+            html += '<div class="flex flex-col items-center justify-center">';
+            html += '<p class="text-lg text-accent font-bold">' + size + '</p>';
+            // Open the div for the input
+            html += '<div class="mt-1">';
+            html += '<input type="number" name="' + size +
+                '" min="0" style="max-width:64px" class="w-16 bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' +
+                color.code + '\', \'' + size + '\')">';
+            // Close the input div
+            html += '</div></div>';
+        });
+        // Close the inner flex div for size inputs
+        html += '</div>';
+        // Add the button to remove the color item
+        html += '<button onclick="removeColor(this)" code=' + color.code +
+            '><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor"></path></svg></button> </div>';
+        // Close the color-item div
+        html += '</div>';
     });
-    // Close the inner flex div for size inputs
-    html += '</div>';
-    // Add the button to remove the color item
-    html += '<button onclick="removeColor(this)" code=' + color.code + '><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor"></path></svg></button> </div>';
-    // Close the color-item div
-    html += '</div>';
-});
 
 
     // Get the div container
@@ -558,16 +606,20 @@ function createColorList(colors) {
 }
 
 function updateValues(inputElement, color, size) {
-    var quantity = inputElement.value; 
-	const ci = SelectedColors.findIndex(item => item.code === color);
-    const size_qty = { size, quantity };
+    var quantity = inputElement.value;
+    const ci = SelectedColors.findIndex(item => item.code === color);
+    const size_qty = {
+        size,
+        quantity
+    };
     var sizes = SelectedColors[ci].selectedsize;
-    var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i.size === size));
+    var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i
+        .size === size));
 
     if (isSizeExistIndex !== -1) {
         // Update the quantity of the existing size
         const existingSizeIndex = SelectedColors[isSizeExistIndex].selectedsize.findIndex(i => i.size === size);
-        
+
         if (existingSizeIndex !== -1) {
             // Remove the previous quantity and update with the new quantity
             SelectedColors[isSizeExistIndex].selectedsize.splice(existingSizeIndex, 1, size_qty);
@@ -607,7 +659,10 @@ function selectOnlyVarients(button, name) {
     });
     if (index === -1) {
         // If variant is not already selected, add it to selectedVariants array
-        selectedVariants.push({ variant: name, colorInLogo: 0 });
+        selectedVariants.push({
+            variant: name,
+            colorInLogo: 0
+        });
         button.style.border = "1px solid red"; // Add border
     } else {
         // If variant is already selected, remove it from selectedVariants array
@@ -626,9 +681,16 @@ function updateColorLogo() {
     if (selectedVariants.length > 0) {
         for (var i = 0; i < selectedVariants.length; i++) {
             var variantName = selectedVariants[i].variant;
-            var sectionHTML = '<section class="bg-gray-50 md:p-6 p-5 border-[1.5px] rounded-lg border-gray-50 mt-4"><div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto false">' + variantName + '</h5><div class="items-center justify-center mt-4 gap-2 p-0 grid md:grid-cols-7 grid-cols-2">';
+            var sectionHTML =
+                '<section class="bg-gray-50 md:p-6 p-5 border-[1.5px] rounded-lg border-gray-50 mt-4"><div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto false">' +
+                variantName +
+                '</h5><div class="items-center justify-center mt-4 gap-2 p-0 grid md:grid-cols-7 grid-cols-2">';
             for (var j = 1; j <= 7; j++) {
-                sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j + '"  name="'+ variantName +'" class="w-full text-center p-2 cursor-pointer px-8 text-lg bg-white rounded border-[2px] border-gray-[#CCCCCC] hover:border-main"><img alt="' + j + '" width="200" height="200"  src="<?php echo $baseUrl?>/public/images/colors/' + j + '.jpg">Colours</button></div>';
+                sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j +
+                    '"  name="' + variantName +
+                    '" class="w-full text-center p-2 cursor-pointer px-8 text-lg bg-white rounded border-[2px] border-gray-[#CCCCCC] hover:border-main"><img alt="' +
+                    j + '" width="200" height="200"  src="<?php echo $baseUrl?>/public/images/colors/' + j +
+                    '.jpg">Colours</button></div>';
             }
             sectionHTML += '</div></div></section>';
             colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
@@ -639,7 +701,7 @@ function updateColorLogo() {
 // Initially update the color sections in the logo
 updateColorLogo();
 
-function handleColorInLogo(props){
+function handleColorInLogo(props) {
     const vName = props.getAttribute('name');
     const CIL = props.getAttribute('colorinlogo');
     const index = selectedVariants.findIndex(item => item.variant === vName);
@@ -669,17 +731,18 @@ function handleUploadImage() {
     if (selectedVariants.length > 0) {
         for (var i = 0; i < selectedVariants.length; i++) {
             var sectionHTML = '<div class="bg-white p-4 rounded-xl">';
-            sectionHTML += '<div class="flex flex-col md:flex-row w-full min-h-[120px] border-2 border-gray-300 border-dashed rounded-lg items-center justify-center">';
-            sectionHTML += '<input type="file" name="image" accept="image/*">';
-            sectionHTML += '<button type="submit">Upload Image</button>';
+            sectionHTML +=
+                '<div class="flex flex-col md:flex-row w-full min-h-[120px] border-2 border-gray-300 border-dashed rounded-lg items-center justify-center">';
+            sectionHTML += '<input type="file" name="image" id="fileInput' + i + '" accept="image/*">';
+            sectionHTML += '<div id="upload-status' + i + '"></div>'
             sectionHTML += '</div></div>';
-                       
             colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
         }
     }
 }
 
 const handleAddToCart = () => {
+    alert("Test");
     var productId = <?php echo $product_id ?>;
     var additionalInfoTextarea = document.getElementById('additional').value;
     localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
@@ -688,18 +751,18 @@ const handleAddToCart = () => {
     localStorage.setItem("ProductID", JSON.stringify(productId));
 
     // Prepare data to send
-var data = {
-    'action': 'store_data_in_wp_session',
-    'SelectedColors': SelectedColors,
-    'selectedVariants': selectedVariants,
-    'additionalInfo': additionalInfoTextarea,
-    'ProductID': productId
-};
+    var data = {
+        'action': 'store_data_in_wp_session',
+        'SelectedColors': SelectedColors,
+        'selectedVariants': selectedVariants,
+        'additionalInfo': additionalInfoTextarea,
+        'ProductID': productId
+    };
 
-// Send AJAX request to WordPress backend
-jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function(response) {
-    console.log('Data stored in WordPress.');
-});
+    // Send AJAX request to WordPress backend
+    jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function(response) {
+        console.log('Data stored in WordPress.');
+    });
 
 
 }
@@ -707,12 +770,50 @@ jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function(respons
 
 
 jQuery(document).ready(function($) {
+
+
+    $(document).on('change', '[id^=fileInput]', function() {
+        var fileInputId = $(this).attr('id');
+        var fileIndex = fileInputId.replace('fileInput', '');
+        handleFileInputChange(this, fileIndex);
+        console.log(fileInputId);
+
+    });
+    function handleFileInputChange(input, index) {
+        var formData = new FormData();
+        var file = input.files[0];
+        formData.append('action', 'upload_mediafiles');
+        formData.append('file', file);
+
+        var uploadStatus = $('#upload-status' + index);
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                selectedVariants[index].url = response;
+                console.log(selectedVariants);
+                uploadStatus.html('<img src="' + response +
+                    '" alt="Uploaded Image" width="75" height="75">');
+            },
+            error: function(xhr, status, error) {
+                uploadStatus.html('Error uploading image: ' + error);
+            }
+        });
+    }
+
+
+
+
     $('.open-popup-link').magnificPopup({
         type: 'inline',
         midClick: true
     });
-     // Add event listener to the close button
-     $('.close_popup').on('click', function() {
+    // Add event listener to the close button
+    $('.close_popup').on('click', function() {
         // Get the Magnific Popup instance and close the popup
         $.magnificPopup.close();
     });

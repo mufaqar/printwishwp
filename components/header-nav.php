@@ -55,7 +55,7 @@ $Categories = array(
 <header class="shadow-md">
 
     <nav class="bg-secondary z-50">
-        <div class="grid py-4 px-4 mx-auto max-w-screen-xl lg:grid-cols-2 md:px-6">
+        <div class="grid py-4 px-4 mx-auto container lg:grid-cols-2 md:px-6">
             <form class="flex mb-4 lg:order-2 lg:mb-0">
                 <label for="search-dropdown"
                     class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Your Email</label>
@@ -150,7 +150,7 @@ $Categories = array(
                             class="hidden text-white dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Locations</a>
 
 
-                            <ul class="col-span-2 md:col-span-1 absolute top-[10rem] bg-white hidden submenu">
+                            <!-- <ul class="col-span-2 md:col-span-1 absolute top-[10rem] bg-white hidden submenu">
                                     <?php
                                     if ($Categories && is_array($Categories)) {
                                     foreach ($Categories as $idx => $item) {
@@ -167,14 +167,14 @@ $Categories = array(
                                     }
                                     ?>
 
-                                    </ul>
+                                    </ul> -->
                     </li>
 
                 </ul>
             </div>
         </div>
     </nav>
-    <nav id="megamenu" class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-600 hidden">
+    <nav id="megamenu" class="bg-primary border-b border-gray-200 dark:bg-gray-800 dark:border-gray-600 hidden">
         <div
             class="grid py-4 px-4 mx-auto max-w-screen-xl text-gray-900 dark:text-white md:grid-cols-2 lg:grid-cols-4 md:px-6">
             <ul class="col-span-2 md:col-span-1">
@@ -208,7 +208,6 @@ $Categories = array(
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var menuItems = document.querySelectorAll("#menu > li");
-
         menuItems.forEach(function(item) {
             var submenu = item.querySelector(".submenu");
             item.addEventListener("mouseenter", function() {

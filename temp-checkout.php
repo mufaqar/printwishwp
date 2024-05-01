@@ -14,10 +14,16 @@ if ($session_data) {
     $additional_info = $session_data['additional_info'];
     $product_id = $session_data['product_id'];
 
+    print "<pre>";
     print_r($selected_variants);
+    print_r($selected_colors);
+    print "</pre>";
 
   
 }
+
+
+
 
 
 // Get WooCommerce product data
@@ -39,6 +45,11 @@ if ($product) {
                     <span class="mt-2 block h-1 w-10 bg-primary sm:w-20"></span>
                 </h1>
                 <form class="mt-10 flex flex-col space-y-4" id="create_order" method="POST">
+
+                <input type="text" name="array_data" value="<?php echo htmlspecialchars($json_data); ?>">
+
+
+
                     <div>
                         <label class="text-xs font-semibold text-gray-500">
                             Name
@@ -218,6 +229,8 @@ jQuery(document).ready(function($) {
     $("#create_order").submit(function(e) {
         e.preventDefault();
         var formData = $("#create_order").serialize();
+
+        var jsonData = JSON.stringify(arrayData);
         alert(formData);
         $.ajax({
             type: "post",

@@ -286,3 +286,4 @@ function pass_session_data_to_template($template) {
 
     return $template;
 }
+

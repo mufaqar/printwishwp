@@ -9,6 +9,15 @@ function insert_order_data() {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) ) {
 
+		$json_data = $_POST['array_data'];
+
+// Decode the JSON string back into an array
+$array_data = json_decode($json_data);
+
+echo "Test";
+
+print_r($array_data);
+
 
 		function create_vip_order($id) {
 
@@ -50,6 +59,29 @@ function insert_order_data() {
 
 
 
+
 // Add action for saving form data
-add_action('wp_ajax_save_form_user_data', 'save_form_user_data');
-add_action('wp_ajax_nopriv_save_form_user_data', 'save_form_user_data');
+add_action('wp_ajax_upload_mediafiles', 'upload_mediafiles');
+add_action('wp_ajax_nopriv_upload_mediafiles', 'upload_mediafiles');
+
+function upload_mediafiles() {   
+
+	if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
+        $upload_dir = wp_upload_dir();
+        $target_dir = $upload_dir['path'];
+        $target_file = $target_dir . "/" . basename($_FILES["file"]["name"]);
+
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+            $image_url = $upload_dir['url'] . "/" . basename($_FILES["file"]["name"]);
+            echo $image_url;
+        } else {
+            echo "Error: Unable to move uploaded file.";
+        }
+    } else {
+        echo "Error: No file uploaded or an error occurred during upload.";
+    }
+
+    wp_die();
+
+   
+}
