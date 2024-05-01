@@ -19,36 +19,61 @@ defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
 
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
-do_action( 'woocommerce_before_main_content' );
+$cat = get_queried_object();
+$term_id = get_queried_object_id();
 
-/**
- * Hook: woocommerce_shop_loop_header.
- *
- * @since 8.6.0
- *
- * @hooked woocommerce_product_taxonomy_archive_header - 10
- */
-do_action( 'woocommerce_shop_loop_header' );
+$term_meta = get_term_meta($term_id, 'faqs', true);
+
+ // Get the thumbnail URL for the term
+ $thumbnail_id = get_term_meta($term_id, 'thumbnail_id', true);
+    
+
+ if (!empty($thumbnail_id)) {
+	 $thumbnail_url = wp_get_attachment_image_src($thumbnail_id, 'full');	 
+
+	 $cat_thumbnail =  $thumbnail_url[0];
+ }
+
+?>
+
+<section>
+    <div class="py-6 relative md:py-16 bg-cover bg-no-repeat bg-center"
+        style="background-image: linear-gradient(0deg, rgba(0, 36, 63, 0.7), rgba(0, 36, 63, 0.7)), url(<?php echo $cat_thumbnail ?>);">
+        <div class="container mx-auto px-4 text-white">
+            <h2 class="sm:text-4xl text-4xl font-bold font-opensans capitalize mb-2 sm:text-left text-center">
+                <?php echo esc_html($cat->name); ?>
+            </h2>
+            <div>
+                <?php echo wp_kses_post($cat->description); ?>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<?php
+
+get_template_part( 'components/com', 'brands' );
+get_template_part( 'components/com', 'reviews' );
+
+?>
+
+<section class='py-16 relative'>
+    <div class='max-w-screen-xl mx-auto px-4 '>
+
+        <div class='w-full'>
+            <div class='grid sm:grid-cols-2 md:grid-cols-5  grid-cols-2 gap-1 sm:gap-2 md:gap-4'>
+
+                <?php
 
 if ( woocommerce_product_loop() ) {
 
-	/**
-	 * Hook: woocommerce_before_shop_loop.
-	 *
-	 * @hooked woocommerce_output_all_notices - 10
-	 * @hooked woocommerce_result_count - 20
-	 * @hooked woocommerce_catalog_ordering - 30
-	 */
-	do_action( 'woocommerce_before_shop_loop' );
+	
 
-	woocommerce_product_loop_start();
+	//woocommerce_product_loop_start();
 
 	if ( wc_get_loop_prop( 'total' ) ) {
 		while ( have_posts() ) {
@@ -59,11 +84,15 @@ if ( woocommerce_product_loop() ) {
 			 */
 			do_action( 'woocommerce_shop_loop' );
 
-			wc_get_template_part( 'content', 'product' );
+			//wc_get_template_part( 'content', 'product' );
+			$args = [get_the_ID()];
+
+			// Include the template part
+			get_template_part('components/widget/product', 'box', $args);
 		}
 	}
 
-	woocommerce_product_loop_end();
+	//woocommerce_product_loop_end();
 
 	/**
 	 * Hook: woocommerce_after_shop_loop.
@@ -80,18 +109,13 @@ if ( woocommerce_product_loop() ) {
 	do_action( 'woocommerce_no_products_found' );
 }
 
-/**
- * Hook: woocommerce_after_main_content.
- *
- * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
- */
-do_action( 'woocommerce_after_main_content' );
+?>
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action( 'woocommerce_sidebar' );
+            </div>
+        </div>
+    </div>
+</section><?php
+
+
 
 get_footer( 'shop' );
