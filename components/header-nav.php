@@ -50,6 +50,39 @@ $Categories = array(
         'link' => 'cotton-bags-cheap-branded-tote-bags'
     )
 );
+
+$Locations = array(
+    array(      
+        'name' => 'LONDON',    
+        'link' => '/'
+    ),
+    array(      
+        'name' => 'MANCHESTER',    
+        'link' => '/'
+    ),
+    array(      
+        'name' => 'GLASGOW',    
+        'link' => '/'
+    ),
+    array(      
+        'name' => 'LIVERPOOL',    
+        'link' => '/'
+    ),
+    array(      
+        'name' => 'BIRMINGHAM',    
+        'link' => '/'
+    ),
+    array(      
+        'name' => 'EDINBURGH',    
+        'link' => '/'
+    ),
+    array(      
+        'name' => 'CAMBRIDGE',    
+        'link' => '/'
+    )
+);
+
+
 ?>
 
 <header class="shadow-md">
@@ -98,12 +131,12 @@ $Categories = array(
                             if ($Categories && is_array($Categories)) {
                                 foreach ($Categories as $idx => $item) {
                                     ?>
-                                    <li>
-                                        <a href="<?php echo $item['link']; ?>" class="flex p-3 rounded-lg hover:bg-gray-50 ">
-                                            <?php echo $item['name']; ?>
-                                        </a>
-                                    </li>
-                                    <?php
+                            <li>
+                                <a href="<?php echo $item['link']; ?>" class="flex p-3 rounded-lg hover:bg-gray-50 ">
+                                    <?php echo $item['name']; ?>
+                                </a>
+                            </li>
+                            <?php
                                 }
                             }
                             ?>
@@ -161,17 +194,17 @@ $Categories = array(
                             <ul class='md:pb-2'>
                                 <?php
                                 if ($Categories && is_array($Categories)) {
-                                    foreach ($Categories as $idx => $item) {
+                                    foreach ($Categories as $idx => $cat) {
                                         ?>
-                                        <li class="px-5 py-1.5 relative group">
-                                            <a href="<?php echo $item['link']; ?>"
-                                                class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
-                                                <?php echo $item['name']; ?>
-                                            </a>
-                                            <span
-                                                class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
-                                        </li>
-                                        <?php
+                                <li class="px-5 py-1.5 relative group">
+                                    <a href="product-category/<?php echo $cat['link']; ?>"
+                                        class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
+                                        <?php echo $cat['name']; ?>
+                                    </a>
+                                    <span
+                                        class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
+                                </li>
+                                <?php
                                     }
                                 }
                                 ?>
@@ -216,18 +249,18 @@ $Categories = array(
                         <div id="submenu-loc" class="md:absolute md:mr-5 z-50 bg-secondary w-44 pt-4 md:pt-7 hidden">
                             <ul class='md:pb-2'>
                                 <?php
-                                if ($Categories && is_array($Categories)) {
-                                    foreach ($Categories as $idx => $item) {
+                                 if ($Locations && is_array($Locations)) {
+                                    foreach ($Locations as $idx => $loc) {
                                         ?>
-                                        <li class="px-5 py-1.5 relative group">
-                                            <a href="<?php echo $item['link']; ?>"
-                                                class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
-                                                <?php echo $item['name']; ?>
-                                            </a>
-                                            <span
-                                                class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
-                                        </li>
-                                        <?php
+                                <li class="px-5 py-1.5 relative group">
+                                    <a href="<?php echo $item['link']; ?>"
+                                        class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
+                                        <?php echo $loc['name']; ?>
+                                    </a>
+                                    <span
+                                        class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
+                                </li>
+                                <?php
                                     }
                                 }
                                 ?>
@@ -251,49 +284,49 @@ $Categories = array(
 <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuIconClosed = document.getElementById('menu-icon-closed');
-        const menuIconOpen = document.getElementById('menu-icon-open');
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuIconClosed = document.getElementById('menu-icon-closed');
+    const menuIconOpen = document.getElementById('menu-icon-open');
 
-        menuToggle.addEventListener('click', function () {
-            // Toggle the visibility of the menu icons
-            menuIconClosed.classList.toggle('hidden');
-            menuIconOpen.classList.toggle('hidden');
-            // Toggle the visibility of the menu
-            menu.classList.toggle('hidden');
-        });
+    menuToggle.addEventListener('click', function() {
+        // Toggle the visibility of the menu icons
+        menuIconClosed.classList.toggle('hidden');
+        menuIconOpen.classList.toggle('hidden');
+        // Toggle the visibility of the menu
+        menu.classList.toggle('hidden');
     });
+});
 
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const submenuLocations = document.getElementById('submenu-locations');
-        const submenuCategories = document.getElementById('submenu-Categories');
-        const submenuloc = document.getElementById('submenu-loc');
-        const submenuCat = document.getElementById('submenu-Cat');
+document.addEventListener('DOMContentLoaded', function() {
+    const submenuLocations = document.getElementById('submenu-locations');
+    const submenuCategories = document.getElementById('submenu-Categories');
+    const submenuloc = document.getElementById('submenu-loc');
+    const submenuCat = document.getElementById('submenu-Cat');
 
-        submenuLocations.addEventListener('mouseenter', function () {
-            // Toggle the visibility of the submenuLocations
-            submenuloc.classList.toggle('hidden');
-            submenuCat.classList.add('hidden');
-        });
-        submenuCategories.addEventListener('mouseenter', function () {
-            // Toggle the visibility of the submenuCategories
-            submenuCat.classList.toggle('hidden');
-            submenuloc.classList.add('hidden');
-        });
+    submenuLocations.addEventListener('mouseenter', function() {
+        // Toggle the visibility of the submenuLocations
+        submenuloc.classList.toggle('hidden');
+        submenuCat.classList.add('hidden');
     });
+    submenuCategories.addEventListener('mouseenter', function() {
+        // Toggle the visibility of the submenuCategories
+        submenuCat.classList.toggle('hidden');
+        submenuloc.classList.add('hidden');
+    });
+});
 
 
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     var menuItems = document.querySelectorAll("#menu > li");
+// document.addEventListener("DOMContentLoaded", function () {
+//     var menuItems = document.querySelectorAll("#menu > li");
 
-    //     menuItems.forEach(function (item) {
-    //         var submenu = item.querySelector(".submenu");
-    //         item.addEventListener("mouseenter", function () {
-    //             submenu.style.display = "block";
-    //         });
+//     menuItems.forEach(function (item) {
+//         var submenu = item.querySelector(".submenu");
+//         item.addEventListener("mouseenter", function () {
+//             submenu.style.display = "block";
+//         });
 
-    //     });
-    // });
+//     });
+// });
 </script>

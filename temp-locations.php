@@ -38,7 +38,6 @@ get_header();
     </ul>
 </section>
 
-
 <?php get_template_part( 'components/com', 'reviews' ); ?>
 <?php
 
