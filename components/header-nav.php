@@ -202,7 +202,7 @@ $Locations = array(
                                     foreach ($Categories as $cat) {
                                          ?>
                                             <li class="px-5 py-1.5 relative group">
-                                                <a href="product-category/<?php echo $cat['link']; ?>"
+                                                <a href="<?php echo home_url('product-category'); ?>/<?php echo $cat['link']; ?>"
                                                     class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
                                                     <?php echo $cat['name']; ?>
                                                 </a>
