@@ -812,24 +812,11 @@ video {
   left: 2.25rem;
 }
 
-<<<<<<< HEAD
-.left-1 {
-  left: 0.25rem;
-}
-
-.left-1\/2 {
-  left: 50%;
-}
-
-.z-10 {
-  z-index: 10;
-=======
 .inset-10 {
   top: 2.5rem;
   right: 2.5rem;
   bottom: 2.5rem;
   left: 2.5rem;
->>>>>>> 6321f484a715706c97f050676bc04c0032ba7347
 }
 
 .inset-11 {
@@ -1880,19 +1867,9 @@ video {
   bottom: 10rem;
 }
 
-<<<<<<< HEAD
-.bg-blue-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-}
-
-.bg-cover {
-  background-size: cover;
-=======
 .inset-y-44 {
   top: 11rem;
   bottom: 11rem;
->>>>>>> 6321f484a715706c97f050676bc04c0032ba7347
 }
 
 .inset-y-48 {

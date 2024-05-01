@@ -4,7 +4,7 @@
                     <Img src="<?php bloginfo('template_directory'); ?>/public/images/logo.png" alt="logo" width="140px"
                         height="37px" />
                 </a>
-                <div class='w-full lg:w-[60%]'>
+                <div class='w-full lg:w-3/5'>
 
                     <div class='text-slider'>
                         <?php
