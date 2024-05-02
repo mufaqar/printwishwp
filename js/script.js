@@ -81,6 +81,8 @@ jQuery(document).ready(function ($) {
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
+    prevArrow: $('.prev'),
+    nextArrow: $('.next'),
     responsive: [
       {
         breakpoint: 1024,
@@ -107,6 +109,15 @@ jQuery(document).ready(function ($) {
         },
       },
     ],
+  });
+  // Previous Button Click Handler
+  $('.prev').click(function () {
+    $('.products_slider').slick('slickPrev');
+  });
+
+  // Next Button Click Handler
+  $('.next').click(function () {
+    $('.products_slider').slick('slickNext');
   });
 
   $('.text-slider').slick({
