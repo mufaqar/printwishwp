@@ -300,11 +300,16 @@ add_filter( 'post_type_link', 'change_locations_permalink_structure', 10, 2 );
 function change_locations_rewrite_rules( $rules ) {
     $new_rules = array();
     foreach ( $rules as $key => $value ) {
-        $new_rules[ str_replace( 'locations/', '', $key ) ] = $value;
+        if (strpos($key, 'locations/') !== false) {
+            $new_rules[ str_replace( 'locations/', '', $key ) ] = $value;
+        } else {
+            $new_rules[$key] = $value;
+        }
     }
     return $new_rules;
 }
 add_filter( 'rewrite_rules_array', 'change_locations_rewrite_rules' );
+
 
 
 
