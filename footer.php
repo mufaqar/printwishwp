@@ -70,7 +70,7 @@ $Categories = [
 ?>
 
 <style>
-    li::marker {
+    .before_line::marker {
         color: #0088cc;
     }
 

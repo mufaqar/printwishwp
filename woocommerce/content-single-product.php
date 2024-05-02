@@ -15,13 +15,14 @@
  * @version 3.6.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $product;
 
 $product_price = $product->get_price();
 
-$product_excerpt = get_the_excerpt(); 
+$product_excerpt = get_the_excerpt();
+$product_content = get_the_content();
 
 
 $faqs = array(
@@ -42,10 +43,6 @@ $faqs = array(
         'answer' => 'At Printwish UK, we offer free UK Shipping on all orders. Our lead time is 5-7 working days from the payment date and digital proof approval.'
     )
 );
-
-
-
-
 
 ?>
 
@@ -95,115 +92,103 @@ $faqs = array(
 </section>
 
 <main class='md:flex container mx-auto px-4 gap-10 mt-7 font-opensans mb-20'>
-    <section class='md:w-[40%] image-slider'>
-        <?php			
-				$product_id = $product->get_id();
-				$gallery_images = $product->get_gallery_image_ids();
-				$image_path = get_the_post_thumbnail_url($product_id, 'full');
-				$settings = array(
-					'dots' => true,
-					'infinite' => true,
-					'speed' => 500,
-					'slidesToShow' => 1,
-					'slidesToScroll' => 1
-				);
-				echo '<div class="slick-slider" data-settings="' . esc_attr(json_encode($settings)) . '">';
-				if (!empty($gallery_images)) {
-					foreach ($gallery_images as $image_id) {
-						$image_url = wp_get_attachment_url($image_id);
-						$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-						echo '<div>';
-						echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="600" height="600" class="w-full rounded-lg" />';
-						echo '<h5 class="text-center font-semibold text-lg capitalize mb-3">' . esc_html($image_alt) . '</h5>';
-						echo '</div>';
-					}
-				} else {
-					echo '<img src="' . esc_url($image_path) . '" alt="' . esc_attr($product->get_name()) . '" width="600" height="600" class="w-full rounded-lg" />';
-				}
+    <section class='md:w-2/5 image-slider'>
+        <?php
+        $product_id = $product->get_id();
+        $gallery_images = $product->get_gallery_image_ids();
+        $image_path = get_the_post_thumbnail_url($product_id, 'full');
+        $settings = array(
+            'dots' => true,
+            'infinite' => true,
+            'speed' => 500,
+            'slidesToShow' => 1,
+            'slidesToScroll' => 1
+        );
+        echo '<div class="slick-slider" data-settings="' . esc_attr(json_encode($settings)) . '">';
+        if (!empty($gallery_images)) {
+            foreach ($gallery_images as $image_id) {
+                $image_url = wp_get_attachment_url($image_id);
+                $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+                echo '<div>';
+                echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="600" height="600" class="w-full rounded-lg" />';
+                echo '<h5 class="text-center font-semibold text-lg capitalize mb-3">' . esc_html($image_alt) . '</h5>';
+                echo '</div>';
+            }
+        } else {
+            echo '<img src="' . esc_url($image_path) . '" alt="' . esc_attr($product->get_name()) . '" width="600" height="600" class="w-full rounded-lg" />';
+        }
 
-				echo '</div>';
-			?>
-
-
+        echo '</div>';
+        ?>
 
 
-        <div class='mt-5 text-lg text-black bg-background p-8 rounded-lg font-medium '>
-            <h6>Printed From <strong class='text-black'><?php echo wc_price($product_price) ?></strong> ex Vat per unit
+
+        <div class='mt-5 text-lg text-black bg-background p-8 rounded-lg font-medium'>
+            <h6>
+                Printed From <strong class='text-black'><?php echo wc_price($product_price) ?></strong> ex Vat per unit
             </h6>
             <h6>Lead Time : <span class='text-black'>3-5 working days</span></h6>
             <h6>Minimum Order Value is <span class='text-black'>25 units.</span></h6>
         </div>
 
         <section class="bg-background p-6 md:p-8 mt-5 rounded-lg">
-            <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab"
-                    data-tabs-toggle="#default-styled-tab-content"
-                    data-tabs-active-classes="text-purple-600 hover:text-purple-600 dark:text-purple-500 dark:hover:text-purple-500 border-purple-600 dark:border-purple-500"
-                    data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300"
-                    role="tablist">
+            <div class="mb-4 border-b border-gray-200">
+                <ul class="flex flex-wrap -mb-px text-center font-semibold text-lg uppercase font-roboto gap-5 "
+                    id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes=""
+                    data-tabs-inactive-classes="" role="tablist">
                     <li class="me-2" role="presentation">
                         <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-styled-tab"
                             data-tabs-target="#styled-profile" type="button" role="tab" aria-controls="profile"
                             aria-selected="false">DESCRIPTION</button>
                     </li>
                     <li class="me-2" role="presentation">
-                        <button
-                            class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                            id="dashboard-styled-tab" data-tabs-target="#styled-dashboard" type="button" role="tab"
-                            aria-controls="dashboard" aria-selected="false">DETAILS</button>
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="dashboard-styled-tab"
+                            data-tabs-target="#styled-dashboard" type="button" role="tab" aria-controls="dashboard"
+                            aria-selected="false">DETAILS</button>
                     </li>
                     <li class="me-2" role="presentation">
-                        <button
-                            class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                            id="settings-styled-tab" data-tabs-target="#styled-settings" type="button" role="tab"
-                            aria-controls="settings" aria-selected="false">FAQ'S</button>
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="settings-styled-tab"
+                            data-tabs-target="#styled-settings" type="button" role="tab" aria-controls="settings"
+                            aria-selected="false">FAQ'S</button>
                     </li>
 
                 </ul>
             </div>
             <div id="default-styled-tab-content">
-                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-profile" role="tabpanel"
+                <div class="hidden p-4 rounded-lg bg-gray-50" id="styled-profile" role="tabpanel"
                     aria-labelledby="profile-tab">
-
                     <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
-                    <div class='mt-2 pl-4 text-accent _features'><?php echo ($product_excerpt); ?></div>
-
+                    <div class='mt-2 pl-4 text-accent _features'><?php echo ($product_content); ?></div>
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
-                    <p class='text-accent'><?php echo get_field( "fabric" ); ?></p>
-
+                    <p class='text-accent'><?php echo get_field("fabric"); ?></p>
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Weight:</h6>
-                    <p class='text-accent'><?php echo get_field( "weight" ); ?></p>
-
+                    <p class='text-accent'><?php echo get_field("weight"); ?></p>
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size Description:
                     </h6>
+                    <?php
 
-                    <?php 	
-	
-						global $product;
-						$product_id = $product->get_id();
-						$product = wc_get_product($product_id);
-						$attributes = $product->get_attributes();
-						if (isset($attributes['pa_sizes'])) {
-							$terms = wc_get_product_terms($product_id, 'pa_sizes', array('fields' => 'all'));
-							if ($terms && !is_wp_error($terms)) {
-								echo '<ul class="mt-2 flex flex-wrap gap-x-2">';								
-								foreach ($terms as $term) {
-									echo '<li class="text-accent mb-1"><span class="font-bold">' . esc_html($term->name) . '</span>' . esc_html($term->description) . '",</li>';
-								}
-								echo '</ul>';
-							} else {
-								echo '<p class="text-accent mb-1">No sizes available</p>';
-							}
-						}	
-	
-				?>
-
+                    global $product;
+                    $product_id = $product->get_id();
+                    $product = wc_get_product($product_id);
+                    $attributes = $product->get_attributes();
+                    if (isset($attributes['pa_sizes'])) {
+                        $terms = wc_get_product_terms($product_id, 'pa_sizes', array('fields' => 'all'));
+                        if ($terms && !is_wp_error($terms)) {
+                            echo '<ul class="mt-2 flex flex-wrap gap-x-2">';
+                            foreach ($terms as $term) {
+                                echo '<li class="text-accent mb-1"><span class="font-bold">' . esc_html($term->name) . '</span>' . esc_html($term->description) . '",</li>';
+                            }
+                            echo '</ul>';
+                        } else {
+                            echo '<p class="text-accent mb-1">No sizes available</p>';
+                        }
+                    }
+                    ?>
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
                         Instructions:</h6>
-                    <p class='text-accent'><?php echo get_field( "washing_instructions" ); ?></p>
-
+                    <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
                 </div>
-                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-dashboard" role="tabpanel"
+                <div class="hidden p-4 rounded-lg bg-gray-50" id="styled-dashboard" role="tabpanel"
                     aria-labelledby="dashboard-tab">
 
                     <div>
@@ -211,12 +196,12 @@ $faqs = array(
                         <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Gender:
                             </h6>
-                            <p class='text-accent'><?php echo get_field( "gender" ); ?></p>
+                            <p class='text-accent'><?php echo get_field("gender"); ?></p>
                         </div>
                         <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Minimum
                                 Order Value is</h6>
-                            <p class='text-accent'><?php echo get_field( "minimum_order" ); ?> Units</p>
+                            <p class='text-accent'><?php echo get_field("minimum_order"); ?> Units</p>
                         </div>
                         <div class='border-b-[1px] py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
@@ -234,53 +219,53 @@ $faqs = array(
                         <div class=' border-b-[1px] py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
                                 Method:</h6>
-                            <p class='text-accent'><?php echo get_field( "imprint_method" ); ?></p>
+                            <p class='text-accent'><?php echo get_field("imprint_method"); ?></p>
                         </div>
                         <div class=' border-b-[1px] py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Ready To
                                 Ship:</h6>
-                            <p class='text-accent'><?php echo get_field( "ready_to_ship" ); ?></p>
+                            <p class='text-accent'><?php echo get_field("ready_to_ship"); ?></p>
                         </div>
                         <div class=' border-b-[1px] py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Packaging:
                             </h6>
-                            <p class='text-accent'><?php echo get_field( "packaging" ); ?></p>
+                            <p class='text-accent'><?php echo get_field("packaging"); ?></p>
                         </div>
                     </div>
 
 
 
                 </div>
-                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="styled-settings" role="tabpanel"
+                <div class="hidden p-4 rounded-lg bg-gray-50" id="styled-settings" role="tabpanel"
                     aria-labelledby="settings-tab">
 
                     <div class="mx-auto max-w-screen-md">
-                        <div id="accordion-flush" data-accordion="collapse"
-                            data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-                            data-inactive-classes="text-gray-500 dark:text-gray-400">
+                        <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-gray-900"
+                            data-inactive-classes="text-gray-500">
 
-                            <?php foreach ($faqs as $index => $faq) : ?>
-                            <h2 id="accordion-flush-heading-<?php echo $index; ?>">
-                                <button type="button"
-                                    class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
-                                    data-accordion-target="#accordion-flush-body-<?php echo $index; ?>"
-                                    aria-expanded="true" aria-controls="accordion-flush-body-<?php echo $index; ?>">
-                                    <span><?php echo esc_html($faq['question']); ?></span>
-                                    <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-flush-body-<?php echo $index; ?>" class=""
-                                aria-labelledby="accordion-flush-heading-<?php echo $index; ?>">
-                                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                    <p class="mb-2 text-gray-500 dark:text-gray-400">
-                                        <?php echo esc_html($faq['answer']); ?></p>
+                            <?php foreach ($faqs as $index => $faq): ?>
+                                <h2 id="accordion-flush-heading-<?php echo $index; ?>">
+                                    <button type="button"
+                                        class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-900 bg-white border-b border-gray-200"
+                                        data-accordion-target="#accordion-flush-body-<?php echo $index; ?>"
+                                        aria-expanded="true" aria-controls="accordion-flush-body-<?php echo $index; ?>">
+                                        <span><?php echo esc_html($faq['question']); ?></span>
+                                        <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </h2>
+                                <div id="accordion-flush-body-<?php echo $index; ?>" class=""
+                                    aria-labelledby="accordion-flush-heading-<?php echo $index; ?>">
+                                    <div class="py-5 border-b border-gray-200 ">
+                                        <p class="mb-2 text-gray-500">
+                                            <?php echo esc_html($faq['answer']); ?>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
                             <?php endforeach; ?>
 
 
@@ -294,8 +279,7 @@ $faqs = array(
 
     </section>
 
-    <section class='md:w-[60%] text-accent'>
-
+    <section class='md:w-3/5 text-accent'>
         <div class='hidden md:block'>
             <h2 class=' text-2xl md:text-4xl font-medium mt-6 md:mt-0'>Casual Classics Promotional T-shirt</h2>
             <p class='mt-4 font-normal text-accent'>Product Code: <span class=''>CR1500</span></p>
@@ -306,9 +290,7 @@ $faqs = array(
             high-quality single-jersey ringspun cotton, this classic tee offers modern style and fit with long-lasting
             comfort at a great price. This is the ideal garment for creating merchandise that stands out in retail
             stores, promotions, large events and more.
-
         </div>
-
         <section class='my-7 bg-background p-8 rounded-lg flex justify-between items-center'>
             <p class='text-lg text-accent font-roboto'>Customisations Available:</p>
             <div class='flex gap-8 '>
@@ -324,55 +306,55 @@ $faqs = array(
 
 
         <?php
-			// Ensure WooCommerce is active
-			if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+        // Ensure WooCommerce is active
+        if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
-				global $product;
+            global $product;
 
-				// Get the product ID
-				$product_id = $product->get_id();
+            // Get the product ID
+            $product_id = $product->get_id();
 
-				// Get product object
-				$product = wc_get_product($product_id);
+            // Get product object
+            $product = wc_get_product($product_id);
 
-				// Get product attributes
-				$attributes = $product->get_attributes();
+            // Get product attributes
+            $attributes = $product->get_attributes();
 
-				// Check if 'pa_color' attribute exists
-				if (isset($attributes['pa_color'])) {
-					$terms = wc_get_product_terms($product_id, 'pa_color', array('fields' => 'all'));
+            // Check if 'pa_color' attribute exists
+            if (isset($attributes['pa_color'])) {
+                $terms = wc_get_product_terms($product_id, 'pa_color', array('fields' => 'all'));
 
-					if (!empty($terms)) {
-						echo '<section class="">';
-						echo '<div class="bg-background p-3 md:p-8 rounded-lg">';
-						echo '<h5 class="text-xl font-semibold text-accent font-roboto">Available Colors:</h5>';
-						echo '<ul class="flex flex-wrap gap-[2px] md:gap-2 mt-4">';
+                if (!empty($terms)) {
+                    echo '<section class="">';
+                    echo '<div class="bg-background p-3 md:p-8 rounded-lg">';
+                    echo '<h5 class="text-xl font-semibold text-accent font-roboto">Available Colors:</h5>';
+                    echo '<ul class="flex flex-wrap gap-[2px] md:gap-2 mt-4">';
 
-						foreach ($terms as $term) {
-							$color_code = get_term_meta($term->term_id, 'pa_color', true);
-							$color_name = $term->name;
-							$color_exists = /* Check if color exists logic */ false; // You need to implement this logic
+                    foreach ($terms as $term) {
+                        $color_code = get_term_meta($term->term_id, 'pa_color', true);
+                        $color_name = $term->name;
+                        $color_exists = /* Check if color exists logic */ false; // You need to implement this logic
+        
+                        $ccode = $term->description;
 
-							$ccode =  $term->description;
+                        //print_r($term);
+        
+                        echo '<li class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
+                        echo '<div class="p-[18px] cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
+                        echo '<span class="tooltip-text whitespace-nowrap text-center" id="top">' . esc_html($color_name) . '</span>';
+                        echo '</li>';
+                    }
 
-							//print_r($term);
+                    echo '</ul>';
+                    echo '</div>';
+                    echo '</section>';
+                }
+            }
 
-							echo '<li class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
-							echo '<div class="p-[18px] cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
-							echo '<span class="tooltip-text whitespace-nowrap text-center" id="top">' . esc_html($color_name) . '</span>';
-							echo '</li>';
-						}
-
-						echo '</ul>';
-						echo '</div>';
-						echo '</section>';
-					}
-				}
-
-			} else {
-				echo 'WooCommerce is not active.';
-			}
-			?>
+        } else {
+            echo 'WooCommerce is not active.';
+        }
+        ?>
 
         <a href="#product-popup"
             class='open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
@@ -383,12 +365,12 @@ $faqs = array(
 
 
         <?php
-		// Usage
-		$title = 'Delivery Title';
-		$desc = 'Delivery Description';
-		delivery_time($title, $desc);
+        // Usage
+        $title = 'Delivery Title';
+        $desc = 'Delivery Description';
+        delivery_time($title, $desc);
 
-		?>
+        ?>
 
 
 
@@ -432,11 +414,11 @@ $faqs = array(
                             $color_code = get_term_meta($term->term_id, 'pa_color', true);
                             $color_name = $term->name;
                             $color_exists = /* Check if color exists logic */ false; // You need to implement this logic
-
-                            $ccode =  $term->description;
+            
+                            $ccode = $term->description;
 
                             //print_r($term);
-
+            
                             echo '<li  onclick="handColors(this)" code="' . esc_html($ccode) . '" class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
                             echo '<div class="p-[18px] cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
                             echo '<span class="tooltip-text whitespace-nowrap text-center" id="top">' . esc_html($color_name) . '</span>';
@@ -468,30 +450,30 @@ $faqs = array(
             </div>
 
             <?php
-                $baseUrl = get_bloginfo('template_url');
-                $imageVariants = array(
-                    "Left Breast" => $baseUrl . "/public/images/tshirt-varients/left_breast.jpeg",
-                    "Right Breast" => $baseUrl . "/public/images/tshirt-varients/right_breast.jpeg",
-                    "Centre Front" => $baseUrl . "/public/images/tshirt-varients/center_chest.jpeg",
-                    "Centre Back" => $baseUrl . "/public/images/tshirt-varients/big_back.jpeg",
-                    "Left Sleeve" => $baseUrl . "/public/images/tshirt-varients/left_sleeve.jpeg",
-                    "Right Sleeve" => $baseUrl . "/public/images/tshirt-varients/right_sleeve.jpeg",
-                    "Nape of Neck" => $baseUrl . "/public/images/tshirt-varients/nape_neck.jpeg",
-                    "Big Front" => $baseUrl . "/public/images/tshirt-varients/big_front.jpeg"
-                );
-            
-        ?>
+            $baseUrl = get_bloginfo('template_url');
+            $imageVariants = array(
+                "Left Breast" => $baseUrl . "/public/images/tshirt-varients/left_breast.jpeg",
+                "Right Breast" => $baseUrl . "/public/images/tshirt-varients/right_breast.jpeg",
+                "Centre Front" => $baseUrl . "/public/images/tshirt-varients/center_chest.jpeg",
+                "Centre Back" => $baseUrl . "/public/images/tshirt-varients/big_back.jpeg",
+                "Left Sleeve" => $baseUrl . "/public/images/tshirt-varients/left_sleeve.jpeg",
+                "Right Sleeve" => $baseUrl . "/public/images/tshirt-varients/right_sleeve.jpeg",
+                "Nape of Neck" => $baseUrl . "/public/images/tshirt-varients/nape_neck.jpeg",
+                "Big Front" => $baseUrl . "/public/images/tshirt-varients/big_front.jpeg"
+            );
+
+            ?>
             <div class="mt-5 grid grid-cols-5 gap-2 sm:grid-cols-3 md:grid-cols-6">
                 <?php foreach ($imageVariants as $name => $path): ?>
-                <button class="p-1 relative" onclick="selectOnlyVarients(this, '<?php echo $name; ?>')">
-                    <div
-                        class="bg-white flex flex-col items-center gap-2 border-[3px] rounded-lg p-1 py-2 border-transparent">
-                        <h5 class="uppercase font-light font-roboto text-center"></h5>
-                        <img alt="<?php echo $name; ?>" class="w-2/3" src="<?php echo $path; ?>"
-                            style="color: transparent;">
-                        <h5 class="capitalize font-light font-roboto text-center"><?php echo $name; ?></h5>
-                    </div>
-                </button>
+                    <button class="p-1 relative" onclick="selectOnlyVarients(this, '<?php echo $name; ?>')">
+                        <div
+                            class="bg-white flex flex-col items-center gap-2 border-[3px] rounded-lg p-1 py-2 border-transparent">
+                            <h5 class="uppercase font-light font-roboto text-center"></h5>
+                            <img alt="<?php echo $name; ?>" class="w-2/3" src="<?php echo $path; ?>"
+                                style="color: transparent;">
+                            <h5 class="capitalize font-light font-roboto text-center"><?php echo $name; ?></h5>
+                        </div>
+                    </button>
                 <?php endforeach; ?>
             </div>
 
@@ -537,8 +519,8 @@ $faqs = array(
 </main>
 
 <script>
-var SelectedColors = [];
-var selectedVariants = [];
+    var SelectedColors = [];
+    var selectedVariants = [];
 
 
 
@@ -546,276 +528,276 @@ var selectedVariants = [];
 
 
 
-function handColors(item) {
-    var ccode = item.getAttribute('code');
-    var color = {
-        color: item.innerText,
-        code: ccode,
-        selectedsize: []
+    function handColors(item) {
+        var ccode = item.getAttribute('code');
+        var color = {
+            color: item.innerText,
+            code: ccode,
+            selectedsize: []
+        }
+        SelectedColors.push(color);
+        createColorList(SelectedColors)
+
     }
-    SelectedColors.push(color);
-    createColorList(SelectedColors)
 
-}
-
-function createColorList(colors) {
-    var html = '';
-    colors.forEach(function(color) {
-        // Open the color-item div
-        html +=
-            '<div class="color-item border border-black justify-between my-3 bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
-        // Open the inner flex div for color display and text
-        html += '<div class="flex items-center gap-2">';
-        html += '<div class="p-4 rounded-full" style="background-color: #' + color.code + '; border-color: #' +
-            color.code + '"></div>';
-        html += '<p class="text-lg uppercase">' + color.color + '</p>';
-        // Close the inner flex div
-        html += '</div>';
-        // Open the inner flex div for size inputs
-        html +=
-            '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 mt-3 ">';
-        // Iterate over sizes
-        ['S', 'M', 'L', 'XL', '2XL', '3XL'].forEach(function(size) {
-            // Open the div for each size
-            html += '<div class="flex flex-col items-center justify-center">';
-            html += '<p class="text-lg text-accent font-bold">' + size + '</p>';
-            // Open the div for the input
-            html += '<div class="mt-1">';
-            html += '<input type="number" name="' + size +
-                '" min="0" style="max-width:64px" class="w-16 bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' +
-                color.code + '\', \'' + size + '\')">';
-            // Close the input div
-            html += '</div></div>';
+    function createColorList(colors) {
+        var html = '';
+        colors.forEach(function (color) {
+            // Open the color-item div
+            html +=
+                '<div class="color-item border border-black justify-between my-3 bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
+            // Open the inner flex div for color display and text
+            html += '<div class="flex items-center gap-2">';
+            html += '<div class="p-4 rounded-full" style="background-color: #' + color.code + '; border-color: #' +
+                color.code + '"></div>';
+            html += '<p class="text-lg uppercase">' + color.color + '</p>';
+            // Close the inner flex div
+            html += '</div>';
+            // Open the inner flex div for size inputs
+            html +=
+                '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 mt-3 ">';
+            // Iterate over sizes
+            ['S', 'M', 'L', 'XL', '2XL', '3XL'].forEach(function (size) {
+                // Open the div for each size
+                html += '<div class="flex flex-col items-center justify-center">';
+                html += '<p class="text-lg text-accent font-bold">' + size + '</p>';
+                // Open the div for the input
+                html += '<div class="mt-1">';
+                html += '<input type="number" name="' + size +
+                    '" min="0" style="max-width:64px" class="w-16 bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' +
+                    color.code + '\', \'' + size + '\')">';
+                // Close the input div
+                html += '</div></div>';
+            });
+            // Close the inner flex div for size inputs
+            html += '</div>';
+            // Add the button to remove the color item
+            html += '<button onclick="removeColor(this)" code=' + color.code +
+                '><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor"></path></svg></button> </div>';
+            // Close the color-item div
+            html += '</div>';
         });
-        // Close the inner flex div for size inputs
-        html += '</div>';
-        // Add the button to remove the color item
-        html += '<button onclick="removeColor(this)" code=' + color.code +
-            '><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor"></path></svg></button> </div>';
-        // Close the color-item div
-        html += '</div>';
-    });
 
 
-    // Get the div container
-    var container = document.getElementById('selectedColorsContainer');
+        // Get the div container
+        var container = document.getElementById('selectedColorsContainer');
 
-    // Append the HTML to the container
-    container.innerHTML = html;
+        // Append the HTML to the container
+        container.innerHTML = html;
 
-}
+    }
 
-function updateValues(inputElement, color, size) {
-    var quantity = inputElement.value;
-    const ci = SelectedColors.findIndex(item => item.code === color);
-    const size_qty = {
-        size,
-        quantity
-    };
-    var sizes = SelectedColors[ci].selectedsize;
-    var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i
-        .size === size));
+    function updateValues(inputElement, color, size) {
+        var quantity = inputElement.value;
+        const ci = SelectedColors.findIndex(item => item.code === color);
+        const size_qty = {
+            size,
+            quantity
+        };
+        var sizes = SelectedColors[ci].selectedsize;
+        var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i
+            .size === size));
 
-    if (isSizeExistIndex !== -1) {
-        // Update the quantity of the existing size
-        const existingSizeIndex = SelectedColors[isSizeExistIndex].selectedsize.findIndex(i => i.size === size);
+        if (isSizeExistIndex !== -1) {
+            // Update the quantity of the existing size
+            const existingSizeIndex = SelectedColors[isSizeExistIndex].selectedsize.findIndex(i => i.size === size);
 
-        if (existingSizeIndex !== -1) {
-            // Remove the previous quantity and update with the new quantity
-            SelectedColors[isSizeExistIndex].selectedsize.splice(existingSizeIndex, 1, size_qty);
+            if (existingSizeIndex !== -1) {
+                // Remove the previous quantity and update with the new quantity
+                SelectedColors[isSizeExistIndex].selectedsize.splice(existingSizeIndex, 1, size_qty);
+            } else {
+                // Add the new size_qty if the size doesn't exist
+                sizes.push(size_qty);
+            }
         } else {
-            // Add the new size_qty if the size doesn't exist
+            // Add the new size_qty if both code and size don't exist
             sizes.push(size_qty);
         }
-    } else {
-        // Add the new size_qty if both code and size don't exist
-        sizes.push(size_qty);
+
+        console.log('SelectedColors', SelectedColors);
+
     }
 
-    console.log('SelectedColors', SelectedColors);
+    function removeColor(item) {
 
-}
-
-function removeColor(item) {
-
-    var colorToRemove = item.getAttribute('code');
-    const remainingColors = SelectedColors.filter(function(color) {
-        return color.code !== colorToRemove;
-    });
-
-    // Update the color list
-    SelectedColors = [];
-    SelectedColors.push(...remainingColors);
-    createColorList(remainingColors);
-
-    console.log(colorToRemove);
-    console.log(SelectedColors);
-}
-
-
-function selectOnlyVarients(button, name) {
-    var index = selectedVariants.findIndex(function(item) {
-        return item.variant === name;
-    });
-    if (index === -1) {
-        // If variant is not already selected, add it to selectedVariants array
-        selectedVariants.push({
-            variant: name,
-            colorInLogo: 0
+        var colorToRemove = item.getAttribute('code');
+        const remainingColors = SelectedColors.filter(function (color) {
+            return color.code !== colorToRemove;
         });
-        button.style.border = "1px solid red"; // Add border
-    } else {
-        // If variant is already selected, remove it from selectedVariants array
-        selectedVariants.splice(index, 1);
-        button.style.border = "none"; // Remove border
+
+        // Update the color list
+        SelectedColors = [];
+        SelectedColors.push(...remainingColors);
+        createColorList(remainingColors);
+
+        console.log(colorToRemove);
+        console.log(SelectedColors);
     }
-    // Update the color sections in the logo
+
+
+    function selectOnlyVarients(button, name) {
+        var index = selectedVariants.findIndex(function (item) {
+            return item.variant === name;
+        });
+        if (index === -1) {
+            // If variant is not already selected, add it to selectedVariants array
+            selectedVariants.push({
+                variant: name,
+                colorInLogo: 0
+            });
+            button.style.border = "1px solid red"; // Add border
+        } else {
+            // If variant is already selected, remove it from selectedVariants array
+            selectedVariants.splice(index, 1);
+            button.style.border = "none"; // Remove border
+        }
+        // Update the color sections in the logo
+        updateColorLogo();
+        handleUploadImage()
+    }
+
+    // Function to update color sections in the logo
+    function updateColorLogo() {
+        var colorLogoDiv = document.querySelector('.colorLogo');
+        colorLogoDiv.innerHTML = ''; // Clear existing content
+        if (selectedVariants.length > 0) {
+            for (var i = 0; i < selectedVariants.length; i++) {
+                var variantName = selectedVariants[i].variant;
+                var sectionHTML =
+                    '<section class="bg-gray-50 md:p-6 p-5 border-[1.5px] rounded-lg border-gray-50 mt-4"><div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto false">' +
+                    variantName +
+                    '</h5><div class="items-center justify-center mt-4 gap-2 p-0 grid md:grid-cols-7 grid-cols-2">';
+                for (var j = 1; j <= 7; j++) {
+                    sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j +
+                        '"  name="' + variantName +
+                        '" class="w-full text-center p-2 cursor-pointer px-8 text-lg bg-white rounded border-[2px] border-gray-[#CCCCCC] hover:border-main"><img alt="' +
+                        j + '" width="200" height="200"  src="<?php echo $baseUrl ?>/public/images/colors/' + j +
+                        '.jpg">Colours</button></div>';
+                }
+                sectionHTML += '</div></div></section>';
+                colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
+            }
+        }
+    }
+
+    // Initially update the color sections in the logo
     updateColorLogo();
-    handleUploadImage()
-}
 
-// Function to update color sections in the logo
-function updateColorLogo() {
-    var colorLogoDiv = document.querySelector('.colorLogo');
-    colorLogoDiv.innerHTML = ''; // Clear existing content
-    if (selectedVariants.length > 0) {
-        for (var i = 0; i < selectedVariants.length; i++) {
-            var variantName = selectedVariants[i].variant;
-            var sectionHTML =
-                '<section class="bg-gray-50 md:p-6 p-5 border-[1.5px] rounded-lg border-gray-50 mt-4"><div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto false">' +
-                variantName +
-                '</h5><div class="items-center justify-center mt-4 gap-2 p-0 grid md:grid-cols-7 grid-cols-2">';
-            for (var j = 1; j <= 7; j++) {
-                sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j +
-                    '"  name="' + variantName +
-                    '" class="w-full text-center p-2 cursor-pointer px-8 text-lg bg-white rounded border-[2px] border-gray-[#CCCCCC] hover:border-main"><img alt="' +
-                    j + '" width="200" height="200"  src="<?php echo $baseUrl?>/public/images/colors/' + j +
-                    '.jpg">Colours</button></div>';
-            }
-            sectionHTML += '</div></div></section>';
-            colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
+    function handleColorInLogo(props) {
+        const vName = props.getAttribute('name');
+        const CIL = props.getAttribute('colorinlogo');
+        const index = selectedVariants.findIndex(item => item.variant === vName);
+
+        if (index !== -1) {
+            selectedVariants[index].colorInLogo = CIL;
+            console.log(selectedVariants); // Output the updated selected variants array
+
+            // Loop through buttons to remove red border from all buttons
+            const buttons = document.querySelectorAll('button[name="' + vName + '"]');
+            buttons.forEach(button => {
+                button.style.border = '1px solid #CCCCCC'; // Set default border
+            });
+
+            // Add red border to the button with matching colorInLogo
+            props.style.border = '1px solid red';
+        } else {
+            console.error('Variant not found in selectedVariants array');
         }
     }
-}
-
-// Initially update the color sections in the logo
-updateColorLogo();
-
-function handleColorInLogo(props) {
-    const vName = props.getAttribute('name');
-    const CIL = props.getAttribute('colorinlogo');
-    const index = selectedVariants.findIndex(item => item.variant === vName);
-
-    if (index !== -1) {
-        selectedVariants[index].colorInLogo = CIL;
-        console.log(selectedVariants); // Output the updated selected variants array
-
-        // Loop through buttons to remove red border from all buttons
-        const buttons = document.querySelectorAll('button[name="' + vName + '"]');
-        buttons.forEach(button => {
-            button.style.border = '1px solid #CCCCCC'; // Set default border
-        });
-
-        // Add red border to the button with matching colorInLogo
-        props.style.border = '1px solid red';
-    } else {
-        console.error('Variant not found in selectedVariants array');
-    }
-}
 
 
-function handleUploadImage() {
-    var colorLogoDiv = document.querySelector('.uploadImages');
-    colorLogoDiv.innerHTML = ''; // Clear existing content
+    function handleUploadImage() {
+        var colorLogoDiv = document.querySelector('.uploadImages');
+        colorLogoDiv.innerHTML = ''; // Clear existing content
 
-    if (selectedVariants.length > 0) {
-        for (var i = 0; i < selectedVariants.length; i++) {
-            var sectionHTML = '<div class="bg-white p-4 rounded-xl">';
-            sectionHTML +=
-                '<div class="flex flex-col md:flex-row w-full min-h-[120px] border-2 border-gray-300 border-dashed rounded-lg items-center justify-center">';
-            sectionHTML += '<input type="file" name="image" id="fileInput' + i + '" accept="image/*">';
-            sectionHTML += '<div id="upload-status' + i + '"></div>'
-            sectionHTML += '</div></div>';
-            colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
+        if (selectedVariants.length > 0) {
+            for (var i = 0; i < selectedVariants.length; i++) {
+                var sectionHTML = '<div class="bg-white p-4 rounded-xl">';
+                sectionHTML +=
+                    '<div class="flex flex-col md:flex-row w-full min-h-[120px] border-2 border-gray-300 border-dashed rounded-lg items-center justify-center">';
+                sectionHTML += '<input type="file" name="image" id="fileInput' + i + '" accept="image/*">';
+                sectionHTML += '<div id="upload-status' + i + '"></div>'
+                sectionHTML += '</div></div>';
+                colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
+            }
         }
     }
-}
 
-const handleAddToCart = () => {
-    alert("Test");
-    var productId = <?php echo $product_id ?>;
-    var additionalInfoTextarea = document.getElementById('additional').value;
-    localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
-    localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
-    localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
-    localStorage.setItem("ProductID", JSON.stringify(productId));
+    const handleAddToCart = () => {
+        alert("Test");
+        var productId = <?php echo $product_id ?>;
+        var additionalInfoTextarea = document.getElementById('additional').value;
+        localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
+        localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
+        localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
+        localStorage.setItem("ProductID", JSON.stringify(productId));
 
-    // Prepare data to send
-    var data = {
-        'action': 'store_data_in_wp_session',
-        'SelectedColors': SelectedColors,
-        'selectedVariants': selectedVariants,
-        'additionalInfo': additionalInfoTextarea,
-        'ProductID': productId
-    };
+        // Prepare data to send
+        var data = {
+            'action': 'store_data_in_wp_session',
+            'SelectedColors': SelectedColors,
+            'selectedVariants': selectedVariants,
+            'additionalInfo': additionalInfoTextarea,
+            'ProductID': productId
+        };
 
-    // Send AJAX request to WordPress backend
-    jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function(response) {
-        console.log('Data stored in WordPress.');
-    });
-
-
-}
-
-
-
-jQuery(document).ready(function($) {
-
-
-    $(document).on('change', '[id^=fileInput]', function() {
-        var fileInputId = $(this).attr('id');
-        var fileIndex = fileInputId.replace('fileInput', '');
-        handleFileInputChange(this, fileIndex);
-        console.log(fileInputId);
-
-    });
-    function handleFileInputChange(input, index) {
-        var formData = new FormData();
-        var file = input.files[0];
-        formData.append('action', 'upload_mediafiles');
-        formData.append('file', file);
-
-        var uploadStatus = $('#upload-status' + index);
-
-        $.ajax({
-            type: "POST",
-            url: "<?php echo admin_url('admin-ajax.php'); ?>",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                selectedVariants[index].url = response;
-                console.log(selectedVariants);
-                uploadStatus.html('<img src="' + response +
-                    '" alt="Uploaded Image" width="75" height="75">');
-            },
-            error: function(xhr, status, error) {
-                uploadStatus.html('Error uploading image: ' + error);
-            }
+        // Send AJAX request to WordPress backend
+        jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function (response) {
+            console.log('Data stored in WordPress.');
         });
+
+
     }
 
 
 
+    jQuery(document).ready(function ($) {
 
-    $('.open-popup-link').magnificPopup({
-        type: 'inline',
-        midClick: true
+
+        $(document).on('change', '[id^=fileInput]', function () {
+            var fileInputId = $(this).attr('id');
+            var fileIndex = fileInputId.replace('fileInput', '');
+            handleFileInputChange(this, fileIndex);
+            console.log(fileInputId);
+
+        });
+        function handleFileInputChange(input, index) {
+            var formData = new FormData();
+            var file = input.files[0];
+            formData.append('action', 'upload_mediafiles');
+            formData.append('file', file);
+
+            var uploadStatus = $('#upload-status' + index);
+
+            $.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    selectedVariants[index].url = response;
+                    console.log(selectedVariants);
+                    uploadStatus.html('<img src="' + response +
+                        '" alt="Uploaded Image" width="75" height="75">');
+                },
+                error: function (xhr, status, error) {
+                    uploadStatus.html('Error uploading image: ' + error);
+                }
+            });
+        }
+
+
+
+
+        $('.open-popup-link').magnificPopup({
+            type: 'inline',
+            midClick: true
+        });
+        // Add event listener to the close button
+        $('.close_popup').on('click', function () {
+            // Get the Magnific Popup instance and close the popup
+            $.magnificPopup.close();
+        });
     });
-    // Add event listener to the close button
-    $('.close_popup').on('click', function() {
-        // Get the Magnific Popup instance and close the popup
-        $.magnificPopup.close();
-    });
-});
 </script>
