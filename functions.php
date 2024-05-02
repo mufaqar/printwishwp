@@ -315,9 +315,6 @@ function change_product_cat_permalink_structure() {
 }
 add_action('init', 'change_product_cat_permalink_structure', 30);
 
-function custom_taxonomy_rewrite_rules() {
-    add_rewrite_rule('^([^/]+)/?$', 'index.php?product_cat=$matches[1]', 'top');
-}
-add_action('init', 'custom_taxonomy_rewrite_rules');
+
 
 
