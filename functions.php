@@ -289,35 +289,45 @@ function pass_session_data_to_template($template) {
 
 
 
-function change_locations_permalink_structure( $post_link, $post ) {
-    if ( 'locations' === $post->post_type && 'publish' === $post->post_status ) {
-        $post_link = str_replace( '/locations/', '/', $post_link );
-    }
-    return $post_link;
-}
-add_filter( 'post_type_link', 'change_locations_permalink_structure', 10, 2 );
+// function change_locations_permalink_structure( $post_link, $post ) {
+//     if ( 'locations' === $post->post_type && 'publish' === $post->post_status ) {
+//         $post_link = str_replace( '/locations/', '/', $post_link );
+//     }
+//     return $post_link;
+// }
+// add_filter( 'post_type_link', 'change_locations_permalink_structure', 10, 2 );
 
-function change_locations_rewrite_rules( $rules ) {
-    $new_rules = array();
-    foreach ( $rules as $key => $value ) {
-        $new_rules[ str_replace( 'locations/', '', $key ) ] = $value;
-    }
-    return $new_rules;
-}
-add_filter( 'rewrite_rules_array', 'change_locations_rewrite_rules' );
+// function change_locations_rewrite_rules( $rules ) {
+//     $new_rules = array();
+//     foreach ( $rules as $key => $value ) {
+//         if (strpos($key, 'locations/') !== false) {
+//             $new_rules[ str_replace( 'locations/', '', $key ) ] = $value;
+//         } else {
+//             $new_rules[$key] = $value;
+//         }
+//     }
+//     return $new_rules;
+// }
+// add_filter( 'rewrite_rules_array', 'change_locations_rewrite_rules' );
 
 
 
 
-function change_product_cat_permalink_structure() {
-    global $wp_rewrite;
-    $wp_rewrite->extra_permastructs['product_cat']['struct'] = '%product_cat%';
-}
-add_action('init', 'change_product_cat_permalink_structure', 30);
+// function custom_rewrite_rules() {
+//     // Rewrite rule for "product_cat" taxonomy
+//     add_rewrite_rule(
+//         '^([^/]+)/?$',
+//         'index.php?product_cat=$matches[1]',
+//         'top'
+//     );
 
-function custom_taxonomy_rewrite_rules() {
-    add_rewrite_rule('^([^/]+)/?$', 'index.php?product_cat=$matches[1]', 'top');
-}
-add_action('init', 'custom_taxonomy_rewrite_rules');
+//     // Rewrite rule for "locations" custom post type
+//     add_rewrite_rule(
+//         '^locations/([^/]+)/?$',
+//         'index.php?post_type=locations&name=$matches[1]',
+//         'top'
+//     );
+// }
+// add_action('init', 'custom_rewrite_rules');
 
 
