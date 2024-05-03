@@ -137,17 +137,17 @@ $faqs = array(
                     id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes=""
                     data-tabs-inactive-classes="" role="tablist">
                     <li class="me-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-styled-tab"
+                        <button class="inline-block border-b-4 rounded-t-lg" id="profile-styled-tab"
                             data-tabs-target="#styled-profile" type="button" role="tab" aria-controls="profile"
                             aria-selected="false">DESCRIPTION</button>
                     </li>
                     <li class="me-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="dashboard-styled-tab"
+                        <button class="inline-block border-b-4 rounded-t-lg" id="dashboard-styled-tab"
                             data-tabs-target="#styled-dashboard" type="button" role="tab" aria-controls="dashboard"
                             aria-selected="false">DETAILS</button>
                     </li>
                     <li class="me-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="settings-styled-tab"
+                        <button class="inline-block border-b-4 rounded-t-lg" id="settings-styled-tab"
                             data-tabs-target="#styled-settings" type="button" role="tab" aria-controls="settings"
                             aria-selected="false">FAQ'S</button>
                     </li>
@@ -155,7 +155,7 @@ $faqs = array(
                 </ul>
             </div>
             <div id="default-styled-tab-content">
-                <div class="hidden p-4 rounded-lg bg-gray-50" id="styled-profile" role="tabpanel"
+                <div class="hidden p-4 rounded-lg" id="styled-profile" role="tabpanel"
                     aria-labelledby="profile-tab">
                     <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
                     <div class='mt-2 pl-4 text-accent _features'><?php echo ($product_content); ?></div>
@@ -188,7 +188,7 @@ $faqs = array(
                         Instructions:</h6>
                     <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
                 </div>
-                <div class="hidden p-4 rounded-lg bg-gray-50" id="styled-dashboard" role="tabpanel"
+                <div class="hidden p-4 rounded-lg" id="styled-dashboard" role="tabpanel"
                     aria-labelledby="dashboard-tab">
 
                     <div>
@@ -236,7 +236,7 @@ $faqs = array(
 
 
                 </div>
-                <div class="hidden p-4 rounded-lg bg-gray-50" id="styled-settings" role="tabpanel"
+                <div class="hidden p-4 rounded-lg" id="styled-settings" role="tabpanel"
                     aria-labelledby="settings-tab">
 
                     <div class="mx-auto max-w-screen-md">
