@@ -97,7 +97,7 @@ $Feedback = [
                 <?php endforeach; ?>
             </div>
             <button
-                class="absolute -left-10 top-1/2 -mt-6 transform -translate-y-1/2 rounded-lg text-secondary p-3 text-3xl"
+                class="absolute md:-left-10 -left-8 top-1/2 -mt-6 transform -translate-y-1/2 rounded-lg text-secondary p-3 text-3xl"
                 onclick="slickPrev()"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                     viewBox="0 0 512 512">
                     <path
@@ -105,7 +105,7 @@ $Feedback = [
                         fill="currentColor" />
                 </svg></button>
             <button
-                class="absolute -right-10 top-1/2 -mt-6 transform -translate-y-1/2 rounded-lg text-secondary p-3 text-3xl"
+                class="absolute md:-right-10 -right-8 top-1/2 -mt-6 transform -translate-y-1/2 rounded-lg text-secondary p-3 text-3xl"
                 onclick="slickNext()"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                     viewBox="0 0 512 512">
                     <path

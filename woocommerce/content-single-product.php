@@ -93,7 +93,7 @@ $faqs = array(
 
 <main class='md:flex container mx-auto px-4 gap-10 mt-7 font-opensans mb-20'>
     <section class='md:w-2/5 image-slider'>
-        <?php
+        <!-- <?php
         $product_id = $product->get_id();
         $gallery_images = $product->get_gallery_image_ids();
         $image_path = get_the_post_thumbnail_url($product_id, 'full');
@@ -119,10 +119,20 @@ $faqs = array(
         }
 
         echo '</div>';
-        ?>
+        ?> -->
 
-
-
+        <div class="gallery_slider border border-gray-200 rounded-lg p-1">
+            <?php foreach ($gallery_images as $idx => $item):
+                $image_url = wp_get_attachment_url($item);
+                $image_alt = get_post_meta($item, '_wp_attachment_image_alt', true); ?>
+                <div>
+                    <?php
+                    echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" width="600" height="600" class="w-full rounded-lg" />';
+                    echo '<h5 class="text-center font-semibold text-lg capitalize mb-3">' . esc_html($image_alt) . '</h5>';
+                    ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
         <div class='mt-5 text-lg text-black bg-background p-8 rounded-lg font-medium'>
             <h6>
                 Printed From <strong class='text-black'><?php echo wc_price($product_price) ?></strong> ex Vat per unit
@@ -130,33 +140,30 @@ $faqs = array(
             <h6>Lead Time : <span class='text-black'>3-5 working days</span></h6>
             <h6>Minimum Order Value is <span class='text-black'>25 units.</span></h6>
         </div>
-
         <section class="bg-background p-6 md:p-8 mt-5 rounded-lg">
             <div class="mb-4 border-b border-gray-200">
                 <ul class="flex flex-wrap -mb-px text-center font-semibold text-lg uppercase font-roboto gap-5 "
                     id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes=""
                     data-tabs-inactive-classes="" role="tablist">
                     <li class="me-2" role="presentation">
-                        <button class="inline-block border-b-4 rounded-t-lg" id="profile-styled-tab"
+                        <button class="inline-block border-b-2 rounded-t-lg" id="profile-styled-tab"
                             data-tabs-target="#styled-profile" type="button" role="tab" aria-controls="profile"
                             aria-selected="false">DESCRIPTION</button>
                     </li>
                     <li class="me-2" role="presentation">
-                        <button class="inline-block border-b-4 rounded-t-lg" id="dashboard-styled-tab"
+                        <button class="inline-block border-b-2 rounded-t-lg" id="dashboard-styled-tab"
                             data-tabs-target="#styled-dashboard" type="button" role="tab" aria-controls="dashboard"
                             aria-selected="false">DETAILS</button>
                     </li>
                     <li class="me-2" role="presentation">
-                        <button class="inline-block border-b-4 rounded-t-lg" id="settings-styled-tab"
+                        <button class="inline-block border-b-2 rounded-t-lg" id="settings-styled-tab"
                             data-tabs-target="#styled-settings" type="button" role="tab" aria-controls="settings"
                             aria-selected="false">FAQ'S</button>
                     </li>
-
                 </ul>
             </div>
             <div id="default-styled-tab-content">
-                <div class="hidden p-4 rounded-lg" id="styled-profile" role="tabpanel"
-                    aria-labelledby="profile-tab">
+                <div class="hidden" id="styled-profile" role="tabpanel" aria-labelledby="profile-tab">
                     <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
                     <div class='mt-2 pl-4 text-accent _features'><?php echo ($product_content); ?></div>
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
@@ -188,22 +195,19 @@ $faqs = array(
                         Instructions:</h6>
                     <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
                 </div>
-                <div class="hidden p-4 rounded-lg" id="styled-dashboard" role="tabpanel"
-                    aria-labelledby="dashboard-tab">
-
+                <div class="hidden" id="styled-dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                     <div>
-
-                        <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
+                        <div class='flex justify-between items-center border-b py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Gender:
                             </h6>
                             <p class='text-accent'><?php echo get_field("gender"); ?></p>
                         </div>
-                        <div class='flex justify-between items-center border-b-[1px] py-2 border-gray-200'>
+                        <div class='flex justify-between items-center border-b py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Minimum
                                 Order Value is</h6>
                             <p class='text-accent'><?php echo get_field("minimum_order"); ?> Units</p>
                         </div>
-                        <div class='border-b-[1px] py-2 border-gray-200'>
+                        <div class='border-b py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
                                 Area:</h6>
                             <p class='text-accent mb-1 flex justify-between items-center'><span
@@ -216,67 +220,57 @@ $faqs = array(
                                     class='font-bold text-gray-600 '>{`Back:`}</span>
                                 {product?.poductInfo?.imprintArea?.back}</p>
                         </div>
-                        <div class=' border-b-[1px] py-2 border-gray-200'>
+                        <div class=' border-b py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
                                 Method:</h6>
                             <p class='text-accent'><?php echo get_field("imprint_method"); ?></p>
                         </div>
-                        <div class=' border-b-[1px] py-2 border-gray-200'>
+                        <div class=' border-b py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Ready To
                                 Ship:</h6>
                             <p class='text-accent'><?php echo get_field("ready_to_ship"); ?></p>
                         </div>
-                        <div class=' border-b-[1px] py-2 border-gray-200'>
+                        <div class=' border-b py-2 border-gray-200'>
                             <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Packaging:
                             </h6>
                             <p class='text-accent'><?php echo get_field("packaging"); ?></p>
                         </div>
                     </div>
-
-
-
                 </div>
-                <div class="hidden p-4 rounded-lg" id="styled-settings" role="tabpanel"
-                    aria-labelledby="settings-tab">
-
+                <div class="hidden" id="styled-settings" role="tabpanel" aria-labelledby="settings-tab">
                     <div class="mx-auto max-w-screen-md">
-                        <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-gray-900"
-                            data-inactive-classes="text-gray-500">
-
+                        <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white"
+                            class="flex flex-col gap-2.5" data-inactive-classes="">
                             <?php foreach ($faqs as $index => $faq): ?>
-                                <h2 id="accordion-flush-heading-<?php echo $index; ?>">
-                                    <button type="button"
-                                        class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-900 bg-white border-b border-gray-200"
-                                        data-accordion-target="#accordion-flush-body-<?php echo $index; ?>"
-                                        aria-expanded="true" aria-controls="accordion-flush-body-<?php echo $index; ?>">
-                                        <span><?php echo esc_html($faq['question']); ?></span>
-                                        <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor"
-                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </h2>
-                                <div id="accordion-flush-body-<?php echo $index; ?>" class=""
-                                    aria-labelledby="accordion-flush-heading-<?php echo $index; ?>">
-                                    <div class="py-5 border-b border-gray-200 ">
-                                        <p class="mb-2 text-gray-500">
-                                            <?php echo esc_html($faq['answer']); ?>
-                                        </p>
+                                <div class="bg-white p-3 px-5 border border-gray-200 font-opensans cursor-pointer">
+                                    <h2 id="accordion-flush-heading-<?php echo $index; ?>">
+                                        <button type="button"
+                                            class="flex justify-between items-center w-full font-medium text-left hover:text-secondary"
+                                            data-accordion-target="#accordion-flush-body-<?php echo $index; ?>"
+                                            aria-expanded="true" aria-controls="accordion-flush-body-<?php echo $index; ?>">
+                                            <span><?php echo esc_html($faq['question']); ?></span>
+                                            <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0"
+                                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-flush-body-<?php echo $index; ?>" class=""
+                                        aria-labelledby="accordion-flush-heading-<?php echo $index; ?>">
+                                        <div class="mt-4 text-gray-500">
+                                            <p class="mb-2">
+                                                <?php echo esc_html($faq['answer']); ?>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
-
-
                         </div>
-
                     </div>
-
                 </div>
         </section>
-
-
     </section>
 
     <section class='md:w-3/5 text-accent'>
@@ -284,7 +278,7 @@ $faqs = array(
             <h2 class=' text-2xl md:text-4xl font-medium mt-6 md:mt-0'>Casual Classics Promotional T-shirt</h2>
             <p class='mt-4 font-normal text-accent'>Product Code: <span class=''>CR1500</span></p>
         </div>
-        <div class="pt-[1px] w-full bg-gray-300 my-8"></div>
+        <div class="border-t w-full border-gray-300 my-8"></div>
         <div class='text-sm md:text-base text-accent'>
             The GoCustom Value Promotion Classic Tee – your perfect choice for durable, eye-catching merchandise! With a
             high-quality single-jersey ringspun cotton, this classic tee offers modern style and fit with long-lasting
@@ -361,9 +355,6 @@ $faqs = array(
             Get a quote
         </a>
 
-
-
-
         <?php
         // Usage
         $title = 'Delivery Title';
@@ -371,9 +362,6 @@ $faqs = array(
         delivery_time($title, $desc);
 
         ?>
-
-
-
 
         <div id="product-popup" class="mfp-hide bg-white shadow container mx-auto p-6 flex flex-col gap-5">
 
@@ -508,15 +496,11 @@ $faqs = array(
 
 
         </div>
-
-
-
-
-
-
     </section>
 
 </main>
+
+<?php get_template_part('components/com', 'reviews'); ?>
 
 <script>
     var SelectedColors = [];
