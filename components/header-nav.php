@@ -213,14 +213,7 @@ $Locations = array(
                                     }
                               
                                 ?>
-                                <li class="px-5 py-1.5 relative group">
-                                    <a href="#"
-                                        class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
-                                        All Categories
-                                    </a>
-                                    <span
-                                        class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
-                                </li>
+                              
                             </ul>
                         </div>
                     </li>
@@ -230,7 +223,7 @@ $Locations = array(
                         </a>
                     </li>
                     <li>
-                        <a class="text-white hover:text-primary md:inline " href="<?php echo home_url(); ?>">
+                        <a class="text-white hover:text-primary md:inline " href="<?php echo home_url('/product'); ?>">
                             Products
                         </a>
                     </li>
@@ -258,7 +251,7 @@ $Locations = array(
                                     foreach ($Locations as  $loc) {
                                         ?>
                                 <li class="px-5 py-1.5 relative group">
-                                    <a href="<?php echo $loc['link']; ?>"
+                                    <a href="<?php echo home_url('/'); ?><?php echo $loc['link']; ?>"
                                         class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
                                         <?php echo $loc['name']; ?>
                                     </a>
@@ -270,7 +263,7 @@ $Locations = array(
                                
                                 ?>
                                 <li class="px-5 py-1.5 relative group">
-                                    <a href="#"
+                                    <a href="<?php echo home_url('/locations'); ?>"
                                         class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
                                         All locations
                                     </a>
