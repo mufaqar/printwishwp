@@ -678,7 +678,7 @@ $faqs = array(
             });
 
             // Add red border to the button with matching colorInLogo
-            props.style.border = '1px solid red';
+            props.style.border = '3px solid #08c';
         } else {
             console.error('Variant not found in selectedVariants array');
         }
