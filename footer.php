@@ -111,7 +111,7 @@ $Categories = [
                     <?php foreach ($Categories as $citem): ?>
                         <li
                             class="before_line relative before:content-[' '] before:h-[1px] before:w-3 before:bg-secondary before:absolute before:top-[13px] before:left-1">
-                            <a href="<?php echo $citem['link']; ?>"
+                            <a href="<?php echo home_url('/'); ?><?php echo $citem['link']; ?>"
                                 class="text-sm text-accent font-roboto hover:text-secondary">
                                 <?php echo $citem['name']; ?>
                             </a>
