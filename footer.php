@@ -13,57 +13,50 @@
 
 <?php
 $NavLinks = [
-
     [
-
         'name' => 'Locations',
         'link' => '/locations',
     ],
     [
-
+        'name' => 'Reviews',
+        'link' => '/printwish-reviews',
+    ],
+    [
         'name' => 'Blog',
         'link' => '/blog',
     ],
     [
-
         'name' => 'Delivery Information',
         'link' => '/delivery-information',
     ],
     [
-
         'name' => 'Terms & Conditions',
         'link' => '/printing-terms-conditions',
     ],
 ];
 
-
 $Categories = [
-
+    
     [
-
+        'name' => 'T-Shirts',
+        'link' => 'custom-t-shirt-printing-cheap-t-shirt-printing',
+    ],
+    [
         'name' => 'Polo Shirts',
-
         'link' => 'polo',
     ],
     [
-
         'name' => 'SweatShirt',
-
         'link' => 'sweat-shirts',
     ],
     [
-
         'name' => 'Hoodies',
-
         'link' => 'hoodies',
     ],
     [
-
         'name' => 'Apron',
-
         'link' => 'aprons',
     ]
-
 ];
 
 
