@@ -19,6 +19,7 @@
     <a rel="profile" href="https://gmpg.org/xfn/11">
 
         <?php wp_head(); ?>
+        <meta name="robots" content="noindex">
 </head>
 
 <body <?php body_class(); ?>>
