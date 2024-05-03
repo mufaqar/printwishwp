@@ -624,7 +624,7 @@ $faqs = array(
                 variant: name,
                 colorInLogo: 0
             });
-            button.style.border = "1px solid red"; // Add border
+            button.style.border = "3px solid #08c"; // Add border
         } else {
             // If variant is already selected, remove it from selectedVariants array
             selectedVariants.splice(index, 1);
