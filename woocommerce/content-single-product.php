@@ -363,14 +363,14 @@ $faqs = array(
 
         ?>
 
-        <div id="product-popup" class="mfp-hide bg-white shadow container mx-auto p-6 flex flex-col gap-5">
+        <div id="product-popup" class="mfp-hide bg-background shadow container mx-auto p-6 flex flex-col gap-5">
 
             <button
                 class="close_popup uppercase font-light items-center border border-primary gap-2 w-full text-center py-3 bg-primary text-white px-6 hover:text-primary hover:bg-transparent ">Close
                 The order form</button>
 
             <h5
-                class="text-xl font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-black/60">
+                class="text-xl font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-primary">
                 Step 1 - Choose one or more colours: *</h5>
 
             <?php
@@ -393,9 +393,6 @@ $faqs = array(
                     $terms = wc_get_product_terms($product_id, 'pa_color', array('fields' => 'all'));
 
                     if (!empty($terms)) {
-                        echo '<section class="">';
-                        echo '<div class="bg-background p-3 md:p-8 rounded-lg">';
-                        echo '<h5 class="text-xl font-semibold text-accent font-roboto">Available Colors:</h5>';
                         echo '<ul class="flex flex-wrap gap-[2px] md:gap-2 mt-4">';
 
                         foreach ($terms as $term) {
@@ -408,14 +405,12 @@ $faqs = array(
                             //print_r($term);
             
                             echo '<li  onclick="handColors(this)" code="' . esc_html($ccode) . '" class="' . ($color_exists ? 'border-green-400' : 'border-transparent') . ' p-1 hover-text border-[3px] rounded-full">';
-                            echo '<div class="p-[18px] cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
+                            echo '<div class="p-5 cursor-pointer hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out rounded-full" style="background-color: #' . esc_attr($ccode) . '"></div>';
                             echo '<span class="tooltip-text whitespace-nowrap text-center" id="top">' . esc_html($color_name) . '</span>';
                             echo '</li>';
                         }
 
                         echo '</ul>';
-                        echo '</div>';
-                        echo '</section>';
                     }
                 }
 
@@ -431,7 +426,7 @@ $faqs = array(
             <!-- ------------------------  -->
             <!-- variants  -->
             <!-- ------------------------  -->
-            <div class="bg-gray-200 px-4 py-6 border rounded !border-red-500">
+            <div class="bg-gray-200 px-4 py-6 border rounded border-primary">
                 <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 2 - Where must we print your
                     artwork? *</h5>
                 <p class="pl-2">T-Shirt Print Area</p>
@@ -451,7 +446,7 @@ $faqs = array(
             );
 
             ?>
-            <div class="mt-5 grid grid-cols-5 gap-2 sm:grid-cols-3 md:grid-cols-6">
+            <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
                 <?php foreach ($imageVariants as $name => $path): ?>
                     <button class="p-1 relative" onclick="selectOnlyVarients(this, '<?php echo $name; ?>')">
                         <div
@@ -465,24 +460,24 @@ $faqs = array(
                 <?php endforeach; ?>
             </div>
 
-            <div class="bg-gray-200 px-4 py-6 border rounded border-black/60 my-3">
+            <div class="bg-gray-200 px-4 py-6 border rounded border-primary">
                 <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 3 - Number of colours per artwork *
                 </h5>
             </div>
-            <div class="colorLogo"></div>
+            <div class="colorLogo bg-gray-50 md:p-6 p-5 border-[1.5px] rounded-lg border-gray-50 mt-4"></div>
 
             <!-- upload Images  -->
-            <div class="px-4 py-6 border border-black/60 rounded mt-3">
+            <div class="bg-gray-200 px-4 py-6 border rounded border-primary">
                 <h5 class="text-xl font-semibold text-accent pl-2 font-roboto">Step 4- Upload your artwork (Optional)
                 </h5>
             </div>
-            <div class="uploadImages grid grid-cols-2 gap-5"></div>
+            <div class="uploadImages grid md:grid-cols-2 grid-cols-1 gap-5"></div>
 
             <section>
                 <h5 class="text-xl font-semibold text-accent mb-2 mt-5 font-roboto">Additional information or requests
                 </h5>
                 <textarea id="additional"
-                    class="block w-full p-3 min-h-[340px] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md">This is Sample Text</textarea>
+                    class="block w-full p-3 h-80 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:border-secondary focus:outline-none">This is Sample Text</textarea>
             </section>
 
             <div class="flex justify-center md:justify-end">
@@ -648,17 +643,17 @@ $faqs = array(
             for (var i = 0; i < selectedVariants.length; i++) {
                 var variantName = selectedVariants[i].variant;
                 var sectionHTML =
-                    '<section class="bg-gray-50 md:p-6 p-5 border-[1.5px] rounded-lg border-gray-50 mt-4"><div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto false">' +
+                    '<div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto mt-5 false">' +
                     variantName +
                     '</h5><div class="items-center justify-center mt-4 gap-2 p-0 grid md:grid-cols-7 grid-cols-2">';
                 for (var j = 1; j <= 7; j++) {
                     sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j +
                         '"  name="' + variantName +
-                        '" class="w-full text-center p-2 cursor-pointer px-8 text-lg bg-white rounded border-[2px] border-gray-[#CCCCCC] hover:border-main"><img alt="' +
+                        '" class="w-full text-center p-2 cursor-pointer sm:px-8 text-lg bg-white rounded border-2 border-gray-100 hover:border-main"><img alt="' +
                         j + '" width="200" height="200"  src="<?php echo $baseUrl ?>/public/images/colors/' + j +
                         '.jpg">Colours</button></div>';
                 }
-                sectionHTML += '</div></div></section>';
+                sectionHTML += '</div></div>';
                 colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
             }
         }
@@ -698,8 +693,8 @@ $faqs = array(
             for (var i = 0; i < selectedVariants.length; i++) {
                 var sectionHTML = '<div class="bg-white p-4 rounded-xl">';
                 sectionHTML +=
-                    '<div class="flex flex-col md:flex-row w-full min-h-[120px] border-2 border-gray-300 border-dashed rounded-lg items-center justify-center">';
-                sectionHTML += '<input type="file" name="image" id="fileInput' + i + '" accept="image/*">';
+                    '<div class="flex flex-col md:flex-row w-full h-32 bg-gray-50 border-2 border-gray-300 border-dashed rounded-lg items-center justify-center">';
+                sectionHTML += '<input class="sm:w-auto w-full" type="file" name="image" id="fileInput' + i + '" accept="image/*">';
                 sectionHTML += '<div id="upload-status' + i + '"></div>'
                 sectionHTML += '</div></div>';
                 colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
