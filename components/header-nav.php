@@ -54,36 +54,36 @@ $Categories = array(
 $Locations = array(
     array(      
         'name' => 'LONDON',    
-        'link' => '/locations/t-shirt-printing-london'
+        'link' => 'london'
     ),
     array(      
         'name' => 'MANCHESTER',    
-        'link' => '/locations/t-shirt-printing-manchester'
+        'link' => 'manchester'
     ),
     array(      
         'name' => 'BRISTOL',    
-        'link' => '/locations/t-shirt-printing-bristol'
+        'link' => 'bristol'
     ),
     
     array(      
         'name' => 'GLASGOW',    
-        'link' => '/locations/t-shirt-printing-glasgow'
+        'link' => 'glasgow'
     ),
     array(      
         'name' => 'LIVERPOOL',    
-        'link' => '/locations/t-shirt-printing-liverpool'
+        'link' => 'liverpool'
     ),
     array(      
         'name' => 'BIRMINGHAM',    
-        'link' => '/locations/t-shirt-printing-birmingham'
+        'link' => 'birmingham'
     ),
     array(      
         'name' => 'EDINBURGH',    
-        'link' => '/locations/t-shirt-printing-edinburgh'
+        'link' => 'edinburgh'
     ),
     array(      
         'name' => 'CAMBRIDGE',    
-        'link' => '/locations/t-shirt-printing-cambridge'
+        'link' => 'cambridge'
     )
 );
 
@@ -202,7 +202,7 @@ $Locations = array(
                                     foreach ($Categories as $cat) {
                                          ?>
                                             <li class="px-5 py-1.5 relative group">
-                                                <a href="<?php echo home_url('product'); ?>/<?php echo $cat['link']; ?>"
+                                                <a href="<?php echo home_url(''); ?>/<?php echo $cat['link']; ?>"
                                                     class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
                                                     <?php echo $cat['name']; ?>
                                                 </a>
@@ -216,7 +216,7 @@ $Locations = array(
                                 <li class="px-5 py-1.5 relative group">
                                     <a href="#"
                                         class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
-                                        All locations
+                                        All Categories
                                     </a>
                                     <span
                                         class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
@@ -230,7 +230,7 @@ $Locations = array(
                         </a>
                     </li>
                     <li>
-                        <a class="text-white hover:text-primary md:inline " href="<?php echo home_url('/product'); ?>">
+                        <a class="text-white hover:text-primary md:inline " href="<?php echo home_url(); ?>">
                             Products
                         </a>
                     </li>
