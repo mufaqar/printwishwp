@@ -41,17 +41,9 @@ get_header();
 
             ?>
         </div>
-
-
-
-
         <h4 class='bg-primary p-3 text-center text-white font-bold text-2xl mt-10 md:text-3xl'>Our Range of Printed
             T-shirts</h4>
-
-
-        <?php get_template_part('components/com', 'location_products'); ?>
-
-       
+        <?php get_template_part('components/com', 'location_products'); ?>  
 
         
 
