@@ -32495,6 +32495,27 @@ input[type='number'] {
   background-image: url('../public/images/step-background.jpg')
 }
 
+.entry-content h3 {
+  font-size: 19px;
+  font-weight: bold;
+  color: #21293c;
+}
+
+.entry-content p {
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: .2px;
+  margin-bottom: 20px;
+  color: #7b858a;
+}
+
+.entry-content p strong {
+  color: #21293c;
+}
+
+.location_content{
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
