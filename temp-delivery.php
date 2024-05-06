@@ -72,21 +72,21 @@ $Data2 = [
 <div class="items-center mx-auto max-w-screen-xl px-6 md:px-6 mt-6">
     <div class="container mx-auto">
         <div class="text-center">
-            <h2 class='text-[#0088cc] font-[400] leading-[40px] text-[30px] pb-[32px]'>Delivery Information</h2>
-            <p class='text-[#7b858a] pb-[1.25rem] font-[400]'>We meet tough deadlines with speedy turn around & quick
+            <h2 class='text-secondary text-2xl md:text-3xl font-normal pb-8'>Delivery Information</h2>
+            <p class='text-gray-500 pb-5 font-normal'>We meet tough deadlines with speedy turn around & quick
                 delivery</p>
         </div>
-        <div class="lg:flex lg:space-x-5 mb-[20px]">
+        <div class="flex md:flex-row flex-col gap-5 mb-5">
             <?php
             foreach ($Data2 as $item) {
             ?>
-            <div class="box  lg:w-[33%] bg-[#0088CC] text-white rounded-[10px]">
+            <div class="box  md:w-1/3 bg-secondary text-white rounded-xl">
                 <div class=" text-center">
-                    <h3 class='text-[30px] font-[400] text-white leading-[40px] pb-[20px] pt-4'>
+                    <h3 class='text-3xl font-normal text-white pb-5 pt-4'>
                         <?php echo $item['Name']; ?></h3>
-                    <p class='m-auto lg:w-[320px] leading-[27px] pb-[20px]'><?php echo $item['description']; ?></p>
-                    <p class='pb-[20px] leading-[27px]'><?php echo $item['Day']; ?></p>
-                    <p class='pb-[2rem] leading-[27px]'><?php echo $item['Varenty']; ?></p>
+                    <p class='m-auto lg:w-80 text-base leading-7 pb-5'><?php echo $item['description']; ?></p>
+                    <p class='pb-5 text-base leading-7'><?php echo $item['Day']; ?></p>
+                    <p class='pb-8 text-base leading-7'><?php echo $item['Varenty']; ?></p>
                 </div>
             </div>
             <?php
@@ -95,19 +95,19 @@ $Data2 = [
         </div>
     </div>
     <div class="cont">
-        <div class="lg:flex">
-            <div class="hea">
-                <h2 class='font-[400] text-[30px] text-[#1d2127] pb-[32px]'>Shipping F.A.Q.</h2>
-                <p class='text-[#1e2d35] pb-[1.25rem]'>Find below the most asked questions regarding our shipping
+        <div class="flex md:flex-row flex-col gap-5">
+            <div class="hea md:w-3/5">
+                <h2 class='font-normal text-3xl text-accent pb-8'>Shipping F.A.Q.</h2>
+                <p class='text-base text-accent pb-5'>Find below the most asked questions regarding our shipping
                     services:</p>
-                <div class="box bg-[#f8f8f8]  lg:w-[680px] rounded-md">
+                <div class="box bg-gray-100 rounded-md">
                     <div id="accordion-flush" data-accordion="collapse"
-                        data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-                        data-inactive-classes="text-gray-500 dark:text-gray-400">
+                        data-active-classes="text-accent"
+                        data-inactive-classes="text-accent">
                         <?php foreach ($Data as $item): ?>
                         <h2 id="accordion-flush-heading-<?php echo $item['id']; ?>">
                             <button type="button"
-                                class="flex justify-between items-center p-5 w-full font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 py-5"
+                                class="flex justify-between items-center p-5 w-full font-medium text-left text-accent border-b border-gray-200 py-5 hover:bg-gray-300"
                                 data-accordion-target="#accordion-flush-body-<?php echo $item['id']; ?>"
                                 aria-expanded="false" aria-controls="accordion-flush-body-<?php echo $item['id']; ?>">
                                 <span><?php echo htmlspecialchars($item['title']); ?></span>
@@ -121,8 +121,8 @@ $Data2 = [
                         </h2>
                         <div id="accordion-flush-body-<?php echo $item['id']; ?>" class="hidden"
                             aria-labelledby="accordion-flush-heading-<?php echo $item['id']; ?>">
-                            <div class="p-5 border-b border-gray-200 dark:border-gray-700">
-                                <p class="mb-2 text-gray-500 dark:text-gray-400">
+                            <div class="p-5 border-b border-gray-200">
+                                <p class="mb-2 text-gray-500">
                                     <?php echo nl2br(htmlspecialchars($item['content'])); ?></p>
                             </div>
                         </div>
@@ -130,23 +130,23 @@ $Data2 = [
                     </div>
                 </div>
             </div>
-            <div class="ml-5 ">
+            <div class="md:w-2/5">
                 <img class='w-[530px]' width="528" height="622"
                     src="<?php echo get_template_directory_uri(); ?>/public/images/bg.png" alt="" />
             </div>
         </div>
     </div>
     <div class="footer text-center mt-5 ">
-        <h2 class='text-[30px] text-[#7b858a]'>Our preferred couriers</h2>
+        <h2 class='text-3xl text-gray-500'>Our preferred couriers</h2>
         <div class="couriers grid grid-cols-4  items-center m-auto  lg:ml-20 mt-3">
             <img width="166" height="166" class='lg:w-40'
-                src="<?php echo get_template_directory_uri(); ?>/public/images/uk.png" alt="" />
+                src="<?php echo get_template_directory_uri(); ?>/public/images/uk.png" alt="uk.png" />
             <img width="166" height="166" class='lg:w-52 lg:mr-12'
-                src="<?php echo get_template_directory_uri(); ?>/public/images/mail.png" alt="" />
+                src="<?php echo get_template_directory_uri(); ?>/public/images/mail.png" alt="mail.png" />
             <img width="166" height="166" class='lg:w-52'
-                src="<?php echo get_template_directory_uri(); ?>/public/images/dp.png" alt="" />
+                src="<?php echo get_template_directory_uri(); ?>/public/images/dp.png" alt="dp.png" />
             <img width="166" height="166" class='lg:w-52'
-                src="<?php echo get_template_directory_uri(); ?>/public/images/exp.png" alt="" />
+                src="<?php echo get_template_directory_uri(); ?>/public/images/exp.png" alt="exp.png" />
         </div>
     </div>
 </div>
