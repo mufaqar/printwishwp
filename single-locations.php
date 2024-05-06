@@ -42,7 +42,7 @@ get_header();
             ?>
         </div>
 
-    I love this text
+
 
 
         <h4 class='bg-primary p-3 text-center text-white font-bold text-2xl mt-10 md:text-3xl'>Our Range of Printed
