@@ -54,36 +54,36 @@ $Categories = array(
 $Locations = array(
     array(      
         'name' => 'LONDON',    
-        'link' => 'london'
+        'link' => 't-shirt-printing-london'
     ),
     array(      
         'name' => 'MANCHESTER',    
-        'link' => 'manchester'
+        'link' => 't-shirt-printing-manchester'
     ),
     array(      
         'name' => 'BRISTOL',    
-        'link' => 'bristol'
+        'link' => 't-shirt-printing-bristol'
     ),
     
     array(      
         'name' => 'GLASGOW',    
-        'link' => 'glasgow'
+        'link' => 't-shirt-printing-glasgow'
     ),
     array(      
         'name' => 'LIVERPOOL',    
-        'link' => 'liverpool'
+        'link' => 't-shirt-printing-liverpool'
     ),
     array(      
         'name' => 'BIRMINGHAM',    
-        'link' => 'birmingham'
+        'link' => 't-shirt-printing-birmingham'
     ),
     array(      
         'name' => 'EDINBURGH',    
-        'link' => 'edinburgh'
+        'link' => 't-shirt-printing-edinburgh'
     ),
     array(      
         'name' => 'CAMBRIDGE',    
-        'link' => 'cambridge'
+        'link' => 't-shirt-printing-cambridge'
     )
 );
 
