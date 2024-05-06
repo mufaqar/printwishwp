@@ -39,6 +39,16 @@ get_header();
 
         <?php get_template_part('components/com', 'location_products'); ?>
 
+        <div class="md:w-2/5 mx-auto mb-10">
+            <?php
+            // Usage
+            $title = 'Delivery Title';
+            $desc = 'Delivery Description';
+            delivery_time($title, $desc);
+
+            ?>
+        </div>
+
         <?php
         while (have_posts()):
             the_post();
