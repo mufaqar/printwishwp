@@ -523,7 +523,7 @@ $faqs = array(
                 <h5 class="text-xl font-semibold text-accent mb-2 mt-5 font-roboto">Additional information or requests
                 </h5>
                 <textarea id="additional"
-                    class="block w-full p-3 h-80 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:border-secondary focus:outline-none">This is Sample Text</textarea>
+                    class="block w-full p-3 h-80 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:border-secondary focus:outline-none"></textarea>
             </section>
 
             <div class="flex justify-center md:justify-end">
