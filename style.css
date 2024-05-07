@@ -11,4 +11,7 @@ License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: printwish
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-/*
+*/
+
+.mfp-wrap
+{ top: 0 !important;}

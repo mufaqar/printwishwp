@@ -819,7 +819,7 @@ jQuery(document).ready(function($) {
 
     $('.open-popup-link').magnificPopup({
         type: 'inline',
-        midClick: true
+        midClick: false
     });
     // Add event listener to the close button
     $('.close_popup').on('click', function() {
