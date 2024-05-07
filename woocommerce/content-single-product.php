@@ -93,8 +93,8 @@ $faqs = array(
 
 <div class="block md:hidden px-3 container mx-auto">
     <div class="mt-3 flex justify-center">
-    <img src="<?php bloginfo('template_directory'); ?>/public/images/review-badge.svg" alt="rating" width="200"
-                height="37" />
+        <img src="<?php bloginfo('template_directory'); ?>/public/images/review-badge.svg" alt="rating" width="200"
+            height="37" />
     </div>
     <h2 class="text-xl md:text-3xl lg:text-4xl font-medium mt-6 md:mt-0">
         Casual Classics Promotional T-shirt
@@ -392,13 +392,15 @@ $faqs = array(
             Get a quote
         </a>
 
-        <?php
-        // Usage
-        $title = 'Delivery Title';
-        $desc = 'Delivery Description';
-        delivery_time($title, $desc);
+        <div class="md:w-3/5">
+            <?php
+            // Usage
+            $title = 'Delivery Title';
+            $desc = 'Delivery Description';
+            delivery_time($title, $desc);
 
-        ?>
+            ?>
+        </div>
 
         <div id="product-popup" class="mfp-hide bg-background shadow container mx-auto p-6 flex flex-col gap-5">
 
