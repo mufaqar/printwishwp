@@ -67,7 +67,6 @@ get_template_part('components/com', 'reviews');
 	$title = 'Delivery Title';
 	$desc = 'Delivery Description';
 	delivery_time($title, $desc);
-
 	?>
 </div>
 
@@ -80,9 +79,6 @@ get_template_part('components/com', 'reviews');
 				<?php
 
 				if (woocommerce_product_loop()) {
-
-
-
 					//woocommerce_product_loop_start();
 				
 					if (wc_get_loop_prop('total')) {
