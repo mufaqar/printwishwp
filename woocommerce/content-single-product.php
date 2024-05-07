@@ -131,8 +131,11 @@ $faqs = array(
         echo '</div>';
         ?> -->
 
-        <div class="gallery_slider border border-gray-200 rounded-lg p-1">
-            <?php foreach ($gallery_images as $idx => $item):
+        <div class="gallery_slider border border-gray-200 rounded-lg p-1">        
+            <?php
+            
+            if (!empty($gallery_images)) {
+            foreach ($gallery_images as $idx => $item):
                 $image_url = wp_get_attachment_url($item);
                 $image_alt = get_post_meta($item, '_wp_attachment_image_alt', true); ?>
                 <div>
@@ -141,7 +144,12 @@ $faqs = array(
                     echo '<h5 class="text-center font-semibold text-lg capitalize mb-3">' . esc_html($image_alt) . '</h5>';
                     ?>
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach; } else {
+              
+                    echo '<img src="' . esc_url($image_path) . '" alt="' . esc_attr($product->get_name()) . '" width="600" height="600" class="w-full rounded-lg" />';
+               
+
+            } ?>
         </div>
         <div class='mt-5 text-lg text-black bg-background p-8 rounded-lg font-medium'>
             <h6>
