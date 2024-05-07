@@ -444,3 +444,26 @@ input[type='number'] {
 .entry-content p strong {
 color: #21293c;
 }
+
+.loc_content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.loc_content h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.loc_content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.loc_content ul {
+  padding-left: 1.2rem;
+  color: #4b5563;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+.loc_content p {
+  margin-bottom: 1rem;
+  color: #4b5563;
+}
