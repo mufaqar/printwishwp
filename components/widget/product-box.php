@@ -28,11 +28,11 @@
                 Printed From <span class='text-secondary  hover:text-secondary'>£<?php echo $price; ?></span>
             </p>
             <?php if (have_rows('product_rating')): ?>
-            <?php while (have_rows('product_rating')): the_row();  $rating_image = get_sub_field('rating_image');   if (!empty($rating)): // Check if $rating is not empty?>
+            <?php while (have_rows('product_rating')): the_row();  $rating_image = get_sub_field('rating_image');   if (empty($rating)): // Check if $rating is not empty?>
             <div onClick="toggleRating(this)"  class="flex flex-col -mt-3 justify-between items-center min-h-[62px]">
                 <div class="items-center">
                     <img src="<?php the_sub_field('star_image'); ?>" alt="rating"
-                        class="max-w-[120px] sm:w-full cursor-pointer" width="120" height="200">
+                        class="w-[120px]  cursor-pointer" width="120px" height="33px">
                 </div>
                 <div class="flex items-center mb-2 gap-1">
                     <span class="font-normal text-sm whitespace-nowrap"><?php the_sub_field('rating_number'); ?>

@@ -10,7 +10,8 @@
                 <?php
                 $args = array(
                     'post_type' => 'product',
-                    'posts_per_page' => 10, // Retrieve all products
+                    'posts_per_page' => 10, // Retrieve all products,
+                    'product_cat' => 'custom-t-shirt-printing-cheap-t-shirt-printing',
                 );
 
                 $products_query = new WP_Query($args);
