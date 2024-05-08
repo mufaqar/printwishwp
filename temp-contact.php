@@ -8,18 +8,18 @@ get_header();
 
 ?>
 
-<div class="container mx-auto px-4 my-20">
+<div class="container mx-auto px-4 sm:my-20 my-10">
     <div>
         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">CONTACT US</h2>
     </div>
 
     <div class="flex flex-col md:flex-row gap-5 w-full">
-        <div class="mt-5 md:w-96">
-            <div class="py-3">
-                <h3 class="font-bold">Printwish</h3>
-                <div class="border border-b-0 mt-5"></div>
+        <div class="sm:mt-5 mt-0 md:w-96">
+            <div class="sm:py-3 py-3">
+                <h3 class="font-bold sm:mb-0 mb-3">Printwish</h3>
+                <div class="border border-b-0 sm:mt-5 mt-0"></div>
             </div>
-            <div class="py-4 flex items-center gap-3">
+            <div class="sm:py-4 py-3 flex items-center gap-3">
                 <i class="fa-solid fa-phone-flip text-3xl"></i>
                 <div>
                     <p>
@@ -28,9 +28,9 @@ get_header();
                     <p><span class="font-bold">Accounts Tel:</span> 0800 051 0821 </p>
                 </div>
             </div>
-            <div class="border border-b-0 mt-5"></div>
+            <div class="border border-b-0 sm:mt-5 mt-0"></div>
 
-            <div class="py-4 flex items-center gap-3">
+            <div class="sm:py-4 py-3 flex items-center gap-3">
                 <i class="fa-regular fa-envelope text-3xl"></i>
                 <div>
                     <p>
@@ -43,9 +43,8 @@ get_header();
                     </p>
                 </div>
             </div>
-            <div class="border border-b-0 mt-5"></div>
-
-            <div class="py-4">
+            <div class="border border-b-0 sm:mt-5 mt-0"></div>
+            <div class="sm:py-4 py-3">
                 <p><span class="font-bold">Mon-Friday:</span> 09:00am - 05:30pm</p>
                 <p><span class="font-bold">Sat/Sun:</span>Closed</p>
                 <p><span class="font-bold">Bank Holidays:</span>Closed</p>
@@ -59,9 +58,8 @@ get_header();
                     <span class="text-green-500">0800 051 0821</span>
                 </p>
             </div>
-            <div class="border border-b-0 mt-5"></div>
-
-            <div class="py-4">
+            <div class="border border-b-0 sm:mt-5 mt-0"></div>
+            <div class="sm:py-4 py-3">
                 <h3 class="font-bold">Drop Shipping</h3>
                 <p class="py-4">
                     Looking for help or info related to drop shipping
@@ -73,21 +71,19 @@ get_header();
         </div>
 
         <div class="border-l-0 border"></div>
-        <div class="px-4 mt-8 w-full">
+        <div class="px-4 sm:mt-8 mt-0 w-full">
             <div>
                 <h3 class="text-xl md:text-2xl lg:text-3xl font-bold">
                     Contact us
                 </h3>
-
-
                 <form action="" method="post">
                     <div class="flex gap-5">
-                        <div class="mt-8">
+                        <div class="sm:mt-8 mt-0">
                             <p class="py-7">Subject</p>
                             <p>Email address</p>
                             <p class="py-5">Message</p>
                         </div>
-                        <div class="mt-12">
+                        <div class="sm:mt-12 mt-5">
                             <select name="Enquiries" class="border outline-none w-full max-w-96 py-2 px-2">
                                 <option value="General Enquiries">General Enquiries</option>
                                 <option value="Invoice/Accounts Enquiry">Invoice/Accounts Enquiry</option>

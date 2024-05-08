@@ -79,7 +79,7 @@ get_template_part('components/com', 'reviews');
 	?>
 </div>
 
-<section class='py-16 relative'>
+<section class='sm:py-16 py-10 relative'>
     <div class='max-w-screen-xl mx-auto px-4 '>
 
         <div class='w-full'>

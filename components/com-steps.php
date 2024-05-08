@@ -1,4 +1,4 @@
-<section class="py-16 stepBg bg-repeat">
+<section class="sm:py-16 py-10 stepBg bg-repeat">
             <div class='max-w-screen-xl mx-auto px-4'>
                 <h2 class='sm:text-4xl text-2xl font-semibold font-opensans uppercase text-center mb-5 text-white '>
                     Straightforward Steps To Perfect Promotional Products
@@ -6,7 +6,7 @@
                 <p class='text-lg font-normal text-center font-roboto text-white'>
                     Ensuring You Get Exactly What You Need When You Need It
                 </p>
-                <div class='grid md:grid-cols-5 grid-cols-1 md:gap-5 gap-10 mt-20'>
+                <div class='grid md:grid-cols-5 grid-cols-1 md:gap-5 gap-10 sm:mt-20 mt-10'>
                     <div class='bg-white  shadow relative px-3 py-5 rounded-lg'>
                         <h3 class='w-fit absolute -top-5 left-1/2 -translate-x-1/2 transform mx-auto text-2xl leading-none font-opensans bg-primary px-3 py-1.5 rounded-full text-white'>
                             1
