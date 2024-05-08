@@ -72,7 +72,7 @@ $Data2 = [
 <div class="items-center mx-auto max-w-screen-xl px-6 md:px-6 mt-6">
     <div class="container mx-auto">
         <div class="text-center">
-            <h2 class='text-secondary text-2xl md:text-3xl font-normal pb-8'>Delivery Information</h2>
+            <h2 class='text-secondary text-2xl md:text-3xl font-normal md:pb-8 pb-4'>Delivery Information</h2>
             <p class='text-gray-500 pb-5 font-normal'>We meet tough deadlines with speedy turn around & quick
                 delivery</p>
         </div>
@@ -80,7 +80,7 @@ $Data2 = [
             <?php
             foreach ($Data2 as $item) {
             ?>
-            <div class="box  md:w-1/3 bg-secondary text-white rounded-xl">
+            <div class="box md:w-1/3 bg-secondary text-white rounded-xl md:p-x-0 px-4">
                 <div class=" text-center">
                     <h3 class='text-3xl font-normal text-white pb-5 pt-4'>
                         <?php echo $item['Name']; ?></h3>
@@ -97,7 +97,7 @@ $Data2 = [
     <div class="cont">
         <div class="flex md:flex-row flex-col gap-5">
             <div class="hea md:w-3/5">
-                <h2 class='font-normal text-3xl text-accent pb-8'>Shipping F.A.Q.</h2>
+                <h2 class='font-normal text-3xl text-accent md:pb-8 pb-4'>Shipping F.A.Q.</h2>
                 <p class='text-base text-accent pb-5'>Find below the most asked questions regarding our shipping
                     services:</p>
                 <div class="box bg-gray-100 rounded-md">

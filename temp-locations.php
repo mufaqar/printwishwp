@@ -7,9 +7,9 @@ get_header();
 ?>
 
 
-<section class="container mx-auto px-4 my-16">
+<section class="container mx-auto px-4 sm:my-16 py-10">
     <h4 class="text-secondary text-2xl md:text-3xl">Locations</h4>
-    <ul class="grid mt-8 grid-col-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <ul class="grid sm:mt-8 mt-5 grid-col-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         <?php
         $args = array(
             'post_type' => 'locations', 

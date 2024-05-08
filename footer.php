@@ -81,7 +81,7 @@ $Categories = [
         top: 12px;
     }
 </style>
-<footer class='bg-background pt-12 border-t'>
+<footer class='bg-background md:pt-12 pt-6 border-t'>
     <div class='container mx-auto px-4'>
         <div class='grid md:grid-cols-4 grid-cols-1 gap-7'>
             <div>

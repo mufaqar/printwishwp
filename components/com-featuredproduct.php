@@ -1,11 +1,11 @@
-<section class='py-16 relative'>
+<section class='md:py-16 py-10 relative'>
     <div class='max-w-screen-xl mx-auto px-4 '>
         <div class='w-fit mx-auto mb-10'>
             <h2 class='sm:text-4xl text-2xl font-semibold font-opensans text-accent uppercase text-center mb-5'>
                 FEATURED PRODUCTS
             </h2>
         </div>
-        <div class='mt-24 relative'>
+        <div class='md:mt-24 mt-20 relative'>
             <div class='products_slider'>
                 <?php
                 $args = array(
