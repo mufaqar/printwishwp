@@ -83,7 +83,7 @@ get_template_part('components/com', 'reviews');
     <div class='max-w-screen-xl mx-auto px-4 '>
 
         <div class='w-full'>
-            <div class='grid sm:grid-cols-2 md:grid-cols-5  grid-cols-2 gap-1 sm:gap-2 md:gap-4'>
+            <div class='grid sm:grid-cols-2 md:grid-cols-5 relative product-grid grid-cols-2 gap-1 sm:gap-2 md:gap-4'>
 
                 <?php
 
@@ -133,7 +133,7 @@ get_template_part('components/com', 'reviews');
 
 <section>
     <div class="container mx-auto px-1 my-2 w-full">
-        <div className='category_pages mt-10'>
+        <div class='category_pages mt-10'>
             <?php echo $term_content ?>
         </div>
     </div>
