@@ -9,14 +9,29 @@ function insert_order_data() {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) ) {
 
-		$json_data = $_POST['array_data'];
+			
 
-// Decode the JSON string back into an array
-$array_data = json_decode($json_data);
+		$form_data_encoded = $_POST['order_data'];
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$mobile = $_POST['mobile'];
+		$date = $_POST['date'];
 
-echo "Test";
 
-print_r($array_data);
+		print "<pre>";
+		print_r($form_data_encoded);
+		
+
+
+		  echo "<hr/>";
+
+		// Print or do something with the retrieved data
+		echo "Name: " . $name . "<br>";
+		echo "Email: " . $email . "<br>";
+		echo "Mobile: " . $mobile . "<br>";
+	
+
+
 
 
 		function create_vip_order($id) {
@@ -47,7 +62,7 @@ print_r($array_data);
 		  }
 
 
-		create_vip_order(2988);
+		//create_vip_order(2988);
             
 
 		echo "order Crated";

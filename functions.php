@@ -238,10 +238,8 @@ function store_data_in_wp_session() {
     $_SESSION['SelectedColors'] = $selected_colors;
     $_SESSION['selectedVariants'] = $selected_variants;
     $_SESSION['additionalInfo'] = $additional_info;
-    $_SESSION['ProductID'] = $product_id;
-
-    // Send response
-    wp_send_json_success('Data stored in WordPress session.');
+    $_SESSION['ProductID'] = $product_id;    
+    echo 'success';
     wp_die();
 }
 

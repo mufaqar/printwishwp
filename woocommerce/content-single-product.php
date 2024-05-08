@@ -494,13 +494,6 @@ $faqs = array(
 <script>
 var SelectedColors = [];
 var selectedVariants = [];
-
-
-
-
-
-
-
 function handColors(item) {
     var ccode = item.getAttribute('code');
     var color = {
@@ -510,7 +503,6 @@ function handColors(item) {
     }
     SelectedColors.push(color);
     createColorList(SelectedColors)
-
 }
 
 function createColorList(colors) {
@@ -698,7 +690,7 @@ function handleUploadImage() {
 }
 
 const handleAddToCart = () => {
-    alert("Test");
+   
     var productId = <?php echo $product_id ?>;
     var additionalInfoTextarea = document.getElementById('additional').value;
     localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
@@ -718,6 +710,13 @@ const handleAddToCart = () => {
     // Send AJAX request to WordPress backend
     jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function(response) {
         console.log('Data stored in WordPress.');
+    // Check if the response indicates success
+    if (response === 'success') {
+        // Redirect to your desired page
+        window.location.href = '<?php echo home_url('/checkout'); ?>';
+    } else {
+        console.log('Error occurred: ' + response);
+    }
     });
 
 

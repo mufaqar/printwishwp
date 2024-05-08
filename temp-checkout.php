@@ -19,8 +19,22 @@ if ($session_data) {
     print_r($selected_colors);
     print "</pre>";
 
+
+    // Combine the data into an array
+    $data = array(
+        'selected_colors' => $selected_colors,
+        'selected_variants' => $selected_variants,
+        'additional_info' => $additional_info,
+        'product_id' => $product_id
+    );
+
+    // Serialize the data
+    $serialized_data = json_encode($data);
+
   
 }
+
+echo $serialized_data;
 
 
 
@@ -46,7 +60,7 @@ if ($product) {
                 </h1>
                 <form class="mt-10 flex flex-col space-y-4" id="create_order" method="POST">
 
-                <input type="text" name="array_data" value="<?php echo htmlspecialchars($json_data); ?>">
+                <!-- <textarea  id="array_data" name="array_data" ><?php echo $serialized_data; ?> </textarea> -->
 
 
 
@@ -54,7 +68,7 @@ if ($product) {
                         <label class="text-xs font-semibold text-gray-500">
                             Name
                         </label>
-                        <input type="text" id="card-name" name="name" placeholder="name"
+                        <input type="text" id="name" name="name" placeholder="Enter Your Name"
                             class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" />
 
                     </div>
@@ -70,7 +84,7 @@ if ($product) {
                         <label class="text-xs font-semibold text-gray-500">
                             Mobile Number (Optional)
                         </label>
-                        <input type="text" id="card-name" name="mobile" placeholder="mobile number"
+                        <input type="text" id="mobile" name="mobile" placeholder="mobile number"
                             class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" />
 
                     </div>
@@ -78,7 +92,7 @@ if ($product) {
                         <label class="text-xs font-semibold text-gray-500">
                             Delivery Date
                         </label>
-                        <input type="date" placeholder="Delivery Date"
+                        <input type="date" placeholder="Delivery Date" id="del_date" name="del_date" 
                             class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" />
                     </div>
 
@@ -228,27 +242,36 @@ get_footer();
 jQuery(document).ready(function($) {
     $("#create_order").submit(function(e) {
         e.preventDefault();
-        var formData = $("#create_order").serialize();
 
-        var jsonData = JSON.stringify(arrayData);
-        alert(formData);
+            var name = jQuery('#name').val();
+            var email = jQuery('#email').val();
+            var phone = jQuery('#mobile').val();
+            var date = jQuery('#del_date').val();
+            var order_data = <?php echo $serialized_data ?>;
+
+
+
+      //  var formData = $(this).serialize();
         $.ajax({
             type: "post",
             url: "<?php echo admin_url('admin-ajax.php'); ?>",
             data: {
                 action: "insert_order_data",
-                form_data: formData
+                name : name,
+                email : email,
+                phone : phone,
+                date : date,
+                order_data : order_data                      
             },
             success: function(data) {
-                console.log(response);
-                console.log("12355");
-                $('#mock_calc').hide();
-                $('#data_data').show();
+                
+               // $('#mock_calc').hide();
+               // $('#data_data').show();
 
             },
             error: function(error) {
                 // Handle error response
-                console.log(error.responseText);
+               // console.log(error.responseText);
             }
         });
     });
