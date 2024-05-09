@@ -36,7 +36,7 @@ $NavLinks = [
 ];
 
 $Categories = [
-    
+
     [
         'name' => 'T-Shirts',
         'link' => 'custom-t-shirt-printing-cheap-t-shirt-printing',
@@ -82,7 +82,7 @@ $Categories = [
     }
 </style>
 <footer class='bg-background md:pt-12 pt-6 border-t'>
-    <div class='container mx-auto px-4'>
+    <div class='container mx-auto px-4 relative'>
         <div class='grid md:grid-cols-4 grid-cols-1 gap-7'>
             <div>
                 <h6 class='text-xl font-semibold font-opensans text-accent uppercase mb-5'>
@@ -150,7 +150,7 @@ $Categories = [
                         </span>
                     </li>
                     <li class="">
-                        <a href="tel:08000510821"
+                        <a href="tel:00448000510821"
                             class="text-sm text-accent font-roboto hover:text-secondary flex items-center gap-1">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
                                 class="text-secondary min-w-[20px]" height="20" width="20"
@@ -159,7 +159,7 @@ $Categories = [
                                     d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z">
                                 </path>
                             </svg>
-                            0800 051 0821
+                            0044 800 051 0821
                         </a>
                     </li>
                     <li class="">
@@ -246,15 +246,26 @@ $Categories = [
                         <a href="https://www.youtube.com/channel/UCb73rrDUl5soUZsGNNZ6FYg" target='_blank'
                             class="inline-flex items-center p-2 text-sm font-medium text-secondary bg-transparent border border-secondary hover:border-primary hover:text-primary rounded-full">
                             <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 448 512">
+                                viewBox="0 0 24 24">
                                 <path
-                                    d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
+                                    d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,14.598V9.402c0-0.385,0.417-0.625,0.75-0.433l4.5,2.598c0.333,0.192,0.333,0.674,0,0.866l-4.5,2.598 C10.417,15.224,10,14.983,10,14.598z">
+                                </path>
                             </svg>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
+        <!-- Back to top button -->
+        <button id="back-to-top"
+            class="bg-secondary hover:bg-primary text-white font-bold py-1 px-1 rounded absolute right-0 bottom-10">
+            <svg data-accordion-icon="" class="w-10 h-10 shrink-0 transform rotate-180" fill="currentColor"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
     </div>
     <div class='mt-7 border-t'>
         <div class='py-4 grid  grid-cols-1 gap-7 max-w-screen-xl mx-auto px-4 items-center'>
@@ -265,10 +276,25 @@ $Categories = [
     </div>
 </footer>
 
-
-
 <?php wp_footer(); ?>
 
 </body>
+<script>
+    // Get the button
+    var btn = document.getElementById('back-to-top');
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    };
+    // When the user clicks on the button, scroll to the top of the document
+    btn.addEventListener('click', function () {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+</script>
 
 </html>
