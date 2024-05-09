@@ -52,37 +52,37 @@ $Categories = array(
 );
 
 $Locations = array(
-    array(      
-        'name' => 'LONDON',    
+    array(
+        'name' => 'LONDON',
         'link' => 't-shirt-printing-london'
     ),
-    array(      
-        'name' => 'MANCHESTER',    
+    array(
+        'name' => 'MANCHESTER',
         'link' => 't-shirt-printing-manchester'
     ),
-    array(      
-        'name' => 'BRISTOL',    
+    array(
+        'name' => 'BRISTOL',
         'link' => 't-shirt-printing-bristol'
     ),
-    
-    array(      
-        'name' => 'GLASGOW',    
+
+    array(
+        'name' => 'GLASGOW',
         'link' => 't-shirt-printing-glasgow'
     ),
-    array(      
-        'name' => 'LIVERPOOL',    
+    array(
+        'name' => 'LIVERPOOL',
         'link' => 't-shirt-printing-liverpool'
     ),
-    array(      
-        'name' => 'BIRMINGHAM',    
+    array(
+        'name' => 'BIRMINGHAM',
         'link' => 't-shirt-printing-birmingham'
     ),
-    array(      
-        'name' => 'EDINBURGH',    
+    array(
+        'name' => 'EDINBURGH',
         'link' => 't-shirt-printing-edinburgh'
     ),
-    array(      
-        'name' => 'CAMBRIDGE',    
+    array(
+        'name' => 'CAMBRIDGE',
         'link' => 't-shirt-printing-cambridge'
     )
 );
@@ -133,17 +133,17 @@ $Locations = array(
                         class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow absolute -top-28">
                         <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdown-button">
                             <?php
-                          
-                                foreach ($Categories as  $cat) {
-                                    ?>
-                            <li>
-                                <a href="<?php echo $cat['link']; ?>" class="flex p-3 rounded-lg hover:bg-gray-50 ">
-                                    <?php echo $cat['name']; ?>
-                                </a>
-                            </li>
-                            <?php
-                                }
-                        
+
+                            foreach ($Categories as $cat) {
+                                ?>
+                                <li>
+                                    <a href="<?php echo $cat['link']; ?>" class="flex p-3 rounded-lg hover:bg-gray-50 ">
+                                        <?php echo $cat['name']; ?>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+
                             ?>
 
                         </ul>
@@ -166,8 +166,13 @@ $Locations = array(
                         </button>
                     </div>
                 </div>
-                <!-- <div class="flex items-center gap-2 mr-4 md:ml-12">
-                    <button class="md:hidden">
+                <div class="md:flex hidden items-center">
+                    <a href="<?php echo home_url('/contact-us'); ?>" class="bg-green-500 py-2 px-8 hover:bg-primary ml-5 rounded-full text-white">
+                        Enquiry
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center gap-2 mr-4 md:ml-12">
+                    <button class="">
                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
                             class="text-white" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -175,7 +180,7 @@ $Locations = array(
                             </path>
                         </svg>
                     </button>
-                </div> -->
+                </div>
             </div>
             <div id="menu" class="items-center lg:order-1 hidden md:block">
                 <ul class="flex flex-col md:flex-row mt-0 gap-6 md:gap-8 text-sm font-medium ">
@@ -198,22 +203,22 @@ $Locations = array(
                         <div id="submenu-Cat" class="md:absolute md:mr-5 z-50 bg-secondary w-44 pt-4 md:pt-7 hidden">
                             <ul class='md:pb-2'>
                                 <?php
-                               
-                                    foreach ($Categories as $cat) {
-                                         ?>
-                                            <li class="px-5 py-1.5 relative group">
-                                                <a href="<?php echo home_url(''); ?>/<?php echo $cat['link']; ?>"
-                                                    class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
-                                                    <?php echo $cat['name']; ?>
-                                                </a>
-                                                <span
-                                                    class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
-                                            </li>
-                                       <?php
-                                    }
-                              
+
+                                foreach ($Categories as $cat) {
+                                    ?>
+                                    <li class="px-5 py-1.5 relative group">
+                                        <a href="<?php echo home_url(''); ?>/<?php echo $cat['link']; ?>"
+                                            class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
+                                            <?php echo $cat['name']; ?>
+                                        </a>
+                                        <span
+                                            class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
+                                    </li>
+                                    <?php
+                                }
+
                                 ?>
-                              
+
                             </ul>
                         </div>
                     </li>
@@ -247,20 +252,20 @@ $Locations = array(
                         <div id="submenu-loc" class="md:absolute md:mr-5 z-50 bg-secondary w-44 pt-4 md:pt-7 hidden">
                             <ul class='md:pb-2'>
                                 <?php
-                               
-                                    foreach ($Locations as  $loc) {
-                                        ?>
-                                <li class="px-5 py-1.5 relative group">
-                                    <a href="<?php echo home_url('/'); ?><?php echo $loc['link']; ?>"
-                                        class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
-                                        <?php echo $loc['name']; ?>
-                                    </a>
-                                    <span
-                                        class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
-                                </li>
-                                <?php
-                                    }
-                               
+
+                                foreach ($Locations as $loc) {
+                                    ?>
+                                    <li class="px-5 py-1.5 relative group">
+                                        <a href="<?php echo home_url('/'); ?><?php echo $loc['link']; ?>"
+                                            class="text-xs cursor-pointer w-full group-hover:text-gray-700 text-white font-semibold uppercase">
+                                            <?php echo $loc['name']; ?>
+                                        </a>
+                                        <span
+                                            class="absolute h-full p-[2px] bg-gray-700 top-0 left-0 hidden group-hover:block"></span>
+                                    </li>
+                                    <?php
+                                }
+
                                 ?>
                                 <li class="px-5 py-1.5 relative group">
                                     <a href="<?php echo home_url('/locations'); ?>"
@@ -282,49 +287,49 @@ $Locations = array(
 <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuIconClosed = document.getElementById('menu-icon-closed');
-    const menuIconOpen = document.getElementById('menu-icon-open');
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuIconClosed = document.getElementById('menu-icon-closed');
+        const menuIconOpen = document.getElementById('menu-icon-open');
 
-    menuToggle.addEventListener('click', function() {
-        // Toggle the visibility of the menu icons
-        menuIconClosed.classList.toggle('hidden');
-        menuIconOpen.classList.toggle('hidden');
-        // Toggle the visibility of the menu
-        menu.classList.toggle('hidden');
+        menuToggle.addEventListener('click', function () {
+            // Toggle the visibility of the menu icons
+            menuIconClosed.classList.toggle('hidden');
+            menuIconOpen.classList.toggle('hidden');
+            // Toggle the visibility of the menu
+            menu.classList.toggle('hidden');
+        });
     });
-});
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const submenuLocations = document.getElementById('submenu-locations');
-    const submenuCategories = document.getElementById('submenu-Categories');
-    const submenuloc = document.getElementById('submenu-loc');
-    const submenuCat = document.getElementById('submenu-Cat');
+    document.addEventListener('DOMContentLoaded', function () {
+        const submenuLocations = document.getElementById('submenu-locations');
+        const submenuCategories = document.getElementById('submenu-Categories');
+        const submenuloc = document.getElementById('submenu-loc');
+        const submenuCat = document.getElementById('submenu-Cat');
 
-    submenuLocations.addEventListener('mouseenter', function() {
-        // Toggle the visibility of the submenuLocations
-        submenuloc.classList.toggle('hidden');
-        submenuCat.classList.add('hidden');
+        submenuLocations.addEventListener('mouseenter', function () {
+            // Toggle the visibility of the submenuLocations
+            submenuloc.classList.toggle('hidden');
+            submenuCat.classList.add('hidden');
+        });
+        submenuCategories.addEventListener('mouseenter', function () {
+            // Toggle the visibility of the submenuCategories
+            submenuCat.classList.toggle('hidden');
+            submenuloc.classList.add('hidden');
+        });
     });
-    submenuCategories.addEventListener('mouseenter', function() {
-        // Toggle the visibility of the submenuCategories
-        submenuCat.classList.toggle('hidden');
-        submenuloc.classList.add('hidden');
-    });
-});
 
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     var menuItems = document.querySelectorAll("#menu > li");
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     var menuItems = document.querySelectorAll("#menu > li");
 
-//     menuItems.forEach(function (item) {
-//         var submenu = item.querySelector(".submenu");
-//         item.addEventListener("mouseenter", function () {
-//             submenu.style.display = "block";
-//         });
+    //     menuItems.forEach(function (item) {
+    //         var submenu = item.querySelector(".submenu");
+    //         item.addEventListener("mouseenter", function () {
+    //             submenu.style.display = "block";
+    //         });
 
-//     });
-// });
+    //     });
+    // });
 </script>
