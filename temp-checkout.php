@@ -265,8 +265,22 @@ jQuery(document).ready(function($) {
             },
             success: function(data) {
                 
-               // $('#mock_calc').hide();
-               // $('#data_data').show();
+               // window.location.href = data.redirect_url;
+             //  console.log("AJAX request successful!");
+              // console.log("Response from server:", data);
+              var responseData = JSON.parse(data);
+
+             
+
+            // Check if the response indicates success
+            if (responseData.success) {
+                // Redirect to the page
+                window.location.href = responseData.redirect_url;
+            } else {
+                console.error('Error occurred');
+            }
+            
+              
 
             },
             error: function(error) {
