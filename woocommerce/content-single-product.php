@@ -694,7 +694,7 @@ $faqs = array(
     }
 
     const handleAddToCart = () => {
-        alert("Test");
+      
         var productId = <?php echo $product_id ?>;
         var additionalInfoTextarea = document.getElementById('additional').value;
         localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
@@ -713,7 +713,12 @@ $faqs = array(
 
         // Send AJAX request to WordPress backend
         jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function (response) {
-            console.log('Data stored in WordPress.');
+            if (response.success) {   
+                  window.location.href = response.data.redirect_url;
+            } else {
+                console.error('Error occurred:', response.data);
+            }
+               
         });
 
 

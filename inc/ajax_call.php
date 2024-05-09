@@ -20,6 +20,8 @@ function insert_order_data() {
 
 		print "<pre>";
 		print_r($form_data_encoded);
+
+		echo $product_id = $form_data_encoded['product_id'];
 		
 
 
@@ -34,38 +36,117 @@ function insert_order_data() {
 
 
 
-		function create_vip_order($id) {
+		
+
+		$order_data = array(
+			'selected_colors' => array(
+				array(
+					'color' => 'DARK HEATHER',
+					'code' => '565B5E',
+					'selectedsize' => array(
+						array(
+							'size' => 'S',
+							'quantity' => 44
+						)
+					)
+				),
+				array(
+					'color' => 'HELICONIA',
+					'code' => 'E63B6E',
+					'selectedsize' => array(
+						array(
+							'size' => 'S',
+							'quantity' => 33
+						)
+					)
+				)
+			),
+			'selected_variants' => array(
+				array(
+					'variant' => 'Left Breast',
+					'colorInLogo' => 1,
+					'url' => 'http://localhost/projects/printwishwp/wp-content/uploads/2024/05/landing-minidil-red-shape.png'
+				),
+				array(
+					'variant' => 'Big Front',
+					'colorInLogo' => 2,
+					'url' => 'http://localhost/projects/printwishwp/wp-content/uploads/2024/05/CNIC Front.png'
+				)
+			),
+			'additional_info' => 'This is Test',
+			'product_id' => 2988
+		);
+		
+
+		
+		
+			
 
 			global $woocommerce;		  
 			$address = array(
-				'first_name' => 'Mufaqar',
-				'last_name'  => 'Islam',
-				'company'    => 'Softs Gens',
-				'email'      => 'mufaqar@gmail.com',
-				'phone'      => '760-555-1212',
-				'address_1'  => '123 Main st.',
-				'address_2'  => '104',
-				'city'       => 'San Diego',
-				'state'      => 'Ca',
-				'postcode'   => '92121',
+				'first_name' => $name,
+				'last_name'  => '',
+				'company'    => '',
+				'email'      =>  $email,
+				'phone'      => $mobile,
+				'address_1'  => '',
+				'address_2'  => '',
+				'city'       => '',
+				'state'      => '',
+				'postcode'   => '',
 				'country'    => 'UK'
 			);
+
+			$line_item = $order_data;
+
+			$args = $order_data;
 		  
 			$order = wc_create_order();
 			$order->set_address( $address, 'billing' );
 			$order->set_address( $address, 'shipping' );
-			$order->add_product( wc_get_product( $id ), 1 );
+			$order->add_product( wc_get_product( $product_id ), 1  );
+			foreach ( $order->get_items() as $item_key => $item ) {
+
+				//$item->add_meta_data( 'order_data', $order_data, false );
+
+				foreach ($order->get_items() as $item_key => $item) {
+					foreach ($order_data as $key => $value) {
+						
+						if (is_array($value)) {
+							foreach ($value as $sub_key => $sub_value) {
+								if (is_array($sub_value)) {
+									foreach ($sub_value as $sub_sub_key => $sub_sub_value) {
+										$item->add_meta_data("$key - $sub_key - $sub_sub_key", $sub_sub_value);
+									}
+								} else {
+									$item->add_meta_data("$key - $sub_key", $sub_value);
+								}
+							}
+						} else {
+							$item->add_meta_data($key, $value);
+						}
+					}
+				}
+
+
+
+				
+			}
+
+		
+
+			
 			$order->calculate_totals();
 			$order->set_status( 'wc-processing' );
 			$order->save();
 		  
-		  }
-
-
-		//create_vip_order(2988);
+		  
             
 
 		echo "order Crated";
+		destroy_wp_session();
+		wp_redirect( home_url('/thank-you') ); 
+		die($product_id);
            
     
         }

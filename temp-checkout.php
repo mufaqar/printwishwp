@@ -14,10 +14,10 @@ if ($session_data) {
     $additional_info = $session_data['additional_info'];
     $product_id = $session_data['product_id'];
 
-    print "<pre>";
-    print_r($selected_variants);
-    print_r($selected_colors);
-    print "</pre>";
+    // print "<pre>";
+    // print_r($selected_variants);
+    // print_r($selected_colors);
+    // print "</pre>";
 
 
     // Combine the data into an array

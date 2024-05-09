@@ -238,9 +238,15 @@ function store_data_in_wp_session() {
     $_SESSION['SelectedColors'] = $selected_colors;
     $_SESSION['selectedVariants'] = $selected_variants;
     $_SESSION['additionalInfo'] = $additional_info;
-    $_SESSION['ProductID'] = $product_id;    
-    echo 'success';
-    wp_die();
+    $_SESSION['ProductID'] = $product_id;  
+
+	$redirect_url = home_url('/checkout');
+
+	// Send the URL back as a response
+	wp_send_json_success(array('redirect_url' => $redirect_url));
+ 
+
+
 }
 
 
@@ -285,3 +291,19 @@ function pass_session_data_to_template($template) {
     return $template;
 }
 
+
+function destroy_wp_session() {
+    // Start session if not already started
+    if (!session_id()) {
+        session_start();
+    }
+
+    // Destroy the session
+    session_destroy();
+
+    // Optional: Unset specific session variables if needed
+    unset($_SESSION['SelectedColors']);
+    unset($_SESSION['selectedVariants']);
+    unset($_SESSION['additionalInfo']);
+    unset($_SESSION['ProductID']);
+}
