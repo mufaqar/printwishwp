@@ -100,12 +100,9 @@ function insert_order_data() {
 			$order->save();
 
 			//echo "order Crated";
-			//destroy_wp_session();
+			destroy_wp_session();
 			$redirect_url = home_url('/thank-you');
-			// Send the URL back as a response
-			
-			echo json_encode(array('success' => true ,'redirect_url' => $redirect_url ));
-			
+			echo json_encode(array('success' => true ,'redirect_url' => $redirect_url ));			
 			die();
     
         }

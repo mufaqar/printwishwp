@@ -268,9 +268,7 @@ jQuery(document).ready(function($) {
                // window.location.href = data.redirect_url;
              //  console.log("AJAX request successful!");
               // console.log("Response from server:", data);
-              var responseData = JSON.parse(data);
-
-             
+              var responseData = JSON.parse(data);           
 
             // Check if the response indicates success
             if (responseData.success) {
