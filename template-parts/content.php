@@ -10,27 +10,28 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header ">
-		<?php
+    <header class="entry-header ">
+        <?php
 		
 			the_title( '<h1 class="entry-title text-2xl">', '</h1>' );
 		
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta mt-5 py-5 lg:text-base leading-normal text-accent pb-3 font-normal  tracking-normal pt-2 mb-4 border-b border-t">
-				<?php
+        <div
+            class="entry-meta mt-5 py-5 lg:text-base leading-normal text-accent pb-3 font-normal  tracking-normal pt-2 mb-4 border-b border-t">
+            <?php
 				printwish_posted_on();
 				printwish_posted_by();
 				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+        </div><!-- .entry-meta -->
+        <?php endif; ?>
+    </header><!-- .entry-header -->
 
-	<?php printwish_post_thumbnail(); ?>
+    <?php printwish_post_thumbnail(); ?>
 
-	<div class="entry-content">
-		<?php
+    <div class="entry-content">
+        <?php
 		the_content(
 			sprintf(
 				wp_kses(
@@ -46,16 +47,9 @@
 			)
 		);
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'printwish' ),
-				'after'  => '</div>',
-			)
-		);
+		
 		?>
-	</div><!-- .entry-content -->
+    </div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php printwish_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+
 </article><!-- #post-<?php the_ID(); ?> -->
