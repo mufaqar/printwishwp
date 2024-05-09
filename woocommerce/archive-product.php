@@ -150,6 +150,9 @@ get_template_part('components/com', 'reviews');
 
 	?>
 
+
+        <?php if (!empty($term_faqs)) { ?>  
+
         <section class="bg-white mb-10">
             <div class="">
                 <h2 class="mb-6 lg:mb-8 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900">
@@ -193,7 +196,8 @@ get_template_part('components/com', 'reviews');
 
             </div>
         </section>
-       
+
+        <?php }  ?>
 
 
 </section>
