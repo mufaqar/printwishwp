@@ -65,8 +65,7 @@ jQuery("#contact_form").validate({
 				},
                 messages: {
 					firstname: "Please enter your firstname",
-					lastname: "Please enter your lastname",
-					
+					message: "Please enter your message",					
 					email: "Please enter a valid email address",
 					agree: "Please accept our policy"
 				},
