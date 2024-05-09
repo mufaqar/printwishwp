@@ -166,12 +166,12 @@ $Locations = array(
                         </button>
                     </div>
                 </div>
-                <div class="md:flex hidden items-center">
-                    <a href="<?php echo home_url('/contact-us'); ?>" class="bg-green-500 py-2 px-8 hover:bg-primary ml-5 rounded-full text-white">
+                <div class="flex items-center">
+                    <a href="<?php echo home_url('/contact-us'); ?>" class="md:text-base text-xs bg-green-500 py-2 md:px-8 px-4 hover:bg-primary md:ml-5 ml-2 rounded-full text-white">
                         Enquiry
                     </a>
                 </div>
-                <div class="md:hidden flex items-center gap-2 mr-4 md:ml-12">
+                <!-- <div class="md:hidden flex items-center gap-2 mr-4 md:ml-12">
                     <button class="">
                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
                             class="text-white" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -180,7 +180,7 @@ $Locations = array(
                             </path>
                         </svg>
                     </button>
-                </div>
+                </div> -->
             </div>
             <div id="menu" class="items-center lg:order-1 hidden md:block">
                 <ul class="flex flex-col md:flex-row mt-0 gap-6 md:gap-8 text-sm font-medium ">
