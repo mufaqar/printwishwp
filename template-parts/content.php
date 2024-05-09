@@ -11,10 +11,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header ">
-        <?php
-		
-			the_title( '<h1 class="entry-title text-2xl">', '</h1>' );
-		
+
+        <h1>
+            <a class="entry-title text-2xl" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+        </h1>
+        <?php		
 
 		if ( 'post' === get_post_type() ) :
 			?>
