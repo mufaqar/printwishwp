@@ -19,12 +19,8 @@ get_header();
         </div>
     </div>
 </section>
-
-
-
-<main class='my-20 lg:flex lg:flex-row flex-col justify-between items-center mx-auto max-w-screen-xl px-6 md:px-6  '>
+<main class='my-20 lg:flex lg:flex-row flex-col justify-between items-center mx-auto container px-6'>
     <div class="space-y-12 ">
-
         <?php
                 $args = array(
                     'post_type' => 'post', // Assuming your custom post type is 'post', change it if needed

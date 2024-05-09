@@ -10,17 +10,15 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="entry-header ">
 		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+		
+			the_title( '<h1 class="entry-title text-2xl">', '</h1>' );
+		
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
+			<div class="entry-meta mt-5 py-5 lg:text-base leading-normal text-accent pb-3 font-normal  tracking-normal pt-2 mb-4 border-b border-t">
 				<?php
 				printwish_posted_on();
 				printwish_posted_by();
