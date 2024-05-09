@@ -18,18 +18,18 @@ get_header();
                 <h3 class="font-bold sm:mb-0 mb-3">Printwish</h3>
                 <div class="border border-b-0 sm:mt-5 mt-0"></div>
             </div>
-            <div class="sm:py-4 py-3 flex items-center gap-3">
+            <div class="sm:py-4 py-3 flex items-center">
                 <i class="fa-solid fa-phone-flip text-3xl"></i>
                 <div>
                     <p>
-                        <span class="font-bold">Sales Enquiries Tel:</span> 0800 051 0821
+                        <span class="font-bold">Sales Enquiries Tel:</span> 0044 800 051 0821
                     </p>
-                    <p><span class="font-bold">Accounts Tel:</span> 0800 051 0821 </p>
+                    <p><span class="font-bold">Accounts Tel:</span> 0044 800 051 0821 </p>
                 </div>
             </div>
             <div class="border border-b-0 sm:mt-5 mt-0"></div>
 
-            <div class="sm:py-4 py-3 flex items-center gap-3">
+            <div class="sm:py-4 py-3 flex items-center">
                 <i class="fa-regular fa-envelope text-3xl"></i>
                 <div>
                     <p>
@@ -54,7 +54,7 @@ get_header();
                 </p>
                 <p>
                     Alternatively, you can always call us during hours on
-                    <span class="text-green-500">0800 051 0821</span>
+                    <span class="text-green-500">0044 800 051 0821</span>
                 </p>
             </div>
             <div class="border border-b-0 sm:mt-5 mt-0"></div>
