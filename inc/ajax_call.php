@@ -15,27 +15,8 @@ function insert_order_data() {
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$mobile = $_POST['mobile'];
-		$date = $_POST['date'];
-
-
-		print "<pre>";
-		print_r($form_data_encoded);
-
-		echo $product_id = $form_data_encoded['product_id'];
-		
-
-
-		  echo "<hr/>";
-
-		// Print or do something with the retrieved data
-		echo "Name: " . $name . "<br>";
-		echo "Email: " . $email . "<br>";
-		echo "Mobile: " . $mobile . "<br>";
-	
-
-
-
-
+		$date = $_POST['date'];	
+		$product_id = $form_data_encoded['product_id'];	
 		
 
 		$order_data = array(
@@ -75,10 +56,7 @@ function insert_order_data() {
 			),
 			'additional_info' => 'This is Test',
 			'product_id' => 2988
-		);
-		
-
-		
+		);		
 		
 			
 
@@ -97,57 +75,35 @@ function insert_order_data() {
 				'country'    => 'UK'
 			);
 
-			$line_item = $order_data;
-
-			$args = $order_data;
-		  
 			$order = wc_create_order();
 			$order->set_address( $address, 'billing' );
 			$order->set_address( $address, 'shipping' );
 			$order->add_product( wc_get_product( $product_id ), 1  );
 			foreach ( $order->get_items() as $item_key => $item ) {
-
-				//$item->add_meta_data( 'order_data', $order_data, false );
-
 				foreach ($order->get_items() as $item_key => $item) {
-					foreach ($order_data as $key => $value) {
-						
-						if (is_array($value)) {
-							foreach ($value as $sub_key => $sub_value) {
-								if (is_array($sub_value)) {
-									foreach ($sub_value as $sub_sub_key => $sub_sub_value) {
-										$item->add_meta_data("$key - $sub_key - $sub_sub_key", $sub_sub_value);
-									}
-								} else {
-									$item->add_meta_data("$key - $sub_key", $sub_value);
-								}
-							}
-						} else {
-							$item->add_meta_data($key, $value);
+					foreach ($order_data['selected_colors'] as $index => $color_item) {
+						$color = $color_item['color'];
+						foreach ($color_item['selectedsize'] as $size_item) {
+							$size = $size_item['size'];
+							$quantity = $size_item['quantity'];
+							$variant = $order_data['selected_variants'][$index]['variant'];
+							$colorInLogo = $order_data['selected_variants'][$index]['colorInLogo'];
+							$url = $order_data['selected_variants'][$index]['url'];
+							$item_data =  "Color: $color <br/> Size: $size <br/>  Quantity: $quantity <br/>  Variant: $variant <br/>  Color in Logo: $colorInLogo<br/>  URL: $url . <hr/>";
+							$item->add_meta_data("order_data", $item_data);
 						}
-					}
+					}   
 				}
-
-
-
-				
 			}
-
-		
-
-			
 			$order->calculate_totals();
 			$order->set_status( 'wc-processing' );
 			$order->save();
-		  
-		  
-            
 
-		echo "order Crated";
-		destroy_wp_session();
-		wp_redirect( home_url('/thank-you') ); 
-		die($product_id);
-           
+			//echo "order Crated";
+			destroy_wp_session();
+			$redirect_url = home_url('/thank-you');
+			echo json_encode(array('success' => true ,'redirect_url' => $redirect_url ));			
+			die();
     
         }
 }
