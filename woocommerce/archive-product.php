@@ -201,14 +201,7 @@ get_template_part('components/com', 'reviews');
 
 
 </section>
-
-
 </div>
 </section>
-
-
 <?php
-
-
-
 get_footer('shop');
