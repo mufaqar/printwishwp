@@ -74,7 +74,7 @@ get_header();
                 <h3 class="text-xl md:text-2xl lg:text-3xl font-bold">
                     Contact us
                 </h3>
-                <form action="" method="post">
+                <form action="" method="post" id="contact_form">
                     <div class="flex gap-5">
                         <div class="sm:mt-8 mt-0">
                             <p class="py-7">Subject</p>
@@ -89,14 +89,14 @@ get_header();
                                 <option value="Request a Call">Request a Call</option>
                             </select>
                             <br />
-                            <input type="email" name="Email" class="border outline-none w-full max-w-96 py-2 px-2 mt-5"
-                                placeholder="Email address">
+                            <input type="email" name="email" id="email"  class="border outline-none w-full max-w-96 py-2 px-2 mt-5"
+                                placeholder="Enter Email address" >
                             <div>
                                 <textarea name="Message" rows="4"
                                     class="border mt-5 w-full max-w-[500px] outline-none py-2 px-2"
-                                    placeholder="We can help"></textarea>
+                                    placeholder="We can help" required></textarea>
                                 <div class="flex gap-2">
-                                    <input type="checkbox" name="Terms" id="" class="mt-[3px]">
+                                    <input type="checkbox" class="mt-[3px]"  id="agree" name="agree" value="agree">
                                     <p>
                                         I agree to the terms and conditions and the privacy policy
                                     </p>
@@ -121,3 +121,26 @@ get_header();
 </section>
 
 <?php get_footer(); ?>
+
+
+<script>
+jQuery("#contact_form").validate({
+    rules: {
+					firstname: "required",
+					lastname: "required",
+					
+					email: {
+						required: true,
+						email: true
+					},
+					agree: "required"
+				},
+                messages: {
+					firstname: "Please enter your firstname",
+					lastname: "Please enter your lastname",
+					
+					email: "Please enter a valid email address",
+					agree: "Please accept our policy"
+				},
+});
+</script>

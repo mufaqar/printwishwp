@@ -13,7 +13,7 @@ get_header();
         <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">Enquire Now</h1>
     </div>
     <div class="mt-10">
-        <form action="" method="post" class="flex flex-col gap-5">
+        <form action="" method="post" class="flex flex-col gap-5" id="contact_form">
             <div class="flex flex-col gap-2">
                 <label for="enquiries">Subject</label>
                 <select id="enquiries" name="enquiries" class="border outline-none w-full max-w-96 py-2 px-2">
@@ -34,8 +34,8 @@ get_header();
                     placeholder="We can help"></textarea>
             </div>
             <div>
-                <input type="checkbox" id="terms" name="terms" value="terms">
-                <label for="terms"> I agree to the terms and conditions and the privacy policy</label>
+                <input type="checkbox" id="agree" name="agree" value="agree">
+                <label for="agree"> I agree to the terms and conditions and the privacy policy</label>
             </div>
             <div>
                 <button type="submit" class="bg-green-500 py-2 px-8 hover:bg-primary rounded-full text-white">
@@ -44,7 +44,31 @@ get_header();
             </div>
     </div>
     </form>
+
+  
 </div>
 </div>
 
 <?php get_footer(); ?>
+
+<script>
+jQuery("#contact_form").validate({
+    rules: {
+					firstname: "required",
+					message: "required",
+					
+					email: {
+						required: true,
+						email: true
+					},
+					agree: "required"
+				},
+                messages: {
+					firstname: "Please enter your firstname",
+					lastname: "Please enter your lastname",
+					
+					email: "Please enter a valid email address",
+					agree: "Please accept our policy"
+				},
+});
+</script>

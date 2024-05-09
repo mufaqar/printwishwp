@@ -164,6 +164,7 @@ function printwish_scripts() {
 
 		// Enqueue Magnific Popup styles
 		wp_enqueue_style('magnific-popup', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css');
+		wp_enqueue_script('script-valiation', get_template_directory_uri() . '/js/jquery.validate.min.js', '', true);
 	   
   
 
