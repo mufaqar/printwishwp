@@ -65,7 +65,7 @@ get_header();
                         <a class="text-sm font-medium text-accent lg:pl-2" href=""><?php the_author(); ?></a>
                     </span>
                     <span class="flex list-none lg:pl-2">
-                        <li class="mr-6px text-lg font-normal text-accent">
+                        <li class="mr-1.5 text-lg font-normal text-accent">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
                                 height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path
