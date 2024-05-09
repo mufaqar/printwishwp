@@ -72,7 +72,7 @@ get_header();
                         <a class="text-sm font-medium text-accent" href=""><?php the_category(', '); ?></a>
                     </span>
 
-                    <a class="bg-secondary  text-xs  px-2 py-1 hover:bg-primary cursor-pointer text-white block ml-auto mr-0"
+                    <a class="bg-secondary text-xs  px-2 py-1 hover:bg-primary cursor-pointer text-white block w-28 text-center md:ml-auto md:mr-0"
                         href="<?php the_permalink(); ?>">READ MORE...</a>
                 </div>
             </div>

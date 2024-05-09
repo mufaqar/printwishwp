@@ -8,29 +8,28 @@ get_header();
 
 ?>
 
-<div class="container mx-auto px-4 sm:my-20 my-10">
+<div class="container mx-auto px-4 sm:my-16 my-10">
     <div>
         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">CONTACT US</h2>
     </div>
-
     <div class="flex flex-col md:flex-row gap-5 w-full">
         <div class="sm:mt-5 mt-0 md:w-96">
             <div class="sm:py-3 py-3">
                 <h3 class="font-bold sm:mb-0 mb-3">Printwish</h3>
                 <div class="border border-b-0 sm:mt-5 mt-0"></div>
             </div>
-            <div class="sm:py-4 py-3 flex items-center gap-3">
+            <div class="sm:py-4 py-3 flex items-center">
                 <i class="fa-solid fa-phone-flip text-3xl"></i>
                 <div>
                     <p>
-                        <span class="font-bold">Sales Enquiries Tel:</span> 0800 051 0821
+                        <span class="font-bold">Sales Enquiries Tel:</span> 0044 800 051 0821
                     </p>
-                    <p><span class="font-bold">Accounts Tel:</span> 0800 051 0821 </p>
+                    <p><span class="font-bold">Accounts Tel:</span> 0044 800 051 0821 </p>
                 </div>
             </div>
             <div class="border border-b-0 sm:mt-5 mt-0"></div>
 
-            <div class="sm:py-4 py-3 flex items-center gap-3">
+            <div class="sm:py-4 py-3 flex items-center">
                 <i class="fa-regular fa-envelope text-3xl"></i>
                 <div>
                     <p>
@@ -55,7 +54,7 @@ get_header();
                 </p>
                 <p>
                     Alternatively, you can always call us during hours on
-                    <span class="text-green-500">0800 051 0821</span>
+                    <span class="text-green-500">0044 800 051 0821</span>
                 </p>
             </div>
             <div class="border border-b-0 sm:mt-5 mt-0"></div>
@@ -69,7 +68,6 @@ get_header();
                 </button>
             </div>
         </div>
-
         <div class="border-l-0 border"></div>
         <div class="px-4 sm:mt-8 mt-0 w-full">
             <div>
@@ -113,8 +111,13 @@ get_header();
                 </form>
             </div>
         </div>
-
     </div>
 </div>
+<section>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.235597058615!2d-0.0886732!3d51.527238499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca671a415eb%3A0xba3bb840e2e16b33!2s124%20City%20Rd%2C%20London%20EC1V%202NP%2C%20UK!5e0!3m2!1sen!2s!4v1715248303974!5m2!1sen!2s"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
 
 <?php get_footer(); ?>

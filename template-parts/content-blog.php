@@ -9,7 +9,7 @@
 
 ?>
 
-<main class=" container mx-auto px-4 py-5" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<main class=" container mx-auto py-5" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 	<div class="entry-content">
 		<?php

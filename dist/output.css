@@ -32498,7 +32498,7 @@ input[type='number'] {
 .entry-content h3 {
   font-size: 19px;
   font-weight: bold;
-  color: #21293c;
+  color: #4b5563;
 }
 
 .entry-content p {
@@ -32506,26 +32506,29 @@ input[type='number'] {
   font-weight: normal;
   letter-spacing: .2px;
   margin-bottom: 20px;
-  color: #7b858a;
+  color: #4b5563;
 }
 
 .entry-content p strong {
-  color: #21293c;
+  color: #4b5563;
 }
 
 .loc_content h2 {
   font-size: 1.8rem;
   margin-bottom: 10px;
+  color: #4b5563;
 }
 
 .loc_content h4 {
   font-size: 1.4rem;
   margin-bottom: 10px;
+  color: #4b5563;
 }
 
 .loc_content h3 {
   font-size: 1.8rem;
   margin-bottom: 10px;
+  color: #4b5563;
 }
 
 .loc_content ul,ol {
