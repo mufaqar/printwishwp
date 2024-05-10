@@ -43,7 +43,7 @@
                            Full Name
                         </label>
                         <input type="text" id="name" name="name" placeholder="Enter Your Name"
-                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" required />
+                            class="mt-1 block w-full rounded border border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" required />
 
                     </div>
                     <div>
@@ -51,7 +51,7 @@
                             Email Address
                         </label>
                         <input type="email" id="email" name="email" placeholder="john.capler@fang.com"
-                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" required />
+                            class="mt-1 block w-full rounded border border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" required />
 
                     </div>
                     <div>
@@ -59,7 +59,7 @@
                             Mobile Number (Optional)
                         </label>
                         <input type="text" id="mobile" name="mobile" placeholder="mobile number"
-                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" />
+                            class="mt-1 block w-full rounded border border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" />
 
                     </div>
                     <div>
@@ -67,7 +67,7 @@
                             Delivery Date
                         </label>
                         <input type="date" placeholder="Delivery Date" id="del_date" name="del_date" 
-                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" required />
+                            class="mt-1 block w-full rounded border border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" required />
                     </div>
 
                     <input type="submit"
@@ -137,7 +137,7 @@
 
                         <img src="<?php echo wp_get_attachment_url( $product->get_image_id(), 'large' ); ?>"
                             class="w-40" />
-                        <div class='ml-4 border-l-[1px] pl-4'>
+                        <div class='ml-4 border-l pl-4'>
                             <h5 class="md:text-white font-medium"><?php echo $product_title; ?></h5>
                             <h5 class="md:text-white font-medium">SKU: <span
                                     class='font-extralight'><?php echo $product_sku; ?></span></h5>
