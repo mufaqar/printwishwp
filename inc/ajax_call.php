@@ -64,7 +64,7 @@ function insert_order_data() {
 				'first_name' => $name,
 				'last_name'  => '',
 				'company'    => '',
-				'email'      =>  $email,
+				'email'      => $email,
 				'phone'      => $mobile,
 				'address_1'  => '',
 				'address_2'  => '',
