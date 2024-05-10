@@ -3,51 +3,30 @@
  * Template Name: Checkout 
  */
 
-get_header();
+    get_header();
 
 
 
-$session_data = $GLOBALS['wp_query']->query_vars['session_data'];
-if ($session_data) {
-    $selected_colors = $session_data['selected_colors'];
-    $selected_variants = $session_data['selected_variants'];
-    $additional_info = $session_data['additional_info'];
-    $product_id = $session_data['product_id'];
+    $session_data = $GLOBALS['wp_query']->query_vars['session_data'];
+    if ($session_data) {
+        $selected_colors = $session_data['selected_colors'];
+        $selected_variants = $session_data['selected_variants'];
+        $additional_info = $session_data['additional_info'];
+        $product_id = $session_data['product_id'];
+        $data = array(
+            'selected_colors' => $selected_colors,
+            'selected_variants' => $selected_variants,
+            'additional_info' => $additional_info,
+            'product_id' => $product_id
+        );
+        $serialized_data = json_encode($data);  
+    }
 
-    // print "<pre>";
-    // print_r($selected_variants);
-    // print_r($selected_colors);
-    // print "</pre>";
-
-
-    // Combine the data into an array
-    $data = array(
-        'selected_colors' => $selected_colors,
-        'selected_variants' => $selected_variants,
-        'additional_info' => $additional_info,
-        'product_id' => $product_id
-    );
-
-    // Serialize the data
-    $serialized_data = json_encode($data);
-
-  
-}
-
-echo $serialized_data;
-
-
-
-
-
-// Get WooCommerce product data
-$product = wc_get_product($product_id);
-
-// Check if the product exists
-if ($product) {  
-    $product_title = $product->get_name();
-    $product_sku = $product->get_sku();  
-}
+    $product = wc_get_product($product_id);
+    if ($product) {  
+        $product_title = $product->get_name();
+        $product_sku = $product->get_sku();  
+    }
 ?>
 
 <div class="relative mx-auto w-full bg-white">
@@ -59,25 +38,20 @@ if ($product) {
                     <span class="mt-2 block h-1 w-10 bg-primary sm:w-20"></span>
                 </h1>
                 <form class="mt-10 flex flex-col space-y-4" id="create_order" method="POST">
-
-                <!-- <textarea  id="array_data" name="array_data" ><?php echo $serialized_data; ?> </textarea> -->
-
-
-
                     <div>
                         <label class="text-xs font-semibold text-gray-500">
-                            Name
+                           Full Name
                         </label>
                         <input type="text" id="name" name="name" placeholder="Enter Your Name"
-                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" />
+                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" required />
 
                     </div>
                     <div>
                         <label class="text-xs font-semibold text-gray-500">
-                            Email
+                            Email Address
                         </label>
                         <input type="email" id="email" name="email" placeholder="john.capler@fang.com"
-                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" />
+                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" required />
 
                     </div>
                     <div>
@@ -93,7 +67,7 @@ if ($product) {
                             Delivery Date
                         </label>
                         <input type="date" placeholder="Delivery Date" id="del_date" name="del_date" 
-                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" />
+                            class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" required />
                     </div>
 
                     <input type="submit"
@@ -240,18 +214,18 @@ get_footer();
 
 <script>
 jQuery(document).ready(function($) {
+  
+    
+
+
     $("#create_order").submit(function(e) {
         e.preventDefault();
-
             var name = jQuery('#name').val();
             var email = jQuery('#email').val();
             var phone = jQuery('#mobile').val();
             var date = jQuery('#del_date').val();
             var order_data = <?php echo $serialized_data ?>;
-
-
-
-      //  var formData = $(this).serialize();
+            
         $.ajax({
             type: "post",
             url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -264,20 +238,12 @@ jQuery(document).ready(function($) {
                 order_data : order_data                      
             },
             success: function(data) {
-                
-               // window.location.href = data.redirect_url;
-             //  console.log("AJAX request successful!");
-              // console.log("Response from server:", data);
-              var responseData = JSON.parse(data);           
-
-            // Check if the response indicates success
-            if (responseData.success) {
-                // Redirect to the page
+              var responseData = JSON.parse(data); 
+            if (responseData.success) {               
                 window.location.href = responseData.redirect_url;
             } else {
                 console.error('Error occurred');
-            }
-            
+            }         
               
 
             },
