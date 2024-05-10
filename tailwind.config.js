@@ -17,6 +17,7 @@ module.exports = {
         'accent': `var(--accent-color)`,
         'highlight': `var(--highlight-color)`,
         'background': `var(--background-color)`,
+        'theme': "#1f375d",
       },
       fontFamily: {
         'opensans': ['OpenSans'],

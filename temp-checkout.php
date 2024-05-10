@@ -95,11 +95,9 @@
                 </div>
             </div>
         </div>
-        <div class="relative col-span-full  flex-col py-6 pl-8 pr-4 sm:py-12 lg:col-span-1 lg:py-24">
+        <div class="relative col-span-full  flex-col py-6 pl-8 pr-4 sm:py-12 lg:col-span-1 lg:py-24 bg-theme">
             <h2 class="sr-only">Order summary</h2>
-            <div>
-                <div class="absolute inset-0 h-full w-full bg-[#1f375d] opacity-95"></div>
-            </div>
+           
             <div class="relative">
                 <ul class="space-y-5">
                     <!-- <?php foreach($cartItems as $idx => $item): ?>
@@ -214,10 +212,6 @@ get_footer();
 
 <script>
 jQuery(document).ready(function($) {
-  
-    
-
-
     $("#create_order").submit(function(e) {
         e.preventDefault();
             var name = jQuery('#name').val();
