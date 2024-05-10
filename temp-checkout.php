@@ -222,7 +222,7 @@ jQuery(document).ready(function($) {
         e.preventDefault();
             var name = jQuery('#name').val();
             var email = jQuery('#email').val();
-            var phone = jQuery('#mobile').val();
+            var mobile = jQuery('#mobile').val();
             var date = jQuery('#del_date').val();
             var order_data = <?php echo $serialized_data ?>;
             
@@ -233,7 +233,7 @@ jQuery(document).ready(function($) {
                 action: "insert_order_data",
                 name : name,
                 email : email,
-                phone : phone,
+                mobile : mobile,
                 date : date,
                 order_data : order_data                      
             },

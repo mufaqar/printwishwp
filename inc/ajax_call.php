@@ -11,52 +11,51 @@ function insert_order_data() {
 
 			
 
-		$form_data_encoded = $_POST['order_data'];
+		$order_data = $_POST['order_data'];
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$mobile = $_POST['mobile'];
 		$date = $_POST['date'];	
-		$product_id = $form_data_encoded['product_id'];	
-		
+		$product_id = $order_data['product_id'];		
 
-		$order_data = array(
-			'selected_colors' => array(
-				array(
-					'color' => 'DARK HEATHER',
-					'code' => '565B5E',
-					'selectedsize' => array(
-						array(
-							'size' => 'S',
-							'quantity' => 44
-						)
-					)
-				),
-				array(
-					'color' => 'HELICONIA',
-					'code' => 'E63B6E',
-					'selectedsize' => array(
-						array(
-							'size' => 'S',
-							'quantity' => 33
-						)
-					)
-				)
-			),
-			'selected_variants' => array(
-				array(
-					'variant' => 'Left Breast',
-					'colorInLogo' => 1,
-					'url' => 'http://localhost/projects/printwishwp/wp-content/uploads/2024/05/landing-minidil-red-shape.png'
-				),
-				array(
-					'variant' => 'Big Front',
-					'colorInLogo' => 2,
-					'url' => 'http://localhost/projects/printwishwp/wp-content/uploads/2024/05/CNIC Front.png'
-				)
-			),
-			'additional_info' => 'This is Test',
-			'product_id' => 2988
-		);		
+		// $order_data = array(
+		// 	'selected_colors' => array(
+		// 		array(
+		// 			'color' => 'DARK HEATHER',
+		// 			'code' => '565B5E',
+		// 			'selectedsize' => array(
+		// 				array(
+		// 					'size' => 'S',
+		// 					'quantity' => 44
+		// 				)
+		// 			)
+		// 		),
+		// 		array(
+		// 			'color' => 'HELICONIA',
+		// 			'code' => 'E63B6E',
+		// 			'selectedsize' => array(
+		// 				array(
+		// 					'size' => 'S',
+		// 					'quantity' => 33
+		// 				)
+		// 			)
+		// 		)
+		// 	),
+		// 	'selected_variants' => array(
+		// 		array(
+		// 			'variant' => 'Left Breast',
+		// 			'colorInLogo' => 1,
+		// 			'url' => 'http://localhost/projects/printwishwp/wp-content/uploads/2024/05/landing-minidil-red-shape.png'
+		// 		),
+		// 		array(
+		// 			'variant' => 'Big Front',
+		// 			'colorInLogo' => 2,
+		// 			'url' => 'http://localhost/projects/printwishwp/wp-content/uploads/2024/05/CNIC Front.png'
+		// 		)
+		// 	),
+		// 	'additional_info' => 'This is Test',
+		// 	'product_id' => 2988
+		// );		
 		
 			
 
@@ -98,11 +97,10 @@ function insert_order_data() {
 			$order->calculate_totals();
 			$order->set_status( 'wc-processing' );
 			$order->save();
-
 			//echo "order Crated";
 			destroy_wp_session();
 			$redirect_url = home_url('/thank-you');
-			echo json_encode(array('success' => true ,'redirect_url' => $redirect_url ));			
+			echo json_encode(array('success' => true ,'redirect_url' => $redirect_url ));						
 			die();
     
         }
