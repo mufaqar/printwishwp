@@ -363,11 +363,9 @@ $faqs = array(
             <button
                 class="close_popup uppercase font-light items-center border border-primary gap-2 w-full text-center py-3 bg-primary text-white px-6 hover:text-primary hover:bg-transparent ">Close
                 The order form</button>
-
             <h5
-                class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-primary">
+                class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400 choseColor">
                 Step 1 - Choose one or more colours: *</h5>
-
             <?php
             // Ensure WooCommerce is active
             if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
@@ -421,7 +419,7 @@ $faqs = array(
             <!-- ------------------------  -->
             <!-- variants  -->
             <!-- ------------------------  -->
-            <div class="bg-gray-200 px-4 py-6 border rounded border-primary">
+            <div class="bg-gray-200 px-4 py-6 border rounded border-gray-400 select-position">
                 <h5 class="md:text-xl text-lg font-semibold text-accent pl-2 font-roboto">Step 2 - Where must we print your
                     artwork? *</h5>
                 <p class="pl-2">T-Shirt Print Area</p>
@@ -455,14 +453,14 @@ $faqs = array(
                 <?php endforeach; ?>
             </div>
 
-            <div class="bg-gray-200 px-4 py-6 border rounded border-primary">
+            <div class="bg-gray-200 px-4 py-6 border rounded border-gray-400 number-of-color">
                 <h5 class="md:text-xl text-lg font-semibold text-accent pl-2 font-roboto">Step 3 - Number of colours per artwork *
                 </h5>
             </div>
             <div class="colorLogo bg-gray-50 md:p-6 p-5 md:pt-6 pt-0 border-[1.5px] rounded-lg border-gray-50 mt-4"></div>
 
             <!-- upload Images  -->
-            <div class="bg-gray-200 px-4 py-6 border rounded border-primary">
+            <div class="bg-gray-200 px-4 py-6 border rounded border-gray-400">
                 <h5 class="md:text-xl text-lg font-semibold text-accent pl-2 font-roboto">Step 4- Upload your artwork (Optional)
                 </h5>
             </div>
@@ -492,11 +490,6 @@ $faqs = array(
     var selectedVariants = [];
 
 
-
-
-
-
-
     function handColors(item) {
         var ccode = item.getAttribute('code');
         var color = {
@@ -508,6 +501,8 @@ $faqs = array(
         createColorList(SelectedColors)
 
     }
+
+
 
     function createColorList(colors) {
         var html = '';
@@ -693,34 +688,56 @@ $faqs = array(
         }
     }
 
+    function Order(){
+            var productId = <?php echo $product_id ?>;
+            var additionalInfoTextarea = document.getElementById('additional').value;
+            localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
+            localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
+            localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
+            localStorage.setItem("ProductID", JSON.stringify(productId));
+            // Prepare data to send
+            var data = {
+                'action': 'store_data_in_wp_session',
+                'SelectedColors': SelectedColors,
+                'selectedVariants': selectedVariants,
+                'additionalInfo': additionalInfoTextarea,
+                'ProductID': productId
+            };
+            // Send AJAX request to WordPress backend
+            jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function (response) {
+                if (response.success) {   
+                    window.location.href = response.data.redirect_url;
+                } else {
+                    console.error('Error occurred:', response.data);
+                } 
+            });
+        }
+
     const handleAddToCart = () => {
-      
-        var productId = <?php echo $product_id ?>;
-        var additionalInfoTextarea = document.getElementById('additional').value;
-        localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
-        localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
-        localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
-        localStorage.setItem("ProductID", JSON.stringify(productId));
+        
+        if(SelectedColors.length < 1 ){
+            const heading = document.querySelector(".choseColor");
+            heading.classList.add("border-red-600")
+        }
 
-        // Prepare data to send
-        var data = {
-            'action': 'store_data_in_wp_session',
-            'SelectedColors': SelectedColors,
-            'selectedVariants': selectedVariants,
-            'additionalInfo': additionalInfoTextarea,
-            'ProductID': productId
-        };
+        if(selectedVariants.length < 1 ){
+            const heading = document.querySelector(".select-position");
+            heading.classList.add("border-red-600")
+        }
 
-        // Send AJAX request to WordPress backend
-        jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function (response) {
-            if (response.success) {   
-                  window.location.href = response.data.redirect_url;
-            } else {
-                console.error('Error occurred:', response.data);
-            }
-               
-        });
+        if(selectedVariants?.[0]?.colorInLogo === 0){
+            const heading = document.querySelector(".number-of-color");
+            heading.classList.add("border-red-600")
+        }
 
+        if(selectedVariants?.[0]?.colorInLogo !== 0){
+            const heading = document.querySelector(".number-of-color");
+            heading.classList.remove("border-red-600")
+        }
+
+        if(SelectedColors.length > 0 && selectedVariants.length > 0 && selectedVariants?.[0]?.colorInLogo !== 0){
+            Order()
+        }
 
     }
 
