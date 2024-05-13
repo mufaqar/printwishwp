@@ -32728,7 +32728,7 @@ ol {
 .cat_text ul li::marker {
   content: '✓';
   border: 1px solid green;
-  color: green;
+  color: 10b981;
   border-radius: 100%;
   text-align: center;
   margin-right: 10px;
