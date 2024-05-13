@@ -4,7 +4,7 @@ Theme URI: https://mufaqar.com
 Author: Underscores.me
 Author URI: https://mufaqar.com
 Description: printwish cusom theme for store
-Version: 1.0.1
+Version: 1.1.1
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -13,10 +13,13 @@ Text Domain: printwish
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 */
 
-.mfp-wrap
-{ top: 0 !important;}
-.category_pages{
-    margin-bottom: 2rem;
+.mfp-wrap {
+  top: 0 !important;
+}
+.category_pages {
+  margin-bottom: 2rem;
 }
 
-.error { color:red;}
+.error {
+  color: red;
+}

@@ -32662,7 +32662,7 @@ input[type='number'] {
 }
 
 .stepBg {
-  background-image: url('../public/images/step-background.jpg')
+  background-image: url('../public/images/step-background.jpg');
 }
 
 .entry-content h3 {
@@ -32674,7 +32674,7 @@ input[type='number'] {
 .entry-content p {
   font-size: 16px;
   font-weight: normal;
-  letter-spacing: .2px;
+  letter-spacing: 0.2px;
   margin-bottom: 20px;
   color: #4b5563;
 }
@@ -32701,7 +32701,8 @@ input[type='number'] {
   color: #4b5563;
 }
 
-.loc_content ul,ol {
+.loc_content ul,
+ol {
   list-style-type: disc;
   padding-left: 1.2rem;
   color: #4b5563;
@@ -32712,6 +32713,14 @@ input[type='number'] {
 .loc_content p {
   margin-bottom: 1rem;
   color: #4b5563;
+}
+
+.cat_text p {
+  margin-bottom: 16px;
+}
+
+.cat_text ul li {
+  list-style-image: url('../public/images/gtick.png') !important;
 }
 
 @media (min-width: 640px) {
