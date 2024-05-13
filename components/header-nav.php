@@ -166,8 +166,8 @@ $Locations = array(
                         </button>
                     </div>
                 </div>
-                <div class="flex items-center">
-                    <a href="<?php echo home_url('/enquire-now'); ?>" class="md:text-base text-xs bg-green-500 py-2 md:px-8 px-4 hover:bg-primary md:ml-5 ml-2 rounded-full text-white">
+                <div class="flex items-center md:w-60">
+                    <a href="<?php echo home_url('/enquire-now'); ?>" class="md:text-base text-xs bg-green-500 py-2 md:px-6 px-4 hover:bg-primary md:ml-5 ml-2 rounded-full text-white">
                     Quick Quote
                     </a>
                 </div>

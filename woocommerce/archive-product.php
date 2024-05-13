@@ -52,7 +52,7 @@ if (!empty($thumbnail_id)) {
             <h2 class="sm:text-4xl text-4xl font-bold font-opensans capitalize mb-2 sm:text-left text-center">
                 <?php echo esc_html($cat->name); ?>
             </h2>
-            <div>
+            <div class="cat_text">
                 <?php echo wp_kses_post($cat->description); ?>
             </div>
         </div>
@@ -151,7 +151,7 @@ get_template_part('components/com', 'reviews');
 	?>
 
 
-        <?php if (!empty($term_faqs)) { ?>  
+        <?php if (!empty($term_faqs)) { ?>
 
         <section class="bg-white mb-10">
             <div class="">

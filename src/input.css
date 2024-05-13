@@ -471,3 +471,8 @@ color: #4b5563;
   margin-bottom: 1rem;
   color: #4b5563;
 }
+
+.cat_text p { margin-bottom: 16px;}
+.cat_text ul li {
+  list-style-image: url('../public/images/gtick.png') !important;
+}
