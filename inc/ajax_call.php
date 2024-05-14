@@ -186,7 +186,7 @@ function send_email_inq() {
 		$admin = 'mufaqar@gmail.com, sales@printwish.co.uk';
 		$to = 'sales@printwish.co.uk';
 		$cc = $email;		
-		$subject = "Contact Us | PrintWish";
+		$subject = "Quick Quote | PrintWish";
 		$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
 		$body  .= "<p><strong> Email </strong>:  ".$email."  </p>";
 		$body  .= "<p><strong> Phone </strong>:  ".$phone."  </p>";
