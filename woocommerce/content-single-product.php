@@ -194,23 +194,22 @@ $faqs = array(
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size Description:
                     </h6>
                     <?php
-
-                    global $product;
-                    $product_id = $product->get_id();
-                    $product = wc_get_product($product_id);
-                    $attributes = $product->get_attributes();
-                    if (isset($attributes['pa_sizes'])) {
-                        $terms = wc_get_product_terms($product_id, 'pa_sizes', array('fields' => 'all'));
-                        if ($terms && !is_wp_error($terms)) {
-                            echo '<ul class="mt-2 flex flex-wrap gap-x-2">';
-                            foreach ($terms as $term) {
-                                echo '<li class="text-accent mb-1"><span class="font-bold">' . esc_html($term->name) . ' </span> ' . esc_html($term->description) . '",</li>';
+                        global $product;
+                        $product_id = $product->get_id();
+                        $product = wc_get_product($product_id);
+                        $attributes = $product->get_attributes();
+                        if (isset($attributes['pa_sizes'])) {
+                            $terms = wc_get_product_terms($product_id, 'pa_sizes', array('fields' => 'all'));
+                            if ($terms && !is_wp_error($terms)) {
+                                echo '<ul class="mt-2 flex flex-wrap gap-x-2">';
+                                foreach ($terms as $term) {
+                                    echo '<li class="text-accent mb-1"><span class="font-bold">' . esc_html($term->name) . ' </span> ' . esc_html($term->description) . '",</li>';
+                                }
+                                echo '</ul>';
+                            } else {
+                                echo '<p class="text-accent mb-1">No sizes available</p>';
                             }
-                            echo '</ul>';
-                        } else {
-                            echo '<p class="text-accent mb-1">No sizes available</p>';
                         }
-                    }
                     ?>
                     <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
                         Instructions:</h6>
