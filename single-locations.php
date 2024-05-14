@@ -53,8 +53,6 @@ get_header();
             endwhile; // End of the loop.
             ?>
         </div>
-
-
     </div>
     <section class="bg-white sm:mb-10 mb-5">
         <div class="">
