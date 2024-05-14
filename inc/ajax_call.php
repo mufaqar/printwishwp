@@ -169,3 +169,38 @@ function send_email() {
 
    
 }
+
+
+// Add action for saving form data
+add_action('wp_ajax_send_email_inq', 'send_email_inq');
+add_action('wp_ajax_nopriv_send_email_inq', 'send_email_inq');
+
+function send_email_inq() {   
+
+
+		$qty = $_POST['qty'];
+		$message = $_POST['message'];
+		$email = $_POST['email'];
+		$name = $_POST['name'];
+		$phone = $_POST['phone'];
+		$admin = 'mufaqar@gmail.com, sales@printwish.co.uk';
+		$to = 'sales@printwish.co.uk';
+		$cc = $email;		
+		$subject = "Contact Us | PrintWish";
+		$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
+		$body  .= "<p><strong> Email </strong>:  ".$email."  </p>";
+		$body  .= "<p><strong> Phone </strong>:  ".$phone."  </p>";
+		$body  .= "<p><strong> qty </strong>:  ".$qty."  </p>";
+		$body  .= "<p><strong> Message </strong>:  ".$message."  </p>";
+		$headers = array('Content-Type: text/html; charset=UTF-8');	
+		$headers  = "From: " . $to . "\r\n";
+		$headers .= "Reply-To: " . $cc . "\r\n";
+		$headers .= "CC: ".$cc."\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+		mail( $admin, $subject, $body, $headers );
+		echo wp_send_json(array('code' => 200, 'message' => __('Inquiry Email sent sucessfully ')));
+		wp_die();
+
+   
+}

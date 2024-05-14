@@ -26,7 +26,7 @@ get_header();
 <div class="container mx-auto px-4 sm:my-16 my-10">
 
     <div class="mt-10">
-        <form action="" method="post" class="flex flex-col gap-5" id="contact_form">
+        <form action="" method="post" class="flex flex-col gap-5" id="enquiries_form">
             <div class="flex flex-col gap-2">
                 <label for="message">What do you need?*</label>
                 <p class="text-sm text-gray-500">Give us more details on your needs (eg products required, colours,
@@ -105,5 +105,42 @@ jQuery("#contact_form").validate({
         email: "Please enter a valid email address",
         agree: "Please accept our policy"
     },
+});
+</script>
+<script>
+jQuery(document).ready(function($) {
+    $("#enquiries_form").submit(function(e) {
+        e.preventDefault();
+            var qty = jQuery('#qty').val();
+            var email = jQuery('#email').val();
+            var fname = jQuery('#fname').val();
+            var lname = jQuery('#lname').val();
+            var phone = jQuery('#phone').val();            
+            var message = jQuery('#message').val();
+            
+        $.ajax({
+            type: "post",
+            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            data: {
+                action: "send_email_inq",
+                qty : qty,
+                name : fname+lname,
+                email : email,
+                phone : phone,
+                message : message                   
+            },
+            success: function(data) {
+
+             
+                    $(".status").html(data.message);
+              
+
+            },
+            error: function(error) {
+                // Handle error response
+               // console.log(error.responseText);
+            }
+        });
+    });
 });
 </script>
