@@ -32720,10 +32720,9 @@ ol {
 }
 
 .cat_text ul li {
-  font-size: 18px;
-  font-weight: bold;
   list-style-type: none;
   margin-bottom: 6px;
+  list-style-position: inside;
 }
 
 .cat_text ul li::marker {
@@ -32735,6 +32734,8 @@ ol {
   width: 20px;
   line-height: 20px;
   display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 @media (min-width: 640px) {
