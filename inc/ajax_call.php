@@ -155,7 +155,8 @@ function send_email() {
 		$subject = "Contact Us | PrintWish";
 		$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
 		$body  .= "<p><strong> Email </strong>:  ".$email."  </p>";
-		$body  .= "<p><strong> Message </strong>:  ".$enquiries."  </p>";
+		$body  .= "<p><strong> Enquiries </strong>:  ".$enquiries."  </p>";
+		$body  .= "<p><strong> Message </strong>:  ".$message."  </p>";
 		$headers = array('Content-Type: text/html; charset=UTF-8');	
 		$headers  = "From: " . $to . "\r\n";
 		$headers .= "Reply-To: " . $cc . "\r\n";
