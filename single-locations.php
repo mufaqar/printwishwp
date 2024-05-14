@@ -65,7 +65,6 @@ get_header();
                     data-inactive-classes="text-gray-500" class="flex flex-col gap-2">
 
                     <?php if (have_rows('faqs')): // Check if the repeater field has rows ?>
-
                         <?php while (have_rows('faqs')):
                             the_row(); // Loop through the rows of data ?>
 

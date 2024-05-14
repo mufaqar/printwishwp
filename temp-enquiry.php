@@ -45,7 +45,6 @@ get_header();
                 <label for="artwork">Upload Your Artwork</label>
                 <input type="file" id="artwork" name="artwork" class="border outline-none w-full max-w-96 py-2 px-2 border-gray-300 bg-gray-50">
             </div>
-
             <div class="grid md:grid-cols-2 gap-5">
                 <div class="flex flex-col gap-2">
                     <label for="fname">First Name *</label>
