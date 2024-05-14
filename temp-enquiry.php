@@ -78,7 +78,7 @@ get_header();
                     Send
                 </button>
             </div>
-            <div class="status py-10 border border-green-800"></div>
+            <div class="status py-10 "></div>
     </div>
     </form>
 
