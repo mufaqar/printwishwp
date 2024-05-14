@@ -149,7 +149,8 @@ function send_email() {
 		$message = $_POST['message'];
 		$email = $_POST['email'];
 		$name = $_POST['name'];
-		$to = 'mufaqar@gmail.com, sales@printwish.co.uk';
+		$admin = 'mufaqar@gmail.com, sales@printwish.co.uk';
+		$to = 'sales@printwish.co.uk';
 		$cc = $email;		
 		$subject = "Contact Us | PrintWish";
 		$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
