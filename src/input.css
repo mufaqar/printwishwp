@@ -473,11 +473,10 @@ ol {
 .cat_text p {
   margin-bottom: 16px;
 }
-.cat_text ul li {
-  font-size: 18px;
-  font-weight: bold;
+.cat_text ul li {  
   list-style-type: none;
   margin-bottom: 6px;
+  list-style-position: inside;
 }
 .cat_text ul li::marker {
   content: '✓';
@@ -488,4 +487,6 @@ ol {
   width: 20px;
   line-height: 20px;
   display: inline-block;  
+  font-size: 18px;
+  font-weight: bold;
 }
