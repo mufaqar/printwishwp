@@ -177,7 +177,6 @@ add_action('wp_ajax_nopriv_send_email_inq', 'send_email_inq');
 
 function send_email_inq() {   
 
-
 		$qty = $_POST['qty'];
 		$message = $_POST['message'];
 		$email = $_POST['email'];
