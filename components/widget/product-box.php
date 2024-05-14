@@ -54,6 +54,13 @@
             </a>
         </div>
     </div>
-    <div class='absolute bg-green-400 p-1 text-white px-3 top-3 right-3 text-sm '>Best Seller</div>
+    
+
+ 
+     <?php if ($product->is_featured()): ?>
+     <div   div class='absolute bg-green-400 p-1 text-white px-3 top-3 right-3 text-sm'>Best Seller</div>
+    <?php endif; ?>
+
+
 </article>
 
