@@ -97,7 +97,7 @@ get_header();
                         <?php endwhile; ?>
 
                     <?php else: ?>
-                        <p>No FAQs found.</p>
+                 
                     <?php endif; ?>
 
                 </div>
