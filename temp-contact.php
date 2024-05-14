@@ -78,21 +78,25 @@ get_header();
                     <div class="flex gap-5">
                         <div class="sm:mt-8 mt-0">
                             <p class="py-7">Subject</p>
-                            <p>Email address</p>
+                            <p >Your Name</p>
+                            <p class="py-9">Email address</p>
                             <p class="py-5">Message</p>
                         </div>
                         <div class="sm:mt-12 mt-5">
-                            <select name="Enquiries" class="border outline-none w-full max-w-96 py-2 px-2">
+                            <select name="enquiries" id="enquiries" class="border outline-none w-full max-w-96 py-2 px-2">
                                 <option value="General Enquiries">General Enquiries</option>
                                 <option value="Invoice/Accounts Enquiry">Invoice/Accounts Enquiry</option>
                                 <option value="Price Enquiry">Price Enquiry</option>
                                 <option value="Request a Call">Request a Call</option>
                             </select>
                             <br />
+                            <input type="text" name="name" id="name"  class="border outline-none w-full max-w-96 py-2 px-2 mt-5"
+                                placeholder="Enter Your Name" required >
+                            <br />
                             <input type="email" name="email" id="email"  class="border outline-none w-full max-w-96 py-2 px-2 mt-5"
                                 placeholder="Enter Email address" >
                             <div>
-                                <textarea name="Message" rows="4"
+                                <textarea name="message" id="message" rows="4"
                                     class="border mt-5 w-full max-w-[500px] outline-none py-2 px-2"
                                     placeholder="We can help" required></textarea>
                                 <div class="flex gap-2">
@@ -106,6 +110,7 @@ get_header();
                                 <input type="submit" value="Send"
                                     class="bg-green-500 py-2 px-8 hover:scale-105 rounded-full mt-5 text-white">
                             </div>
+                            <div class="status"></div>
                         </div>
                     </div>
                 </form>
@@ -142,5 +147,40 @@ jQuery("#contact_form").validate({
 					email: "Please enter a valid email address",
 					agree: "Please accept our policy"
 				},
+});
+</script>
+
+<script>
+jQuery(document).ready(function($) {
+    $("#contact_form").submit(function(e) {
+        e.preventDefault();
+            var enquiries = jQuery('#enquiries').val();
+            var email = jQuery('#email').val();
+            var name = jQuery('#name').val();
+            var message = jQuery('#message').val();
+            
+        $.ajax({
+            type: "post",
+            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            data: {
+                action: "send_email",
+                enquiries : enquiries,
+                name : name,
+                email : email,
+                message : message                   
+            },
+            success: function(data) {
+
+             
+                    $(".status").html(data.message);
+              
+
+            },
+            error: function(error) {
+                // Handle error response
+               // console.log(error.responseText);
+            }
+        });
+    });
 });
 </script>

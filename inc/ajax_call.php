@@ -135,3 +135,35 @@ function upload_mediafiles() {
 
    
 }
+
+
+
+
+// Add action for saving form data
+add_action('wp_ajax_send_email', 'send_email');
+add_action('wp_ajax_nopriv_send_email', 'send_email');
+
+function send_email() {   
+
+		$enquiries = $_POST['enquiries'];
+		$message = $_POST['message'];
+		$email = $_POST['email'];
+		$name = $_POST['name'];
+		$to = 'mufaqar@gmail.com, sales@printwish.co.uk';
+		$cc = $email;		
+		$subject = "Contact Us | PrintWish";
+		$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
+		$body  .= "<p><strong> Email </strong>:  ".$email."  </p>";
+		$body  .= "<p><strong> Message </strong>:  ".$enquiries."  </p>";
+		$headers = array('Content-Type: text/html; charset=UTF-8');	
+		$headers  = "From: " . $to . "\r\n";
+		$headers .= "Reply-To: " . $cc . "\r\n";
+		$headers .= "CC: ".$cc."\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+		mail( $admin, $subject, $body, $headers );
+		echo wp_send_json(array('code' => 200, 'message' => __('Email sent sucessfully ')));
+		wp_die();
+
+   
+}
