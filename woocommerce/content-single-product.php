@@ -94,10 +94,10 @@ $faqs = array(
 </section>
 
 <div class="block md:hidden px-3 container mx-auto">
-    <div class="mt-5 flex justify-center">
+    <!-- <div class="mt-5 flex justify-center">
         <img src="<?php bloginfo('template_directory'); ?>/public/images/review-badge.svg" alt="rating" width="200"
             height="37" />
-    </div>
+    </div> -->
     <h2 class="text-xl md:text-3xl lg:text-4xl font-medium mt-6 md:mt-0">
         <?php the_title() ?>
     </h2>
