@@ -25,10 +25,10 @@
                 <strong><?php echo "32" ?></strong> Colors available
             </p>
             <p class='text-center font-bold font-roboto mb-3 text-primary'>
-                Printed From <span class='text-secondary  hover:text-secondary'>£<?php echo $price; ?></span>
+                Printed From <span class='text-secondary  hover:text-secondary'><?php echo $price; ?></span>
             </p>
             <?php if (have_rows('product_rating')): ?>
-            <?php while (have_rows('product_rating')): the_row();  $rating_image = get_sub_field('rating_image');   if (empty($rating)): // Check if $rating is not empty?>
+            <?php while (have_rows('product_rating')): the_row();  $rating_image = get_sub_field('rating_image'); if (empty($rating_image)): // Check if $rating is not empty?>
             <div onClick="toggleRating(this)"  class="flex flex-col -mt-3 justify-between items-center min-h-[62px]">
                 <div class="items-center">
                     <img src="<?php the_sub_field('star_image'); ?>" alt="rating"
