@@ -68,8 +68,26 @@ if (!empty($thumbnail_id)) {
 <section class='sm:py-16 py-10 relative'>
     <div class='max-w-screen-xl mx-auto px-4 '>
 
+    <?php
+
+get_template_part('components/com', 'brands');
+get_template_part('components/com', 'reviews');
+
+?>
+
+        <div class="md:w-2/6 mx-auto mb-10">
+            <?php
+	// Usage
+	$title = 'Delivery Title';
+	$desc = 'Delivery Description';
+	delivery_time($title, $desc);
+	?>
+        </div>
+
         <div class='w-full'>
             <div class='grid sm:grid-cols-2 md:grid-cols-5 relative product-grid grid-cols-2 gap-1 sm:gap-2 md:gap-4'>
+
+
 
                 <?php
 
@@ -186,21 +204,7 @@ if (!empty($thumbnail_id)) {
         <?php }  ?>
 
 
-        <?php
-
-get_template_part('components/com', 'brands');
-get_template_part('components/com', 'reviews');
-
-?>
-
-        <div class="md:w-2/6 mx-auto mb-10">
-            <?php
-	// Usage
-	$title = 'Delivery Title';
-	$desc = 'Delivery Description';
-	delivery_time($title, $desc);
-	?>
-        </div>
+       
 
 
 </section>
