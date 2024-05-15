@@ -69,13 +69,13 @@ get_header();
                 </div>
             </div>
 
-            <div>
+            <!-- <div>
                 <input type="checkbox" id="agree" name="agree" value="agree">
                 <label for="agree"> I agree to the terms and conditions and the privacy policy</label>
-            </div>
+            </div> -->
             <div>
                 <button type="submit" class="bg-green-500 py-2 px-8 hover:bg-primary rounded-full text-white">
-                    Send
+                    Submit
                 </button>
             </div>
             <div class="status py-10 "></div>

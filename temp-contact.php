@@ -99,12 +99,12 @@ get_header();
                                 <textarea name="message" id="message" rows="4"
                                     class="border mt-5 w-full max-w-[500px] outline-none py-2 px-2"
                                     placeholder="We can help" required></textarea>
-                                <div class="flex gap-2">
+                                <!-- <div class="flex gap-2">
                                     <input type="checkbox" class="mt-[3px]"  id="agree" name="agree" value="agree">
                                     <p>
                                         I agree to the terms and conditions and the privacy policy
                                     </p>
-                                </div>
+                                </div> -->
                             </div>
                             <div>
                                 <input type="submit" value="Send"
