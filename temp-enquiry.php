@@ -63,7 +63,7 @@ get_header();
                         placeholder="Email address" required>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <label for="phone">Telphone *</label>
+                    <label for="phone">Telephone *</label>
                     <input type="tel" id="phone" name="phone" class="border outline-none w-full max-w-96 py-2 px-2 border-gray-300 bg-gray-50"
                         placeholder="+44.... " required>
                 </div>
