@@ -8,20 +8,19 @@ function delivery_time() {
     $is_working_hours = ($current_hour >= 9 && $current_hour <= 23);
 
     // Calculate next business day
-    $result_date = get_next_business_day($current_date, $is_working_hours ? 5 : 6);
+    $result_date = get_next_business_day($current_date, $is_working_hours ? 3 : 4);
 
     // Format result date
     $result_date_formatted = $result_date->format('l, F jS');
 
-    // Calculate countdown
-    $current_time = current_time('timestamp');
-    $delivery_time = $result_date->getTimestamp();
-    $remaining_time = $delivery_time - $current_time;
+    
 
+    $current_time = time(); // Get the current Unix timestamp
+    $end_of_today = strtotime('tomorrow', $current_time) - 1; 
+    $remaining_time = $end_of_today - $current_time;
     if ($remaining_time < 0) {
         $remaining_time = 0;
     }
-
     $hours = floor($remaining_time / 3600);
     $minutes = floor(($remaining_time % 3600) / 60);
     $seconds = $remaining_time % 60;
@@ -34,7 +33,7 @@ function delivery_time() {
     echo '</div>';
     echo '<p class="mt-2 max-w-[300px]">Delivery Details</p>';
     echo '<p class="my-1">Arrives <span class="font-semibold text-secondary">' . esc_html($result_date_formatted) . '</span></p>';
-    echo '<p>Order within <span class="text-secondary">' . esc_html($hours) . 'hrs ' . esc_html($minutes) . 'mins ' . esc_html($seconds) . 'sec</span></p>';
+    echo '<p>Order within <span class="text-secondary">' . esc_html($hours) . ' hrs ' . esc_html($minutes) . ' mins ' . esc_html($seconds) . ' sec</span></p>';
     echo '</div>';
 }
 
