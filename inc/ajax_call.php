@@ -149,7 +149,7 @@ function send_email() {
 		$message = $_POST['message'];
 		$email = $_POST['email'];
 		$name = $_POST['name'];
-		$admin = 'sales@printwish.co.uk,mufaqar@gmail.com';
+		$admin = 'sales@printwish.co.uk,mufaqar@gmail.com,printwish20@gmail.com';
 		$to = 'sales@printwish.co.uk';
 		$cc = $email;		
 		$subject = "Contact Us | PrintWish";
@@ -182,7 +182,7 @@ function send_email_inq() {
 		$email = $_POST['email'];
 		$name = $_POST['name'];
 		$phone = $_POST['phone'];
-		$admin = 'sales@printwish.co.uk,mufaqar@gmail.com';
+		$admin = 'sales@printwish.co.uk,mufaqar@gmail.com,printwish20@gmail.com';
 		$to = 'sales@printwish.co.uk';
 		$cc = $email;		
 		$subject = "Quick Quote | PrintWish";
