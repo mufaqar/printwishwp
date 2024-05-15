@@ -1,5 +1,5 @@
 <?php
-function delivery_time($title, $desc) {
+function delivery_time() {
     // Get current date and time
     $current_date = new DateTime();
 
@@ -29,10 +29,10 @@ function delivery_time($title, $desc) {
     // Output HTML
     echo '<div class="border p-6 mt-8 md:max-w-[420px] shadow rounded-md text-sm">';
     echo '<div class="flex justify-between items-center">';
-    echo '<h6 class="font-semibold">' . esc_html($title) . '</h6>';
+    echo '<h6 class="font-semibold">Delivery Time</h6>';
     echo '<img src="'.get_template_directory_uri().'/public/images/dpd.png" alt="icon" width="45" height="45" />';
     echo '</div>';
-    echo '<p class="mt-2 max-w-[300px]">' . esc_html($desc) . '</p>';
+    echo '<p class="mt-2 max-w-[300px]">Delivery Details</p>';
     echo '<p class="my-1">Arrives <span class="font-semibold text-secondary">' . esc_html($result_date_formatted) . '</span></p>';
     echo '<p>Order within <span class="text-secondary">' . esc_html($hours) . 'hrs ' . esc_html($minutes) . 'mins ' . esc_html($seconds) . 'sec</span></p>';
     echo '</div>';

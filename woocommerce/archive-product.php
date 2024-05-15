@@ -76,12 +76,7 @@ get_template_part('components/com', 'reviews');
 ?>
 
         <div class="md:w-2/6 mx-auto mb-10">
-            <?php
-	// Usage
-	$title = 'Delivery Title';
-	$desc = 'Delivery Description';
-	delivery_time($title, $desc);
-	?>
+            <?php	delivery_time();	?>
         </div>
 
         <div class='w-full'>

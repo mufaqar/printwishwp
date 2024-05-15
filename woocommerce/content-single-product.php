@@ -348,13 +348,7 @@ $faqs = array(
         </a>
 
         <div class="md:w-3/5">
-            <?php
-            // Usage
-            $title = 'Delivery Title';
-            $desc = 'Delivery Description';
-            delivery_time($title, $desc);
-
-            ?>
+            <?php  delivery_time();?>
         </div>
 
         <div id="product-popup" class="mfp-hide bg-background shadow container mx-auto p-6 flex flex-col gap-5">
