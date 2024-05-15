@@ -11,9 +11,7 @@ function delivery_time() {
     $result_date = get_next_business_day($current_date, $is_working_hours ? 3 : 4);
 
     // Format result date
-    $result_date_formatted = $result_date->format('l, F jS');
-
-    
+    $result_date_formatted = $result_date->format('l, F jS');   
 
     $current_time = time(); // Get the current Unix timestamp
     $end_of_today = strtotime('tomorrow', $current_time) - 1; 
