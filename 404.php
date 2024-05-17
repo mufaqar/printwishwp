@@ -10,51 +10,26 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<div class="h-[calc(100vh-130px)]  flex flex-col justify-center items-center py-36">
+    <div class="bg-white p-6  md:mx-auto">
+        
+        <div class="text-center">
+            <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">
+			Oops! That page can’t be found.
+            </h3>
+            <p class="text-gray-600 my-2">
+			It looks like nothing was found at this location
+            </p>
+            <p> Have a great day! </p>
+            <div class="py-10 text-center">
+                <a href="/" class="px-6 capitalize bg-secondary hover:bg-primary text-white font-medium py-3">
+                back to home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'printwish' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'printwish' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'printwish' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$printwish_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'printwish' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$printwish_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
-
+	
 <?php
 get_footer();
