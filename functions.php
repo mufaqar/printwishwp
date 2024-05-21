@@ -308,3 +308,5 @@ function destroy_wp_session() {
     unset($_SESSION['additionalInfo']);
     unset($_SESSION['ProductID']);
 }
+
+

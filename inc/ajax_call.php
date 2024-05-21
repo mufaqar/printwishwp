@@ -74,10 +74,18 @@ function insert_order_data() {
 				'country'    => 'UK'
 			);
 
+			$price = 0;
+
 			$order = wc_create_order();
 			$order->set_address( $address, 'billing' );
 			$order->set_address( $address, 'shipping' );
-			$order->add_product( wc_get_product( $product_id ), 1  );
+			//$order->add_product( wc_get_product( $product_id ), 1  );
+
+			$order->add_product( $product, 1, [
+				'subtotal'     => $price, // e.g. 32.95
+				'total'        => $price, // e.g. 32.95
+			] );
+
 			foreach ( $order->get_items() as $item_key => $item ) {
 				foreach ($order->get_items() as $item_key => $item) {
 					foreach ($order_data['selected_colors'] as $index => $color_item) {
@@ -90,6 +98,8 @@ function insert_order_data() {
 							$url = $order_data['selected_variants'][$index]['url'];
 							$item_data =  "Color: $color <br/> Size: $size <br/>  Quantity: $quantity <br/>  Variant: $variant <br/>  Color in Logo: $colorInLogo<br/>  URL: $url . <hr/>";
 							$item->add_meta_data("order_data", $item_data);
+						
+							
 						}
 					}   
 				}
@@ -97,6 +107,7 @@ function insert_order_data() {
 			$order->calculate_totals();
 			$order->set_status( 'wc-processing' );
 			$order->save();
+
 			//echo "order Crated";
 			destroy_wp_session();
 			$redirect_url = home_url('/thank-you');
