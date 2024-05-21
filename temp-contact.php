@@ -78,23 +78,26 @@ get_header();
                     <div class="flex gap-5">
                         <div class="sm:mt-8 mt-0">
                             <p class="py-7">Subject</p>
-                            <p >Your Name</p>
+                            <p>Your Name</p>
                             <p class="py-9">Email address</p>
                             <p class="py-5">Message</p>
                         </div>
                         <div class="sm:mt-12 mt-5">
-                            <select name="enquiries" id="enquiries" class="border outline-none w-full max-w-96 py-2 px-2">
+                            <select name="enquiries" id="enquiries"
+                                class="border outline-none w-full max-w-96 py-2 px-2">
                                 <option value="General Enquiries">General Enquiries</option>
                                 <option value="Invoice/Accounts Enquiry">Invoice/Accounts Enquiry</option>
                                 <option value="Price Enquiry">Price Enquiry</option>
                                 <option value="Request a Call">Request a Call</option>
                             </select>
                             <br />
-                            <input type="text" name="name" id="name"  class="border outline-none w-full max-w-96 py-2 px-2 mt-5"
-                                placeholder="Enter Your Name" required >
+                            <input type="text" name="name" id="name"
+                                class="border outline-none w-full max-w-96 py-2 px-2 mt-5" placeholder="Enter Your Name"
+                                required>
                             <br />
-                            <input type="email" name="email" id="email"  class="border outline-none w-full max-w-96 py-2 px-2 mt-5"
-                                placeholder="Enter Email address" >
+                            <input type="email" name="email" id="email"
+                                class="border outline-none w-full max-w-96 py-2 px-2 mt-5"
+                                placeholder="Enter Email address">
                             <div>
                                 <textarea name="message" id="message" rows="4"
                                     class="border mt-5 w-full max-w-[500px] outline-none py-2 px-2"
@@ -120,9 +123,11 @@ get_header();
 </div>
 <section>
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.235597058615!2d-0.0886732!3d51.527238499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca671a415eb%3A0xba3bb840e2e16b33!2s124%20City%20Rd%2C%20London%20EC1V%202NP%2C%20UK!5e0!3m2!1sen!2s!4v1715248303974!5m2!1sen!2s"
-        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2403.6544181327586!2d-1.1577665230314962!3d52.95464100395923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c180afd95fcb%3A0xf14379c1cf00ba1b!2sRegus%20-%20Nottingham%20City%20Centre!5e0!3m2!1sen!2s!4v1716299348454!5m2!1sen!2s"
+        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
 </section>
 
 <?php get_footer(); ?>
@@ -131,22 +136,22 @@ get_header();
 <script>
 jQuery("#contact_form").validate({
     rules: {
-					firstname: "required",
-					lastname: "required",
-					
-					email: {
-						required: true,
-						email: true
-					},
-					agree: "required"
-				},
-                messages: {
-					firstname: "Please enter your firstname",
-					lastname: "Please enter your lastname",
-					
-					email: "Please enter a valid email address",
-					agree: "Please accept our policy"
-				},
+        firstname: "required",
+        lastname: "required",
+
+        email: {
+            required: true,
+            email: true
+        },
+        agree: "required"
+    },
+    messages: {
+        firstname: "Please enter your firstname",
+        lastname: "Please enter your lastname",
+
+        email: "Please enter a valid email address",
+        agree: "Please accept our policy"
+    },
 });
 </script>
 
@@ -154,31 +159,31 @@ jQuery("#contact_form").validate({
 jQuery(document).ready(function($) {
     $("#contact_form").submit(function(e) {
         e.preventDefault();
-            var enquiries = jQuery('#enquiries').val();
-            var email = jQuery('#email').val();
-            var name = jQuery('#name').val();
-            var message = jQuery('#message').val();
-            
+        var enquiries = jQuery('#enquiries').val();
+        var email = jQuery('#email').val();
+        var name = jQuery('#name').val();
+        var message = jQuery('#message').val();
+
         $.ajax({
             type: "post",
             url: "<?php echo admin_url('admin-ajax.php'); ?>",
             data: {
                 action: "send_email",
-                enquiries : enquiries,
-                name : name,
-                email : email,
-                message : message                   
+                enquiries: enquiries,
+                name: name,
+                email: email,
+                message: message
             },
             success: function(data) {
 
-             
-                    $(".status").html(data.message);
-              
+
+                $(".status").html(data.message);
+
 
             },
             error: function(error) {
                 // Handle error response
-               // console.log(error.responseText);
+                // console.log(error.responseText);
             }
         });
     });
