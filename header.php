@@ -38,6 +38,7 @@
             ?>
     </title>
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
+	<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/public/favicon.ico">
     <?php wp_head(); ?>      
 </head>
 <body <?php body_class(); ?>>
