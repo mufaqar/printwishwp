@@ -81,7 +81,7 @@ function insert_order_data() {
 			$order->set_address( $address, 'shipping' );
 			//$order->add_product( wc_get_product( $product_id ), 1  );
 
-			$order->add_product( $product, 1, [
+			$order->add_product( wc_get_product( $product_id ), 1, [
 				'subtotal'     => $price, // e.g. 32.95
 				'total'        => $price, // e.g. 32.95
 			] );
