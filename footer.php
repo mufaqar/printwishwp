@@ -63,23 +63,23 @@ $Categories = [
 ?>
 
 <style>
-    .before_line::marker {
-        color: #0088cc;
-    }
+.before_line::marker {
+    color: #0088cc;
+}
 
-    .before_line {
-        position: relative;
-    }
+.before_line {
+    position: relative;
+}
 
-    .before_line::before {
-        content: '';
-        position: absolute;
-        height: 1px;
-        width: 12px;
-        background-color: #0088cc;
-        left: 4px;
-        top: 12px;
-    }
+.before_line::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 12px;
+    background-color: #0088cc;
+    left: 4px;
+    top: 12px;
+}
 </style>
 <footer class='bg-background md:pt-12 pt-6 border-t'>
     <div class='container mx-auto px-4 relative'>
@@ -102,13 +102,13 @@ $Categories = [
                 </h6>
                 <ul class='grid gap-2 list-inside list-square marker:text-secondary'>
                     <?php foreach ($Categories as $citem): ?>
-                        <li
-                            class="before_line relative before:content-[' '] before:h-[1px] before:w-3 before:bg-secondary before:absolute before:top-[13px] before:left-1">
-                            <a href="<?php echo home_url('/'); ?><?php echo $citem['link']; ?>"
-                                class="text-sm text-accent font-roboto hover:text-secondary">
-                                <?php echo $citem['name']; ?>
-                            </a>
-                        </li>
+                    <li
+                        class="before_line relative before:content-[' '] before:h-[1px] before:w-3 before:bg-secondary before:absolute before:top-[13px] before:left-1">
+                        <a href="<?php echo home_url('/'); ?><?php echo $citem['link']; ?>"
+                            class="text-sm text-accent font-roboto hover:text-secondary">
+                            <?php echo $citem['name']; ?>
+                        </a>
+                    </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -118,13 +118,13 @@ $Categories = [
                 </h6>
                 <ul class='grid gap-2 list-inside list-square marker:text-secondary'>
                     <?php foreach ($NavLinks as $item): ?>
-                        <li
-                            class="before_line relative before:content-[' '] before:h-[1px] before:w-3 before:bg-secondary before:absolute before:top-[13px] before:left-1">
-                            <a href="<?php echo home_url(); ?><?php echo $item['link']; ?>"
-                                class="text-sm text-accent font-roboto hover:text-secondary">
-                                <?php echo $item['name']; ?>
-                            </a>
-                        </li>
+                    <li
+                        class="before_line relative before:content-[' '] before:h-[1px] before:w-3 before:bg-secondary before:absolute before:top-[13px] before:left-1">
+                        <a href="<?php echo home_url(); ?><?php echo $item['link']; ?>"
+                            class="text-sm text-accent font-roboto hover:text-secondary">
+                            <?php echo $item['name']; ?>
+                        </a>
+                    </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -280,21 +280,37 @@ $Categories = [
 
 </body>
 <script>
-    // Get the button
-    var btn = document.getElementById('back-to-top');
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            btn.style.display = 'block';
-        } else {
-            btn.style.display = 'none';
-        }
-    };
-    // When the user clicks on the button, scroll to the top of the document
-    btn.addEventListener('click', function () {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    });
+// Get the button
+var btn = document.getElementById('back-to-top');
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+    }
+};
+// When the user clicks on the button, scroll to the top of the document
+btn.addEventListener('click', function() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+});
 </script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API = Tawk_API || {},
+    Tawk_LoadStart = new Date();
+(function() {
+    var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/650c13d9b1aaa13b7a781672/default';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 
 </html>
