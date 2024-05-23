@@ -64,7 +64,7 @@ $Categories = array(
             ?>
             <div class=''>
                 <a href='<?php echo $item['link']; ?>'>
-                    <img src='<?php bloginfo('template_directory'); ?>/public/<?php echo $item['img']; ?>' alt='image'
+                    <img src='<?php bloginfo('template_directory'); ?>/public/<?php echo $item['img']; ?>' alt="<?php echo $item['name']; ?>"
                         width='300' height='300' class='object-fill w-full mx-auto mb-3' />
                     <div class=''>
                         <p class='md:text-2xl font-bold text-accent hover:text-secondary text-center'>

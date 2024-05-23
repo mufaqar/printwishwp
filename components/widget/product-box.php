@@ -11,7 +11,7 @@
     <div class='p-1 border border-gray-200 pb-4'>
         <a href="<?php the_permalink()?>"
             class='border-b-[1px] border-gray-100 p-2 md:h-[300px] cursor-pointer mb-2 flex flex-col justify-center items-center group'>
-            <img src="<?php echo $img_src; ?>" alt="" width="200" height="200"
+            <img src="<?php echo $img_src; ?>" alt="<?php echo $title; ?>" width="200" height="200"
                 class='object-contain h-[180px] transition-all duration-200 ease-in-out w-full mb-3 group-hover:scale-95 md:h-full' />
         </a>
         <div class='flex flex-col justify-center items-center'>

@@ -49,9 +49,9 @@ if (!empty($thumbnail_id)) {
     <div class="py-6 relative md:py-16 bg-cover bg-no-repeat bg-center"
         style="background-image: linear-gradient(0deg, rgba(0, 36, 63, 0.7), rgba(0, 36, 63, 0.7)), url(<?php echo $cat_thumbnail ?>);">
         <div class="container mx-auto px-4 text-white">
-            <h2 class="sm:text-4xl text-4xl font-bold font-opensans capitalize mb-2 sm:text-left text-center">
+            <h1 class="sm:text-4xl text-4xl font-bold font-opensans capitalize mb-2 sm:text-left text-center">
                 <?php echo esc_html($cat->name); ?>
-            </h2>
+            </h1>
             <div class="cat_text">
                 <?php echo wp_kses_post($cat->description); ?>
             </div>
@@ -68,7 +68,7 @@ if (!empty($thumbnail_id)) {
 <section class='sm:py-16 py-10 relative'>
     <div class='max-w-screen-xl mx-auto px-4 '>
 
-   
+
 
         <div class="md:w-2/6 mx-auto mb-10">
             <?php	delivery_time();	?>
@@ -207,7 +207,7 @@ if (!empty($thumbnail_id)) {
         ?>
 
 
-<?php
+        <?php
 
 get_template_part('components/com', 'brands');
 get_template_part('components/com', 'reviews');

@@ -132,7 +132,7 @@ $Data2 = [
             </div>
             <div class="md:w-2/5">
                 <img class='w-[530px]' width="528" height="622"
-                    src="<?php echo get_template_directory_uri(); ?>/public/images/bg.png" alt="" />
+                    src="<?php echo get_template_directory_uri(); ?>/public/images/bg.png" alt="BG" />
             </div>
         </div>
     </div>
