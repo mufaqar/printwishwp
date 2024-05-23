@@ -43,7 +43,7 @@
 </head>
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    <header class="shadow-md">
+    <header class="shadow-md sticky top-0 z-50">
         <?php get_template_part( 'components/header', 'top' ); ?>  
         <?php get_template_part( 'components/header', 'nav' ); ?>  
     </header>

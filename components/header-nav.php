@@ -90,7 +90,7 @@ $Locations = array(
 
 ?>
 
-<header class="shadow-md">
+<header class="shadow-md ">
     <nav class="bg-secondary z-50">
         <div class="grid py-4 px-4 mx-auto container lg:grid-cols-2 md:px-6 gap-4 items-center">
             <div class="flex justify-between lg:order-2 lg:mb-0 items-center">
