@@ -4,7 +4,7 @@
             <Img src="<?php bloginfo('template_directory'); ?>/public/images/logo.png" alt="logo" width="140px"
                 height="37px" />
         </a>
-        <div class='w-full lg:w-3/5'>
+        <div class='w-full lg:w-1/2'>
 
             <div class='text-slider'>
                 <?php
@@ -22,7 +22,7 @@
             </div>
 
         </div>
-        <div class="hidden items-center lg:flex justify-between ">
+        <div class="hidden items-center lg:flex justify-end ">
             <ul class='flex gap-2 items-center'>
                 <li class='hidden sm:block'>
                     <a href="tel:00448000510821" class='text-sm font-medium  hover:text-secondary hover:underline'>
@@ -72,6 +72,11 @@
                         </a>
                     </li>
                 </ul>
+                <div class="flex items-center  md:w-60">
+                    <a href="<?php echo home_url('/enquire-now'); ?>" class="md:text-sm text-xs bg-primary py-2 px-3 hover:bg-green-500 md:ml-5 ml-2  rounded-full text-white">
+                    Catalog Download
+                    </a>
+                </div>
 
 
             </ul>
