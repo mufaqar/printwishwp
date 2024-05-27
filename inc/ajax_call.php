@@ -128,19 +128,26 @@ add_action('wp_ajax_nopriv_upload_mediafiles', 'upload_mediafiles');
 function upload_mediafiles() {   
 
 	if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
-        $upload_dir = wp_upload_dir();
-        $target_dir = $upload_dir['path'];
-        $target_file = $target_dir . "/" . basename($_FILES["file"]["name"]);
-
-        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-            $image_url = $upload_dir['url'] . "/" . basename($_FILES["file"]["name"]);
-            echo $image_url;
-        } else {
-            echo "Error: Unable to move uploaded file.";
-        }
-    } else {
-        echo "Error: No file uploaded or an error occurred during upload.";
-    }
+		$upload_dir = wp_upload_dir();
+		$target_dir = $upload_dir['path'];
+	
+		// Get the original file name and sanitize it
+		$original_file_name = basename($_FILES["file"]["name"]);
+		
+		// Remove spaces and convert to lowercase
+		$sanitized_file_name = strtolower(str_replace(' ', '_', $original_file_name));
+		
+		$target_file = $target_dir . "/" . $sanitized_file_name;
+	
+		if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+			$image_url = $upload_dir['url'] . "/" . $sanitized_file_name;
+			echo $image_url;
+		} else {
+			echo "Error: Unable to move uploaded file.";
+		}
+	} else {
+		echo "Error: No file uploaded or an error occurred during upload.";
+	}
 
     wp_die();
 
