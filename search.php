@@ -10,20 +10,39 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'printwish' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
 
-			<?php
+
+
+    <?php if ( have_posts() ) : ?>
+
+
+		<section>
+    <div class="py-6 relative md:py-16 bg-cover bg-no-repeat bg-center"
+        style="background-image: linear-gradient(0deg, rgba(0, 36, 63, 0.7), rgba(0, 36, 63, 0.7)), url();">
+        <div class="container mx-auto px-4 text-white">
+            <h1 class="sm:text-4xl text-4xl font-bold font-opensans capitalize mb-2 text-center">
+			<?php  
+			   printf( esc_html__( 'Search Results for: %s', 'printwish' ), '<span>' . get_search_query() . '</span>' );
+			?>
+            </h1>
+            
+        </div>
+
+    </div>
+</section>
+
+
+
+
+	<section class='py-16 relative'>
+    <div class='max-w-screen-xl mx-auto px-4 '>
+
+        <div class='w-full'>
+            <div class='grid sm:grid-cols-2 md:grid-cols-5 grid-cols-2 gap-1 sm:gap-2 md:gap-4 '>
+
+    <?php
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
@@ -45,9 +64,13 @@ get_header();
 
 		endif;
 		?>
+		
+        </div>
+    </div>
+</section>
 
-	</main><!-- #main -->
+
 
 <?php
-get_sidebar();
+
 get_footer();

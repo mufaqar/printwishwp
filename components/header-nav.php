@@ -153,9 +153,14 @@ $Locations = array(
                             width="140px" height="37px" />
                     </a>
                     <div class=" md:bg-transparent  w-full md:relative hidden md:block">
-                        <input type="search" id="search-dropdown"
-                            class="block p-2.5 w-full text-sm text-accent bg-gray-50 rounded-lg md:rounded-l-none md:border-l-gray-50 border-l-1 md:border-l-6 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                            placeholder="Search anything..." required="" value="">
+                    <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
+                        
+
+                            <input type="search" id="search-dropdown" class="block p-2.5 w-full text-sm text-accent bg-gray-50 rounded-lg md:rounded-l-none md:border-l-gray-50 border-l-1 md:border-l-6 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none" placeholder="<?php echo esc_attr_x('Search …', 'placeholder'); ?>" value="<?php echo get_search_query(); ?>" required="" name="s" title="<?php echo esc_attr_x('Search for:', 'label'); ?>" />
+
+
+
+
                         <button type="submit"
                             class="absolute right-4 top-10 md:top-0 md:right-0 p-2.5 text-sm font-medium text-white bg-primary rounded-r-lg border border-primary hover:bg-primary/90 focus:ring-4 focus:outline-none focus:ring-primary ">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -164,6 +169,7 @@ $Locations = array(
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </button>
+                        </form>
                     </div>
                 </div>
                 <div class="flex items-center md:w-60">

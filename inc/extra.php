@@ -46,4 +46,26 @@ function get_next_business_day($start_date, $days_to_add) {
     }
     return $current_date;
 }
+
+
+
+
+function include_custom_post_types_in_search($query) {
+    if ($query->is_search && !is_admin() && $query->is_main_query()) {
+        $post_types = array('product'); // Add other post types if needed
+        $query->set('post_type', $post_types);
+    }
+}
+add_action('pre_get_posts', 'include_custom_post_types_in_search');
+
+
+
+
+
+
+
+
+
+
+
 ?>
