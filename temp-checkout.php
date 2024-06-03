@@ -127,12 +127,6 @@
                         Your Quote Details
                         <span class="mt-2 block h-[3px] w-10 bg-gray-200 sm:w-20"></span>
                     </h1>
-                    <?php
-
-
-  
-?>
-
                     <div class='flex items-start gap-2 border p-2'>
 
                         <img src="<?php echo wp_get_attachment_url( $product->get_image_id(), 'large' ); ?>"
