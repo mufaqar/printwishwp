@@ -397,6 +397,7 @@ $faqs = array(
                         }
 
                         echo '</ul>';
+                     
                     }
                 }
 
@@ -522,16 +523,18 @@ function createColorList(colors) {
         ['Quantity'].forEach(function(size) {
             // Open the div for each size
             html += '<div class="flex items-center justify-center gap-2">';
-            html += '<p class="text-lg text-accent font-bold">Quantity:</p>';
+            html += '<p class="text-lg text-accent font-bold">How many? </p>';
             // Open the div for the input
             html += '<div class="">';   
             html += '<input type="number" name="' + size +
                 '" min="0" style="max-width:100px" class="w-full bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' +
                 color.code + '\', \'' + size + '\')">';
             // Close the input div
-            html += '</div></div>';
+            html += '</div></div><br/>';
+           
         });
         // Close the inner flex div for size inputs
+        html +="<p>Available sizes: S, M, L, XL, 2XL, 3XL, 4XL.</p>";
         html += '</div>';
         // Add the button to remove the color item
         html += '<button onclick="removeColor(this)" code=' + color.code +
