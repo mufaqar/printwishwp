@@ -519,7 +519,7 @@ function createColorList(colors) {
         html +=
             '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 mt-3 ">';
         // Iterate over sizes
-        ['S'].forEach(function(size) {
+        ['Quantity'].forEach(function(size) {
             // Open the div for each size
             html += '<div class="flex items-center justify-center gap-2">';
             html += '<p class="text-lg text-accent font-bold">Quantity:</p>';
