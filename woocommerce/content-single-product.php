@@ -507,7 +507,7 @@ function createColorList(colors) {
     colors.forEach(function(color) {
         // Open the color-item div
         html +=
-            '<div class="color-item border border-black justify-between my-3 bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
+            '<div class="color-item border border-black justify-between bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
         // Open the inner flex div for color display and text
         html += '<div class="flex items-center gap-2">';
         html += '<div class="p-4 rounded-full" style="background-color: #' + color.code + '; border-color: #' +
@@ -519,14 +519,14 @@ function createColorList(colors) {
         html +=
             '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 mt-3 ">';
         // Iterate over sizes
-        ['S', 'M', 'L', 'XL', '2XL', '3XL'].forEach(function(size) {
+        ['S'].forEach(function(size) {
             // Open the div for each size
-            html += '<div class="flex flex-col items-center justify-center">';
-            html += '<p class="text-lg text-accent font-bold">' + size + '</p>';
+            html += '<div class="flex items-center justify-center gap-2">';
+            html += '<p class="text-lg text-accent font-bold">Quantity:</p>';
             // Open the div for the input
-            html += '<div class="mt-1">';
+            html += '<div class="">';   
             html += '<input type="number" name="' + size +
-                '" min="0" style="max-width:64px" class="w-16 bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' +
+                '" min="0" style="max-width:100px" class="w-full bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' +
                 color.code + '\', \'' + size + '\')">';
             // Close the input div
             html += '</div></div>';
