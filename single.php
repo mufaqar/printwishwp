@@ -39,39 +39,35 @@ get_header();
                     RELATED PRODUCTS
                 </h2>
                 <div class="bg-white p-3 flex flex-col gap-5">
+
+                    <?php query_posts(array(
+            'post_type' => 'product',
+            'posts_per_page' => 3,
+			'order' => 'desc'
+			
+        )); 
+		if (have_posts()) :  while (have_posts()) : the_post(); ?>
                     <div class="flex md:flex-row flex-row gap-3 items-center">
                         <div class="w-1/3">
-                            <img src="https://printwish.co.uk/wp-content/themes/printwishwp/public//images/6.webp"
-                                alt="feature" class="w-full h-full object-cover object-top" />
+                            <?php if ( has_post_thumbnail() ) {
+                                            the_post_thumbnail('services-small-thumbnail' ,array('class' => 'w-full h-full object-cover object-top'));
+                                        } else { ?>
+                            <img src="<?php bloginfo('template_directory'); ?>/public//images/6.webp"
+                                alt="Featured Thumbnail" />
+                            <?php } ?>
                         </div>
                         <div>
-                            <a href="#" class="text-sm font-normal text-black hover:text-primary">
-                                Cami Top With Gym Pants For Women
+                            <a href="<?php the_permalink()?>" class="text-sm font-normal text-black hover:text-primary">
+                                <?php the_title()?>
                             </a>
                         </div>
                     </div>
-                    <div class="flex md:flex-row flex-row gap-3 items-center">
-                        <div class="w-1/3">
-                            <img src="https://printwish.co.uk/wp-content/themes/printwishwp/public//images/6.webp"
-                                alt="feature" class="w-full h-full object-cover object-top" />
-                        </div>
-                        <div>
-                            <a href="#" class="text-sm font-normal text-black hover:text-primary">
-                                Cami Top With Gym Pants For Women
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex md:flex-row flex-row gap-3 items-center">
-                        <div class="w-1/3">
-                            <img src="https://printwish.co.uk/wp-content/themes/printwishwp/public//images/6.webp"
-                                alt="feature" class="w-full h-full object-cover object-top" />
-                        </div>
-                        <div>
-                            <a href="#" class="text-sm font-normal text-black hover:text-primary">
-                                Cami Top With Gym Pants For Women
-                            </a>
-                        </div>
-                    </div>
+
+                    <?php endwhile; wp_reset_query(); else : ?>
+                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                    <?php endif; ?>
+
+
                 </div>
             </div>
             <div class='mt-10'>
@@ -79,39 +75,45 @@ get_header();
                     RECENT POSTS
                 </h2>
                 <div class="bg-white p-3 flex flex-col divide-y divide-black/20">
+
+                    <?php query_posts(array(
+            'post_type' => 'post',
+            'posts_per_page' => 3,
+			'order' => 'desc'
+			
+        )); 
+		if (have_posts()) :  while (have_posts()) : the_post(); ?>
+
+
+
                     <div class="flex md:flex-row flex-row gap-3 items-center py-4">
                         <div class="w-1/3">
-                            <img src="https://printwish.co.uk/wp-content/themes/printwishwp/public//images/6.webp"
-                                alt="feature" class="w-full h-full object-cover object-top" />
+                            <?php if ( has_post_thumbnail() ) {
+                                            the_post_thumbnail('services-small-thumbnail' ,array('class' => 'w-full h-full object-cover object-top'));
+                                        } else { ?>
+                            <img src="<?php bloginfo('template_directory'); ?>/public//images/6.webp"
+                                alt="Featured Thumbnail" />
+                            <?php } ?>
+
                         </div>
                         <div>
-                            <a href="#" class="text-sm font-normal text-black hover:text-primary">
-                                Cami Top With Gym Pants For Women
+                            <a href="<?php the_permalink()?>"
+                                class="text-base font-normal text-black hover:text-primary">
+                                <?php the_title()?>
                             </a>
+                            <p class="text-sm font-normal text-black ">
+
+                                <?php  echo strip_shortcodes(wp_trim_words( get_the_content(), 10 )); ?>
+
+                            </p>
                         </div>
                     </div>
-                    <div class="flex md:flex-row flex-row gap-3 items-center py-4">
-                        <div class="w-1/3">
-                            <img src="https://printwish.co.uk/wp-content/themes/printwishwp/public//images/6.webp"
-                                alt="feature" class="w-full h-full object-cover object-top" />
-                        </div>
-                        <div>
-                            <a href="#" class="text-sm font-normal text-black hover:text-primary">
-                                Cami Top With Gym Pants For Women
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex md:flex-row flex-row gap-3 items-center py-4">
-                        <div class="w-1/3">
-                            <img src="https://printwish.co.uk/wp-content/themes/printwishwp/public//images/6.webp"
-                                alt="feature" class="w-full h-full object-cover object-top" />
-                        </div>
-                        <div>
-                            <a href="#" class="text-sm font-normal text-black hover:text-primary">
-                                Cami Top With Gym Pants For Women
-                            </a>
-                        </div>
-                    </div>
+                    <?php endwhile; wp_reset_query(); else : ?>
+                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                    <?php endif; ?>
+
+
+
                 </div>
             </div>
         </aside>
