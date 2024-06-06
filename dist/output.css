@@ -32738,6 +32738,14 @@ ol {
   font-weight: bold;
 }
 
+.badge{
+  background-color: #dcf5f2;
+  border: 2px solid #139686;
+  padding: 4px 8px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
