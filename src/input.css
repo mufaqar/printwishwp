@@ -490,3 +490,9 @@ ol {
   font-size: 18px;
   font-weight: bold;
 }
+.badge{
+  background-color: #dcf5f2;
+  border: 2px solid #139686;
+  padding: 4px 8px;
+  width: fit-content;
+}
