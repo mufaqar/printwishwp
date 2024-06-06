@@ -534,7 +534,7 @@ function createColorList(colors) {
            
         });
         // Close the inner flex div for size inputs
-        html +="<p>Available sizes: S, M, L, XL, 2XL, 3XL, 4XL.</p>";
+         html +="<p>Available sizes: S, M, L, XL, 2XL, 3XL, 4XL.</p>";
         html += '</div>';
         // Add the button to remove the color item
         html += '<button onclick="removeColor(this)" code=' + color.code +

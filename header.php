@@ -12,6 +12,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,12 +39,26 @@
             ?>
     </title>
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
-	<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/public/favicon.ico">
-    <?php wp_head(); ?>      
+    <link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/public/favicon.ico">
+    <?php wp_head(); ?>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDRXNDYY1L"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-SDRXNDYY1L');
+    </script>
+
 </head>
+
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <header class="shadow-md sticky top-0 z-50">
-        <?php get_template_part( 'components/header', 'top' ); ?>  
-        <?php get_template_part( 'components/header', 'nav' ); ?>  
+        <?php get_template_part( 'components/header', 'top' ); ?>
+        <?php get_template_part( 'components/header', 'nav' ); ?>
     </header>
