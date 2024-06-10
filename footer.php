@@ -89,7 +89,7 @@ $Categories = [
                     About
                 </h6>
                 <p class='text-sm text-accent font-roboto mb-1.5'>
-                    PrintWish UK Printwish UK is a leading custom apparel provider and Wholesale Company.
+                     Printwish UK is a leading custom apparel provider and Wholesale Company.
                 </p>
                 <p class='text-sm font-semibold font-roboto text-accent'>
                     WORKING DAYS/HOURS:
