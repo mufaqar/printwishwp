@@ -48,6 +48,16 @@ $faqs = array(
 
 ?>
 
+<style>
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+</style>
+
 
 <section class="shadow p-3 hidden md:block">
     <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-5">
@@ -161,39 +171,41 @@ $faqs = array(
             <h6>Lead Time : <span class='text-black'>3-5 working days</span></h6>
             <h6>Minimum Order Value is <span class='text-black'>25 units.</span></h6>
         </div>
+
+
+
+
         <section class="bg-background p-6 md:p-8 mt-5 rounded-lg">
-            <div class="mb-4 border-b border-gray-200">
-                <ul class="flex flex-wrap -mb-px text-center font-semibold text-lg uppercase font-roboto gap-5 "
-                    id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content"
-                    data-tabs-active-classes="text-primary" data-tabs-inactive-classes="text-primary" role="tablist">
-                    <li class="me-2" role="presentation">
-                        <button class="inline-block border-b-2 border-transparent rounded-t-lg text-secondary"
-                            id="profile-styled-tab" data-tabs-target="#styled-profile" type="button" role="tab"
-                            aria-controls="profile" aria-selected="false">DESCRIPTION</button>
-                    </li>
-                    <li class="me-2" role="presentation">
-                        <button class="inline-block border-b-2 border-transparent rounded-t-lg text-secondary"
-                            id="dashboard-styled-tab" data-tabs-target="#styled-dashboard" type="button" role="tab"
-                            aria-controls="dashboard" aria-selected="false">DETAILS</button>
-                    </li>
-                    <li class="me-2" role="presentation">
-                        <button class="inline-block border-b-2 border-transparent rounded-t-lg text-secondary"
-                            id="settings-styled-tab" data-tabs-target="#styled-settings" type="button" role="tab"
-                            aria-controls="settings" aria-selected="false">FAQ'S</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="default-styled-tab-content hidden">
-                <div class="hidden" id="styled-profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
-                    <div class='mt-2 pl-4 text-accent _features '><?php echo ($product_content); ?></div>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
-                    <p class='text-accent'><?php echo get_field("fabric"); ?></p>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Weight:</h6>
-                    <p class='text-accent'><?php echo get_field("weight"); ?></p>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size Description:
-                    </h6>
-                    <?php
+
+            <div class=" ">
+                <div class="mb-4 border-b border-gray-200">
+                    <ul class="flex border-b">
+                        <li class="-mb-px mr-1">
+                            <a href="#tab1"
+                                class="tab-link inline-block py-2 px-4 text-secondary font-semibold hover:text-blue-800">DESCRIPTION</a>
+                        </li>
+                        <li class="mr-1">
+                            <a href="#tab2"
+                                class="tab-link inline-block py-2 px-4 text-secondary font-semibold hover:text-blue-800">DETAILS</a>
+                        </li>
+                        <li class="mr-1">
+                            <a href="#tab3"
+                                class="tab-link inline-block py-2 px-4 text-secondary font-semibold hover:text-blue-800">FAQ'S</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="tab1" class="tab-content p-4 hidden">
+                    <div>
+                        <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
+                        <div class='mt-2 pl-4 text-accent _features '><?php echo ($product_content); ?></div>
+                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
+                        <p class='text-accent'><?php echo get_field("fabric"); ?></p>
+                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Weight:</h6>
+                        <p class='text-accent'><?php echo get_field("weight"); ?></p>
+                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size
+                            Description:
+                        </h6>
+                        <?php
                         global $product;
                         $product_id = $product->get_id();
                         $product = wc_get_product($product_id);
@@ -211,30 +223,35 @@ $faqs = array(
                             }
                         }
                     ?>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
-                        Instructions:</h6>
-                    <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
+                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
+                            Instructions:</h6>
+                        <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
+                    </div>
+
                 </div>
-                <div class="hidden" id="styled-dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                <div id="tab2" class="tab-content p-4">
+
+
                     <div>
-                        <div class='flex justify-between items-center border-b py-2 border-gray-200'>
-                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Gender:
-                            </h6>
-                            <p class='text-accent'><?php echo get_field("gender"); ?></p>
-                        </div>
-                        <div class='flex justify-between items-center border-b py-2 border-gray-200'>
-                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Minimum
-                                Order Value is</h6>
-                            <p class='text-accent'><?php echo get_field("minimum_order"); ?> Units</p>
-                        </div>
-                        <div class='border-b py-2 border-gray-200'>
-                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
-                                Area:</h6>
+                        <div>
+                            <div class='flex justify-between items-center border-b py-2 border-gray-200'>
+                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Gender:
+                                </h6>
+                                <p class='text-accent'><?php echo get_field("gender"); ?></p>
+                            </div>
+                            <div class='flex justify-between items-center border-b py-2 border-gray-200'>
+                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Minimum
+                                    Order Value is</h6>
+                                <p class='text-accent'><?php echo get_field("minimum_order"); ?> Units</p>
+                            </div>
+                            <div class='border-b py-2 border-gray-200'>
+                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
+                                    Area:</h6>
 
 
 
-                            <?php if (have_rows('imprint_area')): ?>
-                            <?php while (have_rows('imprint_area')):
+                                <?php if (have_rows('imprint_area')): ?>
+                                <?php while (have_rows('imprint_area')):
                                     the_row();
 
                                     // Get sub field values.
@@ -245,78 +262,89 @@ $faqs = array(
 
 
                                     ?>
-                            <p class='text-accent mb-1 flex justify-between items-center'><span
-                                    class='font-bold text-gray-600 '>LeftBreast:</span>
-                                <?php echo $leftbreast ?></p>
+                                <p class='text-accent mb-1 flex justify-between items-center'><span
+                                        class='font-bold text-gray-600 '>LeftBreast:</span>
+                                    <?php echo $leftbreast ?></p>
 
-                            <p class='text-accent mb-1 flex justify-between items-center'><span
-                                    class='font-bold text-gray-600 '>Front:</span>
-                                <?php echo $front ?></p>
-                            <p class='text-accent mb-1 flex justify-between items-center'><span
-                                    class='font-bold text-gray-600 '>Back:</span>
-                                <?php echo $back ?></p>
+                                <p class='text-accent mb-1 flex justify-between items-center'><span
+                                        class='font-bold text-gray-600 '>Front:</span>
+                                    <?php echo $front ?></p>
+                                <p class='text-accent mb-1 flex justify-between items-center'><span
+                                        class='font-bold text-gray-600 '>Back:</span>
+                                    <?php echo $back ?></p>
 
-                            <?php endwhile; ?>
-                            <?php endif; ?>
+                                <?php endwhile; ?>
+                                <?php endif; ?>
 
-
-
-
-
-
-
-
-                        </div>
-                        <div class=' border-b py-2 border-gray-200'>
-                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
-                                Method:</h6>
-                            <p class='text-accent'><?php echo get_field("imprint_method"); ?></p>
-                        </div>
-                        <div class=' border-b py-2 border-gray-200'>
-                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Ready To
-                                Ship:</h6>
-                            <p class='text-accent'><?php echo get_field("ready_to_ship"); ?></p>
-                        </div>
-                        <div class=' border-b py-2 border-gray-200'>
-                            <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Packaging:
-                            </h6>
-                            <p class='text-accent'><?php echo get_field("packaging"); ?></p>
+                            </div>
+                            <div class=' border-b py-2 border-gray-200'>
+                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
+                                    Method:</h6>
+                                <p class='text-accent'><?php echo get_field("imprint_method"); ?></p>
+                            </div>
+                            <div class=' border-b py-2 border-gray-200'>
+                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Ready
+                                    To
+                                    Ship:</h6>
+                                <p class='text-accent'><?php echo get_field("ready_to_ship"); ?></p>
+                            </div>
+                            <div class=' border-b py-2 border-gray-200'>
+                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>
+                                    Packaging:
+                                </h6>
+                                <p class='text-accent'><?php echo get_field("packaging"); ?></p>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="hidden" id="styled-settings" role="tabpanel" aria-labelledby="settings-tab">
-                    <div class="mx-auto max-w-screen-md">
-                        <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white"
-                            class="flex flex-col gap-2.5" data-inactive-classes="">
-                            <?php foreach ($faqs as $index => $faq): ?>
-                            <div class="bg-white p-3 px-5 border border-gray-200 font-opensans cursor-pointer">
-                                <h2 id="accordion-flush-heading-<?php echo $index; ?>">
-                                    <button type="button"
-                                        class="flex justify-between items-center w-full font-medium text-left hover:text-secondary"
-                                        data-accordion-target="#accordion-flush-body-<?php echo $index; ?>"
-                                        aria-expanded="true" aria-controls="accordion-flush-body-<?php echo $index; ?>">
-                                        <span><?php echo esc_html($faq['question']); ?></span>
-                                        <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0"
-                                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </h2>
-                                <div id="accordion-flush-body-<?php echo $index; ?>" class=""
-                                    aria-labelledby="accordion-flush-heading-<?php echo $index; ?>">
-                                    <div class="mt-4 text-gray-500">
-                                        <p class="mb-2">
-                                            <?php echo esc_html($faq['answer']); ?>
-                                        </p>
+                <div id="tab3" class="tab-content p-4">
+                    <div>
+                        <div class="mx-auto max-w-screen-md">
+                            <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white"
+                                class="flex flex-col gap-2.5" data-inactive-classes="">
+                                <?php foreach ($faqs as $index => $faq): ?>
+                                <div class=" p-3 px-5 border border-gray-200 font-opensans cursor-pointer">
+                                    <h2 id="accordion-flush-heading-<?php echo $index; ?>">
+                                        <button type="button"
+                                            class="flex justify-between items-center w-full font-medium text-left hover:text-secondary"
+                                            data-accordion-target="#accordion-flush-body-<?php echo $index; ?>"
+                                            aria-expanded="true"
+                                            aria-controls="accordion-flush-body-<?php echo $index; ?>">
+                                            <span><?php echo esc_html($faq['question']); ?></span>
+                                            <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0"
+                                                fill="currentColor" viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-flush-body-<?php echo $index; ?>" class=""
+                                        aria-labelledby="accordion-flush-heading-<?php echo $index; ?>">
+                                        <div class="mt-4 text-gray-500">
+                                            <p class="mb-2">
+                                                <?php echo esc_html($faq['answer']); ?>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
+                                <?php endforeach; ?>
                             </div>
-                            <?php endforeach; ?>
                         </div>
                     </div>
+
                 </div>
+            </div>
+
+
+
+
+
+
+
+
         </section>
     </section>
 
@@ -507,7 +535,8 @@ function createColorList(colors) {
     var html = '';
     colors.forEach(function(color) {
         // Open the color-item div
-        html += '<div class="color-item border border-black justify-between bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
+        html +=
+            '<div class="color-item border border-black justify-between bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
         // Open the inner flex div for color display and text
         html += '<div class="flex items-center gap-2">';
         html += '<div class="p-4 rounded-full" style="background-color: #' + color.code + '; border-color: #' +
@@ -515,25 +544,26 @@ function createColorList(colors) {
         html += '<p class="text-lg uppercase">' + color.color + '</p>';
         // Close the inner flex div
         html += '</div>';
-        
+
         // Open the inner flex div for size inputs
-        html += '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 my-3 ">';
+        html +=
+            '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 my-3 ">';
         // Iterate over sizes
         ['Quantity'].forEach(function(size) {
             // Open the div for each size
             html += '<div class="flex items-center justify-center gap-2">';
             html += '<p class="text-lg text-accent font-bold">How many? </p>';
             // Open the div for the input
-            html += '<div class="">';   
+            html += '<div class="">';
             html += '<input type="number" name="' + size +
                 '" min="0" style="max-width:100px" class="w-full bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' +
                 color.code + '\', \'' + size + '\')">';
             // Close the input div
             html += '</div></div><br/>';
-           
+
         });
         // Close the inner flex div for size inputs
-       //  html +='<p class="hidden">Available sizes: S, M, L, XL, 2XL, 3XL, 4XL.</p>';
+        //  html +='<p class="hidden">Available sizes: S, M, L, XL, 2XL, 3XL, 4XL.</p>';
         html += '</div>';
         // Add the button to remove the color item
         html += '<button onclick="removeColor(this)" code=' + color.code +
@@ -747,6 +777,8 @@ const handleAddToCart = () => {
 jQuery(document).ready(function($) {
 
 
+
+
     $(document).on('change', '[id^=fileInput]', function() {
         var fileInputId = $(this).attr('id');
         var fileIndex = fileInputId.replace('fileInput', '');
@@ -793,5 +825,36 @@ jQuery(document).ready(function($) {
         // Get the Magnific Popup instance and close the popup
         $.magnificPopup.close();
     });
+
+
+
+
+    $('.tab-content').hide();
+    $('.tab-content:first').show("");
+    $('.tab-link:first').addClass(' text-blue-700 border-b border-secondary');
+
+    $('.tab-link').click(function(event) {
+        event.preventDefault();
+        var tab_id = $(this).attr('href');
+
+        $('.tab-link').removeClass('  text-blue-700 border-b border-secondary');
+        $(this).addClass('  text-blue-700 border-b border-secondary');
+
+        $('.tab-content').hide();
+        $(tab_id).show();
+    });
+    if ($(window).width() < 768) {
+        $('.tab-content').hide();
+        alert("test");
+        $('.tab-content:first').hide();
+    } else {
+        $('.tab-content').hide();
+        $('.tab-content:first').show();
+        $('.tab-link:first').addClass('text-blue-700 border-b border-secondary');
+    }
+
+
+
+
 });
 </script>
