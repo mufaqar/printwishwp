@@ -354,7 +354,7 @@ $faqs = array(
             <p class='mt-4 font-normal text-accent'>Product Code: <span class=''> <?php echo $sku; ?></span></p>
         </div>
         <div class="border-t w-full border-gray-300 my-8 md:block hidden"></div>
-        <div class='text-sm md:text-base text-accent'>
+        <div class='text-sm md:text-base text-accent mt-6'>
             <?php echo $short_description; ?>
         </div>
         <section class='my-7 bg-background p-8 rounded-lg flex justify-between items-center'>
@@ -845,16 +845,12 @@ jQuery(document).ready(function($) {
     });
     if ($(window).width() < 768) {
         $('.tab-content').hide();
-        alert("test");
-        $('.tab-content:first').hide();
+         $('.tab-content:first').hide();
     } else {
         $('.tab-content').hide();
         $('.tab-content:first').show();
         $('.tab-link:first').addClass('text-blue-700 border-b border-secondary');
     }
-
-
-
 
 });
 </script>
