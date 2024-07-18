@@ -68,6 +68,13 @@ if (!empty($thumbnail_id)) {
 <section class='sm:py-16 py-10 relative'>
     <div class='max-w-screen-xl mx-auto px-4 '>
 
+    <?php
+
+get_template_part('components/com', 'brands');
+get_template_part('components/com', 'reviews');
+
+?>
+
 
 
         <div class="md:w-2/6 mx-auto mb-10">
@@ -207,12 +214,7 @@ if (!empty($thumbnail_id)) {
         ?>
 
 
-        <?php
-
-get_template_part('components/com', 'brands');
-get_template_part('components/com', 'reviews');
-
-?>
+    
 
 
 </section>
