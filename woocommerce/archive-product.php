@@ -65,31 +65,21 @@ if (!empty($thumbnail_id)) {
 
 
 
-<section class='sm:py-16 py-10 relative'>
+<section class='relative'>
     <div class='max-w-screen-xl mx-auto px-4 '>
+        <?php
+            get_template_part('components/com', 'brands');
+            get_template_part('components/com', 'reviews');
 
-    <?php
-
-get_template_part('components/com', 'brands');
-get_template_part('components/com', 'reviews');
-
-?>
-
-
-
+        ?>
         <div class="md:w-2/6 mx-auto mb-10">
             <?php	delivery_time();	?>
         </div>
 
         <div class='w-full'>
             <div class='grid sm:grid-cols-2 md:grid-cols-5 relative product-grid grid-cols-2 gap-1 sm:gap-2 md:gap-4'>
-
-
-
                 <?php
-
 				if (woocommerce_product_loop()) {
-					//woocommerce_product_loop_start();
 				
 					if (wc_get_loop_prop('total')) {
 						while (have_posts()) {
@@ -139,21 +129,9 @@ get_template_part('components/com', 'reviews');
         </div>
     </div>
 </section>
-
 <section>
     <div class="container mx-auto px-1 my-2 w-full">
-
-        <?php
-
-
-
-
-
-	?>
-
-
-        <?php if (!empty($term_faqs)) { ?>
-
+       <?php if (!empty($term_faqs)) { ?>
         <section class="bg-white mb-10">
             <div class="">
                 <h2 class="mb-6 lg:mb-8 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900">
@@ -162,11 +140,9 @@ get_template_part('components/com', 'reviews');
                     <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-gray-900"
                         data-inactive-classes="text-gray-500" class="flex flex-col gap-2">
 
-                        <?php foreach ($term_faqs as $key => $faq) { 
-						
-						$question = $faq['question'];
-						$answer = $faq['answer'];
-						?>
+                        <?php foreach ($term_faqs as $key => $faq) { 						
+                                $question = $faq['question'];
+                                $answer = $faq['answer'];  ?>
 
                         <div class="bg-white p-3 px-5 border border-gray-200 font-opensans cursor-pointer">
                             <h2 id="accordion-flush-heading-<?php echo $key; ?>">
@@ -214,7 +190,7 @@ get_template_part('components/com', 'reviews');
         ?>
 
 
-    
+
 
 
 </section>
