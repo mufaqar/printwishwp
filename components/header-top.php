@@ -72,11 +72,11 @@
                         </a>
                     </li>
                 </ul>
-                <div class="flex items-center  md:w-60">
+                <!-- <div class="flex items-center  md:w-60">
                     <a href="<?php echo home_url('/enquire-now'); ?>" class="md:text-sm text-xs bg-primary py-2 px-3 hover:bg-green-500 md:ml-5 ml-2  rounded-full text-white">
                     Catalog Download
                     </a>
-                </div>
+                </div> -->
 
 
             </ul>
