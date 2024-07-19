@@ -139,7 +139,6 @@ if (!empty($thumbnail_id)) {
                 <div class="mx-auto ">
                     <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-gray-900"
                         data-inactive-classes="text-gray-500" class="flex flex-col gap-2">
-
                         <?php foreach ($term_faqs as $key => $faq) { 						
                                 $question = $faq['question'];
                                 $answer = $faq['answer'];  ?>
@@ -165,15 +164,11 @@ if (!empty($thumbnail_id)) {
                                 <!-- You can add more content or links here -->
                             </div>
                         </div>
-
                         <?php } ?>
-
                     </div>
                 </div>
-
             </div>
         </section>
-
         <?php } 
         
         
