@@ -98,8 +98,8 @@ $Feedback = [
 		if (have_posts()) :  while (have_posts()) : the_post(); ?>
                 <div class="px-2">
                     <div class="bg-white p-3 flex flex-col gap-4">
-                        <div class="flex items-center gap-5">
-                            <h4 class="text-lg font-bold font-opensans text-black">
+                        <div class="flex items-start gap-5">
+                            <h4 class="text-sm sm:text-lg font-bold font-opensans text-black">
                                 <?php echo get_post_meta( get_the_ID(), 'client_name', true ); ?>
                             </h4>
                             <ul class="flex items-start gap-1">
