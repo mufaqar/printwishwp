@@ -102,7 +102,7 @@ $Feedback = [
                             <h4 class="text-lg font-bold font-opensans text-black">
                                 <?php echo get_post_meta( get_the_ID(), 'client_name', true ); ?>
                             </h4>
-                            <ul class="flex gap-1">
+                            <ul class="flex items-start gap-1">
                             <?php 
 
                             $rating =  get_post_meta( get_the_ID(), 'rating', true );
