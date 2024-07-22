@@ -99,7 +99,7 @@ $Feedback = [
                 <div class="px-2">
                     <div class="bg-white p-3 flex flex-col gap-4">
                         <div class="flex items-start gap-5">
-                            <h4 class="text-sm sm:text-lg font-bold font-opensans text-black">
+                            <h4 class="text-xs sm:text-lg font-bold font-opensans text-black">
                                 <?php echo get_post_meta( get_the_ID(), 'client_name', true ); ?>
                             </h4>
                             <ul class="flex items-start gap-1">
@@ -125,7 +125,7 @@ $Feedback = [
                                 <?php endfor; ?>
                                 
                             </ul>
-                            <p class="text-sm font-normal text-accent font-roboto mr-0 ml-auto">
+                            <p class=" text-xs sm:text-sm font-normal text-accent font-roboto mr-0 ml-auto">
                                 <?php the_title()?>
                             </p>
                         </div>
