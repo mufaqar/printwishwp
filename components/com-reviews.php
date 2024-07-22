@@ -140,8 +140,8 @@ $Feedback = [
                                 </g>
                             </svg> Verified Buyer
                         </p>
-                        <blockquote class="text-base font-medium">
-                            "<?php the_content(); ?>"
+                        <blockquote class="text-sm">
+                            " <?php echo get_the_content(); ?> "
                         </blockquote>
                     </div>
                     <!-- <img src="<?php bloginfo('template_directory'); ?>/public/<?php echo $item['img']; ?>" alt="image"
