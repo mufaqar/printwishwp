@@ -102,14 +102,14 @@ $Feedback = [
                             <h4 class="text-lg font-bold font-opensans text-black">
                                 <?php echo get_post_meta( get_the_ID(), 'client_name', true ); ?>
                             </h4>
-                            <ul class="flex items-center gap-1">
+                            <ul class="flex gap-1">
                             <?php 
 
                             $rating =  get_post_meta( get_the_ID(), 'rating', true );
                             
                             for ($i = 0; $i < $rating; $i++): ?>
                                 <li>
-                                    <svg height="16px" width="16px" version="1.1" id="Capa_1"
+                                    <svg height="12px" width="12px" version="1.1" id="Capa_1"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                         viewBox="0 0 47.94 47.94" xml:space="preserve" fill="#fdb920">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
