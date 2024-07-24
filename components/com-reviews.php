@@ -104,7 +104,6 @@ $Feedback = [
                             </h4>
                             <ul class="flex items-start gap-1">
                             <?php 
-
                             $rating =  get_post_meta( get_the_ID(), 'rating', true );
                             
                             for ($i = 0; $i < $rating; $i++): ?>
