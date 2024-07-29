@@ -40,7 +40,7 @@ jQuery(document).ready(function ($) {
     arrows: false,
     infinite: true,
     autoplay: true,
-    speed: 500,
+    speed: 200,
     slidesToShow: 7,
     slidesToScroll: 1,
     initialSlide: 0,

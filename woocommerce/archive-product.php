@@ -132,14 +132,14 @@ get_template_part('components/com', 'reviews');
 </section>
 
 <section>
-    <div class="container mx-auto px-1 my-2 w-full">
+    <div class="container mx-auto px-4 my-2 w-full">
         <div class='category_pages mt-10'>
             <?php echo $term_content ?>
         </div>
     </div>
 </section>
 <section>
-    <div class="container mx-auto px-1 my-2 w-full">
+    <div class="container mx-auto px-4 my-2 w-full">
         <?php if (!empty($term_faqs)) { ?>
             <section class="bg-white mb-10">
                 <div class="">
