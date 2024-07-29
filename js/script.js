@@ -149,7 +149,7 @@ jQuery(document).ready(function ($) {
   });
   $('.loca_slider').slick({
     dots: true,
-    arrows: false,
+    arrows: true,
     infinite: true,
     autoplay: true,
     speed: 500,
