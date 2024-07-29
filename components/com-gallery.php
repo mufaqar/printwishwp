@@ -70,7 +70,7 @@ $Gallery = [
     <div class='max-w-screen-xl mx-auto px-4'>
         <div class='w-fit mx-auto'>
             <h2
-                class='sm:text-2xl hidden md:block  text-xl font-semibold font-opensans text-white p-2.5 uppercase text-center mb-5 bg-secondary'>
+                class='sm:text-2xl text-xl font-semibold font-opensans text-white p-2.5 uppercase text-center mb-5 bg-secondary'>
                 Gallery
             </h2>
         </div>
