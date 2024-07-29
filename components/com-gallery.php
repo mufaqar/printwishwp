@@ -66,7 +66,7 @@ $Gallery = [
     ],
 ]
     ?>
-<section class='py-10 '>
+<section class='pb-10 '>
     <div class='max-w-screen-xl mx-auto px-4'>
         <div class='w-fit mx-auto'>
             <h2
