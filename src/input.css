@@ -496,3 +496,7 @@ ol {
   padding: 4px 8px;
   width: fit-content;
 }
+
+.slick-dots{
+  bottom: -80px;
+}

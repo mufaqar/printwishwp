@@ -66,8 +66,8 @@ $Gallery = [
     ],
 ]
     ?>
-<section class='py-2 relative '>
-    <div class=''>
+<section class='py-10 '>
+    <div class='max-w-screen-xl mx-auto px-4'>
         <div class='w-fit mx-auto'>
             <h2
                 class='sm:text-2xl hidden md:block  text-xl font-semibold font-opensans text-white p-2.5 uppercase text-center mb-5 bg-secondary'>
@@ -85,7 +85,7 @@ $Gallery = [
 
             </div>
             <button
-                class="absolute md:-left-10 -left-8 top-1/2 -mt-6 transform -translate-y-1/2 rounded-lg text-secondary p-3 text-3xl"
+                class="absolute md:-left-8 -left-5 top-1/2 -mt-6 transform -translate-y-1/2 rounded-lg text-secondary p-0 text-3xl"
                 onclick="slickPrev()"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                     viewBox="0 0 512 512">
                     <path
@@ -94,7 +94,7 @@ $Gallery = [
                 </svg>
             </button>
             <button
-                class="absolute md:-right-10 -right-8 top-1/2 -mt-6 transform -translate-y-1/2 rounded-lg text-secondary p-3 text-3xl"
+                class="absolute md:-right-8 -right-5 top-1/2 -mt-6 transform -translate-y-1/2 rounded-lg text-secondary p-0 text-3xl"
                 onclick="slickNext()"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                     viewBox="0 0 512 512">
                     <path
