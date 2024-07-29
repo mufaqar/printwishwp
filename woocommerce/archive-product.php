@@ -121,6 +121,11 @@ if (!empty($thumbnail_id)) {
         </div>
     </div>
 </section>
+<section>
+    <div class="container mx-auto ">
+        <?php get_template_part('components/com', 'gallery'); ?>
+    </div>
+</section>
 
 <section>
     <div class="container mx-auto px-1 my-2 w-full">
@@ -131,7 +136,7 @@ if (!empty($thumbnail_id)) {
 </section>
 <section>
     <div class="container mx-auto px-1 my-2 w-full">
-       <?php if (!empty($term_faqs)) { ?>
+        <?php if (!empty($term_faqs)) { ?>
         <section class="bg-white mb-10">
             <div class="">
                 <h2 class="mb-6 lg:mb-8 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900">
