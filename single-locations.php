@@ -98,6 +98,8 @@ get_header();
             </section>
             <?php get_template_part('components/com', 'reviews'); ?>
 
+            <?php get_template_part('components/com', 'gallery'); ?>
+
 
 
 
