@@ -2,22 +2,22 @@
 // Gallery array
 $Gallery = [
     [
-        'img' => '/public/images/1.webp'
+        'img' => '/public/gallery/1.jpg'
     ],
     [
-        'img' => '/public/images/2.webp'
+        'img' => '/public/gallery/1.jpg'
     ],
     [
-        'img' => '/public/images/3.webp'
+        'img' => '/public/gallery/1.jpg'
     ],
     [
-        'img' => '/public/images/4.webp'
+        'img' => '/public/gallery/1.jpg'
     ],
     [
-        'img' => '/public/images/5.webp'
+        'img' => '/public/gallery/1.jpg'
     ],
     [
-        'img' => '/public/images/6.webp'
+        'img' => '/public/gallery/1.jpg'
     ],
 ]
     ?>

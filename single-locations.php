@@ -34,6 +34,7 @@ get_header();
             <?php  delivery_time(); ?>
         </div>
         <?php get_template_part('components/com', 'location_products'); ?>
+        <?php get_template_part('components/com', 'gallery'); ?>
         <div class="loc_content mt-10">
             <?php
             while (have_posts()):
@@ -62,8 +63,7 @@ get_header();
                                         data-accordion-target="#accordion-flush-body-<?php echo get_row_index(); ?>"
                                         aria-expanded="true"
                                         aria-controls="accordion-flush-body-<?php echo get_row_index(); ?>">
-                                        <span><?php the_sub_field('question'); ?>What's the typical cost of a printed
-                                            T-shirt?</span>
+                                        <span><?php the_sub_field('question'); ?></span>
                                         <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0"
                                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
@@ -74,13 +74,7 @@ get_header();
                                 </h2>
                                 <div id="accordion-flush-body-<?php echo get_row_index(); ?>" class=""
                                     aria-labelledby="accordion-flush-heading-<?php echo get_row_index(); ?>">
-                                    <p class="mt-4 text-gray-500"><?php the_sub_field('answer'); ?>The cost of custom
-                                        t-shirts
-                                        varies based on factors like quality, design, colour, and print. At Printwish,
-                                        with
-                                        minimum orders starting at 25 and a maximum exceeding 1000+, expect average
-                                        prices
-                                        ranging from £3.53 to £5.10 per shirt.</p>
+                                    <p class="mt-4 text-gray-500"><?php the_sub_field('answer'); ?></p>
                                     <!-- You can add more content or links here -->
                                 </div>
                             </div>
@@ -98,7 +92,7 @@ get_header();
             </section>
             <?php get_template_part('components/com', 'reviews'); ?>
 
-            <?php get_template_part('components/com', 'gallery'); ?>
+           
 
 
 
