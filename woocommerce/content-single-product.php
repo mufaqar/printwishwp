@@ -164,20 +164,29 @@ $faqs = array(
 
             } ?>
         </div>
-        <div class='mt-5 text-lg text-white bg-secondary   font-medium text-center py-2.5'>          
-                Printed From <?php echo wc_price($product_price) ?> ex Vat
-                    
+        <div class='mt-5 text-lg text-white bg-secondary   font-medium text-center py-2.5'>
+            Printed From <?php echo wc_price($product_price) ?> ex Vat
+
         </div>
 
-
-        <a href="#product-popup"
-            class='md:hidden open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
-            Start My Quote
-        </a>
-
-        <div class='md:hidden font-medium text-secondary text-center py-2.5 mt-3'>          
+        <div class="md:hidden">
+            <a href="#product-popup"
+                class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
+                Start My Quote
+            </a>
+            <div class='font-medium text-secondary text-center py-2.5 mt-3'>
                 You can select differnt t-shir colors and sizes
-                    
+            </div>
+            <div class="w-fit mx-auto">
+                <h2
+                    class="sm:text-4xl text-xl leading-6 font-bold font-opensans text-black uppercase text-center mt-10">
+                    Why choose us
+                </h2>
+            </div>
+            <div class="flex justify-center">
+                <img src="<?php echo get_template_directory_uri(); ?>/public/images/why-choose.jpg" alt="choose"
+                    width="810" height="424" />
+            </div>
         </div>
 
 
@@ -853,7 +862,7 @@ jQuery(document).ready(function($) {
     });
     if ($(window).width() < 768) {
         $('.tab-content').hide();
-         $('.tab-content:first').hide();
+        $('.tab-content:first').hide();
     } else {
         $('.tab-content').hide();
         $('.tab-content:first').show();
