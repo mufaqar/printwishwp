@@ -174,7 +174,19 @@ $faqs = array(
                 class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
                 Start My Quote
             </a>
-            <div class='font-medium text-secondary text-center py-2.5 mt-3'>
+
+
+            <div class='font-medium  text-center py-2.5 mt-3'>
+                <span class='text-secondary'> Note: </span> We have flexible pricing options that can be customised to
+                suit your order volume and the number of colors in your design. This allows us to offer more affordable
+                and competitive rates to our valued customers. Unfortunatily, we cannot disclose prices on our website.
+                To receive the most advantageous and competitive quote, please send us your order inquiry and we will
+                respond promptly with our best pricing offer.
+            </div>
+            <div class='font-medium text-secondary text-center py-1'>
+                Minmum Order Quantity:<span class='text-black'> 25</span>
+            </div>
+            <div class='font-medium text-secondary text-center py-1 '>
                 You can select differnt t-shir colors and sizes
             </div>
             <div class="w-fit mx-auto">
@@ -187,6 +199,9 @@ $faqs = array(
                 <img src="<?php echo get_template_directory_uri(); ?>/public/images/why-choose.jpg" alt="choose"
                     width="810" height="424" />
             </div>
+
+
+
         </div>
 
 
