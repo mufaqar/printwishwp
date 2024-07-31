@@ -61,8 +61,13 @@ if (!empty($thumbnail_id)) {
 
 <section class='relative'>
     <div class='max-w-screen-xl mx-auto px-4 '>
-        <div class="flex justify-center mt-6">
-            <img src="<?php echo get_template_directory_uri(); ?>/public/images/why-chose.webp" alt="choose" width="810"
+        <div class="w-fit mx-auto">
+            <h2 class="sm:text-4xl text-xl leading-6 font-bold font-opensans text-black uppercase text-center mt-10">
+                Why choose us
+            </h2>
+        </div>
+        <div class="flex justify-center">
+            <img src="<?php echo get_template_directory_uri(); ?>/public/images/why-choose.jpg" alt="choose" width="810"
                 height="424" />
         </div>
         <?php
