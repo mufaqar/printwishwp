@@ -164,12 +164,20 @@ $faqs = array(
 
             } ?>
         </div>
-        <div class='mt-5 text-lg text-black bg-background p-8 rounded-lg font-medium'>
-            <h6>
-                Printed From <strong class='text-black'><?php echo wc_price($product_price) ?></strong> ex Vat per unit
-            </h6>
-            <h6>Lead Time : <span class='text-black'>3-5 working days</span></h6>
-            <h6>Minimum Order Value is <span class='text-black'>25 units.</span></h6>
+        <div class='mt-5 text-lg text-white bg-secondary   font-medium text-center py-2.5'>          
+                Printed From <?php echo wc_price($product_price) ?> ex Vat
+                    
+        </div>
+
+
+        <a href="#product-popup"
+            class='md:hidden open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
+            Start My Quote
+        </a>
+
+        <div class='md:hidden font-medium text-secondary text-center py-2.5 mt-3'>          
+                You can select differnt t-shir colors and sizes
+                    
         </div>
 
 
