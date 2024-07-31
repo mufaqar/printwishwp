@@ -23,7 +23,7 @@ $Logos = array(
 <section class="pt-4">
     <div class="max-w-screen-xl mx-auto">
         <div class="w-fit mx-auto">
-            <h2 class="sm:text-4xl text-2xl leading-6 font-bold font-opensans text-black uppercase text-center mb-5">
+            <h2 class="sm:text-4xl text-xl leading-6 font-bold font-opensans text-black uppercase text-center mb-5">
                 BRANDS WE WORK WITH
             </h2>
             <p class="sm:text-lg text-base font-normal text-center text-accent font-roboto">
