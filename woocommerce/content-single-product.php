@@ -187,7 +187,7 @@ $faqs = array(
             Minimum Order Quantity:<span class='text-black'> 25</span>
             </div>
             <div class='font-medium text-secondary text-center py-1 '>
-                You can select different t-shir colors and sizes
+                You can select different t-shirt colors and sizes
             </div>
             <div class="w-fit mx-auto">
                 <h2
