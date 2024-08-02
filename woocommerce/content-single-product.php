@@ -173,7 +173,7 @@ $faqs = array(
         <div class="md:hidden">
             <a href="#product-popup"
                 class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
-                Start My Quote
+                Get a quote
             </a>
             <div class='font-medium text-secondary text-center py-2.5'>
             Minimum Order Quantity:<span class='text-black'> 25</span>
