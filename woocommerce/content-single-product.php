@@ -165,8 +165,8 @@ $faqs = array(
 
             } ?>
         </div>
-        <div class='mt-5 text-lg text-white bg-secondary   font-medium text-center py-2.5'>
-            Printed From <?php echo wc_price($product_price) ?> ex Vat
+        <div class='mt-5 md:w-full w-3/4 mx-auto text-lg text-white bg-secondary   font-medium text-center py-2.5'>
+            Printed From <?php echo wc_price($product_price) ?> ExVat
 
         </div>
 
@@ -222,14 +222,15 @@ $faqs = array(
                             <a href="#tab2"
                                 class="tab-link inline-block py-2 px-4 text-secondary font-semibold hover:text-blue-800">DETAILS</a>
                         </li>
-                        <li class="mr-1">
-                            <a href="#tab3"
-                                class="tab-link inline-block py-2 px-4 text-secondary font-semibold hover:text-blue-800">FAQ'S</a>
-                        </li>
+                        
                     </ul>
                 </div>
                 <div id="tab1" class="tab-content p-4 hidden">
+                <div class='text-sm md:text-base text-accent mt-6 block md:hidden'>
+                            <?php echo $short_description; ?>
+                        </div>
                     <div>
+
                         <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
                         <div class='mt-2 pl-4 text-accent _features '><?php echo ($product_content); ?></div>
                         <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
@@ -239,6 +240,7 @@ $faqs = array(
                         <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size
                             Description:
                         </h6>
+                        
                         <?php
                         global $product;
                         $product_id = $product->get_id();
@@ -332,44 +334,7 @@ $faqs = array(
                     </div>
 
                 </div>
-                <div id="tab3" class="tab-content p-4">
-                    <div>
-                        <div class="mx-auto max-w-screen-md">
-                            <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white"
-                                class="flex flex-col gap-2.5" data-inactive-classes="">
-                                <?php foreach ($faqs as $index => $faq): ?>
-                                <div class=" p-3 px-5 border border-gray-200 font-opensans cursor-pointer">
-                                    <h2 id="accordion-flush-heading-<?php echo $index; ?>">
-                                        <button type="button"
-                                            class="flex justify-between items-center w-full font-medium text-left hover:text-secondary"
-                                            data-accordion-target="#accordion-flush-body-<?php echo $index; ?>"
-                                            aria-expanded="true"
-                                            aria-controls="accordion-flush-body-<?php echo $index; ?>">
-                                            <span><?php echo esc_html($faq['question']); ?></span>
-                                            <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0"
-                                                fill="currentColor" viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-                                        </button>
-                                    </h2>
-                                    <div id="accordion-flush-body-<?php echo $index; ?>" class=""
-                                        aria-labelledby="accordion-flush-heading-<?php echo $index; ?>">
-                                        <div class="mt-4 text-gray-500">
-                                            <p class="mb-2">
-                                                <?php echo esc_html($faq['answer']); ?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                
             </div>
 
 
@@ -388,7 +353,7 @@ $faqs = array(
             <p class='mt-4 font-normal text-accent'>Product Code: <span class=''> <?php echo $sku; ?></span></p>
         </div>
         <div class="border-t w-full border-gray-300 my-8 md:block hidden"></div>
-        <div class='text-sm md:text-base text-accent mt-6'>
+        <div class='text-sm md:text-base text-accent mt-6 md:block hidden'>
             <?php echo $short_description; ?>
         </div>
         <section class='my-7 bg-background p-8 rounded-lg flex justify-between items-center'>
