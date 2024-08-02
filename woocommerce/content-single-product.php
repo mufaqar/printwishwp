@@ -226,10 +226,7 @@ $faqs = array(
                     </ul>
                 </div>
                 <div id="tab1" class="tab-content p-4 hidden">
-                <div class='text-sm md:text-base text-accent mt-6 block md:hidden'>
-                            <?php echo $short_description; ?>
-                        </div>
-                    <div>
+                
 
                         <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
                         <div class='mt-2 pl-4 text-accent _features '><?php echo ($product_content); ?></div>
@@ -262,6 +259,11 @@ $faqs = array(
                         <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
                             Instructions:</h6>
                         <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
+
+                        <div class='text-sm md:text-base text-accent mt-6 block md:hidden'>
+                            <?php echo $short_description; ?>
+                        </div>
+                    <div>
                     </div>
 
                 </div>
