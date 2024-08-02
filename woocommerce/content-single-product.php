@@ -533,9 +533,8 @@ $faqs = array(
             </section>
 
             <div class="flex justify-center md:justify-end">
-                <button onclick="handleAddToCart()" class=" uppercase font-light items-center border border-primary gap-2 w-full md:w-1/2 text-center py-3 text-white px-6   mt-7 rounded-lg
-                            bg-primary hover:bg-transparent hover:text-primary cursor-pointer
-            ">Add to Quote</button>
+                <button onclick="handleAddToCart()" class="md:block hidden uppercase font-light items-center border border-primary gap-2 w-full md:w-1/2 text-center py-3 text-white px-6   mt-7 rounded-lg
+                            bg-primary hover:bg-transparent hover:text-primary cursor-pointer">Add to Quote</button>
             </div>
         </div>
     </section>
