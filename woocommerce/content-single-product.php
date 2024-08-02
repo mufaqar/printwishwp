@@ -104,10 +104,11 @@ $faqs = array(
 </section>
 
 <div class="block md:hidden px-3 container mx-auto">
-    <!-- <div class="mt-5 flex justify-center">
+    <div class="mt-5 flex justify-center">
         <img src="<?php bloginfo('template_directory'); ?>/public/images/review-badge.svg" alt="rating" width="200"
             height="37" />
-    </div> -->
+    </div>
+   
     <h2 class="text-xl md:text-3xl lg:text-4xl font-medium mt-6 md:mt-0">
         <?php the_title() ?>
     </h2>
@@ -174,6 +175,9 @@ $faqs = array(
                 class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
                 Start My Quote
             </a>
+            <div class='font-medium text-secondary text-center py-2.5'>
+            Minimum Order Quantity:<span class='text-black'> 25</span>
+            </div>
 
 
             <div class='font-medium  text-center py-2.5 mt-3'>
@@ -183,9 +187,7 @@ $faqs = array(
                 To receive the most advantageous and competitive quote, please send us your order inquiry and we will
                 respond promptly with our best pricing offer.
             </div>
-            <div class='font-medium text-secondary text-center py-1'>
-            Minimum Order Quantity:<span class='text-black'> 25</span>
-            </div>
+            
             <div class='font-medium text-secondary text-center py-1 '>
                 You can select different t-shirt colors and sizes
             </div>
@@ -403,7 +405,7 @@ $faqs = array(
         </section>
 
         <a href="#product-popup"
-            class='open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
+            class='hidden open-popup-link md:flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
             Get a quote
         </a>
 

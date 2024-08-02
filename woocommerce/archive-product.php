@@ -120,7 +120,6 @@ if (!empty($thumbnail_id)) {
 </section>
 <?php
 get_template_part('components/com', 'reviews');
-
 ?>
 <section>
     <div class="container mx-auto md:px-0 px-4">
