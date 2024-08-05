@@ -174,10 +174,6 @@ function printwish_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'printwish_scripts' );
 
-
-
-
-
 /**
  * Implement the Custom Header feature.
  */
@@ -242,11 +238,8 @@ function store_data_in_wp_session() {
     $_SESSION['ProductID'] = $product_id;  
 
 	$redirect_url = home_url('/checkout');
-
 	// Send the URL back as a response
 	wp_send_json_success(array('redirect_url' => $redirect_url));
- 
-
 
 }
 
