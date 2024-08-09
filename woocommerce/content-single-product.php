@@ -166,7 +166,7 @@ $faqs = array(
             } ?>
         </div>
         <div class='mt-5 md:w-full w-3/4 mx-auto text-lg text-white bg-secondary   font-medium text-center py-2.5'>
-            Printed From <?php echo wc_price($product_price) ?> ExVat
+            Printed From <?php echo wc_price($product_price) ?>exVat
 
         </div>
 
