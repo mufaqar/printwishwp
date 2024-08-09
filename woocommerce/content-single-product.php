@@ -331,13 +331,13 @@ $faqs = array(
                 </div>
                 <div class="border w-full border-none flex flex-col items-center">
                     <Image width="166px" height="166px"
-                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-03.png" alt="" class="" />
+                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-04.png" alt="" class="" />
                     <p class="text-xs md:text-base">We'll create a FREE digital proof of your design for your
                         approval.</p>
                 </div>
                 <div class="border w-full border-none flex flex-col items-center">
                     <Image width="166px" height="166px"
-                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-04.png" alt="" class="" />
+                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-03.png" alt="" class="" />
                     <p class="text-xs md:text-base">We guarantee to deliver your order by your specified date.
                     </p>
                 </div>
