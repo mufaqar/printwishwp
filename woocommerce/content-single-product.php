@@ -312,7 +312,7 @@ $faqs = array(
         </section>
 
 
-        <section class='container mx-auto px-3 my-10  hidden'>
+        <section class='container mx-auto px-3 my-10'>
             <h2 class="text-2xl text-center text-primary font-bold leading-4">How To Order?</h2>
             <div class="bg-[#D9EDF7] w-full mt-4 text-center py-4 font-[700] leading-[1.2em] text-[#070505] ">
                 <p>Send us a quote to get favorite product at the best price. </p>
@@ -331,13 +331,13 @@ $faqs = array(
                 </div>
                 <div class="border w-full border-none flex flex-col items-center">
                     <Image width="166px" height="166px"
-                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-04.png" alt="" class="" />
+                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-03.png" alt="" class="" />
                     <p class="text-xs md:text-base">We'll create a FREE digital proof of your design for your
                         approval.</p>
                 </div>
                 <div class="border w-full border-none flex flex-col items-center">
                     <Image width="166px" height="166px"
-                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-03.png" alt="" class="" />
+                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-04.png" alt="" class="" />
                     <p class="text-xs md:text-base">We guarantee to deliver your order by your specified date.
                     </p>
                 </div>
