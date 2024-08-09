@@ -312,7 +312,7 @@ $faqs = array(
         </section>
 
 
-        <section class='container mx-auto px-3 my-10 '>
+        <section class='container mx-auto px-3 my-10  hidden'>
             <h2 class="text-2xl text-center text-primary font-bold leading-4">How To Order?</h2>
             <div class="bg-[#D9EDF7] w-full mt-4 text-center py-4 font-[700] leading-[1.2em] text-[#070505] ">
                 <p>Send us a quote to get favorite product at the best price. </p>
