@@ -847,21 +847,27 @@ jQuery(document).ready(function($) {
 
 
     const descriptionButton = document.getElementById('descriptionButton');
-    const detailsButton = document.getElementById('detailsButton');
-    const descriptionContent = document.getElementById('descriptionContent');
-    const detailsContent = document.getElementById('detailsContent');
+  const detailsButton = document.getElementById('detailsButton');
+  const descriptionContent = document.getElementById('descriptionContent');
+  const detailsContent = document.getElementById('detailsContent');
 
-    descriptionButton.addEventListener('click', function() {
-        descriptionContent.classList.remove('hidden');
-        detailsContent.classList.add('hidden');
-    });
+  descriptionButton.addEventListener('click', function () {
+    // Toggle visibility for description content
+    descriptionContent.classList.toggle('hidden');
+    // Hide details content if description is being shown
+    if (!descriptionContent.classList.contains('hidden')) {
+      detailsContent.classList.add('hidden');
+    }
+  });
 
-    detailsButton.addEventListener('click', function() {
-        detailsContent.classList.remove('hidden');
-        descriptionContent.classList.add('hidden');
-    });
-
-
+  detailsButton.addEventListener('click', function () {
+    // Toggle visibility for details content
+    detailsContent.classList.toggle('hidden');
+    // Hide description content if details are being shown
+    if (!detailsContent.classList.contains('hidden')) {
+      descriptionContent.classList.add('hidden');
+    }
+  });
 
 
 
