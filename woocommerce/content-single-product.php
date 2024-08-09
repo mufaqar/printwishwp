@@ -108,7 +108,7 @@ $faqs = array(
         <img src="<?php bloginfo('template_directory'); ?>/public/images/review-badge.svg" alt="rating" width="200"
             height="37" />
     </div>
-   
+
     <h2 class="text-xl md:text-3xl lg:text-4xl font-medium mt-6 md:mt-0">
         <?php the_title() ?>
     </h2>
@@ -175,11 +175,6 @@ $faqs = array(
                 class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
                 Get a quote
             </a>
-            <div class='font-medium text-secondary text-center py-2.5'>
-            Minimum Order Quantity:<span class='text-black'> 25</span>
-            </div>
-
-
             <div class='font-medium  text-center py-2.5 mt-3'>
                 <span class='text-secondary'> Note: </span> We have flexible pricing options that can be customised to
                 suit your order volume and the number of colors in your design. This allows us to offer more affordable
@@ -187,19 +182,8 @@ $faqs = array(
                 To receive the most advantageous and competitive quote, please send us your order inquiry and we will
                 respond promptly with our best pricing offer.
             </div>
-            
-            <div class='font-medium text-secondary text-center py-1 '>
-                You can select different t-shirt colors and sizes
-            </div>
-            <div class="w-fit mx-auto">
-                <h2
-                    class="sm:text-4xl text-xl leading-6 font-bold font-opensans text-black uppercase text-center mt-10">
-                    Why choose us
-                </h2>
-            </div>
-            <div class="flex justify-center">
-                <img src="<?php echo get_template_directory_uri(); ?>/public/images/why-choose.jpg" alt="choose"
-                    width="810" height="424" />
+            <div class='font-medium text-secondary text-center py-2.5'>
+                Minimum Order Quantity:<span class='text-black'> 25</span>
             </div>
 
 
@@ -222,23 +206,23 @@ $faqs = array(
                             <a href="#tab2"
                                 class="tab-link inline-block py-2 px-4 text-secondary font-semibold hover:text-blue-800">DETAILS</a>
                         </li>
-                        
+
                     </ul>
                 </div>
                 <div id="tab1" class="tab-content p-4 hidden">
-                
 
-                        <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
-                        <div class='mt-2 pl-4 text-accent _features '><?php echo ($product_content); ?></div>
-                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
-                        <p class='text-accent'><?php echo get_field("fabric"); ?></p>
-                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Weight:</h6>
-                        <p class='text-accent'><?php echo get_field("weight"); ?></p>
-                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size
-                            Description:
-                        </h6>
-                        
-                        <?php
+
+                    <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
+                    <div class='mt-2 pl-4 text-accent _features '><?php echo ($product_content); ?></div>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
+                    <p class='text-accent'><?php echo get_field("fabric"); ?></p>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Weight:</h6>
+                    <p class='text-accent'><?php echo get_field("weight"); ?></p>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size
+                        Description:
+                    </h6>
+
+                    <?php
                         global $product;
                         $product_id = $product->get_id();
                         $product = wc_get_product($product_id);
@@ -256,13 +240,13 @@ $faqs = array(
                             }
                         }
                     ?>
-                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
-                            Instructions:</h6>
-                        <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
+                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
+                        Instructions:</h6>
+                    <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
 
-                        <div class='text-sm md:text-base text-accent mt-6 block md:hidden'>
-                            <?php echo $short_description; ?>
-                        </div>
+                    <div class='text-sm md:text-base text-accent mt-6 block md:hidden'>
+                        <?php echo $short_description; ?>
+                    </div>
                     <div>
                     </div>
 
@@ -336,7 +320,7 @@ $faqs = array(
                     </div>
 
                 </div>
-                
+
             </div>
 
 
@@ -347,6 +331,74 @@ $faqs = array(
 
 
         </section>
+
+
+        <section className='container mx-auto px-3 mb-20'>
+
+            <div>
+                <h2 className="text-2xl text-center text-primary font-bold leading-4">How To Order?</h2>
+            </div>
+            <div className="bg-[#D9EDF7] w-full mt-4 text-center py-4 font-[700] leading-[1.2em] text-[#070505] ">
+                <p>Send us a quote to get favorite product at the best price. </p>
+            </div>
+            <div className="grid lg:grid-cols-4 text-center gap-5 font-[500] grid-cols-2 px-5">
+                <div className="border w-full border-none flex flex-col items-center ">
+                    <Image width="166px" height="166px"
+                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-01.png" alt="" className="" />
+                    <p className="text-[13px] md:text-[16px]">Pick your items, select the quantity and sizes.</p>
+                </div>
+                <div className="border w-full border-none flex flex-col items-center">
+                    <Image width="166px" height="166px"
+                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-02.png" alt="" className="" />
+                    <p className="text-[13px] md:text-[16px]">Complete the quote form with your details, choose your
+                        print positions, attach your logo, and press submit.</p>
+                </div>
+                <div className="border w-full border-none flex flex-col items-center">
+                    <Image width="166px" height="166px"
+                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-03.png" alt="" className="" />
+                    <p className="text-[13px] md:text-[16px]">We'll create a FREE digital proof of your design for your
+                        approval.</p>
+                </div>
+                <div className="border w-full border-none flex flex-col items-center">
+                    <Image width="166px" height="166px"
+                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-04.png" alt="" className="" />
+                    <p className="text-[13px] md:text-[16px]">We guarantee to deliver your order by your specified date.
+                    </p>
+                </div>
+            </div>
+            <div class="hidden">
+                <!-- <h2 className="mt-10 text-center font-[700] text-[22px] text-[#208BCB]">Ordering Your Promotional Products - The Simple Way</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
+        <div className="bg-[#DDDDDD] py-4 px-4 rounded-lg">
+            <h3 className="text-[#800080] text-[18px] font-[700]">Request Your Quote</h3>
+            <p className="text-[18px] font-[600]">We’ll advise costs and delivery lead times to you via email</p>
+        </div>
+        <div className="bg-[#DDDDDD] py-4 px-4 rounded-lg">
+            <h3 className="text-[#800080] text-[18px] font-[700]">Place Your Order</h3>
+            <p className="text-[18px] font-[600]">Your account manager will confirm details and schedule production</p>
+        </div>
+        <div className="bg-[#DDDDDD] py-4 px-4 rounded-lg">
+            <h3 className="text-[#800080] text-[18px] font-[700]">Artwork Approval</h3>
+            <p className="text-[18px] font-[600]">Our graphics team will create PDF artwork for your approval</p>
+        </div>
+        <div className="bg-[#DDDDDD] py-4 px-4 rounded-lg">
+            <h3 className="text-[#800080] text-[18px] font-[700]">Order Production</h3>
+            <p className="text-[18px] font-[600]">We’ll imprint your products, with your logo to the highest of standards</p>
+        </div>
+    </div>
+    <div className="bg-[#DDDDDD] py-4 px-4 text-center w-full mt-5 rounded-lg">
+        <h3 className="text-[#800080] text-[18px] font-[700]">Receive Your Order</h3>
+        <p className="text-[18px] font-[600]">…you’ll receive your products on time, as promised!</p>
+    </div> -->
+            </div>
+
+        </section>
+
+
+
+
+
+
     </section>
 
     <section class='md:w-3/5 text-accent'>
