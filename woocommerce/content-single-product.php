@@ -190,7 +190,7 @@ $faqs = array(
 
         </div>
 
-      
+
 
 
 
@@ -335,11 +335,10 @@ $faqs = array(
         </section>
 
 
-        <section class='container mx-auto px-3 my-20 '>
 
-            <div>
-                <h2 class="text-2xl text-center text-primary font-bold leading-4">How To Order?</h2>
-            </div>
+        <section class='container mx-auto px-3 my-10 '>
+
+            <h2 class="text-2xl text-center text-primary font-bold leading-4">How To Order?</h2>
             <div class="bg-[#D9EDF7] w-full mt-4 text-center py-4 font-[700] leading-[1.2em] text-[#070505] ">
                 <p>Send us a quote to get favorite product at the best price. </p>
             </div>
@@ -347,32 +346,30 @@ $faqs = array(
                 <div class="border w-full border-none flex flex-col items-center ">
                     <Image width="166px" height="166px"
                         src="<?php bloginfo('template_directory'); ?>/public/images/iocns-01.png" alt="" class="" />
-                    <p class="text-[13px] md:text-[16px]">Pick your items, select the quantity and sizes.</p>
+                    <p class="text-xs md:text-base">Pick your items, select the quantity and sizes.</p>
                 </div>
                 <div class="border w-full border-none flex flex-col items-center">
                     <Image width="166px" height="166px"
                         src="<?php bloginfo('template_directory'); ?>/public/images/iocns-02.png" alt="" class="" />
-                    <p class="text-[13px] md:text-[16px]">Complete the quote form with your details, choose your
+                    <p class="text-xs md:text-base">Complete the quote form with your details, choose your
                         print positions, attach your logo, and press submit.</p>
                 </div>
                 <div class="border w-full border-none flex flex-col items-center">
                     <Image width="166px" height="166px"
                         src="<?php bloginfo('template_directory'); ?>/public/images/iocns-03.png" alt="" class="" />
-                    <p class="text-[13px] md:text-[16px]">We'll create a FREE digital proof of your design for your
+                    <p class="text-xs md:text-base">We'll create a FREE digital proof of your design for your
                         approval.</p>
                 </div>
                 <div class="border w-full border-none flex flex-col items-center">
                     <Image width="166px" height="166px"
                         src="<?php bloginfo('template_directory'); ?>/public/images/iocns-04.png" alt="" class="" />
-                    <p class="text-[13px] md:text-[16px]">We guarantee to deliver your order by your specified date.
+                    <p class="text-xs md:text-base">We guarantee to deliver your order by your specified date.
                     </p>
                 </div>
             </div>
-            
+
 
         </section>
-
-
 
 
 
@@ -400,6 +397,9 @@ $faqs = array(
                 </span>
             </div>
         </section>
+
+
+
 
         <a href="#product-popup"
             class='hidden open-popup-link md:flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
