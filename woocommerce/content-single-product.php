@@ -317,7 +317,7 @@ $faqs = array(
             <div class="bg-[#D9EDF7] w-full mt-4 text-center py-4 font-[700] leading-[1.2em] text-[#070505] ">
                 <p>Send us a quote to get favorite product at the best price. </p>
             </div>
-            <div class="grid md:grid-cols-4 text-center gap-5 font-[500] grid-cols-2 px-5">
+            <div class="grid  text-center gap-5 font-[500] grid-cols-2 px-5">
                 <div class="border w-full border-none flex flex-col items-center ">
                     <Image width="166px" height="166px"
                         src="<?php bloginfo('template_directory'); ?>/public/images/iocns-01.png" alt="" class="" />
