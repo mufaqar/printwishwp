@@ -186,41 +186,32 @@ $faqs = array(
             </div>
         </div>
 
-
-
-
-
-
         <section class="bg-background p-6 md:p-8 mt-5 rounded-lg">
-
-            <div class="">
-                <div class="mb-4 border-b border-gray-200">
-                    <ul class="flex border-b">
-                        <li class="-mb-px mr-1">
-                            <a href="#tab1"
-                                class="tab-link inline-block py-2 px-4 text-secondary font-semibold hover:text-blue-800">DESCRIPTION</a>
-                        </li>
-                        <li class="mr-1">
-                            <a href="#tab2"
-                                class="tab-link inline-block py-2 px-4 text-secondary font-semibold hover:text-blue-800">DETAILS</a>
-                        </li>
-
-                    </ul>
+            <div class="flex flex-col items-center ">
+                <!-- Toggle Buttons -->
+                <div class="flex space-x-4">
+                    <button id="descriptionButton"
+                        class="px-4 py-2 text-secondary   border-b hover:border-secondary  focus:outline-none">
+                        DESCRIPTION
+                    </button>
+                    <button id="detailsButton"
+                        class="px-4 py-2 text-secondary   border-b hover:border-secondary  focus:outline-none">
+                        DETAILS
+                    </button>
                 </div>
-                <div id="tab1" class="tab-content p-4 hidden">
+                <div id="descriptionContent" class=" p-4   hidden">
+                    <div>
 
-
-                    <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
-                    <div class='mt-2 pl-4 text-accent _features '><?php echo ($product_content); ?></div>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
-                    <p class='text-accent'><?php echo get_field("fabric"); ?></p>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Weight:</h6>
-                    <p class='text-accent'><?php echo get_field("weight"); ?></p>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size
-                        Description:
-                    </h6>
-
-                    <?php
+                        <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
+                        <div class='mt-2 pl-4 text-accent _features'><?php echo ($product_content); ?></div>
+                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
+                        <p class='text-accent'><?php echo get_field("fabric"); ?></p>
+                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Weight:</h6>
+                        <p class='text-accent'><?php echo get_field("weight"); ?></p>
+                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size
+                            Description:
+                        </h6>
+                        <?php
                         global $product;
                         $product_id = $product->get_id();
                         $product = wc_get_product($product_id);
@@ -237,19 +228,18 @@ $faqs = array(
                                 echo '<p class="text-accent mb-1">No sizes available</p>';
                             }
                         }
-                    ?>
-                    <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
-                        Instructions:</h6>
-                    <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
+                         ?>
+                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
+                            Instructions:</h6>
+                        <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
 
-                    <div class='text-sm md:text-base text-accent mt-6 block md:hidden'>
-                        <?php echo $short_description; ?>
+                        <div class='text-sm md:text-base text-accent mt-6 block md:hidden'>
+                            <?php echo $short_description; ?>
+                        </div>
                     </div>
-                    <div>
-                    </div>
-
                 </div>
-                <div id="tab2" class="tab-content p-4">
+
+                <div id="detailsContent" class=" p-4   hidden">
                     <div>
                         <div>
                             <div class='flex justify-between items-center border-b py-2 border-gray-200'>
@@ -314,10 +304,11 @@ $faqs = array(
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
+
+
+
         </section>
 
 
@@ -398,7 +389,7 @@ $faqs = array(
             <?php  delivery_time();?>
         </div>
 
-       
+
 
 
 
@@ -852,6 +843,24 @@ jQuery(document).ready(function($) {
         // Get the Magnific Popup instance and close the popup
         $.magnificPopup.close();
     });
+
+
+
+    const descriptionButton = document.getElementById('descriptionButton');
+    const detailsButton = document.getElementById('detailsButton');
+    const descriptionContent = document.getElementById('descriptionContent');
+    const detailsContent = document.getElementById('detailsContent');
+
+    descriptionButton.addEventListener('click', function() {
+        descriptionContent.classList.remove('hidden');
+        detailsContent.classList.add('hidden');
+    });
+
+    detailsButton.addEventListener('click', function() {
+        detailsContent.classList.remove('hidden');
+        descriptionContent.classList.add('hidden');
+    });
+
 
 
 
