@@ -314,7 +314,7 @@ $faqs = array(
         <section class='container mx-auto px-3 my-10'>
             <h2 class="text-2xl text-center text-primary font-bold leading-4">How To Order?</h2>
             <div class="bg-[#D9EDF7] w-full mt-4 text-center py-4 font-[700] leading-[1.2em] text-[#070505] ">
-                <p>Send us a quote to get favorite product at the best price. </p>
+                <p>Send us a quote to get favourite product at the best price. </p>
             </div>
             <div class="grid  text-center gap-5 font-[500] grid-cols-2 px-5">
                 <div class="border w-full border-none flex flex-col items-center ">
