@@ -171,19 +171,20 @@ $faqs = array(
         </div>
         <div class="md:hidden">
             <a href="#product-popup"
-                class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
+                class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-medium items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
                 Get a quote
             </a>
-            <div class='font-medium  text-center py-2.5 mt-3'>
+            <div class='font-extrabold text-secondary text-center py-2.5'>
+                Minimum Order Quantity:<span class='text-black'> 25</span>
+            </div>
+            <div class='font-medium  text-center py-2.5'>
                 <span class='text-secondary'> Note: </span> We have flexible pricing options that can be customised to
                 suit your order volume and the number of colors in your design. This allows us to offer more affordable
                 and competitive rates to our valued customers. Unfortunatily, we cannot disclose prices on our website.
                 To receive the most advantageous and competitive quote, please send us your order inquiry and we will
                 respond promptly with our best pricing offer.
             </div>
-            <div class='font-medium text-secondary text-center py-2.5'>
-                Minimum Order Quantity:<span class='text-black'> 25</span>
-            </div>
+            
         </div>
 
         <section class="bg-background p-6 md:p-8 mt-5 rounded-lg">
@@ -306,9 +307,19 @@ $faqs = array(
                     </div>
                 </div>
             </div>
+        </section>
 
-
-
+        <section class='my-7 bg-background p-8 rounded-lg flex justify-between items-center md:hidden'>
+            <p class='text-lg text-accent font-roboto'>Customisations Available:</p>
+            <div class='flex gap-8 '>
+                <span class='flex items-center text-lg text-accent font-roboto'>
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                        class="text-green-500" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
+                    </svg>
+                    Print
+                </span>
+            </div>
         </section>
 
         <section class='container mx-auto px-3 my-10'>
@@ -363,7 +374,7 @@ $faqs = array(
         <div class='text-sm md:text-base text-accent mt-6 md:block hidden'>
             <?php echo $short_description; ?>
         </div>
-        <section class='my-7 bg-background p-8 rounded-lg flex justify-between items-center'>
+        <section class='my-7 bg-background p-8 rounded-lg md:flex justify-between items-center hidden'>
             <p class='text-lg text-accent font-roboto'>Customisations Available:</p>
             <div class='flex gap-8 '>
                 <span class='flex items-center text-lg text-accent font-roboto'>
