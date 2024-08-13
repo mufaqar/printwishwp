@@ -354,15 +354,6 @@ $faqs = array(
             </div>
         </section>
 
-
-
-
-
-
-
-
-
-
     </section>
 
     <section class='md:w-3/5 text-accent'>
