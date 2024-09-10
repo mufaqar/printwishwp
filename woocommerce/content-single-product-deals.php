@@ -29,37 +29,11 @@ $sku = $product->get_sku();
 $short_description = $product->get_short_description();
 
 
-$faqs = array(
-    array(
-        'question' => 'Washing Instructions',
-        'answer' => 'Advice on the best way to look after your customised garments. You want your customised garments to last and to look good for as long as possible. Following these guidelines will help you to get the most out of your clothing.'
-    ),
-    array(
-        'question' => 'Can I add more than 1 customisation?',
-        'answer' => 'For most garments, you can add up to 3 separate customisations using the website. If you need 4 or more customisations please contact the office and the team will be happy to assist you.'
-    ),
-    array(
-        'question' => 'Ordering Samples',
-        'answer' => 'You may wish to view samples of garments in order to find the right size or assess the quality of the material. This is especially useful as you are not able to return customised garments if they are the wrong size (see full Terms and Conditions) To obtain samples you will need to place an order for the plain garments you wish to view. We are not able to supply free samples for online orders. You can then either keep the garments or return them to us for a refund within 14 days. We reserve the right not to accept samples returned without either an invoice or order reference. A refund will not be issued if the garments are returned tarnished or not in their original packaging.'
-    ),
-    array(
-        'question' => 'How much does it cost?',
-        'answer' => 'At Printwish UK, we offer free UK Shipping on all orders. Our lead time is 5-7 working days from the payment date and digital proof approval.'
-    )
-);
+
 
 ?>
 
-<style>
-.tab-content {
-    display: none;
-}
 
-.tab-content.active {
-    display: block;
-}
-</style>
-Deal Page
 
 <section class="shadow p-3 hidden md:block">
     <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-5">
