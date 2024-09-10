@@ -22,11 +22,9 @@
                 </a>
             </h5>
             <p class='text-xs text-center text-secondary sm:text-base'>
-                <strong><?php echo "32" ?></strong> Colors available
+                <strong><?php echo "1" ?></strong> Color available
             </p>
-            <p class='text-center font-bold font-roboto mb-3 text-primary'>
-                Printed From <span class='text-secondary  hover:text-secondary'><?php echo $price; ?></span>
-            </p>
+           
             <a href="<?php the_permalink()?>"
                 class='text-xs sm:text-base relative font-semibold flex justify-center text-center font-roboto uppercase bg-primary text-white px-2 md:px-6 py-1 hover:bg-transparent hover:text-primary border-primary border-2 hover:border-primary'>
                 View Deal
