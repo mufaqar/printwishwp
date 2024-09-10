@@ -73,6 +73,11 @@ if (!empty($thumbnail_id)) {
         <?php
         get_template_part('components/com', 'brands');
         ?>
+
+        <?php
+        get_template_part('components/com', 'deals');
+        ?>
+
         <div class='w-full'>
             <div class='grid sm:grid-cols-2 md:grid-cols-5 relative product-grid grid-cols-2 gap-1 sm:gap-2 md:gap-4'>
                 <?php
@@ -118,6 +123,9 @@ if (!empty($thumbnail_id)) {
         </div>
     </div>
 </section>
+
+
+
 <?php
 get_template_part('components/com', 'reviews');
 ?>
