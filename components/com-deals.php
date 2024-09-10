@@ -4,15 +4,6 @@
             <h2 class="sm:text-4xl text-4xl font-bold font-opensans capitalize mb-4  sm:text-left text-center">Special Offers  </h2>
             <p class="mb-4">We have put together a collection of special deals that include our most popular selling products as reviewed by our customers.</p>
 
-       
-
-           <h5 class="mb-4"> What do our deals include? </h5>
-            <ol class="flex flex-col gap-2">            
-                <li>Fruit of the Loom Value weight t-shirts (Best Seller). You can mix colors and sizes. </li>
-                <li>1 single colour print anywhere on the t-shirt up to A3 size (320mm x 410mm). </li>
-                <li>FREE Set-Up therefore the next time you order your design will already be ready to go.</li>
-                <li>FREE Delivery* to your doorstep (*UK mainland only).</li>
-            </ul>
               
          
         </div>

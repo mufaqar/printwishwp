@@ -27,7 +27,20 @@ get_header( 'shop' ); ?>
 
 <?php the_post(); ?>
 
-<?php wc_get_template_part( 'content', 'single-product' ); ?>
+
+
+<?php
+
+    // Check if the product belongs to the 'deals' taxonomy
+	if ( has_term( 'in-deal', 'deals' ) ) {	
+     
+        wc_get_template_part( 'content', 'single-product-deals' );
+    } else {
+		
+        wc_get_template_part( 'content', 'single-product' );
+    }
+    ?>
+
 
 <?php endwhile; // end of the loop. ?>
 

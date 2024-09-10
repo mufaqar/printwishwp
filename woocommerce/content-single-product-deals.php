@@ -19,6 +19,8 @@ defined('ABSPATH') || exit;
 
 global $product;
 
+
+
 $product_price = $product->get_price();
 
 $product_excerpt = get_the_excerpt();
@@ -27,8 +29,37 @@ $sku = $product->get_sku();
 $short_description = $product->get_short_description();
 
 
+$faqs = array(
+    array(
+        'question' => 'Washing Instructions',
+        'answer' => 'Advice on the best way to look after your customised garments. You want your customised garments to last and to look good for as long as possible. Following these guidelines will help you to get the most out of your clothing.'
+    ),
+    array(
+        'question' => 'Can I add more than 1 customisation?',
+        'answer' => 'For most garments, you can add up to 3 separate customisations using the website. If you need 4 or more customisations please contact the office and the team will be happy to assist you.'
+    ),
+    array(
+        'question' => 'Ordering Samples',
+        'answer' => 'You may wish to view samples of garments in order to find the right size or assess the quality of the material. This is especially useful as you are not able to return customised garments if they are the wrong size (see full Terms and Conditions) To obtain samples you will need to place an order for the plain garments you wish to view. We are not able to supply free samples for online orders. You can then either keep the garments or return them to us for a refund within 14 days. We reserve the right not to accept samples returned without either an invoice or order reference. A refund will not be issued if the garments are returned tarnished or not in their original packaging.'
+    ),
+    array(
+        'question' => 'How much does it cost?',
+        'answer' => 'At Printwish UK, we offer free UK Shipping on all orders. Our lead time is 5-7 working days from the payment date and digital proof approval.'
+    )
+);
+
 ?>
 
+<style>
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+</style>
+Deal Page
 
 <section class="shadow p-3 hidden md:block">
     <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-5">
@@ -89,7 +120,7 @@ $short_description = $product->get_short_description();
 </div>
 <main class='md:flex container mx-auto px-4 gap-10 mt-7 font-opensans mb-20'>
     <section class='md:w-2/5 image-slider'>
-       
+      
 
         <div class="gallery_slider border border-gray-200 rounded-lg p-1">
             <?php
@@ -121,185 +152,12 @@ $short_description = $product->get_short_description();
                 class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-medium items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
                 Get a quote
             </a>
-            <div class='font-extrabold text-secondary text-center py-2.5'>
-                Minimum Order Quantity:<span class='text-black'> 25</span>
-            </div>
-            <div class='font-medium  text-center py-2.5'>
-                <span class='text-secondary'> Note: </span> We have flexible pricing options that can be customised to
-                suit your order volume and the number of colors in your design. This allows us to offer more affordable
-                and competitive rates to our valued customers. Unfortunatily, we cannot disclose prices on our website.
-                To receive the most advantageous and competitive quote, please send us your order inquiry and we will
-                respond promptly with our best pricing offer.
-            </div>
+           
             
         </div>
 
-        <section class="bg-background p-6 md:p-8 mt-5 rounded-lg">
-            <div class="flex flex-col items-center ">
-                <!-- Toggle Buttons -->
-                <div class="flex space-x-4">
-                    <button id="descriptionButton"
-                        class="px-4 py-2 text-secondary   border-b hover:border-secondary  focus:outline-none">
-                        DESCRIPTION
-                    </button>
-                    <button id="detailsButton"
-                        class="px-4 py-2 text-secondary   border-b hover:border-secondary  focus:outline-none">
-                        DETAILS
-                    </button>
-                </div>
-                <div id="descriptionContent" class=" p-4   hidden">
-                    <div>
-
-                        <h6 class='capitalize text-lg font-bold text-gray-600 mt-3 font-roboto'>features:</h6>
-                        <div class='mt-2 pl-4 text-accent _features'><?php echo ($product_content); ?></div>
-                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Fabric:</h6>
-                        <p class='text-accent'><?php echo get_field("fabric"); ?></p>
-                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Weight:</h6>
-                        <p class='text-accent'><?php echo get_field("weight"); ?></p>
-                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Size
-                            Description:
-                        </h6>
-                        <?php
-                        global $product;
-                        $product_id = $product->get_id();
-                        $product = wc_get_product($product_id);
-                        $attributes = $product->get_attributes();
-                        if (isset($attributes['pa_sizes'])) {
-                            $terms = wc_get_product_terms($product_id, 'pa_sizes', array('fields' => 'all'));
-                            if ($terms && !is_wp_error($terms)) {
-                                echo '<ul class="mt-2 flex flex-wrap gap-x-2">';
-                                foreach ($terms as $term) {
-                                    echo '<li class="text-accent mb-1"><span class="font-bold">' . esc_html($term->name) . ' </span> ' . esc_html($term->description) . '",</li>';
-                                }
-                                echo '</ul>';
-                            } else {
-                                echo '<p class="text-accent mb-1">No sizes available</p>';
-                            }
-                        }
-                         ?>
-                        <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Washing
-                            Instructions:</h6>
-                        <p class='text-accent'><?php echo get_field("washing_instructions"); ?></p>
-
-                        <div class='text-sm md:text-base text-accent mt-6 block md:hidden'>
-                            <?php echo $short_description; ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="detailsContent" class=" p-4   hidden">
-                    <div>
-                        <div>
-                            <div class='flex justify-between items-center border-b py-2 border-gray-200'>
-                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Gender:
-                                </h6>
-                                <p class='text-accent'><?php echo get_field("gender"); ?></p>
-                            </div>
-                            <div class='flex justify-between items-center border-b py-2 border-gray-200'>
-                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Minimum
-                                    Order Value is</h6>
-                                <p class='text-accent'><?php echo get_field("minimum_order"); ?> Units</p>
-                            </div>
-                            <div class='border-b py-2 border-gray-200'>
-                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
-                                    Area:</h6>
 
 
-
-                                <?php if (have_rows('imprint_area')): ?>
-                                <?php while (have_rows('imprint_area')):
-                                    the_row();
-
-                                    // Get sub field values.
-                                    $leftbreast = get_sub_field('leftbreast');
-                                    $front = get_sub_field('front');
-                                    $back = get_sub_field('back');
-
-
-
-                                    ?>
-                                <p class='text-accent mb-1 flex justify-between items-center'><span
-                                        class='font-bold text-gray-600 '>LeftBreast:</span>
-                                    <?php echo $leftbreast ?></p>
-
-                                <p class='text-accent mb-1 flex justify-between items-center'><span
-                                        class='font-bold text-gray-600 '>Front:</span>
-                                    <?php echo $front ?></p>
-                                <p class='text-accent mb-1 flex justify-between items-center'><span
-                                        class='font-bold text-gray-600 '>Back:</span>
-                                    <?php echo $back ?></p>
-
-                                <?php endwhile; ?>
-                                <?php endif; ?>
-
-                            </div>
-                            <div class=' border-b py-2 border-gray-200'>
-                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Imprint
-                                    Method:</h6>
-                                <p class='text-accent'><?php echo get_field("imprint_method"); ?></p>
-                            </div>
-                            <div class=' border-b py-2 border-gray-200'>
-                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>Ready
-                                    To
-                                    Ship:</h6>
-                                <p class='text-accent'><?php echo get_field("ready_to_ship"); ?></p>
-                            </div>
-                            <div class=' border-b py-2 border-gray-200'>
-                                <h6 class='capitalize mb-1 text-lg text-gray-600 font-semibold mt-3 font-roboto'>
-                                    Packaging:
-                                </h6>
-                                <p class='text-accent'><?php echo get_field("packaging"); ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class='my-7 bg-background p-8 rounded-lg flex justify-between items-center md:hidden'>
-            <p class='text-lg text-accent font-roboto'>Customisations Available:</p>
-            <div class='flex gap-8 '>
-                <span class='flex items-center text-lg text-accent font-roboto'>
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
-                        class="text-green-500" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
-                    </svg>
-                    Print
-                </span>
-            </div>
-        </section>
-
-        <section class='container mx-auto px-3 my-10 md:hidden block'>
-            <h2 class="text-2xl text-center text-primary font-bold leading-4">How To Order?</h2>
-            <div class="bg-[#D9EDF7] w-full mt-4 text-center py-4 font-[700] leading-[1.2em] text-[#070505] ">
-                <p>Send us a quote request to get your favourite product at the best  and trade price. </p>
-            </div>
-            <div class="grid  text-center gap-5 font-[500] grid-cols-2 px-5">
-                <div class="border w-full border-none flex flex-col items-center ">
-                    <Image width="166px" height="166px"
-                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-01.png" alt="" class="" />
-                    <p class="text-xs md:text-base">Pick your items, select the quantity and sizes.</p>
-                </div>
-                <div class="border w-full border-none flex flex-col items-center">
-                    <Image width="166px" height="166px"
-                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-02.png" alt="" class="" />
-                    <p class="text-xs md:text-base">Complete the quote form with your details, choose your
-                        print positions, attach your logo, and press submit.</p>
-                </div>
-                <div class="border w-full border-none flex flex-col items-center">
-                    <Image width="166px" height="166px"
-                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-03.png" alt="" class="" />
-                    <p class="text-xs md:text-base">We'll create a FREE digital proof of your design for your
-                        approval.</p>
-                </div>
-                <div class="border w-full border-none flex flex-col items-center">
-                    <Image width="166px" height="166px"
-                        src="<?php bloginfo('template_directory'); ?>/public/images/iocns-04.png" alt="" class="" />
-                    <p class="text-xs md:text-base">We guarantee to deliver your order by your specified date.
-                    </p>
-                </div>
-            </div>
-        </section>
 
     </section>
    
@@ -307,24 +165,24 @@ $short_description = $product->get_short_description();
     <section class='md:w-3/5 text-accent'>
         <div class='hidden md:block'>
             <h2 class=' text-2xl md:text-4xl font-medium mt-6 md:mt-0'><?php the_title() ?></h2>
-            <p class='mt-4 font-normal text-accent'>Product Code: <span class=''> <?php echo $sku; ?></span></p>
+          
         </div>
         <div class="border-t w-full border-gray-300 my-8 md:block hidden"></div>
         <div class='text-sm md:text-base text-accent mt-6 md:block hidden'>
-            <?php echo $short_description; ?>
+            <?php //echo $short_description; ?>
+
+            
+       
+
+           <h5 class="mb-4"> What do our deals include? </h5>
+            <ol class="flex flex-col gap-2">            
+                <li>Fruit of the Loom Value weight t-shirts (Best Seller). You can mix colors and sizes. </li>
+                <li>1 single colour print anywhere on the t-shirt up to A3 size (320mm x 410mm). </li>
+                <li>FREE Set-Up therefore the next time you order your design will already be ready to go.</li>
+                <li>FREE Delivery* to your doorstep (*UK mainland only).</li>
+            </ul>
         </div>
-        <section class='my-7 bg-background p-8 rounded-lg md:flex justify-between items-center hidden'>
-            <p class='text-lg text-accent font-roboto'>Customisations Available:</p>
-            <div class='flex gap-8 '>
-                <span class='flex items-center text-lg text-accent font-roboto'>
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
-                        class="text-green-500" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
-                    </svg>
-                    Print
-                </span>
-            </div>
-        </section>
+      
 
 
 
@@ -477,6 +335,9 @@ $short_description = $product->get_short_description();
 
 </main>
 
+
+
+<?php get_template_part('components/com', 'reviews'); ?>
 
 <script>
 var SelectedColors = [];
