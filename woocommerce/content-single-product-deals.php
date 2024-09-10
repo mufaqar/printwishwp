@@ -172,8 +172,6 @@ Deal Page
             <?php //echo $short_description; ?>
 
             
-       
-
            <h5 class="mb-4"> What do our deals include? </h5>
             <ol class="flex flex-col gap-2">            
                 <li>Fruit of the Loom Value weight t-shirts (Best Seller). You can mix colors and sizes. </li>
