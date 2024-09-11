@@ -5,6 +5,10 @@
             $title = get_the_title();
             $price = $product->get_price_html();
 
+            $colors_available =  get_post_meta( $p_id, 'colors_available', true );
+
+            
+
 ?>
 
 <article class="p-1 relative">
@@ -22,7 +26,7 @@
                 </a>
             </h5>
             <p class='text-xs text-center text-secondary sm:text-base'>
-                <strong><?php echo "1" ?></strong> Color available
+                <strong><?php echo $colors_available ?></strong> Color available
             </p>
            
             <a href="<?php the_permalink()?>"
@@ -31,10 +35,6 @@
             </a>
         </div>
     </div>
-    
-
- 
-
 
 </article>
 
