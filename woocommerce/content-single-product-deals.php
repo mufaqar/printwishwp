@@ -171,21 +171,9 @@ $short_description = $product->get_short_description();
         </div>
         <div class="border-t w-full border-gray-300 my-8 md:block hidden"></div>
         <div class='text-sm md:text-base text-accent mt-6 md:block hidden'>
-            <?php //echo $short_description; ?>
+            <?php echo $short_description; ?>
 
-            <p class="mb-4">We have put together a collection of special deals that include our most popular selling products as reviewed by our customers.</p>
-
-              
-
-            
-           <h5 class="mb-4"> What do our deals include? </h5>
-            <ol class="flex flex-col gap-2">            
-                <li>Fruit of the Loom Value weight t-shirts (Best Seller). You can mix colors and sizes. </li>
-                <li>1 single colour print anywhere on the t-shirt up to A3 size (320mm x 410mm). </li>
-                <li>FREE Set-Up therefore the next time you order your design will already be ready to go.</li>
-                <li>FREE Delivery* to your doorstep (*UK mainland only).</li>
-            </ul>
-        </div>
+          </div>
       
 
 
