@@ -172,12 +172,7 @@ $short_description = $product->get_short_description();
         <div class="border-t w-full border-gray-300 my-8 md:block hidden"></div>
         <div class='text-sm md:text-base text-accent mt-6 md:block hidden'>
             <?php the_content(); ?>
-
           </div>
-      
-
-
-
 
         <a href="#product-popup"
             class='hidden open-popup-link md:flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
