@@ -171,7 +171,7 @@ $short_description = $product->get_short_description();
         </div>
         <div class="border-t w-full border-gray-300 my-8 md:block hidden"></div>
         <div class='text-sm md:text-base text-accent mt-6 md:block hidden'>
-            <?php echo $short_description; ?>
+            <?php the_content(); ?>
 
           </div>
       
