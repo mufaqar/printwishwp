@@ -145,6 +145,10 @@ $short_description = $product->get_short_description();
         <div class='text-sm md:text-base text-accent mt-6 md:block hidden'>
             <?php //echo $short_description; ?>
 
+            <p class="mb-4">We have put together a collection of special deals that include our most popular selling products as reviewed by our customers.</p>
+
+              
+
             
            <h5 class="mb-4"> What do our deals include? </h5>
             <ol class="flex flex-col gap-2">            

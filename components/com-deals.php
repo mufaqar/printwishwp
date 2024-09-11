@@ -2,9 +2,7 @@
     <div class="py-6 relative  bg-cover bg-no-repeat bg-center">
         <div class="container mx-auto px-4">
             <h2 class="sm:text-4xl text-4xl font-bold font-opensans capitalize mb-4  sm:text-left text-center">Special Offers  </h2>
-            <p class="mb-4">We have put together a collection of special deals that include our most popular selling products as reviewed by our customers.</p>
-
-              
+            
          
         </div>
     </div>

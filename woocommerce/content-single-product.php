@@ -89,7 +89,33 @@ $short_description = $product->get_short_description();
 </div>
 <main class='md:flex container mx-auto px-4 gap-10 mt-7 font-opensans mb-20'>
     <section class='md:w-2/5 image-slider'>
-       
+        <!-- <?php
+        $product_id = $product->get_id();
+        $gallery_images = $product->get_gallery_image_ids();
+        $image_path = get_the_post_thumbnail_url($product_id, 'full');
+        $settings = array(
+            'dots' => true,
+            'infinite' => true,
+            'speed' => 500,
+            'slidesToShow' => 1,
+            'slidesToScroll' => 1
+        );
+        echo '<div class="slick-slider" data-settings="' . esc_attr(json_encode($settings)) . '">';
+        if (!empty($gallery_images)) {
+            foreach ($gallery_images as $image_id) {
+                $image_url = wp_get_attachment_url($image_id);
+                $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+                echo '<div>';
+                echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="600" height="600" class="w-full rounded-lg" />';
+                echo '<h5 class="text-center font-semibold text-lg capitalize mb-3">' . esc_html($image_alt) . '</h5>';
+                echo '</div>';
+            }
+        } else {
+            echo '<img src="' . esc_url($image_path) . '" alt="' . esc_attr($product->get_name()) . '" width="600" height="600" class="w-full rounded-lg" />';
+        }
+
+        echo '</div>';
+        ?> -->
 
         <div class="gallery_slider border border-gray-200 rounded-lg p-1">
             <?php
