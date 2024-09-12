@@ -71,12 +71,27 @@ if (!empty($thumbnail_id)) {
                 height="424" />
         </div>
         <?php
-        get_template_part('components/com', 'brands');
+                 get_template_part('components/com', 'brands');
         ?>
 
         <?php
-      get_template_part('components/com', 'deals');
+             get_template_part('components/com', 'deals');
         ?>
+
+
+        <section>
+            <div class="mb-4">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-bold font-opensans capitalize mb-2 sm:text-left text-center">
+                    T-shirts
+                    </h1>
+                
+                </div>
+            </div>
+        </section>
+
+
+
 
         <div class='w-full'>
             <div class='grid sm:grid-cols-2 md:grid-cols-5 relative product-grid grid-cols-2 gap-1 sm:gap-2 md:gap-4'>
