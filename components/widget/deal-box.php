@@ -27,7 +27,7 @@
             </h5>
 
             
-            <p class='text-xs text-center text-secondary sm:text-base'>
+            <p class='text-xs text-center text-secondary sm:text-base mb-5'>
                 <strong><?php echo $colors_available ?></strong> Color available
             </p>
 
