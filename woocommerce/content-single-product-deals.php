@@ -149,14 +149,14 @@ $short_description = $product->get_short_description();
             Printed From <?php echo wc_price($product_price) ?> Ex Vat
 
         </div>
-        <div class="md:hidden">
+        <!-- <div class="md:hidden">
             <a href="#product-popup"
                 class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-medium items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
-                Get a quote
+                Deal No 1
             </a>
            
             
-        </div>
+        </div> -->
 
 
 
@@ -174,10 +174,61 @@ $short_description = $product->get_short_description();
             <?php the_content(); ?>
           </div>
 
-        <a href="#product-popup"
-            class='hidden open-popup-link md:flex w-full md:w-1/3 justify-center uppercase font-light items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
-            Get a quote
-        </a>
+          <div class=" gap-4 mt-4">
+
+          <div class="deal_box">
+            <h2>Deal No 1</h2>
+            <p>50 White t-shirts for £234 Ex Vat. (£280.80 Inc. Vat)</p>
+            <p class="deal_notice">Every thing included price.</p>
+            <button class="add-to-quote-button" data-price="100" onclick="handleAddToCart(this)">Select this Deal</button>
+        </div>
+
+        <div class="deal_box">
+            <h2>Deal No 2</h2>
+            <p>100 White t-shirts for £374 Ex Vat. (£448.80 Inc. Vat)</p>
+            <p class="deal_notice">Every thing included price.</p>
+            <button class="add-to-quote-button" data-price="150" onclick="handleAddToCart(this)">Select this Deal</button>
+        </div>
+
+        <div class="deal_box">
+            <h2>Deal No 3</h2>
+            <p>250 White t-shirts for £745 Ex Vat. (£894 Inc. Vat)</p>
+            <p class="deal_notice">Every thing included price.</p>
+            <button class="add-to-quote-button" data-price="200" onclick="handleAddToCart(this)">Select this Deal</button>
+        </div>
+
+        <div class="deal_box">
+            <h2>Deal No 4
+            </h2>
+            <p>500 White t-shirts for £1380 Ex Vat. (£1656 Inc. Vat)</p>
+            <p class="deal_notice">Every thing included price.</p>
+            <button class="add-to-quote-button" data-price="250" onclick="handleAddToCart(this)">Select this Deal</button>
+        </div>
+
+        <div class="deal_box">
+            <h2>Deal No 5</h2>
+            <p>1000 White t-shirts for £2550 Ex Vat. (£3060 Inc. Vat)</p>
+            <p class="deal_notice">Every thing included price.</p>
+            <button class="add-to-quote-button" data-price="300" onclick="handleAddToCart(this)">Select this Deal</button>
+        </div>
+
+        <div class="deal_box">
+            <h2>Deal No 6</h2>
+            <p>1500 White t-shirts for £3735 Ex Vat. (£4482 Inc. Vat)</p>
+            <p class="deal_notice">Every thing included price.</p>
+            <button class="add-to-quote-button" data-price="300" onclick="handleAddToCart(this)">Select this Deal</button>
+        </div>
+
+        <div class="deal_box">
+            <h2>Deal No 7</h2>
+            <p>2500 White t-shirts for £6500 Ex Vat. (£7800 Inc. Vat)</p>
+            <p class="deal_notice">Every thing included price.</p>
+            <button class="add-to-quote-button" data-price="300" onclick="handleAddToCart(this)">Select this Deal</button>
+        </div>
+        </div>
+
+
+     
 
         <div class="md:w-3/5">
             <?php  delivery_time();?>
@@ -194,6 +245,21 @@ $short_description = $product->get_short_description();
             <button
                 class="close_popup uppercase font-light items-center border border-primary gap-2 w-full text-center py-3 bg-primary text-white px-6 hover:text-primary hover:bg-transparent ">Close
                 The order form</button>
+
+                <h5 class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400">
+        Choose Your T-shirt Deal: *
+    </h5>
+    
+    <!-- T-shirt Deal Selection Buttons -->
+    <div class="grid grid-cols-2 gap-4 mb-5">
+        <button class="deal-button" data-deal="50" onclick="selectDeal(this)">50 T-shirts Deal</button>
+        <button class="deal-button" data-deal="100" onclick="selectDeal(this)">100 T-shirts Deal</button>
+        <button class="deal-button" data-deal="250" onclick="selectDeal(this)">250 T-shirts Deal</button>
+        <button class="deal-button" data-deal="500" onclick="selectDeal(this)">500 T-shirts Deal</button>
+        <button class="deal-button" data-deal="1000" onclick="selectDeal(this)">1000 T-shirts Deal</button>
+        <button class="deal-button" data-deal="1500" onclick="selectDeal(this)">1500 T-shirts Deal</button>
+        <button class="deal-button" data-deal="2500" onclick="selectDeal(this)">2500 T-shirts Deal</button>
+    </div>
             <h5
                 class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400 choseColor">
                 Step 1 - Choose one or more colours: *</h5>
@@ -311,7 +377,7 @@ $short_description = $product->get_short_description();
             </section>
 
             <div class="flex justify-center md:justify-end">
-                <button onclick="handleAddToCart()" class=" uppercase font-light items-center border border-primary gap-2 w-full md:w-1/2 text-center py-3 text-white px-6   mt-7 rounded-lg
+                <button onclick="handleAddToCart(this)" class=" uppercase font-light items-center border border-primary gap-2 w-full md:w-1/2 text-center py-3 text-white px-6   mt-7 rounded-lg
                             bg-primary hover:bg-transparent hover:text-primary cursor-pointer">Add to Quote</button>
             </div>
         </div>
@@ -330,6 +396,8 @@ $short_description = $product->get_short_description();
 var SelectedColors = [];
 var selectedVariants = [];
 
+var selectedDeal = null;
+
 
 function handColors(item) {
     var ccode = item.getAttribute('code');
@@ -341,6 +409,24 @@ function handColors(item) {
     SelectedColors.push(color);
     createColorList(SelectedColors)
 
+}
+
+
+
+function selectDeal(button) {
+    // Get the deal from the button's data attribute
+    var deal = button.getAttribute('data-deal');    
+    // Store the selected deal
+    selectedDeal = deal;
+    // Highlight the selected button and reset others
+    var buttons = document.querySelectorAll('.deal-button');
+    buttons.forEach(function(btn) {
+        btn.style.border = '2px solid transparent'; // Reset other buttons
+    });
+    
+    button.style.border = '2px solid #08c'; // Highlight the selected button
+
+    console.log('Selected Deal:', selectedDeal); // For debugging
 }
 
 
@@ -533,20 +619,22 @@ function handleUploadImage() {
     }
 }
 
-function Order() {
+function Order(price) {
     var productId = <?php echo $product_id ?>;
     var additionalInfoTextarea = document.getElementById('additional').value;
     localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
     localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
     localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
     localStorage.setItem("ProductID", JSON.stringify(productId));
+    localStorage.setItem("Price", JSON.stringify(price));
     // Prepare data to send
     var data = {
         'action': 'store_data_in_wp_session',
         'SelectedColors': SelectedColors,
         'selectedVariants': selectedVariants,
         'additionalInfo': additionalInfoTextarea,
-        'ProductID': productId
+        'ProductID': productId,
+        'Price': price  
     };
     // Send AJAX request to WordPress backend
     jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function(response) {
@@ -558,7 +646,14 @@ function Order() {
     });
 }
 
-const handleAddToCart = () => {
+const handleAddToCart = (button) => {
+
+    const price = button.getAttribute('data-price');
+
+    // if (!selectedDeal) {
+    //     alert('Please select a T-shirt deal before proceeding.');
+    //     return;
+    // }
 
     if (SelectedColors.length < 1) {
         const heading = document.querySelector(".choseColor");
@@ -580,8 +675,10 @@ const handleAddToCart = () => {
         heading.classList.remove("border-red-600")
     }
 
+   
+
     if (SelectedColors.length > 0 && selectedVariants.length > 0 && selectedVariants?. [0]?.colorInLogo !== 0) {
-        Order()
+        Order(selectedDeal)
     }
 
 }
@@ -589,9 +686,6 @@ const handleAddToCart = () => {
 
 
 jQuery(document).ready(function($) {
-
-
-
 
     $(document).on('change', '[id^=fileInput]', function() {
         var fileInputId = $(this).attr('id');
@@ -630,9 +724,17 @@ jQuery(document).ready(function($) {
 
 
 
-    $('.open-popup-link').magnificPopup({
-        type: 'inline',
-        midClick: false
+    $('.add-to-quote-button').on('click', function(e) {
+        e.preventDefault(); // Prevent the default action
+
+        // Open Magnific Popup manually
+        $.magnificPopup.open({
+            items: {
+                src: '#product-popup', // The ID of the popup content
+            },
+            type: 'inline', // Popup type
+            midClick: true // Allows popup to be opened on middle mouse click or CTRL+click
+        });
     });
     // Add event listener to the close button
     $('.close_popup').on('click', function() {
@@ -643,9 +745,9 @@ jQuery(document).ready(function($) {
 
 
     const descriptionButton = document.getElementById('descriptionButton');
-  const detailsButton = document.getElementById('detailsButton');
-  const descriptionContent = document.getElementById('descriptionContent');
-  const detailsContent = document.getElementById('detailsContent');
+    const detailsButton = document.getElementById('detailsButton');
+    const descriptionContent = document.getElementById('descriptionContent');
+    const detailsContent = document.getElementById('detailsContent');
 
   descriptionButton.addEventListener('click', function () {
     // Toggle visibility for description content

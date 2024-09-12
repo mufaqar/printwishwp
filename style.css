@@ -21,6 +21,62 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
   color: red;
 }
 
+.mfp-close {
+  display: none !important;
+}
 
-.mfp-close { display: none !important;}
+.deal_box {
+  border: 1px dashed #e67e22;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
 
+.deal_box h2 {
+  font-size: 24px;
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.deal_box p {
+  font-size: 18px;
+  color: #333;
+}
+
+.deal_notice {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.deal_button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #e67e22;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.deal_button:hover {
+  color: #d35400;
+}
+
+/* Center the button and text */
+.deal_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.add-to-quote-button {
+  background-color: #fe7816;
+  padding: 10px 16px;
+  color: #fff;
+  font-size: 16px;
+}
