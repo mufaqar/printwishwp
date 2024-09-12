@@ -145,10 +145,10 @@ $short_description = $product->get_short_description();
 
             } ?>
         </div>
-        <div class='mt-5 md:w-full w-3/4 mx-auto text-lg text-white bg-secondary   font-medium text-center py-2.5'>
-            Printed From <?php echo wc_price($product_price) ?> Ex Vat
+        <!-- <div class='mt-5 md:w-full w-3/4 mx-auto text-lg text-white bg-secondary   font-medium text-center py-2.5'>
+            Printed From <?php //echo wc_price($product_price) ?> Ex Vat
 
-        </div>
+        </div> -->
         <!-- <div class="md:hidden">
             <a href="#product-popup"
                 class=' open-popup-link flex w-full md:w-1/3 justify-center uppercase font-medium items-center mt-6 border border-primary gap-2 py-3 bg-primary text-white px-6 hover:text-white hover:bg-secondary rounded-md'>
