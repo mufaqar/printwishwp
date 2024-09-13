@@ -612,6 +612,8 @@ $product_slug = $product->get_slug();
         if (selectedVariants.length > 0) {
             // If an option is already selected, don't allow further selections
             alert("You can only select one print area for white t-shirts.");
+            console.warn(selectedVariants, "selectedVariants");
+            
             return; // Exit the function if one is already selected
         }
     }
@@ -709,8 +711,6 @@ $product_slug = $product->get_slug();
     }
 
     function Order(qty, price, type) {
-
-
         var productId = <?php echo $product_id ?>;
         var additionalInfoTextarea = document.getElementById('additional').value;
         localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
@@ -784,13 +784,11 @@ $product_slug = $product->get_slug();
             const colorStep = document.querySelector(".choseColor");
             colorStep.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the color section
 
-            disableColorSelection();
+          //  disableColorSelection();
 
         }
 
-        // Update the selected deal display in the "Show your Selected Deal Here" section
-    const selectedDealContainer = document.getElementById('selected-deal');
-    selectedDealContainer.innerHTML = `Deal : ${qty} ${type.charAt(0).toUpperCase() + type.slice(1)} T-shirts for £${price}`;
+     
 
 
         // Additional checks for color and variant selections
@@ -815,9 +813,13 @@ $product_slug = $product->get_slug();
         }
 
         // If everything is selected correctly, proceed to order
-        if (SelectedColors.length > 0 && selectedVariants.length > 0 && selectedVariants?.[0]?.colorInLogo !== 0) {
+        if (SelectedColors.length > 0 && selectedVariants.length > 0 ) {
             Order(qty, price, type);
         }
+
+           // Update the selected deal display in the "Show your Selected Deal Here" section
+        const selectedDealContainer = document.getElementById('selected-deal');
+        selectedDealContainer.innerHTML = `Deal : ${qty} ${type.charAt(0).toUpperCase() + type.slice(1)} T-shirts for £${price}`;
     };
 
 
