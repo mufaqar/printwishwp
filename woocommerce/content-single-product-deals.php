@@ -176,55 +176,123 @@ $short_description = $product->get_short_description();
 
           <div class=" gap-4 mt-4">
 
-          <div class="deal_box">
-            <h2>Deal No 1</h2>
-            <p>50 White t-shirts for £234 Ex Vat. (£280.80 Inc. Vat)</p>
-            <p class="deal_notice">Every thing included price.</p>
-            <button class="add-to-quote-button" data-price="100" onclick="handleAddToCart(this)">Select this Deal</button>
-        </div>
+          <?php 
 
-        <div class="deal_box">
-            <h2>Deal No 2</h2>
-            <p>100 White t-shirts for £374 Ex Vat. (£448.80 Inc. Vat)</p>
-            <p class="deal_notice">Every thing included price.</p>
-            <button class="add-to-quote-button" data-price="150" onclick="handleAddToCart(this)">Select this Deal</button>
-        </div>
 
-        <div class="deal_box">
-            <h2>Deal No 3</h2>
-            <p>250 White t-shirts for £745 Ex Vat. (£894 Inc. Vat)</p>
-            <p class="deal_notice">Every thing included price.</p>
-            <button class="add-to-quote-button" data-price="200" onclick="handleAddToCart(this)">Select this Deal</button>
-        </div>
+$product_slug = $product->get_slug();
 
-        <div class="deal_box">
-            <h2>Deal No 4
-            </h2>
-            <p>500 White t-shirts for £1380 Ex Vat. (£1656 Inc. Vat)</p>
-            <p class="deal_notice">Every thing included price.</p>
-            <button class="add-to-quote-button" data-price="250" onclick="handleAddToCart(this)">Select this Deal</button>
-        </div>
 
-        <div class="deal_box">
-            <h2>Deal No 5</h2>
-            <p>1000 White t-shirts for £2550 Ex Vat. (£3060 Inc. Vat)</p>
-            <p class="deal_notice">Every thing included price.</p>
-            <button class="add-to-quote-button" data-price="300" onclick="handleAddToCart(this)">Select this Deal</button>
-        </div>
+if ( $product_slug == 'color-t-shirt' ) {
+    
+    ?>
+      <div class="deal_box">
+                <h2>Deal No 1</h2>
+                <p>50 Colour t-shirts for £254 Ex Vat. (£304.80 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="304.80" data-type="color"  data-qty="50" onclick="handleAddToCart(this)">Select this Deal</button>
+                </div>
 
-        <div class="deal_box">
-            <h2>Deal No 6</h2>
-            <p>1500 White t-shirts for £3735 Ex Vat. (£4482 Inc. Vat)</p>
-            <p class="deal_notice">Every thing included price.</p>
-            <button class="add-to-quote-button" data-price="300" onclick="handleAddToCart(this)">Select this Deal</button>
-        </div>
+            <div class="deal_box">
+                <h2>Deal No 2</h2>
+                <p>100 Colour t-shirts for £412 Ex Vat. (£494.40 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="494.40" data-type="color"  data-qty="100" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
 
-        <div class="deal_box">
-            <h2>Deal No 7</h2>
-            <p>2500 White t-shirts for £6500 Ex Vat. (£7800 Inc. Vat)</p>
-            <p class="deal_notice">Every thing included price.</p>
-            <button class="add-to-quote-button" data-price="300" onclick="handleAddToCart(this)">Select this Deal</button>
-        </div>
+            <div class="deal_box">
+                <h2>Deal No 3</h2>
+                <p>250 Colour t-shirts for £850 Ex Vat. (£1020 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="1020" data-type="color"  data-qty="250" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <div class="deal_box">
+                <h2>Deal No 4
+                </h2>
+                <p>500 Colour t-shirts for £1570 Ex Vat. (£1884 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="1884" data-type="color"  data-qty="500" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <div class="deal_box">
+                <h2>Deal No 5</h2>
+                <p>1000 Colour t-shirts for £2930 Ex Vat. (£3516 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="3516" data-type="color"  data-qty="1000" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <div class="deal_box">
+                <h2>Deal No 6</h2>
+                <p>1500 Colour t-shirts for £4305 Ex Vat. (£5166 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="5166" data-type="color"  data-qty="1500" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <div class="deal_box">
+                <h2>Deal No 7</h2>
+                <p>2500 Colour t-shirts for £6925 Ex Vat. (£8310 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="8310" data-type="color"  data-qty="2500" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+    <?php
+  
+} elseif ( $product_slug == 'white-t-shirt' ) {
+   
+?>
+           
+
+            <div class="deal_box">
+                <h2>Deal No 1</h2>
+                <p>50 White t-shirts for £234 Ex Vat. (£280.80 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="280.80" data-type="white"  data-qty="50" onclick="handleAddToCart(this)">Select this Deal</button>
+                </div>
+
+            <div class="deal_box">
+                <h2>Deal No 2</h2>
+                <p>100 White t-shirts for £374 Ex Vat. (£448.80 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="448.80" data-type="white"  data-qty="100" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <div class="deal_box">
+                <h2>Deal No 3</h2>
+                <p>250 White t-shirts for £745 Ex Vat. (£894 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="894" data-type="white"  data-qty="250" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <div class="deal_box">
+                <h2>Deal No 4
+                </h2>
+                <p>500 White t-shirts for £1380 Ex Vat. (£1656 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="1656" data-type="white"  data-qty="500" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <div class="deal_box">
+                <h2>Deal No 5</h2>
+                <p>1000 White t-shirts for £2550 Ex Vat. (£3060 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="3060" data-type="white"  data-qty="1000" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <div class="deal_box">
+                <h2>Deal No 6</h2>
+                <p>1500 White t-shirts for £3735 Ex Vat. (£4482 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="4482" data-type="white"  data-qty="1500" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <div class="deal_box">
+                <h2>Deal No 7</h2>
+                <p>2500 White t-shirts for £6500 Ex Vat. (£7800 Inc. Vat)</p>
+                <p class="deal_notice">Every thing included price.</p>
+                <button class="add-to-quote-button" data-price="7800" data-type="white"  data-qty="2500" onclick="handleAddToCart(this)">Select this Deal</button>
+            </div>
+
+            <?php } ?>
         </div>
 
 
@@ -247,19 +315,19 @@ $short_description = $product->get_short_description();
                 The order form</button>
 
                 <h5 class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400">
-        Choose Your T-shirt Deal: *
-    </h5>
+                  Choose Your T-shirt Deal: *
+                 </h5>
     
-    <!-- T-shirt Deal Selection Buttons -->
-    <div class="grid grid-cols-2 gap-4 mb-5">
-        <button class="deal-button" data-deal="50" onclick="selectDeal(this)">50 T-shirts Deal</button>
-        <button class="deal-button" data-deal="100" onclick="selectDeal(this)">100 T-shirts Deal</button>
-        <button class="deal-button" data-deal="250" onclick="selectDeal(this)">250 T-shirts Deal</button>
-        <button class="deal-button" data-deal="500" onclick="selectDeal(this)">500 T-shirts Deal</button>
-        <button class="deal-button" data-deal="1000" onclick="selectDeal(this)">1000 T-shirts Deal</button>
-        <button class="deal-button" data-deal="1500" onclick="selectDeal(this)">1500 T-shirts Deal</button>
-        <button class="deal-button" data-deal="2500" onclick="selectDeal(this)">2500 T-shirts Deal</button>
-    </div>
+            <!-- T-shirt Deal Selection Buttons -->
+            <div class="grid grid-cols-2 gap-4 mb-5">
+                <button class="deal-button" data-deal="50" onclick="selectDeal(this)">50 T-shirts Deal</button>
+                <button class="deal-button" data-deal="100" onclick="selectDeal(this)">100 T-shirts Deal</button>
+                <button class="deal-button" data-deal="250" onclick="selectDeal(this)">250 T-shirts Deal</button>
+                <button class="deal-button" data-deal="500" onclick="selectDeal(this)">500 T-shirts Deal</button>
+                <button class="deal-button" data-deal="1000" onclick="selectDeal(this)">1000 T-shirts Deal</button>
+                <button class="deal-button" data-deal="1500" onclick="selectDeal(this)">1500 T-shirts Deal</button>
+                <button class="deal-button" data-deal="2500" onclick="selectDeal(this)">2500 T-shirts Deal</button>
+            </div>
             <h5
                 class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400 choseColor">
                 Step 1 - Choose one or more colours: *</h5>
@@ -396,7 +464,8 @@ $short_description = $product->get_short_description();
 var SelectedColors = [];
 var selectedVariants = [];
 
-var selectedDeal = null;
+var selectedDeal = {}
+console.log("🚀 ~ selectedDeal:", selectedDeal)
 
 
 function handColors(item) {
@@ -412,22 +481,6 @@ function handColors(item) {
 }
 
 
-
-function selectDeal(button) {
-    // Get the deal from the button's data attribute
-    var deal = button.getAttribute('data-deal');    
-    // Store the selected deal
-    selectedDeal = deal;
-    // Highlight the selected button and reset others
-    var buttons = document.querySelectorAll('.deal-button');
-    buttons.forEach(function(btn) {
-        btn.style.border = '2px solid transparent'; // Reset other buttons
-    });
-    
-    button.style.border = '2px solid #08c'; // Highlight the selected button
-
-    console.log('Selected Deal:', selectedDeal); // For debugging
-}
 
 
 
@@ -456,7 +509,9 @@ function createColorList(colors) {
             // Open the div for the input
             html += '<div class="">';
             html += '<input type="number" name="' + size +
-                '" min="0" style="max-width:100px" class="w-full bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' +
+                '" min="0" style="max-width:100px" class="w-full bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="' +
+                (selectedDeal.type === "white" ? selectedDeal.qty : '') + 
+                '" onchange="updateValues(this, \'' +
                 color.code + '\', \'' + size + '\')">';
             // Close the input div
             html += '</div></div><br/>';
@@ -514,19 +569,14 @@ function updateValues(inputElement, color, size) {
 }
 
 function removeColor(item) {
-
     var colorToRemove = item.getAttribute('code');
     const remainingColors = SelectedColors.filter(function(color) {
         return color.code !== colorToRemove;
     });
-
     // Update the color list
     SelectedColors = [];
     SelectedColors.push(...remainingColors);
     createColorList(remainingColors);
-
-    console.log(colorToRemove);
-    console.log(SelectedColors);
 }
 
 
@@ -619,22 +669,24 @@ function handleUploadImage() {
     }
 }
 
-function Order(price) {
+function Order(qty,price,type) {
+
+    
     var productId = <?php echo $product_id ?>;
     var additionalInfoTextarea = document.getElementById('additional').value;
     localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
     localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
     localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
     localStorage.setItem("ProductID", JSON.stringify(productId));
-    localStorage.setItem("Price", JSON.stringify(price));
+  
     // Prepare data to send
     var data = {
         'action': 'store_data_in_wp_session',
         'SelectedColors': SelectedColors,
         'selectedVariants': selectedVariants,
         'additionalInfo': additionalInfoTextarea,
-        'ProductID': productId,
-        'Price': price  
+        'ProductID': productId,        
+       
     };
     // Send AJAX request to WordPress backend
     jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function(response) {
@@ -649,11 +701,46 @@ function Order(price) {
 const handleAddToCart = (button) => {
 
     const price = button.getAttribute('data-price');
+    const type = button.getAttribute('data-type');
+    const qty = button.getAttribute('data-qty');
+    
+    
 
+    
     // if (!selectedDeal) {
     //     alert('Please select a T-shirt deal before proceeding.');
     //     return;
     // }
+
+    if(type === "white"){
+
+        selectedDeal.type = type;
+        selectedDeal.price = price;
+        selectedDeal.qty = qty;
+
+        let updatedColor =   [
+                {
+                    "color": type,
+                    "code": "#fff",
+                    "selectedsize": [
+                        {
+                            "size": "Quantity",
+                            "quantity": qty
+                        }
+                    ]
+                }
+            ]
+            SelectedColors = updatedColor;
+
+       
+            console.log("🚀 ~ handleAddToCart ~ SelectedColors:", SelectedColors)
+
+    }
+
+   
+
+   
+    
 
     if (SelectedColors.length < 1) {
         const heading = document.querySelector(".choseColor");
@@ -675,10 +762,10 @@ const handleAddToCart = (button) => {
         heading.classList.remove("border-red-600")
     }
 
-   
+  
 
     if (SelectedColors.length > 0 && selectedVariants.length > 0 && selectedVariants?. [0]?.colorInLogo !== 0) {
-        Order(selectedDeal)
+        Order(qty,price,type);
     }
 
 }
