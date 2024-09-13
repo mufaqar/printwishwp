@@ -182,7 +182,7 @@ $short_description = $product->get_short_description();
 $product_slug = $product->get_slug();
 
 
-if ( $product_slug == 'color-t-shirt' ) {
+if ( $product_slug == 'colors-t-shirt' ) {
     
     ?>
       <div class="deal_box">
