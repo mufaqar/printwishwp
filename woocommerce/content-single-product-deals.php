@@ -190,7 +190,7 @@ $product_slug = $product->get_slug();
             <?php
 
 
-          
+
 
 
             if ($product_slug == 'colors-t-shirt') {
@@ -341,19 +341,14 @@ $product_slug = $product->get_slug();
 
             <h5
                 class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400">
-                Choose Your T-shirt Deal: *
+                 Your T-shirt Deal: *
             </h5>
 
-            <!-- T-shirt Deal Selection Buttons -->
-            <div class="grid grid-cols-2 gap-4 mb-5">
-                <button class="deal-button" data-deal="50" onclick="selectDeal(this)">50 T-shirts Deal</button>
-                <button class="deal-button" data-deal="100" onclick="selectDeal(this)">100 T-shirts Deal</button>
-                <button class="deal-button" data-deal="250" onclick="selectDeal(this)">250 T-shirts Deal</button>
-                <button class="deal-button" data-deal="500" onclick="selectDeal(this)">500 T-shirts Deal</button>
-                <button class="deal-button" data-deal="1000" onclick="selectDeal(this)">1000 T-shirts Deal</button>
-                <button class="deal-button" data-deal="1500" onclick="selectDeal(this)">1500 T-shirts Deal</button>
-                <button class="deal-button" data-deal="2500" onclick="selectDeal(this)">2500 T-shirts Deal</button>
+            <div id="selected-deal" class="text-lg font-semibold text-accent">
+                <!-- Selected deal will be displayed here -->
             </div>
+
+
             <h5
                 class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400 choseColor">
                 Step 1 - Choose one or more colours: *</h5>
@@ -495,6 +490,10 @@ $product_slug = $product->get_slug();
 
 
     function handColors(item) {
+        if (selectedDeal.type === "white") {
+            console.log("Color selection is disabled for white-t-shirt.");
+            return;  // Exit the function if the product is white-t-shirt
+        }
         var ccode = item.getAttribute('code');
         var color = {
             color: item.innerText,
@@ -531,7 +530,7 @@ $product_slug = $product->get_slug();
             ['Quantity'].forEach(function (size) {
                 // Open the div for each size
                 html += '<div class="flex items-center justify-center gap-2">';
-                html += '<p class="text-lg text-accent font-bold">How many? </p>';
+                html += '<p class="text-lg text-accent font-bold">Quanity </p>';
                 // Open the div for the input
                 html += '<div class="">';
                 html += '<input type="number" name="' + size +
@@ -606,26 +605,40 @@ $product_slug = $product->get_slug();
     }
 
 
-    function selectOnlyVarients(button, name) {
-        var index = selectedVariants.findIndex(function (item) {
-            return item.variant === name;
-        });
-        if (index === -1) {
-            // If variant is not already selected, add it to selectedVariants array
-            selectedVariants.push({
-                variant: name,
-                colorInLogo: 0
-            });
-            button.style.border = "3px solid #08c"; // Add border
-        } else {
-            // If variant is already selected, remove it from selectedVariants array
-            selectedVariants.splice(index, 1);
-            button.style.border = "none"; // Remove border
+   function selectOnlyVarients(button, name) {
+    // Check if the selected deal is for white t-shirts
+    if (selectedDeal.type === "white") {
+        // Ensure only one option can be selected
+        if (selectedVariants.length > 0) {
+            // If an option is already selected, don't allow further selections
+            alert("You can only select one print area for white t-shirts.");
+            return; // Exit the function if one is already selected
         }
-        // Update the color sections in the logo
-        updateColorLogo();
-        handleUploadImage()
     }
+
+    // Find the index of the selected variant in the `selectedVariants` array
+    var index = selectedVariants.findIndex(function(item) {
+        return item.variant === name;
+    });
+
+    if (index === -1) {
+        // If variant is not already selected, add it to the `selectedVariants` array
+        selectedVariants.push({
+            variant: name,
+            colorInLogo: 0 // Default color selection, will be updated later
+        });
+        button.style.border = "3px solid #08c"; // Add border to indicate selection
+    } else {
+        // If variant is already selected, remove it from the `selectedVariants` array
+        selectedVariants.splice(index, 1);
+        button.style.border = "none"; // Remove border to indicate deselection
+    }
+
+    // Update the display of color choices and variant selections
+    updateColorLogo();
+    handleUploadImage();
+}
+
 
     // Function to update color sections in the logo
     function updateColorLogo() {
@@ -724,77 +737,88 @@ $product_slug = $product->get_slug();
         });
     }
 
+    // Function to disable further color selection when the product is white-t-shirt
+    function disableColorSelection() {
+        const colorItems = document.querySelectorAll('.color-item');
+        colorItems.forEach(item => {
+            item.style.pointerEvents = 'none';  // Disable clicking
+            item.style.opacity = '0.5';         // Make it look disabled
+        });
+
+        console.log("Color selection disabled for white-t-shirt.");
+    }
+
+
     const handleAddToCart = (button) => {
 
         const price = button.getAttribute('data-price');
         const type = button.getAttribute('data-type');
         const qty = button.getAttribute('data-qty');
 
+        const dealNumber = button.closest('.deal_box').querySelector('h2').innerText.split(' ')[1]; // Get the deal number from the header
 
-
-
-        // if (!selectedDeal) {
-        //     alert('Please select a T-shirt deal before proceeding.');
-        //     return;
-        // }
-
+        // Check if the selected deal is for white t-shirts
         if (type === "white") {
-
+            // Automatically select white color and add it to SelectedColors
             selectedDeal.type = type;
             selectedDeal.price = price;
             selectedDeal.qty = qty;
 
             let updatedColor = [
                 {
-                    "color": type,
-                    "code": "#fff",
+                    "color": "White", // Auto-select white color
+                    "code": "#fff",   // Assuming white color code is '#fff'
                     "selectedsize": [
                         {
                             "size": "Quantity",
-                            "quantity": qty
+                            "quantity": qty // Auto-fill the quantity based on the selected deal
                         }
                     ]
                 }
-            ]
+            ];
             SelectedColors = updatedColor;
 
+            console.log("🚀 ~ handleAddToCart ~ SelectedColors:", SelectedColors);
+            // Automatically display Step 2 color section with white selected
+            createColorList(SelectedColors); // Ensure color list is updated immediately
+            const colorStep = document.querySelector(".choseColor");
+            colorStep.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the color section
 
-            console.log("🚀 ~ handleAddToCart ~ SelectedColors:", SelectedColors)
+            disableColorSelection();
 
         }
 
+        // Update the selected deal display in the "Show your Selected Deal Here" section
+    const selectedDealContainer = document.getElementById('selected-deal');
+    selectedDealContainer.innerHTML = `Deal : ${qty} ${type.charAt(0).toUpperCase() + type.slice(1)} T-shirts for £${price}`;
 
 
-
-
-
+        // Additional checks for color and variant selections
         if (SelectedColors.length < 1) {
             const heading = document.querySelector(".choseColor");
-            heading.classList.add("border-red-600")
+            heading.classList.add("border-red-600");
         }
 
         if (selectedVariants.length < 1) {
             const heading = document.querySelector(".select-position");
-            heading.classList.add("border-red-600")
+            heading.classList.add("border-red-600");
         }
 
         if (selectedVariants?.[0]?.colorInLogo === 0) {
             const heading = document.querySelector(".number-of-color");
-            heading.classList.add("border-red-600")
+            heading.classList.add("border-red-600");
         }
 
         if (selectedVariants?.[0]?.colorInLogo !== 0) {
             const heading = document.querySelector(".number-of-color");
-            heading.classList.remove("border-red-600")
+            heading.classList.remove("border-red-600");
         }
 
-
-
+        // If everything is selected correctly, proceed to order
         if (SelectedColors.length > 0 && selectedVariants.length > 0 && selectedVariants?.[0]?.colorInLogo !== 0) {
             Order(qty, price, type);
         }
-
-    }
+    };
 
 
 
