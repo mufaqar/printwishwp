@@ -4,7 +4,7 @@
             <h2 class="sm:text-4xl text-4xl font-bold font-opensans capitalize mb-4 text-center">
                  Deals </h2>
             <p class="text-center">
-                1 color 1 side print deal
+            1 Colour 1 Side Print Deals
             </p>
        
         <div class='max-w-screen-xl mx-auto px-4 '>
