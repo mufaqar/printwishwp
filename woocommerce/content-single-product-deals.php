@@ -166,14 +166,10 @@ $product_slug = $product->get_slug();
 
     <section class='md:w-3/5 text-accent'>
 
-        <?php if ($product_slug == 'white-t-shirt'): ?>
-                <h2 class="text-primary text-3xl">White T-shirts Deals Content & Prices</h2>
-                <?php elseif ($product_slug == 'colors-t-shirt'): ?>
-                <h2 class="text-primary text-3xl">Colour T-shirts Deals Content & Prices</h2>
-        <?php endif; ?>
+         <h2 class="text-primary text-3xl py-4">What do our deals include?</h2>
 
         <div class='text-sm md:text-base text-accent md:block '>
-            <h2 class="text-primary text-2xl py-4">What do our deals include?</h2>
+           
             <ul class="list-disc list-inside text-base flex flex-col gap-4">
                 <?php if ($product_slug == 'colors-t-shirt' || $product_slug == 'white-t-shirt'): ?>
                     <li>Fruit of the Loom Value weight t-shirts (Best Seller). You can mix colours and sizes.</li>
