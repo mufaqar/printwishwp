@@ -166,7 +166,7 @@ $product_slug = $product->get_slug();
 
     <section class='md:w-3/5 text-accent'>
 
-         <h2 class="text-primary text-3xl py-4">What do our deals include?</h2>
+         <h2 class="text-primary text-3xl">What do our deals include?</h2>
 
         <div class='text-sm md:text-base text-accent md:block '>
            
