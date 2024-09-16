@@ -88,9 +88,9 @@ $product_slug = $product->get_slug();
     </div>
 
     <h2 class="text-xl md:text-3xl lg:text-4xl font-medium mt-6 md:mt-0 text-primary">
-    Special Offers on Personalised Clothes
+        Special Offers on Personalised Clothes
     </h2>
- 
+
 </div>
 <main class='md:flex container mx-auto px-4 gap-10 mt-7 font-opensans mb-20'>
     <section class='md:w-2/5 image-slider'>
@@ -165,24 +165,25 @@ $product_slug = $product->get_slug();
 
 
     <section class='md:w-3/5 text-accent'>
-        <div class='hidden md:block'>
-            <h2 class=' text-2xl md:text-4xl font-medium mt-6 md:mt-0'><?php the_title() ?></h2>
 
-        </div>
+        <?php if ($product_slug == 'white-t-shirt'): ?>
+                <h2 class="text-primary text-3xl">White T-shirts Deals Content & Prices</h2>
+                <?php elseif ($product_slug == 'colors-t-shirt'): ?>
+                <h2 class="text-primary text-3xl">Colour T-shirts Deals Content & Prices</h2>
+        <?php endif; ?>
 
-        <div class='text-sm md:text-base text-accent mt-6 md:block '>
-
+        <div class='text-sm md:text-base text-accent md:block '>
             <h2 class="text-primary text-2xl py-4">What do our deals include?</h2>
-
             <ul class="list-disc list-inside text-base flex flex-col gap-4">
-                <li>
-                    Fruit of the Loom Value weight t-shirts (Best Seller). You can mix colours and
-                    sizes.</li>
-                <li> 1 Single Colour print anywhere on the t-shirt up to A3 size (320mm x 410mm).</li>
-                <li> Free Set-Up therefore the next time you order, your design will already be
-                    ready to go.</li>
-                <li> Free Delivery* to your doorstep (*UK mainland only).</li>
+                <?php if ($product_slug == 'colors-t-shirt' || $product_slug == 'white-t-shirt'): ?>
+                    <li>Fruit of the Loom Value weight t-shirts (Best Seller). You can mix colours and sizes.</li>
+                    <li>1 Single Colour print anywhere on the t-shirt up to A3 size (320mm x 410mm).</li>
+                    <li>Free Set-Up therefore the next time you order, your design will already be ready to go.</li>
+                    <li>Free Delivery* to your doorstep (*UK mainland only).</li>
+                <?php endif; ?>
             </ul>
+
+
         </div>
 
         <div class=" gap-4 mt-4">
@@ -341,7 +342,7 @@ $product_slug = $product->get_slug();
 
             <h5
                 class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400">
-                 Your T-shirt Deal: *
+                Your T-shirt Deal: *
             </h5>
 
             <div id="selected-deal" class="text-lg font-semibold text-accent">
@@ -605,41 +606,41 @@ $product_slug = $product->get_slug();
     }
 
 
-   function selectOnlyVarients(button, name) {
-    // Check if the selected deal is for white t-shirts
-    if (selectedDeal.type === "white") {
-        // Ensure only one option can be selected
-        if (selectedVariants.length > 0) {
-            // If an option is already selected, don't allow further selections
-            alert("You can only select one print area for white t-shirts.");
-            console.warn(selectedVariants, "selectedVariants");
-            
-            return; // Exit the function if one is already selected
+    function selectOnlyVarients(button, name) {
+        // Check if the selected deal is for white t-shirts
+        if (selectedDeal.type === "white") {
+            // Ensure only one option can be selected
+            if (selectedVariants.length > 0) {
+                // If an option is already selected, don't allow further selections
+                alert("You can only select one print area for white t-shirts.");
+                console.warn(selectedVariants, "selectedVariants");
+
+                return; // Exit the function if one is already selected
+            }
         }
-    }
 
-    // Find the index of the selected variant in the `selectedVariants` array
-    var index = selectedVariants.findIndex(function(item) {
-        return item.variant === name;
-    });
-
-    if (index === -1) {
-        // If variant is not already selected, add it to the `selectedVariants` array
-        selectedVariants.push({
-            variant: name,
-            colorInLogo: 0 // Default color selection, will be updated later
+        // Find the index of the selected variant in the `selectedVariants` array
+        var index = selectedVariants.findIndex(function (item) {
+            return item.variant === name;
         });
-        button.style.border = "3px solid #08c"; // Add border to indicate selection
-    } else {
-        // If variant is already selected, remove it from the `selectedVariants` array
-        selectedVariants.splice(index, 1);
-        button.style.border = "none"; // Remove border to indicate deselection
-    }
 
-    // Update the display of color choices and variant selections
-    updateColorLogo();
-    handleUploadImage();
-}
+        if (index === -1) {
+            // If variant is not already selected, add it to the `selectedVariants` array
+            selectedVariants.push({
+                variant: name,
+                colorInLogo: 0 // Default color selection, will be updated later
+            });
+            button.style.border = "3px solid #08c"; // Add border to indicate selection
+        } else {
+            // If variant is already selected, remove it from the `selectedVariants` array
+            selectedVariants.splice(index, 1);
+            button.style.border = "none"; // Remove border to indicate deselection
+        }
+
+        // Update the display of color choices and variant selections
+        updateColorLogo();
+        handleUploadImage();
+    }
 
 
     // Function to update color sections in the logo
@@ -784,11 +785,11 @@ $product_slug = $product->get_slug();
             const colorStep = document.querySelector(".choseColor");
             colorStep.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the color section
 
-          //  disableColorSelection();
+            //  disableColorSelection();
 
         }
 
-     
+
 
 
         // Additional checks for color and variant selections
@@ -813,11 +814,11 @@ $product_slug = $product->get_slug();
         }
 
         // If everything is selected correctly, proceed to order
-        if (SelectedColors.length > 0 && selectedVariants.length > 0 ) {
+        if (SelectedColors.length > 0 && selectedVariants.length > 0) {
             Order(qty, price, type);
         }
 
-           // Update the selected deal display in the "Show your Selected Deal Here" section
+        // Update the selected deal display in the "Show your Selected Deal Here" section
         const selectedDealContainer = document.getElementById('selected-deal');
         selectedDealContainer.innerHTML = `Deal : ${qty} ${type.charAt(0).toUpperCase() + type.slice(1)} T-shirts for £${price}`;
     };
