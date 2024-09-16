@@ -87,10 +87,10 @@ $product_slug = $product->get_slug();
             height="37" />
     </div>
 
-    <h2 class="text-xl md:text-3xl lg:text-4xl font-medium mt-6 md:mt-0">
-        <?php the_title() ?>
+    <h2 class="text-xl md:text-3xl lg:text-4xl font-medium mt-6 md:mt-0 text-primary">
+    Special Offers on Personalised Clothes
     </h2>
-    <p class="mt-4 font-normal text-accent">Product Code: <span class=""><?php echo $sku; ?></span></p>
+ 
 </div>
 <main class='md:flex container mx-auto px-4 gap-10 mt-7 font-opensans mb-20'>
     <section class='md:w-2/5 image-slider'>
