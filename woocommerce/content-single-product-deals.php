@@ -474,124 +474,127 @@ $product_slug = $product->get_slug();
 <?php get_template_part('components/com', 'reviews'); ?>
 
 <script>
-var SelectedColors = [];
-var selectedVariants = [];
+    var SelectedColors = [];
+    var selectedVariants = [];
+    var selectedDeal = {}
+  
+    function handColors(item) {
+        if (selectedDeal.type === "white") {
+            console.log("Color selection is disabled for white-t-shirt.");
+            return;  // Exit the function if the product is white-t-shirt
+        }
+        var ccode = item.getAttribute('code');
+        var color = {
+            color: item.innerText,
+            code: ccode,
+            selectedsize: []
+        }
+        SelectedColors.push(color);
+        createColorList(SelectedColors)
 
-
-function handColors(item) {
-    var ccode = item.getAttribute('code');
-    var color = {
-        color: item.innerText,
-        code: ccode,
-        selectedsize: []
     }
-    SelectedColors.push(color);
-    createColorList(SelectedColors)
-
-}
 
 
 
-function createColorList(colors) {
-    var html = '';
-    colors.forEach(function(color) {
-        // Open the color-item div
-        html +=
-            '<div class="color-item border border-black justify-between bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
-        // Open the inner flex div for color display and text
-        html += '<div class="flex items-center gap-2">';
-        html += '<div class="p-4 rounded-full" style="background-color: #' + color.code + '; border-color: #' +
-            color.code + '"></div>';
-        html += '<p class="text-lg uppercase">' + color.color + '</p>';
-        // Close the inner flex div
-        html += '</div>';
 
-        // Open the inner flex div for size inputs
-        html +=
-            '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 my-3 ">';
-        // Iterate over sizes
-        ['Quantity'].forEach(function(size) {
-            // Open the div for each size
-            html += '<div class="flex items-center justify-center gap-2">';
-            html += '<p class="text-lg text-accent font-bold">How many? </p>';
-            // Open the div for the input
-            html += '<div class="">';
-            html += '<input type="number" name="' + size +
-                '" min="0" style="max-width:100px" class="w-full bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="" onchange="updateValues(this, \'' +
-                color.code + '\', \'' + size + '\')">';
-            // Close the input div
-            html += '</div></div><br/>';
 
+    function createColorList(colors) {
+        var html = '';
+        colors.forEach(function (color) {
+            // Open the color-item div
+            html +=
+                '<div class="color-item border border-black justify-between bg-background p-3 md:py-4 md:px-6 rounded-lg flex flex-col ">';
+            // Open the inner flex div for color display and text
+            html += '<div class="flex items-center gap-2">';
+            html += '<div class="p-4 rounded-full" style="background-color: #' + color.code + '; border-color: #' +
+                color.code + '"></div>';
+            html += '<p class="text-lg uppercase">' + color.color + '</p>';
+            // Close the inner flex div
+            html += '</div>';
+
+            // Open the inner flex div for size inputs
+            html +=
+                '<div class="flex flex-wrap justify-between w-full items-start"><div class="flex flex-wrap items-center gap-3 my-3 ">';
+            // Iterate over sizes
+            ['Quantity'].forEach(function (size) {
+                // Open the div for each size
+                html += '<div class="flex items-center justify-center gap-2">';
+                html += '<p class="text-lg text-accent font-bold">Quanity </p>';
+                // Open the div for the input
+                html += '<div class="">';
+                html += '<input type="number" name="' + size +
+                    '" min="0" style="max-width:100px" class="w-full bg-white border border-gray-300 p-2 py-1 placeholder:text-lg placeholder:text-gray-400 placeholder:font-semibold font-semibold focus:outline-none text-lg focus:ring-0 focus:border-gray-500 text-center rounded-full" placeholder="0" value="' +
+                    (selectedDeal.type === "white" ? selectedDeal.qty : '') +
+                    '" onchange="updateValues(this, \'' +
+                    color.code + '\', \'' + size + '\')">';
+                // Close the input div
+                html += '</div></div><br/>';
+
+            });
+            // Close the inner flex div for size inputs
+            //  html +='<p class="hidden">Available sizes: S, M, L, XL, 2XL, 3XL, 4XL.</p>';
+            html += '</div>';
+            // Add the button to remove the color item
+            html += '<button onclick="removeColor(this)" code=' + color.code +
+                '><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor"></path></svg></button> </div>';
+            // Close the color-item div
+            html += '<p class=""><strong>Available sizes:</strong> S, M, L, XL, 2XL, 3XL, 4XL</p>';
+            html += '</div>';
         });
-        // Close the inner flex div for size inputs
-        //  html +='<p class="hidden">Available sizes: S, M, L, XL, 2XL, 3XL, 4XL.</p>';
-        html += '</div>';
-        // Add the button to remove the color item
-        html += '<button onclick="removeColor(this)" code=' + color.code +
-            '><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor"></path></svg></button> </div>';
-        // Close the color-item div
-        html += '<p class=""><strong>Available sizes:</strong> S, M, L, XL, 2XL, 3XL, 4XL</p>';
-        html += '</div>';
-    });
 
 
-    // Get the div container
-    var container = document.getElementById('selectedColorsContainer');
+        // Get the div container
+        var container = document.getElementById('selectedColorsContainer');
 
-    // Append the HTML to the container
-    container.innerHTML = html;
+        // Append the HTML to the container
+        container.innerHTML = html;
 
-}
+    }
 
-function updateValues(inputElement, color, size) {
-    var quantity = inputElement.value;
-    const ci = SelectedColors.findIndex(item => item.code === color);
-    const size_qty = {
-        size,
-        quantity
-    };
-    var sizes = SelectedColors[ci].selectedsize;
-    var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i
-        .size === size));
+    function updateValues(inputElement, color, size) {
+        var quantity = inputElement.value;
+        const ci = SelectedColors.findIndex(item => item.code === color);
+        const size_qty = {
+            size,
+            quantity
+        };
+        var sizes = SelectedColors[ci].selectedsize;
+        var isSizeExistIndex = SelectedColors.findIndex(item => item.code === color && item.selectedsize.some(i => i
+            .size === size));
 
-    if (isSizeExistIndex !== -1) {
-        // Update the quantity of the existing size
-        const existingSizeIndex = SelectedColors[isSizeExistIndex].selectedsize.findIndex(i => i.size === size);
+        if (isSizeExistIndex !== -1) {
+            // Update the quantity of the existing size
+            const existingSizeIndex = SelectedColors[isSizeExistIndex].selectedsize.findIndex(i => i.size === size);
 
-        if (existingSizeIndex !== -1) {
-            // Remove the previous quantity and update with the new quantity
-            SelectedColors[isSizeExistIndex].selectedsize.splice(existingSizeIndex, 1, size_qty);
+            if (existingSizeIndex !== -1) {
+                // Remove the previous quantity and update with the new quantity
+                SelectedColors[isSizeExistIndex].selectedsize.splice(existingSizeIndex, 1, size_qty);
+            } else {
+                // Add the new size_qty if the size doesn't exist
+                sizes.push(size_qty);
+            }
         } else {
-            // Add the new size_qty if the size doesn't exist
+            // Add the new size_qty if both code and size don't exist
             sizes.push(size_qty);
         }
-    } else {
-        // Add the new size_qty if both code and size don't exist
-        sizes.push(size_qty);
+
+        console.log('SelectedColors', SelectedColors);
+
     }
 
-    console.log('SelectedColors', SelectedColors);
-
-}
-
-function removeColor(item) {
-
-    var colorToRemove = item.getAttribute('code');
-    const remainingColors = SelectedColors.filter(function(color) {
-        return color.code !== colorToRemove;
-    });
-
-    // Update the color list
-    SelectedColors = [];
-    SelectedColors.push(...remainingColors);
-    createColorList(remainingColors);
-
-    console.log(colorToRemove);
-    console.log(SelectedColors);
-}
+    function removeColor(item) {
+        var colorToRemove = item.getAttribute('code');
+        const remainingColors = SelectedColors.filter(function (color) {
+            return color.code !== colorToRemove;
+        });
+        // Update the color list
+        SelectedColors = [];
+        SelectedColors.push(...remainingColors);
+        createColorList(remainingColors);
+    }
 
 
-function selectOnlyVarients(button, name) {
+    function selectOnlyVarients(button, name) {
     var index = selectedVariants.findIndex(function(item) {
         return item.variant === name;
     });
@@ -612,230 +615,296 @@ function selectOnlyVarients(button, name) {
     handleUploadImage()
 }
 
-// Function to update color sections in the logo
-function updateColorLogo() {
-    var colorLogoDiv = document.querySelector('.colorLogo');
-    colorLogoDiv.innerHTML = ''; // Clear existing content
-    if (selectedVariants.length > 0) {
-        for (var i = 0; i < selectedVariants.length; i++) {
-            var variantName = selectedVariants[i].variant;
-            var sectionHTML =
-                '<div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto mt-5 false">' +
-                variantName +
-                '</h5><div class="items-center justify-center mt-4 gap-2 p-0 grid md:grid-cols-7 grid-cols-2">';
-            for (var j = 1; j <= 7; j++) {
-                sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j +
-                    '"  name="' + variantName +
-                    '" class="w-full text-center p-2 cursor-pointer sm:px-8 text-lg bg-white rounded border-2 border-gray-100 hover:border-main"><img alt="' +
-                    j + '" width="200" height="200"  src="<?php echo $baseUrl ?>/public/images/colors/' + j +
-                    '.jpg">Colours</button></div>';
+
+
+    // Function to update color sections in the logo
+    function updateColorLogo() {
+        var colorLogoDiv = document.querySelector('.colorLogo');
+        colorLogoDiv.innerHTML = ''; // Clear existing content
+        if (selectedVariants.length > 0) {
+            for (var i = 0; i < selectedVariants.length; i++) {
+                var variantName = selectedVariants[i].variant;
+                var sectionHTML =
+                    '<div><h5 class="text-xl font-semibold text-accent pl-2 font-roboto mt-5 false">' +
+                    variantName +
+                    '</h5><div class="items-center justify-center mt-4 gap-2 p-0 grid md:grid-cols-7 grid-cols-2">';
+                for (var j = 1; j <= 1; j++) {
+                    sectionHTML += '<div class="relative"><button onclick="handleColorInLogo(this)" colorinlogo="' + j +
+                        '"  name="' + variantName +
+                        '" class="w-full text-center p-2 cursor-pointer sm:px-8 text-lg bg-white rounded border-2 border-gray-100 hover:border-main"><img alt="' +
+                        j + '" width="200" height="200"  src="<?php echo $baseUrl ?>/public/images/colors/' + j +
+                        '.jpg">Colours</button></div>';
+                }
+                sectionHTML += '</div></div>';
+                colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
             }
-            sectionHTML += '</div></div>';
-            colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
         }
     }
-}
 
-// Initially update the color sections in the logo
-updateColorLogo();
+    // Initially update the color sections in the logo
+    updateColorLogo();
 
-function handleColorInLogo(props) {
-    const vName = props.getAttribute('name');
-    const CIL = props.getAttribute('colorinlogo');
-    const index = selectedVariants.findIndex(item => item.variant === vName);
+    function handleColorInLogo(props) {
+        const vName = props.getAttribute('name');
+        const CIL = props.getAttribute('colorinlogo');
+        const index = selectedVariants.findIndex(item => item.variant === vName);
 
-    if (index !== -1) {
-        selectedVariants[index].colorInLogo = CIL;
-        console.log(selectedVariants); // Output the updated selected variants array
+        if (index !== -1) {
+            selectedVariants[index].colorInLogo = CIL;
+            console.log(selectedVariants); // Output the updated selected variants array
 
-        // Loop through buttons to remove red border from all buttons
-        const buttons = document.querySelectorAll('button[name="' + vName + '"]');
-        buttons.forEach(button => {
-            button.style.border = '1px solid #CCCCCC'; // Set default border
-        });
+            // Loop through buttons to remove red border from all buttons
+            const buttons = document.querySelectorAll('button[name="' + vName + '"]');
+            buttons.forEach(button => {
+                button.style.border = '1px solid #CCCCCC'; // Set default border
+            });
 
-        // Add red border to the button with matching colorInLogo
-        props.style.border = '3px solid #08c';
-    } else {
-        console.error('Variant not found in selectedVariants array');
-    }
-}
-
-
-function handleUploadImage() {
-    var colorLogoDiv = document.querySelector('.uploadImages');
-    colorLogoDiv.innerHTML = ''; // Clear existing content
-
-    if (selectedVariants.length > 0) {
-        for (var i = 0; i < selectedVariants.length; i++) {
-            var sectionHTML = '<div class="bg-white p-4 rounded-xl">';
-            sectionHTML +=
-                '<div class="flex flex-col md:flex-row w-full h-32 bg-gray-50 border-2 border-gray-300 border-dashed rounded-lg items-center justify-center md:p-0 p-5">';
-            sectionHTML += '<input class="sm:w-auto w-full" type="file" name="image" id="fileInput' + i +
-                '" accept="image/*">';
-            sectionHTML += '<div id="upload-status' + i + '"></div>'
-            sectionHTML += '</div></div>';
-            colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
-        }
-    }
-}
-
-function Order() {
-    var productId = <?php echo $product_id ?>;
-    var additionalInfoTextarea = document.getElementById('additional').value;
-    localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
-    localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
-    localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
-    localStorage.setItem("ProductID", JSON.stringify(productId));
-    // Prepare data to send
-    var data = {
-        'action': 'store_data_in_wp_session',
-        'SelectedColors': SelectedColors,
-        'selectedVariants': selectedVariants,
-        'additionalInfo': additionalInfoTextarea,
-        'ProductID': productId
-    };
-    // Send AJAX request to WordPress backend
-    jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function(response) {
-        if (response.success) {
-            window.location.href = response.data.redirect_url;
+            // Add red border to the button with matching colorInLogo
+            props.style.border = '3px solid #08c';
         } else {
-            console.error('Error occurred:', response.data);
+            console.error('Variant not found in selectedVariants array');
         }
-    });
-}
-
-const handleAddToCart = () => {
-
-    if (SelectedColors.length < 1) {
-        const heading = document.querySelector(".choseColor");
-        heading.classList.add("border-red-600")
     }
 
-    if (selectedVariants.length < 1) {
-        const heading = document.querySelector(".select-position");
-        heading.classList.add("border-red-600")
+
+    function handleUploadImage() {
+        var colorLogoDiv = document.querySelector('.uploadImages');
+        colorLogoDiv.innerHTML = ''; // Clear existing content
+
+        if (selectedVariants.length > 0) {
+            for (var i = 0; i < selectedVariants.length; i++) {
+                var sectionHTML = '<div class="bg-white p-4 rounded-xl">';
+                sectionHTML +=
+                    '<div class="flex flex-col md:flex-row w-full h-32 bg-gray-50 border-2 border-gray-300 border-dashed rounded-lg items-center justify-center md:p-0 p-5">';
+                sectionHTML += '<input class="sm:w-auto w-full" type="file" name="image" id="fileInput' + i +
+                    '" accept="image/*">';
+                sectionHTML += '<div id="upload-status' + i + '"></div>'
+                sectionHTML += '</div></div>';
+                colorLogoDiv.insertAdjacentHTML('beforeend', sectionHTML);
+            }
+        }
     }
 
-    if (selectedVariants?. [0]?.colorInLogo === 0) {
-        const heading = document.querySelector(".number-of-color");
-        heading.classList.add("border-red-600")
-    }
+    function Order(qty, price, type) {
+        var productId = <?php echo $product_id ?>;
+        var additionalInfoTextarea = document.getElementById('additional').value;
+        localStorage.setItem("SelectedColors", JSON.stringify(SelectedColors));
+        localStorage.setItem("selectedVariants", JSON.stringify(selectedVariants));
+        localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
+        localStorage.setItem("ProductID", JSON.stringify(productId));
 
-    if (selectedVariants?. [0]?.colorInLogo !== 0) {
-        const heading = document.querySelector(".number-of-color");
-        heading.classList.remove("border-red-600")
-    }
+        // Prepare data to send
+        var data = {
+            'action': 'store_data_in_wp_session',
+            'SelectedColors': SelectedColors,
+            'selectedVariants': selectedVariants,
+            'additionalInfo': additionalInfoTextarea,
+            'ProductID': productId,
 
-    if (SelectedColors.length > 0 && selectedVariants.length > 0 && selectedVariants?. [0]?.colorInLogo !== 0) {
-        Order()
-    }
-
-}
-
-
-
-jQuery(document).ready(function($) {
-
-
-
-
-    $(document).on('change', '[id^=fileInput]', function() {
-        var fileInputId = $(this).attr('id');
-        var fileIndex = fileInputId.replace('fileInput', '');
-        handleFileInputChange(this, fileIndex);
-        console.log(fileInputId);
-
-    });
-
-    function handleFileInputChange(input, index) {
-        var formData = new FormData();
-        var file = input.files[0];
-        formData.append('action', 'upload_mediafiles');
-        formData.append('file', file);
-
-        var uploadStatus = $('#upload-status' + index);
-
-        $.ajax({
-            type: "POST",
-            url: "<?php echo admin_url('admin-ajax.php'); ?>",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                selectedVariants[index].url = response;
-                console.log(selectedVariants);
-                uploadStatus.html('<img src="' + response +
-                    '" alt="Uploaded Image" width="75" height="75">');
-            },
-            error: function(xhr, status, error) {
-                uploadStatus.html('Error uploading image: ' + error);
+        };
+        // Send AJAX request to WordPress backend
+        jQuery.post('<?php echo admin_url('admin-ajax.php'); ?>', data, function (response) {
+            if (response.success) {
+                window.location.href = response.data.redirect_url;
+            } else {
+                console.error('Error occurred:', response.data);
             }
         });
     }
 
+    // Function to disable further color selection when the product is white-t-shirt
+    function disableColorSelection() {
+        const colorItems = document.querySelectorAll('.color-item');
+        colorItems.forEach(item => {
+            item.style.pointerEvents = 'none';  // Disable clicking
+            item.style.opacity = '0.5';         // Make it look disabled
+        });
 
-
-
-    $('.open-popup-link').magnificPopup({
-        type: 'inline',
-        midClick: false
-    });
-    // Add event listener to the close button
-    $('.close_popup').on('click', function() {
-        // Get the Magnific Popup instance and close the popup
-        $.magnificPopup.close();
-    });
-
-
-
-    const descriptionButton = document.getElementById('descriptionButton');
-  const detailsButton = document.getElementById('detailsButton');
-  const descriptionContent = document.getElementById('descriptionContent');
-  const detailsContent = document.getElementById('detailsContent');
-
-  descriptionButton.addEventListener('click', function () {
-    // Toggle visibility for description content
-    descriptionContent.classList.toggle('hidden');
-    // Hide details content if description is being shown
-    if (!descriptionContent.classList.contains('hidden')) {
-      detailsContent.classList.add('hidden');
-    }
-  });
-
-  detailsButton.addEventListener('click', function () {
-    // Toggle visibility for details content
-    detailsContent.classList.toggle('hidden');
-    // Hide description content if details are being shown
-    if (!detailsContent.classList.contains('hidden')) {
-      descriptionContent.classList.add('hidden');
-    }
-  });
-
-
-
-    $('.tab-content').hide();
-    $('.tab-content:first').show("");
-    $('.tab-link:first').addClass(' text-blue-700 border-b border-secondary');
-
-    $('.tab-link').click(function(event) {
-        event.preventDefault();
-        var tab_id = $(this).attr('href');
-
-        $('.tab-link').removeClass('  text-blue-700 border-b border-secondary');
-        $(this).addClass('  text-blue-700 border-b border-secondary');
-
-        $('.tab-content').hide();
-        $(tab_id).show();
-    });
-    if ($(window).width() < 768) {
-        $('.tab-content').hide();
-        $('.tab-content:first').hide();
-    } else {
-        $('.tab-content').hide();
-        $('.tab-content:first').show();
-        $('.tab-link:first').addClass('text-blue-700 border-b border-secondary');
+        console.log("Color selection disabled for white-t-shirt.");
     }
 
-});
+
+    const handleAddToCart = (button) => {
+
+        const price = button.getAttribute('data-price');
+        const type = button.getAttribute('data-type');
+        const qty = button.getAttribute('data-qty');
+
+        const dealNumber = button.closest('.deal_box').querySelector('h2').innerText.split(' ')[1]; // Get the deal number from the header
+
+        // Check if the selected deal is for white t-shirts
+        if (type === "white") {
+            // Automatically select white color and add it to SelectedColors
+            selectedDeal.type = type;
+            selectedDeal.price = price;
+            selectedDeal.qty = qty;
+
+            let updatedColor = [
+                {
+                    "color": "White", // Auto-select white color
+                    "code": "#fff",   // Assuming white color code is '#fff'
+                    "selectedsize": [
+                        {
+                            "size": "Quantity",
+                            "quantity": qty // Auto-fill the quantity based on the selected deal
+                        }
+                    ]
+                }
+            ];
+            SelectedColors = updatedColor;
+
+            console.log("🚀 ~ handleAddToCart ~ SelectedColors:", SelectedColors);
+            // Automatically display Step 2 color section with white selected
+            createColorList(SelectedColors); // Ensure color list is updated immediately
+            const colorStep = document.querySelector(".choseColor");
+            colorStep.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the color section
+
+            //  disableColorSelection();
+
+        }
+
+
+
+
+        // Additional checks for color and variant selections
+        if (SelectedColors.length < 1) {
+            const heading = document.querySelector(".choseColor");
+            heading.classList.add("border-red-600");
+        }
+
+        if (selectedVariants.length < 1) {
+            const heading = document.querySelector(".select-position");
+            heading.classList.add("border-red-600");
+        }
+
+        if (selectedVariants?.[0]?.colorInLogo === 0) {
+            const heading = document.querySelector(".number-of-color");
+            heading.classList.add("border-red-600");
+        }
+
+        if (selectedVariants?.[0]?.colorInLogo !== 0) {
+            const heading = document.querySelector(".number-of-color");
+            heading.classList.remove("border-red-600");
+        }
+
+        // If everything is selected correctly, proceed to order
+        if (SelectedColors.length > 0 && selectedVariants.length > 0) {
+            Order(qty, price, type);
+        }
+
+        // Update the selected deal display in the "Show your Selected Deal Here" section
+        const selectedDealContainer = document.getElementById('selected-deal');
+        selectedDealContainer.innerHTML = `Deal : ${qty} ${type.charAt(0).toUpperCase() + type.slice(1)} T-shirts for £${price}`;
+    };
+
+
+
+    jQuery(document).ready(function ($) {
+
+        $(document).on('change', '[id^=fileInput]', function () {
+            var fileInputId = $(this).attr('id');
+            var fileIndex = fileInputId.replace('fileInput', '');
+            handleFileInputChange(this, fileIndex);
+            console.log(fileInputId);
+
+        });
+
+        function handleFileInputChange(input, index) {
+            var formData = new FormData();
+            var file = input.files[0];
+            formData.append('action', 'upload_mediafiles');
+            formData.append('file', file);
+
+            var uploadStatus = $('#upload-status' + index);
+
+            $.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    selectedVariants[index].url = response;
+                    console.log(selectedVariants);
+                    uploadStatus.html('<img src="' + response +
+                        '" alt="Uploaded Image" width="75" height="75">');
+                },
+                error: function (xhr, status, error) {
+                    uploadStatus.html('Error uploading image: ' + error);
+                }
+            });
+        }
+
+
+
+
+        $('.add-to-quote-button').on('click', function (e) {
+            e.preventDefault(); // Prevent the default action
+
+            // Open Magnific Popup manually
+            $.magnificPopup.open({
+                items: {
+                    src: '#product-popup', // The ID of the popup content
+                },
+                type: 'inline', // Popup type
+                midClick: true // Allows popup to be opened on middle mouse click or CTRL+click
+            });
+        });
+        // Add event listener to the close button
+        $('.close_popup').on('click', function () {
+            // Get the Magnific Popup instance and close the popup
+            $.magnificPopup.close();
+        });
+
+
+
+        const descriptionButton = document.getElementById('descriptionButton');
+        const detailsButton = document.getElementById('detailsButton');
+        const descriptionContent = document.getElementById('descriptionContent');
+        const detailsContent = document.getElementById('detailsContent');
+
+        descriptionButton.addEventListener('click', function () {
+            // Toggle visibility for description content
+            descriptionContent.classList.toggle('hidden');
+            // Hide details content if description is being shown
+            if (!descriptionContent.classList.contains('hidden')) {
+                detailsContent.classList.add('hidden');
+            }
+        });
+
+        detailsButton.addEventListener('click', function () {
+            // Toggle visibility for details content
+            detailsContent.classList.toggle('hidden');
+            // Hide description content if details are being shown
+            if (!detailsContent.classList.contains('hidden')) {
+                descriptionContent.classList.add('hidden');
+            }
+        });
+
+
+
+        $('.tab-content').hide();
+        $('.tab-content:first').show("");
+        $('.tab-link:first').addClass(' text-blue-700 border-b border-secondary');
+
+        $('.tab-link').click(function (event) {
+            event.preventDefault();
+            var tab_id = $(this).attr('href');
+
+            $('.tab-link').removeClass('  text-blue-700 border-b border-secondary');
+            $(this).addClass('  text-blue-700 border-b border-secondary');
+
+            $('.tab-content').hide();
+            $(tab_id).show();
+        });
+        if ($(window).width() < 768) {
+            $('.tab-content').hide();
+            $('.tab-content:first').hide();
+        } else {
+            $('.tab-content').hide();
+            $('.tab-content:first').show();
+            $('.tab-link:first').addClass('text-blue-700 border-b border-secondary');
+        }
+
+    });
 </script>
