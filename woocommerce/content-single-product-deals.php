@@ -183,12 +183,7 @@ $product_slug = $product->get_slug();
         </div>
 
         <div class=" gap-4 mt-4">
-
             <?php
-
-
-
-
 
             if ($product_slug == 'colors-t-shirt') {
 
@@ -481,11 +476,8 @@ $product_slug = $product->get_slug();
 <script>
     var SelectedColors = [];
     var selectedVariants = [];
-
     var selectedDeal = {}
-    console.log("🚀 ~ selectedDeal:", selectedDeal)
-
-
+  
     function handColors(item) {
         if (selectedDeal.type === "white") {
             console.log("Color selection is disabled for white-t-shirt.");
@@ -603,41 +595,28 @@ $product_slug = $product->get_slug();
 
 
     function selectOnlyVarients(button, name) {
-        // Check if the selected deal is for white t-shirts
-        if (selectedDeal.type === "white") {
-            // Ensure only one option can be selected
-            if (selectedVariants.length > 0) {
-                // If an option is already selected, don't allow further selections
-                alert("You can only select one print area for white t-shirts.");
-                console.warn(selectedVariants, "selectedVariants");
+      // Clear the selectedVariants array to ensure only one variant is selected at a time
+      selectedVariants = [];
 
-                return; // Exit the function if one is already selected
-            }
-        }
-
-        // Find the index of the selected variant in the `selectedVariants` array
-        var index = selectedVariants.findIndex(function (item) {
-            return item.variant === name;
+        // Deselect all other buttons
+        var allButtons = document.querySelectorAll('.select-position button');
+        allButtons.forEach(function (btn) {
+            btn.style.border = "none"; // Remove the border from all buttons
         });
 
-        if (index === -1) {
-            // If variant is not already selected, add it to the `selectedVariants` array
-            selectedVariants.push({
-                variant: name,
-                colorInLogo: 0 // Default color selection, will be updated later
-            });
-            button.style.border = "3px solid #08c"; // Add border to indicate selection
-        } else {
-            // If variant is already selected, remove it from the `selectedVariants` array
-            selectedVariants.splice(index, 1);
-            button.style.border = "none"; // Remove border to indicate deselection
-        }
+        // Add the newly selected variant to the array
+        selectedVariants.push({
+            variant: name,
+            colorInLogo: 0 // Default color selection, will be updated later
+        });
 
-        // Update the display of color choices and variant selections
+        // Highlight the selected button
+        button.style.border = "3px solid #08c"; // Add a border to the selected button
+
+        // Update the color logo section and upload image section based on the new selection
         updateColorLogo();
         handleUploadImage();
-    }
-
+}
 
     // Function to update color sections in the logo
     function updateColorLogo() {
