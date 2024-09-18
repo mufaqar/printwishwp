@@ -341,8 +341,7 @@ $product_slug = $product->get_slug();
             </div>
 
 
-            <h5
-                class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400 choseColor">
+            <h5 class="md:text-xl text-lg font-semibold text-accent font-roboto bg-gray-200 px-4 py-6 border rounded border-gray-400 choseColor">
                 Step 1 - Choose one or more colours: *</h5>
             <?php
             // Ensure WooCommerce is active
@@ -691,6 +690,15 @@ $product_slug = $product->get_slug();
         const dealNumber = button.closest('.deal_box').querySelector('h2').innerText.split(' ')[1];    
         const selectedDealContainer = document.getElementById('selected-deal');
         selectedDealContainer.innerHTML = `Deal : ${qty} ${type.charAt(0).toUpperCase() + type.slice(1)} T-shirts for £${price}`;
+        const chooseColorHeading = document.querySelector('.choseColor');
+        if (type === 'white') {
+        chooseColorHeading.innerHTML = "Step 1 - Choose one colour: *";
+        // Optionally disable color selection for white t-shirts
+        disableColorSelection();
+    } else {
+        chooseColorHeading.innerHTML = "Step 1 - You can mix colours and sizes.*";
+        enableColorSelection();  // Optionally re-enable color selection for colored t-shirts
+    }
     };
 
     function Order(selectedDeal, selectedSizes) {
