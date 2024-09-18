@@ -566,7 +566,7 @@ $product_slug = $product->get_slug();
                      
                         </div> `;
             html += '</div>';
-            html += '<p>Please mentions Sizes in  Additional information</p>';
+            html += '<p>Kindly provide the sizes in the Additional Information section</p>';
 
         // Append the HTML to the container
         container.innerHTML = html;
