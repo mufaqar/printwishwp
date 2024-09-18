@@ -9,67 +9,166 @@ function insert_order_data() {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) ) {
 
-			
-
+ 	global $woocommerce;	
 		$order_data = $_POST['order_data'];
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$mobile = $_POST['mobile'];
-		$date = $_POST['date'];	
-		$product_id = $order_data['product_id'];	
+		$date = $_POST['date'];
+		$product_id = $order_data['product_id'];
+
+global $woocommerce;
+$address = array(
+    'first_name' => $name,
+    'last_name'  => '',
+    'company'    => '',
+    'email'      => $email,
+    'phone'      => $mobile,
+    'address_1'  => '',
+    'address_2'  => '',
+    'city'       => '',
+    'state'      => '',
+    'postcode'   => '',
+    'country'    => 'UK'
+);
+
+$order = wc_create_order();
+$order->set_address($address, 'billing');
+$order->set_address($address, 'shipping');
+
+$price = 0;
+
+// Check if selectedDeal exists and add to order
+if (isset($order_data['selectedDeal']) && !empty($order_data['selectedDeal'])) {
+    $deal_price = $order_data['selectedDeal']['price'];
+    $deal_qty = $order_data['selectedDeal']['qty'];
+    
+    // Add selectedDeal as a custom order line
+    $order->add_product(wc_get_product($product_id), $deal_qty, [
+        'subtotal'     => $deal_price,
+        'total'        => $deal_price
+    ]);
+
+    // Add meta data for the deal
+    foreach ($order->get_items() as $item_key => $item) {
+        $item->add_meta_data('Deal Type', $order_data['selectedDeal']['type']);
+        $item->add_meta_data('Deal Price', $deal_price);
+        $item->add_meta_data('Deal Quantity', $deal_qty);
+		// If the deal type is 'color', add selected colors
+     
+		if (isset($order_data['selected_colors']) && !empty($order_data['selected_colors'])) {
+            $colors = [];
+            foreach ($order_data['selected_colors'] as $color_item) {
+                $colors[] = $color_item['color'] . " (Code: " . $color_item['code'] . ")";
+            }
+            $item->add_meta_data('Selected Colors', implode(', ', $colors));
+        }
+
+			// Add selected sizes if they exist
+			if (isset($order_data['selectedSizes']) && !empty($order_data['selectedSizes'])) {
+				$sizes = implode(', ', $order_data['selectedSizes']);
+				$item->add_meta_data('Selected Sizes', $sizes);
+			}
+			 // Add URL for the variant if available
+			 foreach ($order_data['selected_variants'] as $index => $variant_item) {
+				$variant = $variant_item['variant'];
+				$colorInLogo = $variant_item['colorInLogo'];
+				$url = $variant_item['url'];
+				$item->add_meta_data('Variant', $variant);
+				$item->add_meta_data('Color in Logo', $colorInLogo);
+				$item->add_meta_data('URL', $url);
+			}
+       
+    }
+} else {
+    // No selectedDeal, proceed with the default product addition
+    $order->add_product(wc_get_product($product_id), 1, [
+        'subtotal'     => $price,
+        'total'        => $price
+    ]);
+
+    foreach ($order->get_items() as $item_key => $item) {
+        foreach ($order_data['selected_colors'] as $index => $color_item) {
+            $color = $color_item['color'];
+            foreach ($color_item['selectedsize'] as $size_item) {
+									$size = $size_item['size'];
+									$quantity = $size_item['quantity'];
+									$variant = $order_data['selected_variants'][$index]['variant'];
+									$colorInLogo = $order_data['selected_variants'][$index]['colorInLogo'];
+									$url = $order_data['selected_variants'][$index]['url'];
+									$item_data =  "Color: $color <br/> Size: $size <br/>  Quantity: $quantity <br/>  Variant: $variant <br/>  Color in Logo: $colorInLogo<br/>  URL: $url . <hr/>";
+									$item->add_meta_data("order_data", $item_data);
+            }
+        }
+    }
+}
+
+$order->calculate_totals();
+$order->set_status('wc-processing');
+$order->save();
+
+
+			
+
+		// $order_data = $_POST['order_data'];
+		// $name = $_POST['name'];
+		// $email = $_POST['email'];
+		// $mobile = $_POST['mobile'];
+		// $date = $_POST['date'];	
+		// $product_id = $order_data['product_id'];	
 		
-		print_r($order_data);
+		
 	
 
 		
-			global $woocommerce;		  
-			$address = array(
-				'first_name' => $name,
-				'last_name'  => '',
-				'company'    => '',
-				'email'      => $email,
-				'phone'      => $mobile,
-				'address_1'  => '',
-				'address_2'  => '',
-				'city'       => '',
-				'state'      => '',
-				'postcode'   => '',
-				'country'    => 'UK'
-			);
+		// 	global $woocommerce;		  
+		// 	$address = array(
+		// 		'first_name' => $name,
+		// 		'last_name'  => '',
+		// 		'company'    => '',
+		// 		'email'      => $email,
+		// 		'phone'      => $mobile,
+		// 		'address_1'  => '',
+		// 		'address_2'  => '',
+		// 		'city'       => '',
+		// 		'state'      => '',
+		// 		'postcode'   => '',
+		// 		'country'    => 'UK'
+		// 	);
 
-			$price = 0;
+		// 	$price = 0;
 
-			$order = wc_create_order();
-			$order->set_address( $address, 'billing' );
-			$order->set_address( $address, 'shipping' );
-			//$order->add_product( wc_get_product( $product_id ), 1  );
+		// 	$order = wc_create_order();
+		// 	$order->set_address( $address, 'billing' );
+		// 	$order->set_address( $address, 'shipping' );
+		// 	//$order->add_product( wc_get_product( $product_id ), 1  );
 
-			$order->add_product( wc_get_product( $product_id ), 1, [
-				'subtotal'     => $price, // e.g. 32.95
-				'total'        => $price, // e.g. 32.95
-			] );
+		// 	$order->add_product( wc_get_product( $product_id ), 1, [
+		// 		'subtotal'     => $price, // e.g. 32.95
+		// 		'total'        => $price, // e.g. 32.95
+		// 	] );
 
-			foreach ( $order->get_items() as $item_key => $item ) {
-				foreach ($order->get_items() as $item_key => $item) {
-					foreach ($order_data['selected_colors'] as $index => $color_item) {
-						$color = $color_item['color'];
-						foreach ($color_item['selectedsize'] as $size_item) {
-							$size = $size_item['size'];
-							$quantity = $size_item['quantity'];
-							$variant = $order_data['selected_variants'][$index]['variant'];
-							$colorInLogo = $order_data['selected_variants'][$index]['colorInLogo'];
-							$url = $order_data['selected_variants'][$index]['url'];
-							$item_data =  "Color: $color <br/> Size: $size <br/>  Quantity: $quantity <br/>  Variant: $variant <br/>  Color in Logo: $colorInLogo<br/>  URL: $url . <hr/>";
-							$item->add_meta_data("order_data", $item_data);
+		// 	foreach ( $order->get_items() as $item_key => $item ) {
+		// 		foreach ($order->get_items() as $item_key => $item) {
+		// 			foreach ($order_data['selected_colors'] as $index => $color_item) {
+		// 				$color = $color_item['color'];
+		// 				foreach ($color_item['selectedsize'] as $size_item) {
+		// 					$size = $size_item['size'];
+		// 					$quantity = $size_item['quantity'];
+		// 					$variant = $order_data['selected_variants'][$index]['variant'];
+		// 					$colorInLogo = $order_data['selected_variants'][$index]['colorInLogo'];
+		// 					$url = $order_data['selected_variants'][$index]['url'];
+		// 					$item_data =  "Color: $color <br/> Size: $size <br/>  Quantity: $quantity <br/>  Variant: $variant <br/>  Color in Logo: $colorInLogo<br/>  URL: $url . <hr/>";
+		// 					$item->add_meta_data("order_data", $item_data);
 						
 							
-						}
-					}   
-				}
-			}
-			$order->calculate_totals();
-			$order->set_status( 'wc-processing' );
-			$order->save();
+		// 				}
+		// 			}   
+		// 		}
+		// 	}
+		// 	$order->calculate_totals();
+		// 	$order->set_status( 'wc-processing' );
+		// 	$order->save();
 
 			//echo "order Crated";
 			destroy_wp_session();
