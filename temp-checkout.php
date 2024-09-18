@@ -8,16 +8,22 @@
 
 
     $session_data = $GLOBALS['wp_query']->query_vars['session_data'];
+  
     if ($session_data) {
         $selected_colors = $session_data['selected_colors'];
         $selected_variants = $session_data['selected_variants'];
         $additional_info = $session_data['additional_info'];
         $product_id = $session_data['product_id'];
+        $selectedSizes = $session_data['selectedSizes'];
+        $selectedDeal = $session_data['selectedDeal'];
         $data = array(
             'selected_colors' => $selected_colors,
             'selected_variants' => $selected_variants,
             'additional_info' => $additional_info,
-            'product_id' => $product_id
+            'product_id' => $product_id,
+            'selectedSizes' => $selectedSizes,
+            'selectedDeal' => $selectedDeal,
+            
         );
         $serialized_data = json_encode($data);  
     }
@@ -27,6 +33,14 @@
         $product_title = $product->get_name();
         $product_sku = $product->get_sku();  
     }
+    // Check if selectedDeal is not empty
+    if (!empty($selectedDeal)) {
+        // Add "Deal Before product title"
+        $product_title = "Deal: " . $selectedDeal['qty'] . " " . ucfirst($selectedDeal['type']) . " T-shirts - " . $product_title;
+    }
+
+   
+    
 ?>
 
 <div class="relative mx-auto w-full bg-white">
@@ -133,10 +147,13 @@
                             class="w-40" />
                         <div class='ml-4 border-l pl-4'>
                             <h5 class="md:text-white font-medium"><?php echo $product_title; ?></h5>
+                            <?php if (empty($selectedDeal)) { ?> 
                             <h5 class="md:text-white font-medium">SKU: <span
-                                    class='font-extralight'><?php echo $product_sku; ?></span></h5>
+                                    class='font-extralight'><?php echo $product_sku; ?></span></h5> <?php } ?> 
                             <div class="md:text-white font-medium">
+
                                 <?php 
+                                if (empty($selectedDeal)) {
                                       foreach ($selected_colors as $s_color) {
                                         echo '' . $s_color['color'] . '<br>';
                                         echo '<ul>';
@@ -145,7 +162,16 @@
                                         }
                                         echo '</ul>';
 
-                                      }     
+                                      }  
+                                    }
+                                    else {
+                                        echo '<ul>';
+                                            echo '<li>Type: ' . $selectedDeal["type"] . '</li>';
+                                            echo '<li>Price: ' . $selectedDeal['price'] . '</li>';
+                                            echo '<li>Quantity: ' . $selectedDeal['qty'] . '</li>';
+                                        echo '</ul>';
+                                                                            
+                                    }   
                                    ?>
                             </div>
                         </div>
@@ -236,8 +262,7 @@ jQuery(document).ready(function($) {
 
             },
             error: function(error) {
-                // Handle error response
-               // console.log(error.responseText);
+                console.error(error);
             }
         });
     });

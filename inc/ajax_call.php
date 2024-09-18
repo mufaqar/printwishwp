@@ -16,49 +16,12 @@ function insert_order_data() {
 		$email = $_POST['email'];
 		$mobile = $_POST['mobile'];
 		$date = $_POST['date'];	
-		$product_id = $order_data['product_id'];		
-
-		// $order_data = array(
-		// 	'selected_colors' => array(
-		// 		array(
-		// 			'color' => 'DARK HEATHER',
-		// 			'code' => '565B5E',
-		// 			'selectedsize' => array(
-		// 				array(
-		// 					'size' => 'S',
-		// 					'quantity' => 44
-		// 				)
-		// 			)
-		// 		),
-		// 		array(
-		// 			'color' => 'HELICONIA',
-		// 			'code' => 'E63B6E',
-		// 			'selectedsize' => array(
-		// 				array(
-		// 					'size' => 'S',
-		// 					'quantity' => 33
-		// 				)
-		// 			)
-		// 		)
-		// 	),
-		// 	'selected_variants' => array(
-		// 		array(
-		// 			'variant' => 'Left Breast',
-		// 			'colorInLogo' => 1,
-		// 			'url' => 'http://localhost/projects/printwishwp/wp-content/uploads/2024/05/landing-minidil-red-shape.png'
-		// 		),
-		// 		array(
-		// 			'variant' => 'Big Front',
-		// 			'colorInLogo' => 2,
-		// 			'url' => 'http://localhost/projects/printwishwp/wp-content/uploads/2024/05/CNIC Front.png'
-		// 		)
-		// 	),
-		// 	'additional_info' => 'This is Test',
-		// 	'product_id' => 2988
-		// );		
+		$product_id = $order_data['product_id'];	
 		
-			
+		print_r($order_data);
+	
 
+		
 			global $woocommerce;		  
 			$address = array(
 				'first_name' => $name,

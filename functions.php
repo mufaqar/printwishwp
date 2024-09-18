@@ -225,12 +225,17 @@ function store_data_in_wp_session() {
     $selected_variants = $_POST['selectedVariants'];
     $additional_info = $_POST['additionalInfo'];
     $product_id = $_POST['ProductID'];
+	$selectedSizes = $_POST['selectedSizes'];
+	$selectedDeal = $_POST['selectedDeal'];
 
     // Store data in session
     $_SESSION['SelectedColors'] = $selected_colors;
     $_SESSION['selectedVariants'] = $selected_variants;
     $_SESSION['additionalInfo'] = $additional_info;
     $_SESSION['ProductID'] = $product_id;  
+	$_SESSION['selectedSizes'] = $selectedSizes;  
+	$_SESSION['selectedDeal'] = $selectedDeal;  
+
 
 	$redirect_url = home_url('/checkout');
 	// Send the URL back as a response
@@ -250,12 +255,16 @@ function get_session_data() {
     $selected_variants = isset($_SESSION['selectedVariants']) ? $_SESSION['selectedVariants'] : '';
     $additional_info = isset($_SESSION['additionalInfo']) ? $_SESSION['additionalInfo'] : '';
     $product_id = isset($_SESSION['ProductID']) ? $_SESSION['ProductID'] : '';
+	$selectedSizes = isset($_SESSION['selectedSizes']) ? $_SESSION['selectedSizes'] : '';
+	$selectedDeal = isset($_SESSION['selectedDeal']) ? $_SESSION['selectedDeal'] : '';
 
     return [
         'selected_colors' => $selected_colors,
         'selected_variants' => $selected_variants,
         'additional_info' => $additional_info,
         'product_id' => $product_id,
+		'selectedSizes' => $selectedSizes,
+		'selectedDeal' => $selectedDeal,
     ];
 }
 
@@ -295,6 +304,8 @@ function destroy_wp_session() {
     unset($_SESSION['selectedVariants']);
     unset($_SESSION['additionalInfo']);
     unset($_SESSION['ProductID']);
+	unset($_SESSION['selectedSizes']);
+	unset($_SESSION['selectedDeal']);
 }
 
 
