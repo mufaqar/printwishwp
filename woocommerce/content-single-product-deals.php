@@ -166,11 +166,11 @@ $product_slug = $product->get_slug();
 
     <section class='md:w-3/5 text-accent'>
 
-         <h2 class="text-primary text-3xl">What do our deals include?</h2>
+         <h2 class="text-primary text-2xl  md:pt-0 py-5 ">What do our deals include?</h2>
 
         <div class='text-sm md:text-base text-accent md:block '>
            
-            <ul class="list-disc list-inside text-base flex flex-col gap-4">
+            <ul class="list-disc list-inside text-base flex flex-col gap-2">
                 <?php if ($product_slug == 'colors-t-shirt' || $product_slug == 'white-t-shirt'): ?>
                     <li>Fruit of the Loom Value weight t-shirts (Best Seller). You can mix colours and sizes.</li>
                     <li>1 Single Colour print anywhere on the t-shirt up to A3 size (320mm x 410mm).</li>
