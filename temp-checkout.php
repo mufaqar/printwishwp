@@ -86,15 +86,23 @@
 
                     <input type="submit"
                         class="mt-4 cursor-pointer inline-flex w-full items-center justify-center rounded bg-primary py-2.5 px-4 text-base font-semibold tracking-wide text-white text-opacity-80 outline-none ring-offset-2 transition hover:text-opacity-100 focus:ring-2 focus:ring-primary sm:text-lg"
-                        value="Proceed to Submit your Quote" />
+                        value="<?php echo empty($selectedDeal) ? 'Proceed to Submit your Quote' : 'Submit'; ?>" 
+                    />
                 </form>
 
                 <div class="mt-5 border p-6">
                     <h3 class="font-semibold text-lg">What happens next?</h3>
                     <ul class="md:text-sm text-xs list-disc pl-4 mt-2 flex flex-col gap-2">
                         <li>
-                            SUBMIT YOUR QUOTE - and we will be in touch in 15-30
-                            minutes.
+                            <?php 
+                                if (empty($selectedDeal)) {
+                                     echo "SUBMIT YOUR QUOTE - and we will be in touch in 15-30 minutes." ;
+                                    }
+                                    else {
+                                        echo "SUBMIT YOUR DEAL  - and we will be in touch in 15-30 minutes." ;
+                                                                            
+                                    }   
+                                   ?>
                         </li>
                         <li>
                             We will provide free visuals proofs before the payment.
