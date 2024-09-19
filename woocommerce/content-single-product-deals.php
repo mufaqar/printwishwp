@@ -534,15 +534,15 @@ $product_slug = $product->get_slug();
                                 <div class="flex flex-wrap gap-4">
                                     <label class="flex items-center gap-2">
                                         <input type="checkbox" name="sizes[]" value="S">
-                                        <span>S</span>
+                                        <span>Small</span>
                                     </label>
                                     <label class="flex items-center gap-2">
                                         <input type="checkbox" name="sizes[]" value="M">
-                                        <span>M</span>
+                                        <span>Medium</span>
                                     </label>
                                     <label class="flex items-center gap-2">
                                         <input type="checkbox" name="sizes[]" value="L">
-                                        <span>L</span>
+                                        <span>Large</span>
                                     </label>
                                     <label class="flex items-center gap-2">
                                         <input type="checkbox" name="sizes[]" value="XL">
@@ -552,14 +552,7 @@ $product_slug = $product->get_slug();
                                         <input type="checkbox" name="sizes[]" value="2XL">
                                         <span>2XL</span>
                                     </label>
-                                    <label class="flex items-center gap-2">
-                                        <input type="checkbox" name="sizes[]" value="3XL">
-                                        <span>3XL</span>
-                                    </label>
-                                    <label class="flex items-center gap-2">
-                                        <input type="checkbox" name="sizes[]" value="4XL">
-                                        <span>4XL</span>
-                                    </label>
+                                    
                                 </div>
                      
                         </div> `;
