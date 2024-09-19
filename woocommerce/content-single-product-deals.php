@@ -394,10 +394,8 @@ $product_slug = $product->get_slug();
             <!-- variants  -->
             <!-- ------------------------  -->
             <div class="bg-gray-200 px-4 py-6 border rounded border-gray-400 select-position">
-                <h5 class="md:text-xl text-lg font-semibold text-accent pl-2 font-roboto">Step 2 - Where must we print
-                    your
-                    artwork? *</h5>
-                <p class="pl-2">T-Shirt Print Area</p>
+                <h5 class="md:text-xl text-lg font-semibold text-accent pl-2 font-roboto">Step 2 - Where must we print  your   artwork? *</h5>
+                <p class="pl-2">You can select 1 print position only.</p>
             </div>
 
             <?php
@@ -446,7 +444,7 @@ $product_slug = $product->get_slug();
 
             <div class="flex justify-center md:justify-end">
                 <button onclick="handleOrder(this)" class=" uppercase font-light items-center border border-primary gap-2 w-full md:w-1/2 text-center py-3 text-white px-6   mt-7 rounded-lg
-                            bg-primary hover:bg-transparent hover:text-primary cursor-pointer">Procede to Deal Quote</button>
+                            bg-primary hover:bg-transparent hover:text-primary cursor-pointer">PROCEED TO DEAL QUOTE</button>
             </div>
         </div>
 
@@ -693,7 +691,7 @@ $product_slug = $product->get_slug();
         selectedDealContainer.innerHTML = `Deal : ${qty} ${type.charAt(0).toUpperCase() + type.slice(1)} T-shirts for £${price}`;
         const chooseColorHeading = document.querySelector('.choseColor');
         if (type === 'white') {
-        chooseColorHeading.innerHTML = "Step 1 - Choose one colour: *";
+        chooseColorHeading.innerHTML = "Step 1: Select a Colour:* <p class='text-sm'>This product has only 1 colour option [White]. </p>";
         // Optionally disable color selection for white t-shirts
         disableColorSelection();
     } else {
@@ -710,9 +708,7 @@ $product_slug = $product->get_slug();
         localStorage.setItem("selectedSizes", JSON.stringify(selectedSizes)); 
         localStorage.setItem("selectedDeal", JSON.stringify(selectedDeal)); 
         localStorage.setItem("additionalInfo", JSON.stringify(additionalInfoTextarea));
-        localStorage.setItem("ProductID", JSON.stringify(productId));
-
-        
+        localStorage.setItem("ProductID", JSON.stringify(productId));       
        
 
         // Prepare data to send
