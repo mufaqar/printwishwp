@@ -58,10 +58,10 @@ $date->modify('+4 days');
                 <?php endwhile; ?>
             <?php endif; ?>
 
-            <p class='text-xs text-center text-primary sm:text-base'>
+            <p class='text-xs text-center text-red-700 font-extrabold sm:text-base '>
                 Everything included price
             </p>
-            <p class='text-sm text-center text-secondary sm:text-base'>
+            <p class='text-sm text-center text-secondary sm:text-base mb-3'>
                 Delivered by <strong><?php echo  $date->format('jS M');; ?></strong>
             </p>
 
