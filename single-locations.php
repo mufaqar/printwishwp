@@ -42,7 +42,7 @@ get_header();
                 <img src="<?php echo get_template_directory_uri(); ?>/public/images/loc1.jpg" alt="image" class="" />
             </div>
             <div class="">
-                <img src="<?php echo get_template_directory_uri(); ?>/public/images/loc1.jpg" alt="image" class="" />
+                <img src="<?php echo get_template_directory_uri(); ?>/public/images/loc2.jpg" alt="image" class="" />
             </div>
         </section>
         <?php endwhile; ?>
