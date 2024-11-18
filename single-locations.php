@@ -38,10 +38,10 @@ get_header();
                         </a>
                     </div>
                     <div class="">
-                        <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/design-a-2.jpg" alt="image" class=""/>
+                        <img src="<?php echo get_template_directory_uri(); ?>/public/images/loc1.jpg" alt="image" class=""/>
                     </div>
                     <div class="">
-                        <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/Automatic-Screenprint.jpg" alt="image" class=""/>
+                        <img src="<?php echo get_template_directory_uri(); ?>/public/images/loc1.jpg" alt="image" class=""/>
                     </div>
                 </section>
             <?php endwhile; ?>
