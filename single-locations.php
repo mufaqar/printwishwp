@@ -25,8 +25,8 @@ get_header();
 
             <?php while (have_rows('product_section')):
                 the_row(); ?>
-                <section class="flex gap-5 sec1">
-                    <div class="w-[45%]">
+                <section class="grid col-span-2 lg:grid-cols-4 gap-y-10 gap-3 lg:gap-5">
+                    <div class="col-span-2">
                         <h1 class='font-bold text-[#D1DE8B] text-4xl sm:text-[46px] capitalize my-4'>
                             <?php the_sub_field('title'); ?>
                         </h1>
@@ -37,18 +37,14 @@ get_header();
                             Quick Quote
                         </a>
                     </div>
-                    <div class="w-[27.5%]">
+                    <div class="">
                         <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/design-a-2.jpg" alt="image" class=""/>
                     </div>
-                    <div class="w-[27.5%]">
+                    <div class="">
                         <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/Automatic-Screenprint.jpg" alt="image" class=""/>
                     </div>
                 </section>
-
-                
-
             <?php endwhile; ?>
-
         <?php endif; ?>
 
         <div class="md:w-2/5 mx-auto sm:mb-10">
