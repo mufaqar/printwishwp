@@ -14,8 +14,8 @@ get_header();
 <?php get_template_part( 'components/header', 'bottom_banner' ); ?>
 
 <main class="loc_banner w-full relative flex justify-center" style="background-color: #F42098">
-    <img class="object-contain object-center" src="https://printwish.co.uk/wp-content/uploads/2024/11/city_print_banner-scaled.jpg" alt="image" />
-    <h2 class="absolute top-2 md:top-5 md:text-white text-2xl sm:text-4xl md:text-6xl font-semibold right-4">T-Shirt Printing Leeds</h2>
+    <img class="object-contain object-center" src="<?php echo get_template_directory_uri(); ?>/public/images/location_bg.jpg" alt="image" />
+    <h2 class="absolute top-2 md:top-5 md:text-white text-2xl sm:text-4xl md:text-6xl font-semibold right-4"><?php the_title()?></h2>
 </main>
 
 
