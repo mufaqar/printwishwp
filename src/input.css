@@ -362,6 +362,12 @@ input[type='number'] {
   margin: 0 auto;
 }
 
+.loc_banner{
+  min-height: 310px ;
+  max-height: 310px;
+}
+
+
 @media (max-width: 768px) {
   .category_pages h1 {
     font-size: 1.2rem;
@@ -369,6 +375,12 @@ input[type='number'] {
   .category_pages h2 {
     font-size: 1rem;
   }
+
+  .loc_banner{
+    min-height: 310px ;
+    height: 310px;
+  }
+  
 }
 
 .loadingspinner {
@@ -499,11 +511,6 @@ ol {
 
 .slick-dots{
   bottom: -80px;
-}
-
-.loc_banner{
-  min-height: 310px ;
-  height: 310px;
 }
 
 
