@@ -25,6 +25,7 @@ get_header();
 
             <?php while (have_rows('product_section')):
                 the_row(); ?>
+                
                 <section class="grid col-span-2 lg:grid-cols-4 gap-y-10 gap-3 lg:gap-6">
                     <div class="col-span-2">
                         <h1 class='font-bold text-[#D1DE8B] text-2xl sm:text-[46px] capitalize my-4'>
