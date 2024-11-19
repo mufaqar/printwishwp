@@ -10,6 +10,35 @@ Text Domain: printwish
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 */
 
+.r_wrapper h5{
+  padding: 10px 1.2rem;
+  background: #EEEEEE;
+  color: #0088CC;
+  font-weight: 600;
+}
+.r_wrapper{
+  background: #F5F4F3;
+}
+.r_wrapper p{
+  padding: 20px 1.2rem;
+  color: #797979;
+  font-size: 14px;
+}
+.service_wrapper{
+  background-color: #333333;
+  color: #fff;
+}
+.service_wrapper h5{
+  font-weight: 700;
+  background: #0088CC;
+  padding: 10px;
+  text-transform: uppercase;
+}
+.service_wrapper p{
+  padding: 10px 1.2rem;
+  font-size: 14px;
+}
+
 .mfp-wrap {
   top: 0 !important;
 }
