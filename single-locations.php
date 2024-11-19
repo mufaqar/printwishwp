@@ -13,7 +13,7 @@ get_header();
 
 <?php get_template_part( 'components/header', 'bottom_banner' ); ?>
 
-<main class="loc_banner w-full flex justify-center" style="background-color: #F42098;">
+<main class="loc_banner2 w-full flex justify-center" style="background-color: #F42098;">
     <div class="container mx-auto relative">
     <img class="object-contain object-center "
         src="<?php echo get_template_directory_uri(); ?>/public/images/location_bg.jpg" alt="image" />
