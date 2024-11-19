@@ -12,6 +12,7 @@
   }
 }
 
+
 @font-face {
   font-family: OpenSans;
   src: url('../public/fonts/OpenSans-Bold.ttf');
@@ -499,11 +500,6 @@ ol {
 
 .slick-dots{
   bottom: -80px;
-}
-
-.loc_banner{
-  min-height: 310px ;
-  height: 310px;
 }
 
 

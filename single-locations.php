@@ -25,9 +25,9 @@ get_header();
 
             <?php while (have_rows('product_section')):
                 the_row(); ?>
-                <section class="grid col-span-2 lg:grid-cols-4 gap-y-10 gap-3 lg:gap-5">
+                <section class="grid col-span-2 lg:grid-cols-4 gap-y-10 gap-3 lg:gap-6">
                     <div class="col-span-2">
-                        <h1 class='font-bold text-[#D1DE8B] text-4xl sm:text-[46px] capitalize my-4'>
+                        <h1 class='font-bold text-[#D1DE8B] text-2xl sm:text-[46px] capitalize my-4'>
                             <?php the_sub_field('title'); ?>
                         </h1>
                         <p class='font-bold text-xl text-gray-600 mb-5'>
@@ -44,6 +44,79 @@ get_header();
                         <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/Automatic-Screenprint.jpg" alt="image" class=""/>
                     </div>
                 </section>
+
+                <section class="mt-10">
+                    <h1 class='font-bold text-[#D1DE8B] text-2xl sm:text-[46px] capitalize my-4'>
+                        Our Printed T-Shirt Ranges
+                    </h1>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5 mt-8">
+                        <div class="r_wrapper">
+                            <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/mens-tees-2.jpg" alt=""/>
+                            <h5 class="">Mens T-Shirts</h5>
+                            <p>No matter the size, colour or design, Superlogo have a Mens t-shirt that's ideal for you. Click here to see the range.</p>
+                        </div>
+                        <div class="r_wrapper">
+                            <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/womens-tees-2.jpg" alt=""/>
+                            <h5>Womens T-Shirts</h5>
+                            <p>Nobody likes a bad fitting t-shirt so click here to see our range of womens t-shirts put together with all shapes and sizes in mind.</p>
+                        </div>
+                        <div class="r_wrapper">
+                            <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/kids-tees-2.jpg" alt=""/>
+                            <h5>Kids T-Shirts</h5>
+                            <p>Our fantastic range of kids ready to print t-shirts available for toddlers upwards. Guaranteed to put a smile on the children's faces</p>
+                        </div>
+                        <div class="r_wrapper">
+                            <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/sports-tees-2.jpg" alt=""/>
+                            <h5>Sports T-Shirts</h5>
+                            <p>Whether you're running a marathon or kitting out a team with training wear, we've got the ideal cool t-shirt just for you.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid col-span-2 lg:grid-cols-4 mt-10 gap-y-10 gap-3 lg:gap-8">
+                    <div class="">
+                        <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/dtg.jpg" alt="image" class=""/>
+                    </div>
+                    <div class="">
+                        <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/dtg-machine.jpg" alt="image" class=""/>
+                    </div>    
+                    <div class="col-span-2">
+                        <h1 class='font-bold text-[#D1DE8B] text-2xl sm:text-[46px] capitalize my-4'>
+                            Quick Delivery
+                        </h1>
+                        <p class='font-bold text-xl text-gray-600 mb-5'>
+                        Most Leeds embroidery and printing orders can be delivered within 7-14 days however we will always do our best to work to your timescale. If your order is needed for a specific date then please get in touch using the links at the top of this page and speak to our experienced staff, they'll let you know if we are currently in a position to expedite your order. They can of course also advise you on the best t-shirts, polo shirts, sweatshirts, hoodies etc for your custom logo and arrange a quote.
+                        </p>
+                        <a href="<?php echo home_url('/enquire-now'); ?>" class="md:text-base text-xs bg-green-500 py-3 md:px-6 px-4 hover:bg-primary rounded-full text-white">
+                            Quick Quote
+                        </a>
+                    </div>
+                </section>
+
+                <section class="my-10">
+                    <h1 class='font-bold text-[#D1DE8B] text-2xl sm:text-[46px] capitalize my-4'>
+                        Printing and Embroidery Services in Leeds
+                    </h1>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+                        <div class="service_wrapper">
+                            <h5>Embroidery</h5>
+                            <p>Embroidery is the most durable and popular decoration option.  An embroidery is typically a left chest size although nape of the neck, sleeve and back embroidery is also possible.  Embroidery can be in multi colours at no extra cost.  Embroidery is stitched directly through the garment and is therefore extremely durable.</p>
+                        </div>
+                        <div class="service_wrapper">
+                            <h5>Screen Printing</h5>
+                            <p>Screen printing offers a hard wearing soft finish and is perfect for larger orders of 50 garments plus.  Screen printing is used for printing in 1 or 2 colours and is best suited for small detail or larger print areas.  A mesh silk screen is developed and then each colour is printed onto the garment.</p>
+                        </div>
+                        <div class="service_wrapper">
+                            <h5>Transfer & Vinyl Printing</h5>
+                            <p>For smaller printing runs, we may recommend digital transfer or vinyl printing. These prints can be a single colour or in multicolour.  We use this form of printing for numbering, individual names or initials.  Full-colour transfers can be applied to most garment types providing a durable and professional finish.</p>
+                        </div>
+                        <div class="service_wrapper">
+                            <h5>DTG</h5>
+                            <p>Direct to Garment Printing is the method of printing where you print directly onto the material of the garment. It allows the garment to feel softer & the print becomes part of the garment. DTG printing can be printed in full colour and is best printed onto cotton or poly/cotton garments.</p>
+                        </div>
+                    </div>
+                </section>
+
             <?php endwhile; ?>
         <?php endif; ?>
 
@@ -56,9 +129,7 @@ get_header();
             <?php
             while (have_posts()):
                 the_post();
-
                 the_content();
-
             endwhile; // End of the loop.
             ?>
         </div>

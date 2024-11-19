@@ -32750,11 +32750,6 @@ ol {
   bottom: -80px;
 }
 
-.loc_banner{
-  min-height: 310px ;
-  height: 310px;
-}
-
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -188529,3 +188524,5 @@ ol {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
+
