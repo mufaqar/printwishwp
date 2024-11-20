@@ -173,21 +173,15 @@ get_header();
                                         <!-- You can add more content or links here -->
                                     </div>
                                 </div>
-
                             <?php endwhile; ?>
-
                         <?php else: ?>
-
                         <?php endif; ?>
-
                     </div>
                 </div>
-
             </div>
         </section>
         <?php get_template_part('components/com', 'reviews'); ?>
 </section>
-
 
 <?php
 
