@@ -183,6 +183,9 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
     max-width: 80%;
     margin-right: 0;
   }
+  .loc_banner2{
+    height: auto;
+  }
   @keyframes slideDown {
     from {
         top: -100%;

@@ -54,10 +54,12 @@ get_header();
                         Our Printed T-Shirt Ranges
                     </h1>
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5 mt-8">
+                        <a href="">
                         <div class="r_wrapper">
                             <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/mens-tees-2.jpg" alt=""/>
                             <h5 class="text-sm md:text-base px-2 md:px-5 ">Mens T-Shirts</h5>
                         </div>
+                        </a>
                         <div class="r_wrapper">
                             <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/womens-tees-2.jpg" alt=""/>
                             <h5 class="text-sm md:text-base px-2 md:px-5">Womens T-Shirts</h5>
@@ -105,10 +107,6 @@ get_header();
                         <div class="service_wrapper">
                             <h5>Screen Printing</h5>
                             <p>Screen printing offers a hard wearing soft finish and is perfect for larger orders of 50 garments plus.  Screen printing is used for printing in 1 or 2 colours and is best suited for small detail or larger print areas.  A mesh silk screen is developed and then each colour is printed onto the garment.</p>
-                        </div>
-                        <div class="service_wrapper">
-                            <h5>Transfer & Vinyl Printing</h5>
-                            <p>For smaller printing runs, we may recommend digital transfer or vinyl printing. These prints can be a single colour or in multicolour.  We use this form of printing for numbering, individual names or initials.  Full-colour transfers can be applied to most garment types providing a durable and professional finish.</p>
                         </div>
                         <div class="service_wrapper">
                             <h5>DTG</h5>
