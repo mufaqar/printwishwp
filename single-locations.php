@@ -152,7 +152,7 @@ get_header();
                                 the_row(); // Loop through the rows of data ?>
 
                                 <div class="bg-white p-3 px-5 border border-gray-200 font-opensans cursor-pointer">
-                                    <h2 id="accordion-flush-heading-<?php echo get_row_index(); ?>">
+                                    <h2 id="accordion-flush-heading-<?php echo get_row_index(); ?>" class="text-black">
                                         <button type="button"
                                             class="flex justify-between items-center w-full font-medium hover:text-secondary"
                                             data-accordion-target="#accordion-flush-body-<?php echo get_row_index(); ?>"
