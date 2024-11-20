@@ -143,10 +143,10 @@ get_header();
         <section class="bg-white sm:mb-10 mb-5">
             <div class="">
                 <?php if (have_rows('faqs')): // Check if the repeater field has rows ?>
-                    <h2 class="mb-6 lg:mb-8 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900">
+                    <h2 class="mb-6 lg:mb-8 text-3xl lg:text-4xl tracking-tight font-extrabold text-black">
                         Frequently asked questions</h2>
                     <div class="mx-auto ">
-                        <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-gray-900"
+                        <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-black"
                             data-inactive-classes="text-gray-500" class="flex flex-col gap-2">
                             <?php while (have_rows('faqs')):
                                 the_row(); // Loop through the rows of data ?>
@@ -169,7 +169,7 @@ get_header();
                                     </h2>
                                     <div id="accordion-flush-body-<?php echo get_row_index(); ?>" class=""
                                         aria-labelledby="accordion-flush-heading-<?php echo get_row_index(); ?>">
-                                        <p class="mt-4 text-gray-500"><?php the_sub_field('answer'); ?></p>
+                                        <p class="mt-4 text-black"><?php the_sub_field('answer'); ?></p>
                                         <!-- You can add more content or links here -->
                                     </div>
                                 </div>
