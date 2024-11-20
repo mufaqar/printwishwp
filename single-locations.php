@@ -22,10 +22,12 @@ get_header();
     </div>
 </main> -->
 <section>
-    <Image src="<?php bloginfo('template_directory'); ?>/public/images/location_bg.jpg" alt="slide-1.webp" width="1920px"
-        height="620px" class='object-cover w-full h-full object-center mx-auto' />
-        <h2 class="top-2 absolute right-3 md:top-5 text-white sm:text-4xl md:text-6xl font-semibold ">
-        <?php the_title()?></h2>
+    <div class="container mx-auto relative">
+        <Image src="<?php bloginfo('template_directory'); ?>/public/images/location_bg.jpg" alt="slide-1.webp" width="1920px"
+            height="620px" class='object-cover w-full h-full object-center mx-auto' />
+            <h2 class="top-2 absolute right-3 md:top-5 text-white sm:text-4xl md:text-6xl font-semibold ">
+            <?php the_title()?></h2>
+        </div>
     </div>
 </section>
 
