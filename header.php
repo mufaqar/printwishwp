@@ -64,7 +64,7 @@
 
 
 <button class="fixed_qoute">
-<a href="http://localhost/dev1/enquire-now" class="md:text-base text-xs fixed bottom-5 right-20 bg-green-500 py-2 md:px-6 px-4 hover:bg-primary rounded-full text-white">
+<a href="http://localhost/dev1/enquire-now" class="md:text-base text-xs fixed bottom-5 right-5 bg-green-500 py-2 md:px-6 px-4 hover:bg-primary rounded-full text-white" style="z-index: 11111">
     Quick Quote
 </a>
 </button>
