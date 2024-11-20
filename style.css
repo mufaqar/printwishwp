@@ -150,6 +150,23 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
   color: red;
 }
 
+.loc h1{
+	font-weight:700px !important;
+	color: #0088CC !important;
+	text-transform: uppercase;
+	font-size: 36px;
+	line-height: 39.6px
+}
+@media(max-width:768px){
+	.loc_banner2 h2{
+    font-size: 24px  
+  }
+.loc h1{
+	font-size: 30px;
+	line-height: 32.6px
+}
+}
+
 .loc_content, 
 .loc_content p, 
 .loc_content h1,
@@ -161,6 +178,11 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 .loc_content li{
   color: #000 !important;
 }
+.widget-visible iframe {
+    left: 20px !important;
+    right: auto !important;
+}
+
 
 /* Keyframes for slide-down animation */
 @keyframes slideDown {
