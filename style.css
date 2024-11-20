@@ -185,6 +185,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
   }
   .loc_banner2{
     height: 110px;
+    overflow: hidden;
   }
   @keyframes slideDown {
     from {
