@@ -36,7 +36,7 @@ get_header();
                         <h1 class='font-bold text-[#D1DE8B] text-2xl sm:text-[46px] capitalize my-4'>
                             <?php the_sub_field('title'); ?>
                         </h1>
-                        <p class=' text-gray-600 mb-8'>
+                        <p class=' text-black mb-8'>
                             <?php the_sub_field('sub_title'); ?>
                         </p>
                         <a href="<?php echo home_url('/enquire-now'); ?>" class="font-bold text-xl bg-green-500 py-3 md:px-6 px-4 hover:bg-primary rounded-full text-white">
@@ -88,7 +88,7 @@ get_header();
                         <h1 class='font-bold text-[#D1DE8B] text-2xl sm:text-[46px] capitalize my-4'>
                             Quick Delivery
                         </h1>
-                        <p class=' text-gray-600 mb-8'>
+                        <p class=' text-black mb-8'>
                         Most <?php the_title()?> embroidery and printing orders can be delivered within 7-14 days however we will always do our best to work to your timescale. If your order is needed for a specific date then please get in touch using the links at the top of this page and speak to our experienced staff, they'll let you know if we are currently in a position to expedite your order. They can of course also advise you on the best t-shirts, polo shirts, sweatshirts, hoodies etc for your custom logo and arrange a quote.
                         </p>
                         <a href="<?php echo home_url('/enquire-now'); ?>" class="font-bold text-xl bg-green-500 py-3 md:px-6 px-4 hover:bg-primary rounded-full text-white">
