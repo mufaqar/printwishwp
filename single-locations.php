@@ -143,7 +143,7 @@ get_header();
         <section class="bg-white sm:mb-10 mb-5">
             <div class="">
                 <?php if (have_rows('faqs')): // Check if the repeater field has rows ?>
-                    <h2 class="mb-6 lg:mb-8 text-3xl lg:text-4xl tracking-tight font-extrabold text-secondary">
+                    <h2 class="mb-6 lg:mb-8 mt-4 text-3xl tracking-tight font-bold text-secondary">
                         Frequently asked questions</h2>
                     <div class="mx-auto ">
                         <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-black"
