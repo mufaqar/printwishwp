@@ -11,7 +11,8 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 */
 
 .r_wrapper h5{
-  padding: 10px 1.2rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background: #EEEEEE;
   color: #0088CC;
   font-weight: 600;

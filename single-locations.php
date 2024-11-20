@@ -56,23 +56,19 @@ get_header();
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5 mt-8">
                         <div class="r_wrapper">
                             <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/mens-tees-2.jpg" alt=""/>
-                            <h5 class="">Mens T-Shirts</h5>
-                            <p>No matter the size, colour or design, PrintWish have a Mens t-shirt that's ideal for you. Click here to see the range.</p>
+                            <h5 class="text-sm md:text-base px-2 md:px-5 ">Mens T-Shirts</h5>
                         </div>
                         <div class="r_wrapper">
                             <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/womens-tees-2.jpg" alt=""/>
-                            <h5>Womens T-Shirts</h5>
-                            <p>Nobody likes a bad fitting t-shirt so click here to see our range of womens t-shirts put together with all shapes and sizes in mind.</p>
+                            <h5 class="text-sm md:text-base px-2 md:px-5">Womens T-Shirts</h5>
                         </div>
                         <div class="r_wrapper">
                             <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/kids-tees-2.jpg" alt=""/>
-                            <h5>Kids T-Shirts</h5>
-                            <p>Our fantastic range of kids ready to print t-shirts available for toddlers upwards. Guaranteed to put a smile on the children's faces</p>
+                            <h5 class="text-sm md:text-base px-2 md:px-5">Kids T-Shirts</h5>
                         </div>
                         <div class="r_wrapper">
                             <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/sports-tees-2.jpg" alt=""/>
-                            <h5>Sports T-Shirts</h5>
-                            <p>Whether you're running a marathon or kitting out a team with training wear, we've got the ideal cool t-shirt just for you.</p>
+                            <h5 class="text-sm md:text-base px-2 md:px-5">Sports T-Shirts</h5>
                         </div>
                     </div>
                 </section>
@@ -89,7 +85,7 @@ get_header();
                             Quick Delivery
                         </h1>
                         <p class=' text-gray-600 mb-8'>
-                        Most Leeds embroidery and printing orders can be delivered within 7-14 days however we will always do our best to work to your timescale. If your order is needed for a specific date then please get in touch using the links at the top of this page and speak to our experienced staff, they'll let you know if we are currently in a position to expedite your order. They can of course also advise you on the best t-shirts, polo shirts, sweatshirts, hoodies etc for your custom logo and arrange a quote.
+                        Most <?php the_title()?> embroidery and printing orders can be delivered within 7-14 days however we will always do our best to work to your timescale. If your order is needed for a specific date then please get in touch using the links at the top of this page and speak to our experienced staff, they'll let you know if we are currently in a position to expedite your order. They can of course also advise you on the best t-shirts, polo shirts, sweatshirts, hoodies etc for your custom logo and arrange a quote.
                         </p>
                         <a href="<?php echo home_url('/enquire-now'); ?>" class="font-bold text-xl bg-green-500 py-3 md:px-6 px-4 hover:bg-primary rounded-full text-white">
                             Quick Quote
