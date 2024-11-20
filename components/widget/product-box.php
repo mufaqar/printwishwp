@@ -11,8 +11,8 @@ $date->modify('+4 days');
 
 ?>
 
-<article class="p-1 relative">
-    <div class='p-1 border border-gray-200 pb-4'>
+<article class="p-1 relative border border-gray-200 pb-4">
+    <div class=''>
         <a href="<?php the_permalink() ?>"
             class='border-b-[1px] border-gray-100 p-2 md:h-[300px] cursor-pointer mb-2 flex flex-col justify-center items-center group'>
             <img src="<?php echo $img_src; ?>" alt="<?php echo $title; ?>" width="200" height="200"
