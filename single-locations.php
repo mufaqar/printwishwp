@@ -56,24 +56,30 @@ get_header();
                         Our Printed T-Shirt Ranges
                     </h1>
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5 mt-8">
-                        <a href="">
-                        <div class="r_wrapper">
-                            <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/mens-tees-2.jpg" alt=""/>
-                            <h5 class="text-sm md:text-base px-2 md:px-5 ">Mens T-Shirts</h5>
-                        </div>
+                        <a href="/custom-t-shirt-printing-cheap-t-shirt-printing">
+                            <div class="r_wrapper">
+                                <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/mens-tees-2.jpg" alt=""/>
+                                <h5 class="text-sm md:text-base px-2 md:px-5 ">Mens T-Shirts</h5>
+                            </div>
                         </a>
-                        <div class="r_wrapper">
-                            <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/womens-tees-2.jpg" alt=""/>
-                            <h5 class="text-sm md:text-base px-2 md:px-5">Womens T-Shirts</h5>
-                        </div>
-                        <div class="r_wrapper">
-                            <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/kids-tees-2.jpg" alt=""/>
-                            <h5 class="text-sm md:text-base px-2 md:px-5">Kids T-Shirts</h5>
-                        </div>
-                        <div class="r_wrapper">
-                            <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/sports-tees-2.jpg" alt=""/>
-                            <h5 class="text-sm md:text-base px-2 md:px-5">Sports T-Shirts</h5>
-                        </div>
+                        <a href="/custom-t-shirt-printing-cheap-t-shirt-printing">
+                            <div class="r_wrapper">
+                                <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/womens-tees-2.jpg" alt=""/>
+                                <h5 class="text-sm md:text-base px-2 md:px-5">Womens T-Shirts</h5>
+                            </div>
+                        </a>
+                        <a href="/custom-t-shirt-printing-cheap-t-shirt-printing">
+                            <div class="r_wrapper">
+                                <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/kids-tees-2.jpg" alt=""/>
+                                <h5 class="text-sm md:text-base px-2 md:px-5">Kids T-Shirts</h5>
+                            </div>
+                        </a>
+                        <a href="/custom-t-shirt-printing-cheap-t-shirt-printing">
+                            <div class="r_wrapper">
+                                <img src="https://d3q2yfvvgjmjhk.cloudfront.net/city_pages/sports-tees-2.jpg" alt=""/>
+                                <h5 class="text-sm md:text-base px-2 md:px-5">Sports T-Shirts</h5>
+                            </div>
+                        </a>
                     </div>
                 </section>
 
