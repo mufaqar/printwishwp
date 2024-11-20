@@ -147,7 +147,7 @@ get_header();
                         Frequently asked questions</h2>
                     <div class="mx-auto ">
                         <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-black"
-                            data-inactive-classes="text-gray-500" class="flex flex-col gap-2">
+                            data-inactive-classes="text-black" class="flex flex-col gap-2">
                             <?php while (have_rows('faqs')):
                                 the_row(); // Loop through the rows of data ?>
 
