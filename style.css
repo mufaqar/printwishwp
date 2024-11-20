@@ -150,6 +150,10 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
   color: red;
 }
 
+.loc_content{
+  color: #000;
+}
+
 /* Keyframes for slide-down animation */
 @keyframes slideDown {
   from {

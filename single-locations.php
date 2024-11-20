@@ -117,8 +117,8 @@ get_header();
                             <p>Screen printing offers a hard wearing soft finish and is perfect for larger orders of 50 garments plus.  Screen printing is used for printing in 1 or 2 colours and is best suited for small detail or larger print areas.  A mesh silk screen is developed and then each colour is printed onto the garment.</p>
                         </div>
                         <div class="service_wrapper">
-                            <h5>DTG</h5>
-                            <p>Direct to Garment Printing is the method of printing where you print directly onto the material of the garment. It allows the garment to feel softer & the print becomes part of the garment. DTG printing can be printed in full colour and is best printed onto cotton or poly/cotton garments.</p>
+                            <h5>DTF</h5>
+                            <p>Direct to Film, known as DTF, is exactly as the name suggests. Designs are printed onto a film using a specialist printer. Then the prints are directly transferred onto the garment via a heat press. DTF provides a high degree of accuracy with an exact replication of the original design on a wide variety of fabric types.</p>
                         </div>
                     </div>
                 </section>
