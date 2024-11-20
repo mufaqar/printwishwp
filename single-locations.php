@@ -105,7 +105,7 @@ get_header();
 
                 <section class="my-10">
                     <h1 class='font-bold text-[#D1DE8B] text-2xl sm:text-[46px] capitalize my-4'>
-                        Printing and Embroidery Services in Leeds
+                        Printing and Embroidery Services in <?php the_title()?>
                     </h1>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
                         <div class="service_wrapper">
