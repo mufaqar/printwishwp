@@ -375,6 +375,10 @@ input[type='number'] {
   }
 }
 
+.fixed_qoute{
+  z-index: 111111;
+}
+
 .loadingspinner {
   width: 56px;
   height: 56px;

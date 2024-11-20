@@ -13,7 +13,7 @@ get_header();
 
 <?php get_template_part( 'components/header', 'bottom_banner' ); ?>
 
-<section>
+<section style="background:#F42098">
     <div class="container mx-auto relative">
         <Image src="<?php bloginfo('template_directory'); ?>/public/images/location_bg.jpg" alt="slide-1.webp" width="1920px"
             height="620px" class='object-cover w-full h-full object-center mx-auto' />
