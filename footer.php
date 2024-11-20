@@ -302,15 +302,22 @@ btn.addEventListener('click', function() {
 var Tawk_API = Tawk_API || {},
     Tawk_LoadStart = new Date();
 (function() {
+    // Create a wrapper div with an ID
+    var wrapper = document.createElement("div");
+    wrapper.id = "tawk-wrapper"; // Set your desired ID for the wrapper
+    document.body.appendChild(wrapper);
+
+    // Create the Tawk.to script
     var s1 = document.createElement("script"),
         s0 = document.getElementsByTagName("script")[0];
     s1.async = true;
     s1.src = 'https://embed.tawk.to/650c13d9b1aaa13b7a781672/default';
     s1.charset = 'UTF-8';
     s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
+    wrapper.appendChild(s1); // Append the script inside the wrapper
 })();
 </script>
+
 <!--End of Tawk.to Script-->
 
 </html>
