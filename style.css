@@ -169,8 +169,6 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 
 .loc_content, 
 .loc_content p, 
-.loc_content h1,
-.loc_content h2,
 .loc_content h3,
 .loc_content h4,
 .loc_content h5,
@@ -178,6 +176,11 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 .loc_content li{
   color: #000 !important;
 }
+.loc_content h1,
+.loc_content h2{
+  color: #0088CC !important;
+}
+
 .widget-visible iframe {
     left: 20px !important;
     right: auto !important;
