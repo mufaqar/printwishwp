@@ -151,8 +151,8 @@ $short_description = $product->get_short_description();
             <div class='font-extrabold text-secondary text-center py-2.5'>
                 Minimum Order Quantity:<span class='text-black'> 25</span>
             </div>
-            <div class='font-medium  text-center py-2.5'>
-                <span class='text-secondary'> Note: </span> We have flexible pricing options that can be customised to
+            <div class='font-medium  md:text-center py-2.5'>
+                <span class='text-secondary text-left'> Note: </span> We have flexible pricing options that can be customised to
                 suit your order volume and the number of colors in your design. This allows us to offer more affordable
                 and competitive rates to our valued customers. Unfortunatily, we cannot disclose prices on our website.
                 To receive the most advantageous and competitive quote, please send us your order inquiry and we will
