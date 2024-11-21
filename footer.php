@@ -276,7 +276,7 @@ $Categories = [
     </div>
 
     <button class="">
-        <a href="http://localhost/dev1/enquire-now" class="md:text-lg fixed bottom-5 left-5 bg-green-500 py-2.5 md:py-3 md:px-6 px-4 hover:bg-primary rounded-full text-white" style="z-index: 11111">
+        <a href="http://localhost/dev1/enquire-now" class="md:text-lg fixed bottom-5 right-5 bg-green-500 py-2.5 md:py-3 md:px-6 px-4 hover:bg-primary rounded-full text-white" style="z-index: 11111">
             Quick Quote
         </a>
     </button>
@@ -306,23 +306,23 @@ btn.addEventListener('click', function() {
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-var Tawk_API = Tawk_API || {},
-    Tawk_LoadStart = new Date();
-(function() {
-    // Create a wrapper div with an ID
-    var wrapper = document.createElement("div");
-    wrapper.id = "tawk-wrapper"; // Set your desired ID for the wrapper
-    document.body.appendChild(wrapper);
+    // var Tawk_API = Tawk_API || {},
+    //     Tawk_LoadStart = new Date();
+    // (function() {
+    //     // Create a wrapper div with an ID
+    //     var wrapper = document.createElement("div");
+    //     wrapper.id = "tawk-wrapper"; // Set your desired ID for the wrapper
+    //     document.body.appendChild(wrapper);
 
-    // Create the Tawk.to script
-    var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/650c13d9b1aaa13b7a781672/default';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    wrapper.appendChild(s1); // Append the script inside the wrapper
-})();
+    //     // Create the Tawk.to script
+    //     var s1 = document.createElement("script"),
+    //         s0 = document.getElementsByTagName("script")[0];
+    //     s1.async = true;
+    //     s1.src = 'https://embed.tawk.to/650c13d9b1aaa13b7a781672/default';
+    //     s1.charset = 'UTF-8';
+    //     s1.setAttribute('crossorigin', '*');
+    //     wrapper.appendChild(s1); // Append the script inside the wrapper
+    // })();
 </script>
 
 <!--End of Tawk.to Script-->
