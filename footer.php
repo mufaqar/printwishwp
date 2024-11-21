@@ -276,7 +276,7 @@ $Categories = [
     </div>
 
     <button class="">
-        <a href="/enquire-now" class="md:text-lg fixed bottom-5 right-5 bg-green-500 py-2.5 md:py-3 md:px-6 px-4 hover:bg-primary rounded-full text-white" style="z-index: 11111">
+        <a href="https://printwish.co.uk/enquire-now" class="md:text-lg fixed bottom-5 right-5 bg-green-500 py-2.5 md:py-3 md:px-6 px-4 hover:bg-primary rounded-full text-white" style="z-index: 11111">
             Quick Quote
         </a>
     </button>
