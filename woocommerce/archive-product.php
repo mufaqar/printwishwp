@@ -83,13 +83,11 @@ if (!empty($thumbnail_id)) {
             <div class="mb-4">
                 <div class="container mx-auto px-4">
                     <h1 class="text-4xl font-bold font-opensans capitalize mb-2 sm:text-left text-center">
-                    T-shirts
+                        T-shirts
                     </h1>
-                
                 </div>
             </div>
         </section>
-
 
 
 
@@ -139,6 +137,16 @@ if (!empty($thumbnail_id)) {
     </div>
 </section>
 
+<script>
+function toggleRating(divElement) {
+    var ratingInfo = divElement.querySelector('.rating-info');
+    if (ratingInfo.style.display === 'none' || ratingInfo.style.display === '') {
+        ratingInfo.style.display = 'block';
+    } else {
+        ratingInfo.style.display = 'none';
+    }
+}
+</script>
 
 
 <?php
@@ -205,24 +213,7 @@ get_template_part('components/com', 'reviews');
                     </div>
                 </div>
             </section>
-        <?php }
-
-
-
-
-
-
-
-
-
-
-
-
-        ?>
-
-
-
-
+        <?php } ?>
 
 </section>
 </div>

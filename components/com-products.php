@@ -23,10 +23,7 @@
                     $products_query = new WP_Query($args);
                     if ($products_query->have_posts()) :
                         while ($products_query->have_posts()) : $products_query->the_post();
-                            
-
                             $args = [get_the_ID()];
-
                             // Include the template part
                             get_template_part('components/widget/product', 'box', $args);
                         endwhile;
@@ -36,11 +33,10 @@
                     endif;
                     ?>
             </div>
-
-
         </div>
     </div>
 </section>
+
 
 <script>
 function toggleRating(divElement) {
